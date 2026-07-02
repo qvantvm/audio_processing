@@ -8,11 +8,15 @@ A physical quantity describing local variation in air pressure around ambient pr
 
 ## Aliasing
 
-The appearance of frequency components in a sampled signal at incorrect frequencies, caused by sampling below the Nyquist rate or by nonlinear processing that creates energy above the Nyquist limit without adequate band-limiting.
+The appearance of frequency components in a sampled signal at incorrect frequencies, caused by sampling below the Nyquist rate or by nonlinear processing that creates energy above the Nyquist limit without adequate band-limiting. A tone at frequency $f$ may fold to $f_a = |f - k f_s|$ within $[0, f_s/2]$.
 
 ## Amplitude
 
 The instantaneous value or peak magnitude of a signal in its **time-domain** representation. For a sinusoid $A\cos(\omega n + \phi)$, $A$ is the peak amplitude. Amplitude is not the same as spectral magnitude or loudness.
+
+## Anti-aliasing filter
+
+A low-pass filter applied before sampling to attenuate energy above the Nyquist frequency $f_s/2$, preventing out-of-band content from folding into the audible band as aliases.
 
 ## Audio signal processing (ASP)
 
@@ -25,6 +29,10 @@ The extent of nonzero (or significant) energy in a signal's spectrum. In discret
 ## Bin (frequency bin)
 
 An index $k$ labeling a discrete frequency grid point in a DFT or STFT. Bin spacing depends on window length and sample rate.
+
+## Bit depth
+
+The number of bits $B$ used per PCM sample, determining the number of quantization levels (up to $2^B$ for uniform encoding) and approximate dynamic range.
 
 ## Continuous-time signal
 
@@ -53,6 +61,10 @@ A sequence $x[n]$ indexed by integer sample index $n$.
 ## DFT (discrete Fourier transform)
 
 A transform mapping a length-$N$ complex sequence $x[n]$ to frequency coefficients $X[k]$ on a grid of exactly $N$ equally spaced frequencies.
+
+## Dither
+
+Low-level noise added before quantization to decorrelate quantization error from the signal, reducing harmonic distortion on quiet passages at the cost of a slightly raised noise floor.
 
 ## Dynamic range
 
@@ -94,6 +106,14 @@ The angle of a complex spectral value or sinusoid relative to a reference. Phase
 
 Mapping continuous or high-precision amplitudes to a finite set of discrete levels, introducing rounding error and a finite resolution limit.
 
+## Quantization noise
+
+The error signal $e[n] = Q(x[n]) - x[n]$ introduced by quantization, often modeled as approximately white noise for analysis.
+
+## Reconstruction
+
+The process of converting a discrete-time sampled sequence back to a continuous-time signal, ideally using band-limited interpolation; implemented approximately by DACs and analog filters.
+
 ## Sample index
 
 The integer $n$ labeling position in a discrete-time sequence $x[n]$. Convert to time via $t_n = n/f_s$.
@@ -104,7 +124,11 @@ The number of samples per second used to represent a digital signal, in hertz (H
 
 ## Sampling
 
-The process of obtaining a discrete-time sequence from a continuous-time signal, usually at uniform intervals $T_s = 1/f_s$.
+The process of obtaining a discrete-time sequence from a continuous-time signal, usually at uniform intervals $T_s = 1/f_s$. Requires band-limiting to avoid aliasing.
+
+## Signal-to-quantization-noise ratio (SQNR)
+
+The ratio of signal power to quantization noise power. For a full-scale sinusoid and uniform quantizer, often approximated as $\mathrm{SQNR} \approx 6.02 B + 1.76$ dB for $B$ bits.
 
 ## Spectral leakage
 

@@ -10,6 +10,8 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $n$ | Discrete sample index | Integer; $n \in \mathbb{Z}$ or a finite range |
 | $f_s$ | Sampling rate | Samples per second (Hz) |
 | $T_s$ | Sample period | $T_s = 1/f_s$ seconds |
+| $f_{\mathrm{Nyq}}$ | Nyquist frequency | $f_s/2$ |
+| $f_a$ | Alias frequency | Folded into $[0, f_s/2]$ |
 | $N$ | Number of samples | In a finite buffer or DFT length |
 | $T$ | Duration | $T = N/f_s$ for a length-$N$ segment |
 
@@ -33,6 +35,11 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $|x[n]|$ | Magnitude of sample or complex value | Not the same as spectral magnitude |
 | $L_{\mathrm{dBFS}}$ | Level in dBFS | $20\log_{10}$ of amplitude vs. digital full scale |
 | $20\log_{10}(\cdot)$ | Decibel conversion | For amplitude ratios |
+| $B$ | Bit depth | PCM bits per sample |
+| $\Delta$ | Quantizer step size | Uniform spacing between levels |
+| $Q(x)$ | Quantizer mapping | Rounds $x$ to nearest level |
+| $e[n]$ | Quantization error | $Q(x[n]) - x[n]$ |
+| $\mathrm{SQNR}$ | Signal-to-quantization-noise ratio | Often $\approx 6.02B + 1.76$ dB for sine |
 | $\mathrm{RMS}$ | Root mean square level | See Chapter 13 |
 
 **Convention:** We distinguish **amplitude** (instantaneous or peak value), **magnitude** (absolute value of a complex spectrum or transfer function), and **power/energy** (squared magnitude integrated or summed). Do not use these interchangeably.

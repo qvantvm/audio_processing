@@ -21,7 +21,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 00 | `00-preface.md` | Preface | draft | — |
 | 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | draft | 00 |
 | 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | draft | 01 |
-| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | stub | 02 |
+| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | draft | 02 |
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | stub | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | stub | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | stub | 05 |
@@ -71,13 +71,17 @@ By the end of this chapter, the reader should be able to:
 4. Distinguish linear amplitude, integer PCM, and dBFS
 5. Generate a discrete sinusoid with correct phase continuity across blocks
 
-### Chapter 03 — Sampling, Quantization, and Digital Audio (planned)
+### Chapter 03 — Sampling, Quantization, and Digital Audio
 
-- State the sampling theorem and explain aliasing
-- Model uniform quantization and dynamic range tradeoffs
-- Describe common audio file formats and metadata at a practical level
+By the end of this chapter, the reader should be able to:
 
-*(Chapters 04–22: detailed objectives to be added as each chapter is drafted.)*
+1. State the Nyquist–Shannon condition and compute aliased frequencies
+2. Model uniform quantization and estimate SQNR vs. bit depth
+3. Explain anti-aliasing and reconstruction in a capture/playback chain
+4. Interpret WAV/PCM parameters and estimate uncompressed storage
+5. Recognize aliasing sources beyond ADCs (nonlinearities, naive oscillators)
+
+### Chapter 04 — Sinusoidal Signals and Complex Numbers (planned)
 
 ## Dependencies Between Chapters
 
@@ -105,17 +109,17 @@ flowchart TD
 
 ## Missing Sections (Highest Priority)
 
-1. **Chapter 03** — Sampling theorem, anti-aliasing, quantization noise
+1. **Chapter 04** — Complex exponentials, Euler formula, phasors
 2. **Figure** — Representation-domain diagram (time, frequency, time–frequency, parametric)
 3. **Cross-references** — Pandoc section IDs for `@sec:` links between chapters
-4. **Chapter 04** — Complex sinusoids and Euler form
+4. **Chapter 05** — Fourier series and transform foundations
 5. **Exercises with solutions** — Worked solutions appendix (future)
 
 ## Current Sprint Focus
 
-**Completed this pass:** Chapter 02 draft, `examples/a440_sine_wave.py`, `figures/a440_samples.png`.
+**Completed this pass:** Chapter 03 draft, `examples/aliasing_demo.py`, `figures/aliasing_fold.png`, `figures/quantization_staircase.png`.
 
-**Next recommended step:** Draft **Chapter 03 (Sampling, Quantization, and Digital Audio)** with aliasing diagram and quantization example; add `examples/aliasing_demo.py`.
+**Next recommended step:** Draft **Chapter 04 (Sinusoidal Signals and Complex Numbers)** with phasor diagram and `examples/complex_sinusoid_demo.py`.
 
 ## Conventions
 

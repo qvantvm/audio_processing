@@ -2,6 +2,39 @@
 
 Open issues, review findings, and planned improvements. Update after each authoring pass.
 
+## Pass 3 — Chapter 03, Aliasing and Quantization (2026-07-02)
+
+### Completed
+
+- Drafted `03-sampling-quantization-and-digital-audio.md`
+- Added `examples/aliasing_demo.py` (verified runnable)
+- Generated `figures/aliasing_fold.png`, `figures/quantization_staircase.png`
+- Updated `BOOK_PLAN.md`, `NOTATION.md`, `GLOSSARY.md`
+
+### Correctness / Clarity
+
+- [ ] Chapter 03: Expand reconstruction (sinc interpolation) when Chapter 14 covers resampling
+- [ ] Chapter 03: WAV byte packing (24-bit in 3 bytes) varies by format— add caveat if file I/O chapter added
+- [ ] Dither section is brief; expand in dynamics chapter or dedicated sidebar
+
+### Missing Content (High Priority)
+
+- [ ] Chapter 04 draft: complex sinusoids, Euler form, phasor plot
+- [ ] Figure: representation domains overview diagram
+- [ ] `examples/complex_sinusoid_demo.py`
+
+### Citations
+
+- [x] Shannon and Oppenheim cited in Chapter 03
+- [ ] Verify brandenburg1999mp3 entry if compression chapter expands
+
+### Code / Examples
+
+- [x] `aliasing_demo.py` runs and writes both figures
+- [ ] Smoke-test all examples in one script
+
+---
+
 ## Pass 2 — Chapter 02 and A440 Example (2026-07-02)
 
 ### Completed
