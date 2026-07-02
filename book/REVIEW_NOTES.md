@@ -2,6 +2,53 @@
 
 Open issues, review findings, and planned improvements. Update after each authoring pass.
 
+## Pass 2 — Chapter 02 and A440 Example (2026-07-02)
+
+### Completed
+
+- Drafted `02-signals-time-and-samples.md` (full chapter template)
+- Added `examples/a440_sine_wave.py` (verified runnable)
+- Generated `figures/a440_samples.png`
+- Updated `BOOK_PLAN.md`, `NOTATION.md`, `GLOSSARY.md`
+
+### Correctness / Clarity
+
+- [ ] Chapter 02: Clarify duration convention ($N/f_s$ vs. $(N-1)/f_s$) when linking to specific libraries (NumPy, librosa, JUCE)
+- [ ] Chapter 02: Optional listening exercise needs a tiny WAV writer or scipy dependency note
+- [ ] Add cross-reference from Chapter 01 worked example to Chapter 02 sinusoid section
+
+### Missing Content (High Priority)
+
+- [ ] Chapter 03 draft: sampling theorem, aliasing, quantization
+- [ ] Figure: aliasing / reconstruction diagram
+- [ ] Figure: representation domains overview diagram
+- [ ] `examples/aliasing_demo.py` for Chapter 03
+
+### Notation / Terminology
+
+- [ ] dBFS and SPL fully developed in Chapter 13; glossary entries are introductory only
+- [ ] Add block/frame index notation when STFT chapter is drafted
+
+### Citations
+
+- [ ] Chapter 03 may cite Shannon sampling; verify bib entry usage
+
+### Build / Tooling
+
+- [ ] Test `make html` when Pandoc available
+- [ ] Consider `requirements.txt` for examples (numpy, matplotlib)
+
+### Code / Examples
+
+- [x] `a440_sine_wave.py` runs and writes figure
+- [ ] Add minimal smoke test script or CI job for examples
+
+### Style
+
+- Chapter 02 matches Chapter 01 section template
+
+---
+
 ## Pass 1 — Initial Scaffold (2026-07-02)
 
 ### Completed
@@ -13,39 +60,16 @@ Open issues, review findings, and planned improvements. Update after each author
 
 ### Correctness / Clarity
 
-- [ ] Chapter 01: Add cross-reference links once Chapter 02–03 exist
+- [x] Chapter 02 exists — partial address of Chapter 01 cross-ref TODO
 - [ ] Preface: Confirm title and author metadata before publication
 - [ ] Verify all bibliography keys resolve when cited chapters grow
 
-### Missing Content (High Priority)
+### Missing Content (from Pass 1 — status updated)
 
-- [ ] Chapter 02 draft: discrete-time signals, units, normalization
-- [ ] Executable example: `examples/a440_sine_wave.py`
-- [ ] Figure: discrete samples of A440 sine (`figures/a440_samples.png`)
+- [x] Chapter 02 draft
+- [x] `examples/a440_sine_wave.py`
+- [x] `figures/a440_samples.png`
 - [ ] Diagram: representation domains (time, frequency, time–frequency, parametric)
-
-### Notation / Terminology
-
-- [ ] Add STFT and z-transform sections to `NOTATION.md` as those chapters are written
-- [ ] Align decibel conventions (dBFS, dB SPL) in Chapter 13; flag in glossary when added
-
-### Citations
-
-- [ ] Chapter 01 uses general references; add specific citations when making historical claims
-- [ ] TODO: citation needed for loudness standards (EBU R128 / ITU-R BS.1770) in later chapters
-
-### Build / Tooling
-
-- [ ] Test `make html` in CI or locally on each major pass
-- [ ] PDF build requires LaTeX; document optional dependency in README
-
-### Code / Examples
-
-- [ ] No runnable examples yet; next pass should add at least one verified script
-
-### Style
-
-- Chapter 01 follows template; subsequent chapters should match section headings for consistency
 
 ## Future Review Checklist (per section)
 

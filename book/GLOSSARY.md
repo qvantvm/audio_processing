@@ -34,6 +34,14 @@ A function $x(t)$ defined for real time $t$, used to model analog waveforms befo
 
 A logarithmic measure of a ratio. For amplitude ratios, $20\log_{10}(r)$; for power ratios, $10\log_{10}(r)$.
 
+## dBFS (decibels relative to full scale)
+
+Digital level measured against nominal full scale in a fixed-point or floating-point PCM convention. Peak at full scale is $0\,\mathrm{dBFS}$; values are typically negative for headroom. Not equivalent to dB SPL.
+
+## Digital full scale
+
+The maximum representable amplitude in a digital PCM format before clipping; often mapped to $1.0$ in floating-point workflows or to the largest integer code in fixed-point PCM.
+
 ## Digital signal
 
 A signal represented as a sequence of discrete values, usually uniformly spaced in time after sampling and quantization.
@@ -85,6 +93,10 @@ The angle of a complex spectral value or sinusoid relative to a reference. Phase
 ## Quantization
 
 Mapping continuous or high-precision amplitudes to a finite set of discrete levels, introducing rounding error and a finite resolution limit.
+
+## Sample index
+
+The integer $n$ labeling position in a discrete-time sequence $x[n]$. Convert to time via $t_n = n/f_s$.
 
 ## Sample rate ($f_s$)
 

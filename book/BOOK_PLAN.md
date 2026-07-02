@@ -20,7 +20,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 |---|------|-------|--------|------------|
 | 00 | `00-preface.md` | Preface | draft | — |
 | 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | draft | 00 |
-| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | stub | 01 |
+| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | draft | 01 |
 | 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | stub | 02 |
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | stub | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | stub | 04 |
@@ -61,11 +61,15 @@ By the end of this chapter, the reader should be able to:
 4. Identify common confusions (amplitude vs. magnitude, Hz vs. bin index, continuous vs. discrete time)
 5. Outline the pipeline from acoustic event to processed output in a typical system
 
-### Chapter 02 — Signals, Time, and Samples (planned)
+### Chapter 02 — Signals, Time, and Samples
 
-- Define continuous-time and discrete-time signals
-- Relate sample index, sample period, and sample rate
-- Interpret PCM buffers and normalization conventions
+By the end of this chapter, the reader should be able to:
+
+1. Define continuous-time and discrete-time signals and convert index to time
+2. Compute duration, sample period, and sinusoidal period in samples
+3. Interpret PCM buffers and mono/stereo layout conventions
+4. Distinguish linear amplitude, integer PCM, and dBFS
+5. Generate a discrete sinusoid with correct phase continuity across blocks
 
 ### Chapter 03 — Sampling, Quantization, and Digital Audio (planned)
 
@@ -101,18 +105,17 @@ flowchart TD
 
 ## Missing Sections (Highest Priority)
 
-1. **Chapter 02** — Formal definitions of signals; PCM as sequences; amplitude units
-2. **Chapter 03** — Sampling theorem, anti-aliasing, quantization noise
-3. **Examples directory** — Executable demos referenced from early chapters
-4. **Figures** — Representation-domain diagram, sample-rate timeline, A440 sine wave
-5. **Cross-references** — Pandoc labels once more chapters exist
-6. **Exercises with solutions** — Worked solutions appendix (future)
+1. **Chapter 03** — Sampling theorem, anti-aliasing, quantization noise
+2. **Figure** — Representation-domain diagram (time, frequency, time–frequency, parametric)
+3. **Cross-references** — Pandoc section IDs for `@sec:` links between chapters
+4. **Chapter 04** — Complex sinusoids and Euler form
+5. **Exercises with solutions** — Worked solutions appendix (future)
 
 ## Current Sprint Focus
 
-**Completed this pass:** repository scaffold, planning documents, preface, Chapter 01 draft.
+**Completed this pass:** Chapter 02 draft, `examples/a440_sine_wave.py`, `figures/a440_samples.png`.
 
-**Next recommended step:** Draft **Chapter 02 (Signals, Time, and Samples)** with a worked A440 example, one executable script (`examples/a440_sine_wave.py`), and a figure showing discrete samples of a sinusoid.
+**Next recommended step:** Draft **Chapter 03 (Sampling, Quantization, and Digital Audio)** with aliasing diagram and quantization example; add `examples/aliasing_demo.py`.
 
 ## Conventions
 

@@ -28,7 +28,10 @@ This file tracks symbols used across the book. Before introducing new notation i
 | Symbol | Meaning | Notes |
 |--------|---------|-------|
 | $A$ | Peak amplitude | Often for sinusoids |
+| $f_0$ | Sinusoid frequency | Hz; specific tone frequency |
+| $\phi$ | Initial phase | Radians at $n=0$ unless stated |
 | $|x[n]|$ | Magnitude of sample or complex value | Not the same as spectral magnitude |
+| $L_{\mathrm{dBFS}}$ | Level in dBFS | $20\log_{10}$ of amplitude vs. digital full scale |
 | $20\log_{10}(\cdot)$ | Decibel conversion | For amplitude ratios |
 | $\mathrm{RMS}$ | Root mean square level | See Chapter 13 |
 
