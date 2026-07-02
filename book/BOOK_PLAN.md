@@ -25,22 +25,22 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | draft | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | draft | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | draft | 05 |
-| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | stub | 06 |
-| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | stub | 07 |
-| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | stub | 02, 05 |
-| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | stub | 09 |
-| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | stub | 10 |
-| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | stub | 06, 10 |
-| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | stub | 02 |
-| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | stub | 03, 10 |
-| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | stub | 08 |
-| 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | stub | 06, 08 |
-| 17 | `17-musical-signal-representations.md` | Musical Signal Representations | stub | 04, 08 |
-| 18 | `18-synthesis-representations.md` | Synthesis Representations | stub | 04, 10 |
-| 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | stub | 09, 18 |
-| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | stub | 08, 15 |
-| 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | stub | 06, 10 |
-| 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | stub | 10, 21 |
+| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | draft | 06 |
+| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | draft | 07 |
+| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | draft | 02, 05 |
+| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | draft | 09 |
+| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | draft | 10 |
+| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | draft | 06, 10 |
+| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | draft | 02 |
+| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | draft | 03, 10 |
+| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | draft | 08 |
+| 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | draft | 06, 08 |
+| 17 | `17-musical-signal-representations.md` | Musical Signal Representations | draft | 04, 08 |
+| 18 | `18-synthesis-representations.md` | Synthesis Representations | draft | 04, 10 |
+| 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | draft | 09, 18 |
+| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | draft | 08, 15 |
+| 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | draft | 06, 10 |
+| 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | draft | 10, 21 |
 
 **Status legend:** `stub` = outline or placeholder only; `draft` = substantive prose, may need review; `reviewed` = checked for correctness and consistency; `polished` = ready for publication-quality pass.
 
@@ -111,7 +111,101 @@ By the end of this chapter, the reader should be able to:
 4. Explain FFT as an algorithm, not a different transform
 5. Recognize off-bin tones, leakage preview, and zero-padding interpolation
 
-### Chapter 07 — Windowing, Leakage, and Resolution (planned)
+### Chapter 07 — Windowing, Leakage, and Resolution
+
+1. Apply windows before DFT; relate leakage to finite segments
+2. Trade main-lobe width vs sidelobes (rect, Hann, Hamming, Blackman)
+3. Correct spectra for coherent gain; choose windows for tonal vs transient goals
+
+### Chapter 08 — STFT and Spectrograms
+
+1. Define STFT with $M$, $R$, $w[n]$; plot spectrograms
+2. Explain time–frequency tradeoffs; overlap and COLA preview
+3. Select STFT parameters for speech, music, transients
+
+### Chapter 09 — Convolution and Impulse Responses
+
+1. Compute discrete convolution; interpret IR of LTI systems
+2. Relate time convolution to frequency multiplication
+3. Recognize circular vs linear convolution; overlap-add concept
+
+### Chapter 10 — Filters, FIR, IIR, Z-Transform
+
+1. Write FIR/IIR difference equations and $H(z)$
+2. Plot $|H(\Omega)|$ and assess stability (poles inside unit circle)
+3. Design windowed-sinc FIR lowpass; choose FIR vs IIR
+
+### Chapter 11 — Delay, Comb, All-Pass
+
+1. Implement delay lines; fractional delay preview
+2. Analyze feedforward/feedback combs; stable feedback gains
+3. Use all-pass for diffusion; sketch Schroeder reverb
+
+### Chapter 12 — Phase and Group Delay
+
+1. Unwrap phase; compute group delay
+2. Contrast linear-phase, minimum-phase, mixed-phase filters
+3. Relate pre-ringing and dispersion to filter choice
+
+### Chapter 13 — Envelopes, Loudness, Dynamics
+
+1. Compute peak, RMS, envelope followers
+2. Distinguish dBFS, SPL, LUFS (conceptual)
+3. Sketch compressor/limiter behavior
+
+### Chapter 14 — Resampling and SRC
+
+1. Upsample/downsample with anti-imaging/anti-alias filtering
+2. Explain rational and arbitrary SRC at high level
+3. Avoid decimation without low-pass
+
+### Chapter 15 — Audio Features
+
+1. Compute centroid, rolloff, flux, ZCR
+2. Outline MFCC pipeline (Mel + DCT)
+3. Document STFT params with published features
+
+### Chapter 16 — Pitch, Onsets, Rhythm
+
+1. Estimate $f_0$ via autocorrelation; refine DFT peaks
+2. Detect onsets from spectral flux
+3. Outline tempo estimation via periodicity of onset strength
+
+### Chapter 17 — Musical Representations
+
+1. Sinusoidal partial models; harmonic series
+2. Build chroma; contrast STFT vs CQT
+3. Know limits of sinusoidal models on transients/noise
+
+### Chapter 18 — Synthesis Representations
+
+1. Wavetable/phase accumulator; additive/subtractive/FM/granular overview
+2. Anti-alias discontinuities (BLEP/oversampling)
+3. Match synthesis paradigm to timbre/control needs
+
+### Chapter 19 — Physical Modeling
+
+1. Excitation–resonator–radiation pipeline
+2. Waveguide and modal models; stability/tuning issues
+3. Relate to delays, filters, nonlinear excitation
+
+### Chapter 20 — Neural Audio Representations
+
+1. Compare waveform, spectrogram, latent domains
+2. Differentiable STFT; neural codec embeddings
+3. Identify phase/domain-shift pitfalls in ML pipelines
+
+### Chapter 21 — Testing and Pitfalls
+
+1. Unit tests: impulse, sine, Parseval, round-trip FFT/STFT
+2. Measure THD+N, frequency response; true-peak awareness
+3. Mitigate denormals, limit cycles, intersample clipping
+
+### Chapter 22 — DSP Toolkit Capstone
+
+1. Modular toolkit layout (io, osc, spectral, filters, effects, meter)
+2. End-to-end WAV pipeline with tests
+3. Extend one component with documented $f_s$ conventions
 
 ## Dependencies Between Chapters
 
@@ -137,19 +231,19 @@ flowchart TD
     C21[21 Testing and Pitfalls] --> C22
 ```
 
-## Missing Sections (Highest Priority)
+## Missing Sections (Polish Pass)
 
-1. **Chapter 07** — Window functions, leakage, main-lobe/sidelobe tradeoffs
-2. **Figure** — Representation-domain diagram (time, frequency, time–frequency, parametric)
-3. **Cross-references** — Pandoc section IDs for `@sec:` links between chapters
-4. **Examples** — `window_leakage_demo.py` for Chapter 07
-5. **Exercises with solutions** — Worked solutions appendix (future)
+1. **Review pass** — mark chapters `reviewed` after correctness edit
+2. **Pandoc cross-refs** — `@sec:` labels between chapters
+3. **Bibliography** — add TODO citations (Harris windows, YIN, DDSP, BS.1770)
+4. **Exercise solutions** — appendix (future)
+5. **CI** — `make html` + example smoke tests
 
 ## Current Sprint Focus
 
-**Completed this pass:** Chapter 06 draft, `examples/dft_bin_spacing.py`, `figures/dft_bin_spacing.png`.
+**Completed:** Chapters 07–22 drafted; examples for windows, STFT, FIR, representation diagram; `requirements.txt`; README updated.
 
-**Next recommended step:** Draft **Chapter 07 (Windowing, Leakage, and Resolution)** with Hann vs rectangular comparison.
+**Next recommended step:** Editorial **review pass** on chapters 00–22; expand thin sections (neural citations, LUFS standard bib); add `tests/run_examples.py` smoke harness.
 
 ## Conventions
 

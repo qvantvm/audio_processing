@@ -51,6 +51,8 @@ ASP rarely stays in one domain. The main ones:
 
 No domain is "the truth." Each is a **view** with resolution tradeoffs. Chapter 8 develops time–frequency tradeoffs explicitly; for now, remember that choosing a view is part of the problem definition.
 
+![Overview of representation domains](../figures/representation_domains.png)
+
 ### Linear time-invariant systems as a backbone
 
 Much of classical ASP rests on **linear time-invariant (LTI)** systems: the output is the convolution of the input with an **impulse response** $h[n]$, and the same rule applies at every time index. Filters, reverberation models, and equalizers often start here—even when the full system is later made nonlinear.
