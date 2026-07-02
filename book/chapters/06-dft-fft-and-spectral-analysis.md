@@ -1,4 +1,4 @@
-# DFT, FFT, and Spectral Analysis
+# DFT, FFT, and Spectral Analysis {#ch-06-dft-fft}
 
 ## Purpose
 
@@ -20,7 +20,7 @@ By the end of this chapter, the reader should be able to:
 
 Given $N$ samples of a real or complex sequence, the DFT answers: **how much** of each discrete frequency component $e^{j 2\pi k n / N}$ is present in that segment? The output is $N$ complex coefficients $X[k]$— one per bin.
 
-The DFT assumes an **implicit $N$-sample periodic extension** of the buffer. A finite clip of a piano note is treated as one period of a repeating signal— a modeling choice with consequences (discontinuity at wrap → broadband energy; Chapter 7).
+The DFT assumes an **implicit $N$-sample periodic extension** of the buffer. A finite clip of a piano note is treated as one period of a repeating signal— a modeling choice with consequences (discontinuity at wrap → broadband energy; @sec:ch-07-windowing).
 
 ### Definition
 
@@ -221,4 +221,4 @@ The tone is **not** exactly on-bin; expect leakage unless $N$ is chosen so $1000
 - Julius O. Smith, *Spectral Audio Signal Processing* [@smith2011spectral]
 - Welch, modified periodograms (power spectrum estimation preview) [@welch1967fft]
 
-**Next chapter:** Chapter 07 — *Windowing, Leakage, and Resolution* controls sidelobes and the time–frequency width of spectral estimates.
+**Next chapter:** @sec:ch-07-windowing — *Windowing, Leakage, and Resolution* controls sidelobes and the time–frequency width of spectral estimates.

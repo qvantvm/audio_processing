@@ -18,13 +18,13 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 
 | # | File | Title | Status | Depends On |
 |---|------|-------|--------|------------|
-| 00 | `00-preface.md` | Preface | draft | — |
-| 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | draft | 00 |
-| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | draft | 01 |
-| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | draft | 02 |
-| 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | draft | 02 |
-| 05 | `05-fourier-representation.md` | Fourier Representation | draft | 04 |
-| 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | draft | 05 |
+| 00 | `00-preface.md` | Preface | reviewed | — |
+| 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | reviewed | 00 |
+| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | reviewed | 01 |
+| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | reviewed | 02 |
+| 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | reviewed | 02 |
+| 05 | `05-fourier-representation.md` | Fourier Representation | reviewed | 04 |
+| 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | reviewed | 05 |
 | 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | draft | 06 |
 | 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | draft | 07 |
 | 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | draft | 02, 05 |
@@ -233,17 +233,17 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Review pass** — mark chapters `reviewed` after correctness edit
-2. **Pandoc cross-refs** — `@sec:` labels between chapters
-3. **Bibliography** — add TODO citations (Harris windows, YIN, DDSP, BS.1770)
-4. **Exercise solutions** — appendix (future)
-5. **CI** — `make html` + example smoke tests
+1. **Review pass** — promote chapters 07–22 from `draft` → `reviewed` (00–06 done in Pass 8)
+2. **Pandoc cross-refs** — extend `@sec:` labels to chapters 08–22
+3. **Exercise solutions** — appendix (future)
+4. **Pandoc build CI** — `make html` when LaTeX/Pandoc available on runner
+5. **Chapter depth** — optional expansion of 19–20 in second teaching pass
 
 ## Current Sprint Focus
 
-**Completed:** Chapters 07–22 drafted; examples for windows, STFT, FIR, representation diagram; `requirements.txt`; README updated.
+**Completed (Pass 8, 2026-07-02):** Bibliography entries (Harris, YIN, SMS, DDSP, WaveNet, BS.1770, EBU R128); resolved TODO citations in Ch 7, 13, 16, 17, 20; Pandoc `@sec:` IDs on Ch 00–07; chapters 00–06 promoted to **reviewed**; GitHub Actions example smoke tests.
 
-**Next recommended step:** Editorial **review pass** on chapters 00–22; expand thin sections (neural citations, LUFS standard bib); add `tests/run_examples.py` smoke harness.
+**Next recommended step (Pass 9):** Editorial review of **chapters 07–12** (spectral + filtering block); add `@sec:` IDs; promote to `reviewed` if criteria met; extend cross-links from Ch 08 STFT back to @sec:ch-06-dft-fft and @sec:ch-07-windowing.
 
 ## Conventions
 

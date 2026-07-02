@@ -1,4 +1,4 @@
-# Sampling, Quantization, and Digital Audio
+# Sampling, Quantization, and Digital Audio {#ch-03-sampling-quantization}
 
 ## Purpose
 

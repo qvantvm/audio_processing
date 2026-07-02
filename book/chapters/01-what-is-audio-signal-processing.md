@@ -1,4 +1,4 @@
-# What Is Audio Signal Processing?
+# What Is Audio Signal Processing? {#ch-01-what-is-asp}
 
 ## Purpose
 
@@ -135,7 +135,7 @@ $$
 
 The bin nearest 440 Hz is $k = \mathrm{round}(440 / \Delta f) \approx 9$, corresponding to center frequency $9 \cdot \Delta f \approx 421.875\,\mathrm{Hz}$—not exactly A440. A naive "pick the peak bin" pitch estimate will be biased unless we interpolate or use a longer transform/window.
 
-This example previews why Chapter 6 treats bin grids carefully rather than treating FFT output as a continuous spectrum. Chapter 2 defines sample index, duration, and discrete sinusoids in detail.
+This example previews why @sec:ch-06-dft-fft treats bin grids carefully rather than treating FFT output as a continuous spectrum. @sec:ch-02-signals-time-samples defines sample index, duration, and discrete sinusoids in detail.
 
 ## Common Pitfalls
 

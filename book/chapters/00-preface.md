@@ -1,4 +1,4 @@
-# Preface
+# Preface {#ch-00-preface}
 
 ## Why this book exists
 

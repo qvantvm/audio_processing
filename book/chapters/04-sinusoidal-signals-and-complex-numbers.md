@@ -1,4 +1,4 @@
-# Sinusoidal Signals and Complex Numbers
+# Sinusoidal Signals and Complex Numbers {#ch-04-sinusoids-complex}
 
 ## Purpose
 

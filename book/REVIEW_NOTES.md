@@ -2,54 +2,49 @@
 
 Open issues, review findings, and planned improvements.
 
-## Pass 7 — Complete Manuscript Draft (2026-07-02)
+## Pass 8 — Editorial & Bibliography (2026-07-02)
 
 ### Completed
 
-- Drafted chapters **07–22** (full template: purpose through further reading)
-- Added examples: `window_leakage_demo.py`, `stft_spectrogram_demo.py`, `fir_lowpass_demo.py`, `representation_domains.py`
-- Added figures: `window_leakage.png`, `stft_chirp_spectrogram.png`, `fir_lowpass.png`, `representation_domains.png`
-- Added `requirements.txt`, `tests/run_examples.py`, updated `README.md`
-- All chapters 00–22 marked **draft** in `BOOK_PLAN.md`
+- Added bibliography: Harris windows, YIN, SMS, DDSP, WaveNet, ITU BS.1770, EBU R128
+- Resolved TODO citations in chapters 7, 13, 16, 17, 20
+- Pandoc section IDs on chapters 00–07; cross-refs in Ch 01, 06
+- Promoted chapters **00–06** to **reviewed** in `BOOK_PLAN.md`
+- Added `.github/workflows/book-examples.yml` (smoke tests)
 
-### Correctness / Clarity (Polish Backlog)
+### Correctness / Clarity
 
-- [ ] Full read-through for math/notation consistency across 23 chapters
-- [ ] Add missing bibliography entries (Harris, YIN, DDSP, BS.1770, SMS)
-- [ ] Replace TODO citation placeholders in Ch 7, 13, 17, 20
-- [ ] Pandoc `@sec:` cross-references between chapters
-- [ ] Chapter 20 neural section: add verified citations only
+- [ ] Review chapters 07–12 (spectral + filter block) → promote to reviewed
+- [ ] Extend `@sec:` IDs to chapters 08–22
+- [ ] Full notation audit for chapters 10–12 (poles, group delay symbols)
 
 ### Examples / CI
 
-- [x] Nine example scripts present
 - [x] `tests/run_examples.py` smoke harness
-- [ ] Run `make html` in CI when Pandoc available
-- [ ] Optional: WAV I/O in toolkit chapter with `soundfile`
+- [x] GitHub Actions workflow for examples
+- [ ] Pandoc `make html` CI (needs pandoc on runner)
 
-### Status Promotion Criteria
+### Bibliography
 
-Promote chapter from **draft** → **reviewed** when:
+- [x] Harris, YIN, SMS, DDSP, WaveNet, BS.1770, EBU R128 added
+- [ ] Verify all in-text cite keys on second full read
+
+---
+
+## Pass 7 — Complete Manuscript Draft (2026-07-02)
+
+- Drafted chapters 07–22; nine examples; all chapters initially **draft**
+
+## Status Promotion Criteria
+
+Promote **draft** → **reviewed** when:
 
 1. Second-pass edit complete
 2. All cited keys resolve in `bibliography.bib`
 3. Referenced examples run
 4. Exercises spot-checked
 
-Promote **reviewed** → **polished** after external review or teaching pilot.
-
----
-
-## Earlier Passes (summary)
-
-| Pass | Focus |
-|------|--------|
-| 1 | Scaffold, preface, Ch 01 |
-| 2 | Ch 02, A440 example |
-| 3 | Ch 03, aliasing/quantization |
-| 4 | Ch 04, complex sinusoids |
-| 5 | Ch 05, Fourier series |
-| 6 | Ch 06, DFT/bin spacing |
+**Reviewed (Pass 8):** 00, 01, 02, 03, 04, 05, 06
 
 ## Future Review Checklist (per section)
 

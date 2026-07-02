@@ -98,6 +98,6 @@ Validate on monophonic instruments before polyphonic material.
 ## Further Reading
 
 - Müller [@muller2015fundamentals]
-- de Cheveigné & Kawahara, YIN (TODO: bib if added)
+- de Cheveigné & Kawahara, YIN pitch estimator [@decheveigne2002yin]
 
 **Next chapter:** Chapter 17 — *Musical Signal Representations*.

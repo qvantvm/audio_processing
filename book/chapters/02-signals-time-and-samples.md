@@ -1,4 +1,4 @@
-# Signals, Time, and Samples
+# Signals, Time, and Samples {#ch-02-signals-time-samples}
 
 ## Purpose
 

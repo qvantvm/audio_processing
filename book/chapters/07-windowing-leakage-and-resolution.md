@@ -1,4 +1,4 @@
-# Windowing, Leakage, and Resolution
+# Windowing, Leakage, and Resolution {#ch-07-windowing}
 
 ## Purpose
 
@@ -118,6 +118,6 @@ SciPy: `scipy.signal.get_window('hann', N)`.
 
 - Oppenheim & Schafer [@oppenheim2010discrete]
 - Smith, *Spectral Audio Signal Processing* [@smith2011spectral]
-- Harris, window summary (classic reference; TODO: add bib entry if cited in polish pass)
+- Harris, classic window survey [@harris1978windows]
 
 **Next chapter:** Chapter 08 — *STFT, Spectrograms, and Time–Frequency Analysis*.

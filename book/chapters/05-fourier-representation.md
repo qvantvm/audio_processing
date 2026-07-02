@@ -1,4 +1,4 @@
-# Fourier Representation
+# Fourier Representation {#ch-05-fourier}
 
 ## Purpose
 

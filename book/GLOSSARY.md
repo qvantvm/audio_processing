@@ -118,6 +118,10 @@ The output $h[n]$ of a discrete-time LTI system when the input is a unit impulse
 
 A system whose output is convolution of the input with an impulse response, and whose behavior does not change over time.
 
+## LUFS (loudness units relative to full scale)
+
+Integrated loudness measure from ITU-R BS.1770 / EBU R128, using K-weighting and gating; used for broadcast and streaming level matching (not identical to RMS or peak dBFS).
+
 ## Magnitude
 
 The absolute value $|X|$ of a complex spectrum value or transfer function at a given frequency. Magnitude describes how much a sinusoidal component is scaled; phase describes its shift.

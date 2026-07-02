@@ -22,7 +22,7 @@ $$
 x[n] \approx \sum_k A_k[n] \cos\bigl(2\pi f_k[n] n / f_s + \phi_k[n]\bigr).
 $$
 
-**Peak tracking** across STFT frames → partial trajectories [@serra1989sms; TODO verify bib or use roads].
+**Peak tracking** across STFT frames → partial trajectories [@serra1990sms].
 
 ### Harmonic series
 
@@ -96,6 +96,6 @@ Sinusoidal analysis: `sweep`/`tracker` research code; commercial spectral editor
 
 - Roads [@roads1996computer]
 - Müller [@muller2015fundamentals]
-- Serra & Smith, SMS (TODO citation)
+- Serra & Smith, spectral modeling synthesis [@serra1990sms]
 
 **Next chapter:** Chapter 18 — *Synthesis Representations*.

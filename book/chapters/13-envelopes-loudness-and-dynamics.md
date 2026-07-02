@@ -51,7 +51,7 @@ $$
 
 ### Loudness (LUFS preview)
 
-ITU-R BS.1770 / EBU R128: K-weighting + mean square over integrated window— **LUFS** for broadcast streaming loudness matching. TODO: citation needed for standards in polish pass.
+ITU-R BS.1770 and EBU R128 define **K-weighting**, gating, and integrated loudness in **LUFS** for broadcast and streaming loudness matching [@itu2015bs1770; @ebu2011r128].
 
 Not identical to RMS or peak; includes frequency weighting.
 
@@ -118,6 +118,7 @@ Libraries: `pyloudnorm`, DAW meters.
 ## Further Reading
 
 - Zölzer, *DAFX* dynamics chapter [@zoelzer2011dafx]
-- ITU-R BS.1770 / EBU R128 (standards; TODO citation)
+- ITU-R BS.1770 loudness measurement [@itu2015bs1770]
+- EBU R128 loudness normalisation [@ebu2011r128]
 
 **Next chapter:** Chapter 14 — *Resampling, Interpolation, and Sample-Rate Conversion*.

@@ -90,8 +90,8 @@ Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, list
 
 ## Further Reading
 
-- Dieleman et al., neural audio generation surveys (TODO citation)
-- Engel et al., DDSP (TODO citation)
+- van den Oord et al., WaveNet generative raw audio [@oord2016wavenet]
+- Engel et al., differentiable DSP synthesis [@engel2020ddsp]
 - Smith + STFT differentiable layers cross-ref [@smith2011spectral]
 
 **Next chapter:** Chapter 21 — *Testing, Measurement, and Numerical Pitfalls*.
