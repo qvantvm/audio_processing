@@ -2,6 +2,33 @@
 
 Open issues, review findings, and planned improvements. Update after each authoring pass.
 
+## Pass 5 — Chapter 05, Fourier Representation (2026-07-02)
+
+### Completed
+
+- Drafted `05-fourier-representation.md`
+- Added `examples/fourier_series_square_wave.py` (verified runnable)
+- Generated `figures/fourier_series_square_wave.png`
+- Updated `BOOK_PLAN.md`, `NOTATION.md`, `GLOSSARY.md`
+
+### Correctness / Clarity
+
+- [ ] Chapter 05: Parseval normalization conventions deferred to Chapter 06— keep consistent when DFT scaling is fixed
+- [ ] Gibbs phenomenon mention could link to figure zoom near discontinuity in a later polish pass
+
+### Missing Content (High Priority)
+
+- [ ] Chapter 06 draft: DFT definition, bin spacing, magnitude/phase spectra
+- [ ] Figure: representation domains overview diagram
+- [ ] `examples/dft_bin_spacing.py`
+
+### Code / Examples
+
+- [x] `fourier_series_square_wave.py` runs and writes figure
+- [ ] Smoke-test all examples in one script
+
+---
+
 ## Pass 4 — Chapter 04, Complex Sinusoids (2026-07-02)
 
 ### Completed
@@ -46,9 +73,9 @@ Open issues, review findings, and planned improvements. Update after each author
 
 ### Missing Content (High Priority)
 
-- [ ] Chapter 04 draft: complex sinusoids, Euler form, phasor plot
+- [x] Chapter 04 draft: complex sinusoids, Euler form, phasor plot
 - [ ] Figure: representation domains overview diagram
-- [ ] `examples/complex_sinusoid_demo.py`
+- [x] `examples/complex_sinusoid_demo.py`
 
 ### Citations
 

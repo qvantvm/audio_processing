@@ -61,6 +61,8 @@ This file tracks symbols used across the book. Before introducing new notation i
 | Symbol | Meaning | Notes |
 |--------|---------|-------|
 | $X(f)$ | Continuous Fourier transform | Of $x(t)$ |
+| $c_k$ | Fourier series coefficient | Harmonic $k$ of periodic $x(t)$ |
+| $f_0$ | Fundamental frequency | $1/T_0$ for period $T_0$ |
 | $X[k]$ | $N$-point DFT | Of finite sequence $x[n]$ |
 | $X(\Omega)$ | Discrete-time Fourier transform (DTFT) | For sequences; $2\pi$-periodic in $\Omega$ |
 | $H(z)$ | Z-domain transfer function | $z$ complex variable |

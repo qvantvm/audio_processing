@@ -23,7 +23,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | draft | 01 |
 | 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | draft | 02 |
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | draft | 02 |
-| 05 | `05-fourier-representation.md` | Fourier Representation | stub | 04 |
+| 05 | `05-fourier-representation.md` | Fourier Representation | draft | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | stub | 05 |
 | 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | stub | 06 |
 | 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | stub | 07 |
@@ -91,7 +91,17 @@ By the end of this chapter, the reader should be able to:
 4. Explain conjugate symmetry for real signals using counter-rotating phasors
 5. Implement $Ae^{j(\Omega n + \phi)}$ and extract real audio with NumPy
 
-### Chapter 05 — Fourier Representation (planned)
+### Chapter 05 — Fourier Representation
+
+By the end of this chapter, the reader should be able to:
+
+1. Explain orthogonality of complex exponentials and read Fourier series coefficients
+2. Contrast Fourier series, Fourier transform, DTFT, and DFT scope
+3. Interpret magnitude and phase of transform values without unit confusion
+4. Predict how truncating a series (partial sums) affects wave shape and timbre
+5. Connect harmonic decay (e.g. $1/k$ for square waves) to brightness in synthesis
+
+### Chapter 06 — DFT, FFT, and Spectral Analysis (planned)
 
 ## Dependencies Between Chapters
 
@@ -119,17 +129,17 @@ flowchart TD
 
 ## Missing Sections (Highest Priority)
 
-1. **Chapter 05** — Fourier series, orthogonal decomposition, continuous/discrete preview
+1. **Chapter 06** — DFT definition, bin grid, magnitude/phase spectra, FFT as algorithm
 2. **Figure** — Representation-domain diagram (time, frequency, time–frequency, parametric)
 3. **Cross-references** — Pandoc section IDs for `@sec:` links between chapters
-4. **Chapter 06** — DFT definition, bin grid, magnitude/phase spectra
+4. **Examples** — `dft_bin_spacing.py` for Chapter 06
 5. **Exercises with solutions** — Worked solutions appendix (future)
 
 ## Current Sprint Focus
 
-**Completed this pass:** Chapter 04 draft, `examples/complex_sinusoid_demo.py`, `figures/complex_phasor.png`.
+**Completed this pass:** Chapter 05 draft, `examples/fourier_series_square_wave.py`, `figures/fourier_series_square_wave.png`.
 
-**Next recommended step:** Draft **Chapter 05 (Fourier Representation)** with orthogonal sinusoid sum and `examples/fourier_series_square_wave.py`.
+**Next recommended step:** Draft **Chapter 06 (DFT, FFT, and Spectral Analysis)** with bin-spacing example and magnitude/phase plots.
 
 ## Conventions
 

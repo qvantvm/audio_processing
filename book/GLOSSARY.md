@@ -66,6 +66,10 @@ A signal represented as a sequence of discrete values, usually uniformly spaced 
 
 A sequence $x[n]$ indexed by integer sample index $n$.
 
+## DTFT (discrete-time Fourier transform)
+
+The frequency representation $X(\Omega)$ of a discrete-time sequence, continuous and $2\pi$-periodic in normalized frequency $\Omega$.
+
 ## DFT (discrete Fourier transform)
 
 A transform mapping a length-$N$ complex sequence $x[n]$ to frequency coefficients $X[k]$ on a grid of exactly $N$ equally spaced frequencies.
@@ -86,9 +90,25 @@ The identity $e^{j\theta} = \cos\theta + j\sin\theta$, linking complex exponenti
 
 An efficient algorithm for computing the DFT and its inverse; mathematically equivalent to the DFT up to floating-point rounding.
 
+## Fundamental frequency
+
+The lowest frequency $f_0$ of a periodic signal, equal to $1/T_0$ for period $T_0$. Harmonics occur at integer multiples $k f_0$.
+
+## Fourier series
+
+An expansion of a periodic signal as a weighted sum of complex exponentials (or sines and cosines) at harmonics of the fundamental frequency.
+
+## Fourier transform
+
+A representation of a non-periodic continuous-time signal as a weighted integral of complex exponentials over continuous frequency $f$.
+
 ## Frequency response
 
 The complex gain $H(\Omega)$ of a linear time-invariant system as a function of frequency, describing magnitude and phase of the output sinusoid relative to the input.
+
+## Harmonic
+
+A frequency component at an integer multiple of the fundamental: $k f_0$ for integer $k$.
 
 ## Impulse response
 
@@ -105,6 +125,10 @@ The absolute value $|X|$ of a complex spectrum value or transfer function at a g
 ## Nyquist frequency
 
 Half the sampling rate, $f_s/2$. Frequencies above this cannot be represented unambiguously without band-limiting.
+
+## Orthogonality
+
+A property of basis functions whereby distinct members have zero inner product over an interval, allowing independent projection/coefficient extraction— complex exponentials at different harmonics on a full period are orthogonal.
 
 ## PCM (pulse-code modulation)
 
