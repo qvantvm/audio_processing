@@ -134,6 +134,14 @@ A property of basis functions whereby distinct members have zero inner product o
 
 A digital representation storing uniformly sampled, quantized amplitude values— the common form of raw audio in WAV and similar formats.
 
+## Parseval's theorem
+
+Relates time-domain energy to frequency-domain energy (with consistent DFT normalization). For NumPy's convention, $\sum_n |x[n]|^2 = \frac{1}{N}\sum_k |X[k]|^2$.
+
+## Periodogram
+
+An estimate of power vs. frequency formed from squared DFT magnitudes $|X[k]|^2$, optionally averaged across time segments (Welch method).
+
 ## Phase
 
 The angle of a complex spectral value or sinusoid relative to a reference. Phase affects waveform shape and timing of components; it is often ignored in naive feature extraction but matters for synthesis and filtering.

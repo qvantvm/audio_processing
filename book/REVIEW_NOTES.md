@@ -2,6 +2,33 @@
 
 Open issues, review findings, and planned improvements. Update after each authoring pass.
 
+## Pass 6 — Chapter 06, DFT and FFT (2026-07-02)
+
+### Completed
+
+- Drafted `06-dft-fft-and-spectral-analysis.md`
+- Added `examples/dft_bin_spacing.py` (verified runnable)
+- Generated `figures/dft_bin_spacing.png`
+- Updated `BOOK_PLAN.md`, `NOTATION.md`, `GLOSSARY.md`
+
+### Correctness / Clarity
+
+- [ ] Chapter 06: Align Parseval notation with any future STFT normalization in Chapter 08
+- [ ] Off-bin peak picks nearest bin lobe— note parabolic interpolation in pitch chapter (16)
+
+### Missing Content (High Priority)
+
+- [ ] Chapter 07 draft: windowing, leakage, resolution tradeoffs
+- [ ] Figure: representation domains overview diagram
+- [ ] `examples/window_leakage_demo.py`
+
+### Code / Examples
+
+- [x] `dft_bin_spacing.py` runs and writes figure
+- [ ] Smoke-test all examples in one script
+
+---
+
 ## Pass 5 — Chapter 05, Fourier Representation (2026-07-02)
 
 ### Completed

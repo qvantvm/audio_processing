@@ -24,7 +24,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | draft | 02 |
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | draft | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | draft | 04 |
-| 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | stub | 05 |
+| 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | draft | 05 |
 | 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | stub | 06 |
 | 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | stub | 07 |
 | 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | stub | 02, 05 |
@@ -101,7 +101,17 @@ By the end of this chapter, the reader should be able to:
 4. Predict how truncating a series (partial sums) affects wave shape and timbre
 5. Connect harmonic decay (e.g. $1/k$ for square waves) to brightness in synthesis
 
-### Chapter 06 — DFT, FFT, and Spectral Analysis (planned)
+### Chapter 06 — DFT, FFT, and Spectral Analysis
+
+By the end of this chapter, the reader should be able to:
+
+1. Write the DFT/IDFT and map bin index $k$ to center frequency $f_k = k f_s/N$
+2. Interpret $|X[k]|$ and $\angle X[k]$ for real audio segments
+3. Apply conjugate symmetry and use `rfft` efficiently
+4. Explain FFT as an algorithm, not a different transform
+5. Recognize off-bin tones, leakage preview, and zero-padding interpolation
+
+### Chapter 07 — Windowing, Leakage, and Resolution (planned)
 
 ## Dependencies Between Chapters
 
@@ -129,17 +139,17 @@ flowchart TD
 
 ## Missing Sections (Highest Priority)
 
-1. **Chapter 06** — DFT definition, bin grid, magnitude/phase spectra, FFT as algorithm
+1. **Chapter 07** — Window functions, leakage, main-lobe/sidelobe tradeoffs
 2. **Figure** — Representation-domain diagram (time, frequency, time–frequency, parametric)
 3. **Cross-references** — Pandoc section IDs for `@sec:` links between chapters
-4. **Examples** — `dft_bin_spacing.py` for Chapter 06
+4. **Examples** — `window_leakage_demo.py` for Chapter 07
 5. **Exercises with solutions** — Worked solutions appendix (future)
 
 ## Current Sprint Focus
 
-**Completed this pass:** Chapter 05 draft, `examples/fourier_series_square_wave.py`, `figures/fourier_series_square_wave.png`.
+**Completed this pass:** Chapter 06 draft, `examples/dft_bin_spacing.py`, `figures/dft_bin_spacing.png`.
 
-**Next recommended step:** Draft **Chapter 06 (DFT, FFT, and Spectral Analysis)** with bin-spacing example and magnitude/phase plots.
+**Next recommended step:** Draft **Chapter 07 (Windowing, Leakage, and Resolution)** with Hann vs rectangular comparison.
 
 ## Conventions
 

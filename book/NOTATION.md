@@ -51,6 +51,9 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $f$ | Cyclic frequency | Hertz (Hz); cycles per second |
 | $\omega$ | Angular frequency (continuous) | rad/s; $\omega = 2\pi f$ |
 | $\Omega$ | Normalized angular frequency (discrete) | rad/sample |
+| $\Delta f$ | DFT bin spacing | $f_s/N$ hertz |
+| $f_k$ | Bin center frequency | $k f_s/N$ |
+| $\|X[k]\|$ | DFT magnitude at bin $k$ | Not peak time-domain amplitude |
 | $\omega_k$ | DFT bin center frequency | Depends on $f_s$ and $N$ |
 | $k$ | Frequency-bin index | $k \in \{0, 1, \ldots, N-1\}$ for length-$N$ DFT |
 
