@@ -90,6 +90,9 @@ This file tracks symbols used across the book. Before introducing new notation i
 | Symbol | Meaning | Notes |
 |--------|---------|-------|
 | $j$ | Imaginary unit | Engineering convention ($j^2 = -1$) |
+| $z[n]$ | Complex sinusoid | Often $A e^{j(\Omega n + \phi)}$ |
+| $|z|$, $\angle z$ | Magnitude and phase | Polar form of complex value |
+| $z^*$ | Complex conjugate | Flip sign of imaginary part |
 | $e^{j\Omega n}$ | Complex exponential sequence | Basis for DTFT/DFT |
 | $\Re\{\cdot\}$, $\Im\{\cdot\}$ | Real and imaginary parts | |
 

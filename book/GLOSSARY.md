@@ -34,6 +34,14 @@ An index $k$ labeling a discrete frequency grid point in a DFT or STFT. Bin spac
 
 The number of bits $B$ used per PCM sample, determining the number of quantization levels (up to $2^B$ for uniform encoding) and approximate dynamic range.
 
+## Complex sinusoid
+
+A sequence $z[n] = A e^{j(\Omega n + \phi)}$ whose real part is a cosine wave. Represented as a rotating phasor of radius $A$ in the complex plane.
+
+## Conjugate symmetry
+
+For a real sequence $x[n]$, DFT coefficients satisfy $X[k] = X^*[N-k]$, reflecting equal contribution from positive and negative frequency phasors.
+
 ## Continuous-time signal
 
 A function $x(t)$ defined for real time $t$, used to model analog waveforms before sampling.
@@ -70,6 +78,10 @@ Low-level noise added before quantization to decorrelate quantization error from
 
 The span between the smallest and largest representable or meaningful signal levels in a system, often limited by noise floor and clipping.
 
+## Euler's formula
+
+The identity $e^{j\theta} = \cos\theta + j\sin\theta$, linking complex exponentials to real sinusoids.
+
 ## FFT (fast Fourier transform)
 
 An efficient algorithm for computing the DFT and its inverse; mathematically equivalent to the DFT up to floating-point rounding.
@@ -101,6 +113,10 @@ A digital representation storing uniformly sampled, quantized amplitude valuesâ€
 ## Phase
 
 The angle of a complex spectral value or sinusoid relative to a reference. Phase affects waveform shape and timing of components; it is often ignored in naive feature extraction but matters for synthesis and filtering.
+
+## Phasor
+
+A complex number $Ae^{j\theta}$ represented as a vector in the complex plane; rotation by $e^{j\Omega n}$ models sinusoidal evolution over sample index $n$.
 
 ## Quantization
 

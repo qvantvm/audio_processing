@@ -22,7 +22,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | draft | 00 |
 | 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | draft | 01 |
 | 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | draft | 02 |
-| 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | stub | 02 |
+| 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | draft | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | stub | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | stub | 05 |
 | 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | stub | 06 |
@@ -81,7 +81,17 @@ By the end of this chapter, the reader should be able to:
 4. Interpret WAV/PCM parameters and estimate uncompressed storage
 5. Recognize aliasing sources beyond ADCs (nonlinearities, naive oscillators)
 
-### Chapter 04 — Sinusoidal Signals and Complex Numbers (planned)
+### Chapter 04 — Sinusoidal Signals and Complex Numbers
+
+By the end of this chapter, the reader should be able to:
+
+1. Convert between cosine and complex exponential forms of sinusoids
+2. Apply Euler's formula and interpret phasor rotation in the complex plane
+3. Compute magnitude and phase of complex samples with correct units (radians)
+4. Explain conjugate symmetry for real signals using counter-rotating phasors
+5. Implement $Ae^{j(\Omega n + \phi)}$ and extract real audio with NumPy
+
+### Chapter 05 — Fourier Representation (planned)
 
 ## Dependencies Between Chapters
 
@@ -109,17 +119,17 @@ flowchart TD
 
 ## Missing Sections (Highest Priority)
 
-1. **Chapter 04** — Complex exponentials, Euler formula, phasors
+1. **Chapter 05** — Fourier series, orthogonal decomposition, continuous/discrete preview
 2. **Figure** — Representation-domain diagram (time, frequency, time–frequency, parametric)
 3. **Cross-references** — Pandoc section IDs for `@sec:` links between chapters
-4. **Chapter 05** — Fourier series and transform foundations
+4. **Chapter 06** — DFT definition, bin grid, magnitude/phase spectra
 5. **Exercises with solutions** — Worked solutions appendix (future)
 
 ## Current Sprint Focus
 
-**Completed this pass:** Chapter 03 draft, `examples/aliasing_demo.py`, `figures/aliasing_fold.png`, `figures/quantization_staircase.png`.
+**Completed this pass:** Chapter 04 draft, `examples/complex_sinusoid_demo.py`, `figures/complex_phasor.png`.
 
-**Next recommended step:** Draft **Chapter 04 (Sinusoidal Signals and Complex Numbers)** with phasor diagram and `examples/complex_sinusoid_demo.py`.
+**Next recommended step:** Draft **Chapter 05 (Fourier Representation)** with orthogonal sinusoid sum and `examples/fourier_series_square_wave.py`.
 
 ## Conventions
 

@@ -2,6 +2,33 @@
 
 Open issues, review findings, and planned improvements. Update after each authoring pass.
 
+## Pass 4 — Chapter 04, Complex Sinusoids (2026-07-02)
+
+### Completed
+
+- Drafted `04-sinusoidal-signals-and-complex-numbers.md`
+- Added `examples/complex_sinusoid_demo.py` (verified runnable)
+- Generated `figures/complex_phasor.png`
+- Updated `BOOK_PLAN.md`, `NOTATION.md`, `GLOSSARY.md`
+
+### Correctness / Clarity
+
+- [ ] Chapter 04: Hilbert/analytic signal preview is forward reference only— expand in Chapter 12
+- [ ] Add explicit note on `np.unwrap` for STFT phase plots when Chapter 8 is written
+
+### Missing Content (High Priority)
+
+- [ ] Chapter 05 draft: Fourier series and orthogonal sinusoid decomposition
+- [ ] Figure: representation domains overview diagram
+- [ ] `examples/fourier_series_square_wave.py`
+
+### Code / Examples
+
+- [x] `complex_sinusoid_demo.py` runs and writes figure
+- [ ] Smoke-test all examples in one script
+
+---
+
 ## Pass 3 — Chapter 03, Aliasing and Quantization (2026-07-02)
 
 ### Completed
@@ -52,10 +79,10 @@ Open issues, review findings, and planned improvements. Update after each author
 
 ### Missing Content (High Priority)
 
-- [ ] Chapter 03 draft: sampling theorem, aliasing, quantization
-- [ ] Figure: aliasing / reconstruction diagram
-- [ ] Figure: representation domains overview diagram
-- [ ] `examples/aliasing_demo.py` for Chapter 03
+- [x] Chapter 03 draft: sampling theorem, aliasing, quantization
+- [x] Figure: aliasing (`figures/aliasing_fold.png`)
+- [x] Figure: quantization staircase
+- [x] `examples/aliasing_demo.py`
 
 ### Notation / Terminology
 
