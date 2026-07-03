@@ -67,14 +67,22 @@ Governance (from `BOOK_PLAN.md`):
 | Notes | Solutions ch 10–12; block diagrams added |
 | Sign-off | **pending** external |
 
-## Chapters 13–17 — Production / MIR
+## Chapters 13–15 — Loudness / SRC / features
 
 | Field | Value |
 |-------|-------|
-| Reviewer | agent-pass-9–16 |
+| Reviewer | agent-pass-19 |
 | Date | 2026-07-03 |
-| Notes | Representation lens Pass 16; solutions not yet extended |
+| Notes | Solutions ch 13–15 verified |
 | Sign-off | **pending** external |
+
+## Teaching pilot — foundation block (ch 01–06)
+
+| Field | Value |
+|-------|-------|
+| Outline | `TEACHING_PILOT.md` |
+| Status | template — cohort not yet run |
+| Sign-off | **pending** |
 
 ## Chapters 18–22 — Synthesis / neural / toolkit
 
@@ -91,7 +99,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Reviewer | agent-pass-18 |
 | Date | 2026-07-03 |
-| Notes | Verified scripts ch 01–12 |
+| Notes | Verified scripts ch 01–15 |
 | Sign-off | **pending** external |
 
 ---

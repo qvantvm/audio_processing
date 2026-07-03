@@ -1,6 +1,6 @@
 # Appendix: Selected Exercise Solutions {#ch-23-exercise-solutions}
 
-This appendix provides worked solutions for exercises in chapters **01–12**. Try each exercise
+This appendix provides worked solutions for exercises in chapters **01–15**. Try each exercise
 yourself first; use these solutions to check arithmetic, conventions, and reasoning.
 
 ---
@@ -434,5 +434,72 @@ polarity correction.
 
 ---
 
-*Numeric answers for ch 01–12 verified by `solutions/ch01_verify.py` … `ch12_verify.py` (`python
+---
+
+## [Chapter 13](#ch-13-envelopes-loudness) — Envelopes, Loudness, and Dynamics
+
+### Exercise 13.1
+
+Sine crest factor $= 20\log_{10}(\sqrt{2}) \approx 3.01$ dB. Snare hits typically much higher.
+
+### Exercise 13.2
+
+Attack $\tau = 10$ ms at $f_s = 48000$: $\alpha = e^{-1/(\tau f_s)} \approx 0.998$.
+
+### Exercise 13.3
+
+Input $-8$ dBFS, threshold $-20$ dBFS → input **below** threshold → **no compression** → output
+$\approx -8$ dBFS.
+
+### Exercise 13.4
+
+**K-weighting** approximates head-related sensitivity so LUFS correlates better with perceived
+loudness than unweighted RMS.
+
+---
+
+## [Chapter 14](#ch-14-resampling) — Resampling and Sample-Rate Conversion
+
+### Exercise 14.1
+
+Upsample ×2 inserts zeros → spectra repeat at multiples of original; low-pass removes images.
+
+### Exercise 14.2
+
+**Polyphase** splits filter into sub-filters per phase → only compute non-zero stuffed positions.
+
+### Exercise 14.3
+
+$44100 \to 48000$ via ratio $160/147$; 440 Hz tone peak should remain $\approx 440$ Hz (verify with
+FFT).
+
+### Exercise 14.4
+
+**Asynchronous SRC** when clock domains drift (different interfaces, wireless link, DAW vs interface
+not locked).
+
+---
+
+## [Chapter 15](#ch-15-features) — Audio Features and Descriptors
+
+### Exercise 15.1
+
+Spectrum magnitudes $[1,2,1]$ at $[100,200,300]$ Hz → centroid $= (100+400+300)/4 = 200$ Hz.
+
+### Exercise 15.2
+
+Spectral flux peaks at frame boundaries with large magnitude increases (onsets / hand claps).
+
+### Exercise 15.3
+
+Voiced speech: lower ZCR; unvoiced/fricatives: higher ZCR (more zero crossings).
+
+### Exercise 15.4
+
+Log compresses dynamic range before DCT so **multiplicative** spectral shapes become **additive**
+(roughly), matching auditory scale and improving MFCC stability.
+
+---
+
+*Numeric answers for ch 01–15 verified by `solutions/ch01_verify.py` … `ch15_verify.py` (`python
 solutions/run_verifications.py`).*

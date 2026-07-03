@@ -133,6 +133,8 @@ Libraries: `pyloudnorm`, DAW meters.
 3. Compressor threshold −20 dBFS, ratio 4:1, input −8 dBFS— output level sketch?
 4. Why K-weighting for LUFS?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Zölzer, *DAFX* dynamics chapter [@zoelzer2011dafx]

@@ -127,6 +127,8 @@ has higher centroid?
 3. Compare ZCR on voiced vs unvoiced speech (if available).
 4. Why log before DCT in MFCC?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Müller [@muller2015fundamentals]

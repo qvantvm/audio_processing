@@ -41,8 +41,8 @@ numerical pitfalls and assembling a small DSP toolkit.
 - **Sequential reading** builds concepts in dependency order (see the dependency diagram in `BOOK_PLAN.md`).
 - **Reference reading** is supported by `NOTATION.md` and `GLOSSARY.md`.
 - **Hands-on learning**: run scripts in `examples/` alongside the chapter sections that reference them.
-- **Exercise solutions**: chapters 01–12 in [Appendix: Exercise Solutions](#ch-23-exercise-solutions);
-  hearable demos in `audio_demos/`; external review tracker in `EXTERNAL_REVIEW.md`.
+- **Exercise solutions**: chapters 01–15 in [Appendix: Exercise Solutions](#ch-23-exercise-solutions);
+  teaching pilot outline in `TEACHING_PILOT.md`; external review in `EXTERNAL_REVIEW.md`.
 
 Each chapter follows a common template: purpose, learning objectives, concepts, math, audio
 interpretation, implementation notes, worked examples, pitfalls, exercises, and further reading.

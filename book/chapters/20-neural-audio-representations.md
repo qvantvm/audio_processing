@@ -48,6 +48,8 @@ Most neural pipelines **do not** ingest raw samples alone. A typical path:
 x[n]  →  STFT / mel  →  neural network  →  mel or waveform  →  vocoder / Griffin–Lim
 ```
 
+![Neural audio pipeline overview](../figures/neural_audio_pipeline.png)
+
 Run the book's classical front-end demo (no PyTorch required):
 
 ```bash

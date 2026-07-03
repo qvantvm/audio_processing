@@ -2,6 +2,23 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 19 — Solutions ch 13–15, Diagrams, Teaching Pilot (2026-07-03)
+
+### Completed
+
+- Exercise solutions + verify scripts for **ch 13–15** (loudness, SRC, features)
+- Diagrams: `modal_bank.png` (ch 19), `neural_audio_pipeline.png` (ch 20)
+- **`TEACHING_PILOT.md`** — 6-session outline for ch 01–06 foundation block
+
+### Remaining gaps
+
+- [ ] Exercise solutions ch 16+
+- [ ] Run teaching pilot with external cohort; log in `EXTERNAL_REVIEW.md`
+- [ ] Production resampling in `audio_toolkit`
+- [ ] PDF CI (LaTeX)
+
+---
+
 ## Pass 18 — Solutions ch 10–12, External Review Log, Diagrams (2026-07-03)
 
 ### Completed

@@ -103,6 +103,8 @@ with gain $g \in (0,1)$ controlling decay.
 
 ## Implementation Notes
 
+![Modal resonator bank](../figures/modal_bank.png)
+
 The book ships `audio_toolkit.effects.karplus_strong`— a minimal plucked-string loop you can hear
 and plot:
 

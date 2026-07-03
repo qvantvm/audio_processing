@@ -104,6 +104,8 @@ sample.
 3. Convert 1 s of 440 Hz tone 44.1→48 kHz; verify frequency unchanged (within numerical error).
 4. When does asynchronous SRC arise (DAW drift)?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Oppenheim & Schafer [@oppenheim2010discrete]
