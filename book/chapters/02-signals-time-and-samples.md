@@ -214,6 +214,8 @@ Peak level is $20\log_{10}(0.8) \approx -1.94\,\mathrm{dBFS}$. Peak and RMS leve
 4. Modify `a440_sine_wave.py` to plot two cycles using the smallest integer $N$ that spans at least two cycles (use $\lceil 2P \rceil$). Listen (optional): write the buffer to WAV and check for seam clicks when looping.
 5. Stereo interleaved buffer has length 96000 samples at $f_s = 48000\,\mathrm{Hz}$. How many samples per channel and what duration?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Oppenheim & Schafer, *Discrete-Time Signal Processing* — formal sequences, sampling notation [@oppenheim2010discrete]

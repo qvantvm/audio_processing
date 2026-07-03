@@ -224,6 +224,8 @@ Real converters add analog noise and distortion; the formula is an **ideal unifo
 4. Run `aliasing_demo.py`. Change `f_true` to $1500\,\mathrm{Hz}$ at $f_s=4000\,\mathrm{Hz}$— is aliasing present? Explain.
 5. Why does clipping a full-band signal digitally **before** low-pass filtering risk aliasing on subsequent downsampling?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Shannon, *Communication in the presence of noise* (sampling theorem foundation) [@shannon1949communication]

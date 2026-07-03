@@ -2,6 +2,32 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 13 — Exercise Solutions Appendix; Foundation Polish (2026-07-03)
+
+### Completed
+
+- New appendix: `23-appendix-exercise-solutions.md` with worked solutions for **ch 01–03** (15 exercises)
+- Cross-links from exercise sections and preface to appendix
+- Promoted chapters **00–03** to **`polished`**
+- HTML build verified with appendix included
+
+### Correctness / Clarity
+
+- [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
+- [ ] Optional: expand ch 18–20 with more runnable synthesis examples
+
+### Examples / CI
+
+- [x] Example smoke tests
+- [x] Pandoc HTML build in CI
+- [ ] PDF build (needs LaTeX)
+
+### Reviewed chapters
+
+**Polished:** 00–03 | **Reviewed:** 04–22, appendix A
+
+---
+
 ## Pass 12 — Cross-Reference Fix; Foundation Chapter Links (2026-07-03)
 
 ### Completed

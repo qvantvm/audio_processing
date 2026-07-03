@@ -18,10 +18,10 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 
 | # | File | Title | Status | Depends On |
 |---|------|-------|--------|------------|
-| 00 | `00-preface.md` | Preface | reviewed | — |
-| 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | reviewed | 00 |
-| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | reviewed | 01 |
-| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | reviewed | 02 |
+| 00 | `00-preface.md` | Preface | polished | — |
+| 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | polished | 00 |
+| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | polished | 01 |
+| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | polished | 02 |
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | reviewed | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | reviewed | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | reviewed | 05 |
@@ -41,6 +41,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 20 | `20-neural-audio-representations.md` | Neural Audio Representations | reviewed | 08, 15 |
 | 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | reviewed | 06, 10 |
 | 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | reviewed | 10, 21 |
+| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–03) | reviewed | 01–03 |
 
 **Status legend:** `stub` = outline or placeholder only; `draft` = substantive prose, may need review; `reviewed` = checked for correctness and consistency; `polished` = ready for publication-quality pass.
 
@@ -233,17 +234,17 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Polish pass** — promote select chapters from `reviewed` → `polished` after teaching pilot or external review
-2. **Exercise solutions** — appendix (future)
+1. **Polish pass** — chapters **00–03** promoted to `polished` (Pass 13); continue with 04–06
+2. **Exercise solutions** — pilot complete for ch 01–03 (`23-appendix-exercise-solutions.md`); extend to ch 04+ in future passes
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **Chapter depth** — optional expansion of synthesis/neural sections with more worked code
 5. **PDF build** — CI with LaTeX (optional; HTML build added Pass 11)
 
 ## Current Sprint Focus
 
-**Completed (Pass 12, 2026-07-03):** Fixed `@sec:` → Markdown link cross-refs (83 refs); foundation chapter plain "Chapter N" links; citeproc clean HTML build; preface status update.
+**Completed (Pass 13, 2026-07-03):** Exercise solutions appendix pilot (ch 01–03); foundation chapters 00–03 promoted to `polished`; appendix links from exercise sections and preface.
 
-**Next recommended step (Pass 13):** Exercise solutions appendix pilot (ch 00–03); HTML proofread and `reviewed` → `polished` promotion on foundation chapters; optional synthesis examples (ch 18–20).
+**Next recommended step (Pass 14):** Extend exercise solutions to ch 04–06; polish pass on spectral block (04–06); optional synthesis examples (ch 18–20).
 
 ## Conventions
 

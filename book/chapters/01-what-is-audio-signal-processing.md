@@ -157,6 +157,8 @@ This example previews why [DFT, FFT, and Spectral Analysis](#ch-06-dft-fft) trea
 4. Explain in your own words why a snare transient challenges pure sinusoidal modeling.
 5. Sketch (on paper) a block diagram of a product you use (DAW plugin, speech recognizer, synthesizer) and label where you believe buffers, FFTs, and parameter sets appear.
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Julius O. Smith, *Physical Audio Signal Processing* — intuitive bridges between physical and digital views [@smith2010physical]
