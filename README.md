@@ -1,7 +1,7 @@
 # Audio Signal Representation and Processing
 
-Technical book manuscript with **tested code**, not just prose. The repo is a living scaffold:
-chapter status reflects *actual* editorial maturity.
+Technical book manuscript with **tested code**, not just prose. Chapter status reflects *actual*
+editorial maturity (see `book/BOOK_PLAN.md`).
 
 ## Book contents
 
@@ -18,86 +18,88 @@ Manuscript: [`book/`](book/)
 | 15–17 | Features, pitch, musical representations |
 | 18–20 | Synthesis, physical modeling, neural audio |
 | 21–22 | Testing, toolkit capstone |
-| App. | Exercise solutions (pilot: ch 01–03) |
+| App. | Exercise solutions (ch 01–22, verified scripts) |
 
-Planning: `book/BOOK_PLAN.md`, `book/NOTATION.md`, `book/GLOSSARY.md`, `book/REVIEW_NOTES.md`,
-`book/EXTERNAL_REVIEW.md`, `book/TEACHING_PILOT.md`.
+Planning and governance: `book/BOOK_PLAN.md`, `book/NOTATION.md`, `book/GLOSSARY.md`,
+`book/REVIEW_NOTES.md`, `book/EXTERNAL_REVIEW.md`, `book/TEACHING_PILOT.md`,
+`book/TEACHING_PILOT_RUN1.md`.
 
 ## Code
 
-### Examples (plots)
+### Examples (plots + WAV demos)
 
 ```bash
 cd book
 pip install -r requirements.txt
 python tests/run_examples.py
+python examples/export_audio_demos.py   # hearable clips in audio_demos/
 ```
 
 ### `audio_toolkit` package
 
-Importable modules used by the capstone chapter and demos:
-
 ```bash
 cd book
-python tests/test_correctness.py      # FFT, Parseval, STFT, FIR, phase, dBFS
-python solutions/run_verifications.py # tested exercise numeric answers
+python tests/test_correctness.py        # 15 invariants (FFT, STFT, FIR, capstone, CLI, …)
+python solutions/run_verifications.py   # ch 01–22 exercise numeric checks
+python -m audio_toolkit tone out.wav --f0 440 --duration 1
+python -m audio_toolkit analyze out.wav
+python -m audio_toolkit filter in.wav out_lp.wav --cutoff 1000
 ```
 
-Layout: `book/audio_toolkit/` (`io`, `osc`, `spectral`, `filters`, `effects`, `meter`).
+Layout: `book/audio_toolkit/` (`io`, `osc`, `spectral`, `filters`, `effects`, `meter`, `synthesis`,
+`resample`, `__main__`).
 
 ## Build (Pandoc)
 
 ```bash
 cd book
-make html   # pdf/epub need extra tooling (pdf needs LaTeX)
+make html    # single-file HTML
+make pdf     # requires LaTeX (see CI artifacts)
+make epub
 ```
 
-## Chapter status (honest)
+CI builds all three formats on each push; download artifacts from the Actions run (`book-html`,
+`book-pdf`, `book-epub`).
 
-Statuses (see `BOOK_PLAN.md` for per-chapter table):
+## Chapter status (honest)
 
 | Status | Meaning |
 |--------|---------|
 | `stub` | Outline only |
 | `draft` | Prose present; not fully vetted |
-| `technically reviewed` | Equations, examples, citations checked; may need pedagogy pass |
+| `technically reviewed` | Equations, examples, citations checked |
 | `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
-| `polished` | Publication-ready (requires external review or teaching pilot) |
+| `polished` | Publication-ready (external review + teaching pilot required) |
 
-**No chapter is `polished` yet.** Foundation chapters (01–06) are `pedagogically reviewed`; several
-later survey chapters (18, 20) remain `draft`.
+**No chapter is `polished` yet.** Foundation chapters **01–06** are `pedagogically reviewed`; **00,
+07–22**, and the appendix are `technically reviewed`. External teaching pilot Run 1 is **ready for
+recruitment** (`TEACHING_PILOT_RUN1.md`); cohort not yet executed.
 
-### Governance rule
+## Teaching pilot
 
-A chapter may advance to `technically reviewed` only when:
-
-1. Example scripts for that chapter run in CI (if applicable)
-2. Equations and variables are defined consistently with `NOTATION.md`
-3. Citations resolve in Pandoc build
-4. A second review pass (human or independent agent) is recorded in `REVIEW_NOTES.md`
-
-Promotion to `pedagogically reviewed` or `polished` additionally requires exercise review and
-teaching clarity checks.
+- **Run 0:** internal automated dry-run (CI + solution scripts)
+- **Run 1:** external cohort — pre-flight in CI (`scripts/run_pilot_preflight.py`); instructor kit in
+  `TEACHING_PILOT_RUN1.md`
+- After a real cohort: `python book/scripts/record_pilot_run.py --help`
 
 ## CI
 
 On push/PR touching `book/**`:
 
-- **Format gate:** `black --check`, `ruff`, `scripts/check_formatting.py` (line structure)
-- Example smoke tests
-- `audio_toolkit` correctness tests
-- Exercise solution verifications
-- Pandoc HTML build
+| Job | Checks |
+|-----|--------|
+| `format` | `black`, `ruff`, `check_formatting.py` |
+| `examples` | example smoke tests, 15 correctness tests, ch 01–22 verifications, pilot pre-flight |
+| `html` / `pdf` / `epub` | Pandoc builds + artifact upload |
 
-## Formatting (required before PR)
+## Formatting (before PR)
 
 ```bash
 pip install -r book/requirements-dev.txt
 python -m black book/
 python -m ruff check book/ --fix
 python book/scripts/check_formatting.py
-python book/scripts/wrap_markdown.py   # wrap long prose lines if check fails
+python book/scripts/wrap_markdown.py   # if prose lines exceed limits
 ```
 
-Files use **LF** line endings (see `.gitattributes`). `requirements.txt` is **one package per line**.
-Python modules are multi-line (not single-line blobs); CI fails if structure regresses.
+Files use **LF** line endings (`.gitattributes`). `requirements.txt` is one package per line.

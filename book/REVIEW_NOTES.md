@@ -2,6 +2,22 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 25 — HTML Artifact, Filter CLI, Pilot Log Helper (2026-07-03)
+
+### Completed
+
+- **HTML CI artifact** — `book-html` upload alongside PDF/EPUB
+- **`audio_toolkit filter`** — FIR lowpass subcommand; extended `test_audio_toolkit_cli`
+- **`record_pilot_run.py`** — instructor CLI to log real Run 1 cohort results (no fake data)
+- **README** — honest chapter status, CI artifact table, CLI examples, teaching pilot notes
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants** (use `record_pilot_run.py` after)
+- [ ] Broadcast-grade SRC (libsamplerate/SoX) — out of scope for in-repo toolkit
+
+---
+
 ## Pass 24 — EPUB CI, Resample Quality Tiers, Run 1 Kit (2026-07-03)
 
 ### Completed

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 
+from .filters import apply_fir, design_fir_lowpass
 from .io import read_wav, write_wav
 from .meter import linear_to_dbfs, peak_amplitude, rms
 from .osc import PhaseOscillator
@@ -32,6 +33,21 @@ def _cmd_tone(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_filter(args: argparse.Namespace) -> int:
+    x, fs = read_wav(args.input)
+    if x.ndim > 1:
+        x = x[:, 0]
+    h = design_fir_lowpass(fs, args.cutoff, num_taps=args.taps)
+    y = apply_fir(x, h)
+    write_wav(args.output, y, fs)
+    pk = peak_amplitude(y)
+    print(
+        f"Wrote {args.output}: lowpass {args.cutoff} Hz, "
+        f"{args.taps} taps, peak {pk:.4f} ({linear_to_dbfs(pk):.1f} dBFS)"
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="audio_toolkit", description="Book toolkit CLI")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -47,6 +63,13 @@ def main(argv: list[str] | None = None) -> int:
     tone.add_argument("--fs", type=int, default=48_000, help="Sample rate in Hz")
     tone.add_argument("--amplitude", type=float, default=0.8, help="Peak amplitude")
     tone.set_defaults(func=_cmd_tone)
+
+    filt = sub.add_parser("filter", help="Apply FIR lowpass and write WAV")
+    filt.add_argument("input", help="Input WAV path")
+    filt.add_argument("output", help="Output WAV path")
+    filt.add_argument("--cutoff", type=float, default=1000.0, help="Cutoff Hz")
+    filt.add_argument("--taps", type=int, default=101, help="FIR length")
+    filt.set_defaults(func=_cmd_filter)
 
     args = parser.parse_args(argv)
     return int(args.func(args))

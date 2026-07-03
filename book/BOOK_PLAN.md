@@ -265,11 +265,14 @@ flowchart TD
 
 ## Current Sprint Focus
 
+**Completed (Pass 25, 2026-07-03):** HTML CI artifact upload; `audio_toolkit filter` CLI subcommand;
+`record_pilot_run.py` instructor logging helper; README refresh (honest status, CI artifacts).
+
+**Next recommended step (Pass 26):** Execute external teaching cohort Run 1 with real participants;
+log via `record_pilot_run.py`; promote chapters only after `EXTERNAL_REVIEW.md` sign-off.
+
 **Completed (Pass 24, 2026-07-03):** EPUB CI job + artifact; `resample(..., quality=ImplQuality)` tiers;
 `TEACHING_PILOT_RUN1.md` instructor kit (agendas, feedback form, Run 1 log template).
-
-**Next recommended step (Pass 25):** Execute external teaching cohort Run 1; log results in
-`TEACHING_PILOT.md` / `EXTERNAL_REVIEW.md`; optional HTML artifact upload in CI.
 
 **Completed (Pass 23, 2026-07-03):** PDF CI job (LaTeX + figure generation + artifact); `audio_toolkit`
 CLI (`__main__.py`); teaching pilot Run 1 automated pre-flight script in CI; Makefile `--resource-path`

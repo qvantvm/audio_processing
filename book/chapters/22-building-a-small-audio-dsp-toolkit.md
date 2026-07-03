@@ -42,7 +42,7 @@ book/audio_toolkit/
   meter.py       # peak, RMS, dBFS conversions
   synthesis.py   # wavetable_osc, naive_saw (artifact)
   resample.py    # resample(), midi_to_hz; quality=ImplQuality tiers
-  __main__.py    # CLI: analyze, tone
+  __main__.py    # CLI: analyze, tone, filter
 book/tests/
   test_correctness.py   # FFT, Parseval, STFT, FIR, phase, dBFS, Karplus, capstone pipeline
 book/solutions/

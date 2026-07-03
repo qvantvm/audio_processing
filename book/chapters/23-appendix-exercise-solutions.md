@@ -666,6 +666,7 @@ export (see `examples/karplus_strong_demo.py`).
 ```bash
 python -m audio_toolkit tone out.wav --f0 440 --duration 1
 python -m audio_toolkit analyze out.wav
+python -m audio_toolkit filter in.wav out_lp.wav --cutoff 1000
 ```
 
 Verified by `test_audio_toolkit_cli` in `tests/test_correctness.py`.

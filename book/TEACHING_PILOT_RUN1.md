@@ -110,3 +110,4 @@ external sign-off.
 1. File GitHub issue or `REVIEW_NOTES.md` entry for each blocking pedagogical issue
 2. Update appendix solutions if cohort found numeric or notation errors
 3. Re-run `run_pilot_preflight.py` and full CI before Run 2
+4. Or run `scripts/record_pilot_run.py` to update log tables from CLI args

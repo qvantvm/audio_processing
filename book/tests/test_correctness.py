@@ -215,7 +215,28 @@ def test_audio_toolkit_cli() -> None:
             text=True,
         )
         assert analyze.returncode == 0, analyze.stderr or analyze.stdout
-        assert "440" in analyze.stdout or "peak:" in analyze.stdout
+        assert "peak:" in analyze.stdout
+
+        filtered = Path(tmp) / "cli_filtered.wav"
+        filt = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "audio_toolkit",
+                "filter",
+                str(out),
+                str(filtered),
+                "--cutoff",
+                "200",
+                "--taps",
+                "31",
+            ],
+            cwd=book,
+            capture_output=True,
+            text=True,
+        )
+        assert filt.returncode == 0, filt.stderr or filt.stdout
+        assert filtered.is_file()
 
 
 TESTS = [
