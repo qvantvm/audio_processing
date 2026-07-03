@@ -25,12 +25,12 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | reviewed | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | reviewed | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | reviewed | 05 |
-| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | draft | 06 |
-| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | draft | 07 |
-| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | draft | 02, 05 |
-| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | draft | 09 |
-| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | draft | 10 |
-| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | draft | 06, 10 |
+| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | reviewed | 06 |
+| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | reviewed | 07 |
+| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | reviewed | 02, 05 |
+| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | reviewed | 09 |
+| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | reviewed | 10 |
+| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | reviewed | 06, 10 |
 | 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | draft | 02 |
 | 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | draft | 03, 10 |
 | 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | draft | 08 |
@@ -233,17 +233,17 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Review pass** — promote chapters 07–22 from `draft` → `reviewed` (00–06 done in Pass 8)
-2. **Pandoc cross-refs** — extend `@sec:` labels to chapters 08–22
+1. **Review pass** — promote chapters 13–22 from `draft` → `reviewed` (00–12 done through Pass 9)
+2. **Pandoc cross-refs** — extend `@sec:` labels to chapters 13–22
 3. **Exercise solutions** — appendix (future)
-4. **Pandoc build CI** — `make html` when LaTeX/Pandoc available on runner
-5. **Chapter depth** — optional expansion of 19–20 in second teaching pass
+4. **Pandoc build CI** — `make html` when Pandoc available on runner
+5. **Chapter depth** — optional expansion of 19–20 in teaching pass
 
 ## Current Sprint Focus
 
-**Completed (Pass 8, 2026-07-02):** Bibliography entries (Harris, YIN, SMS, DDSP, WaveNet, BS.1770, EBU R128); resolved TODO citations in Ch 7, 13, 16, 17, 20; Pandoc `@sec:` IDs on Ch 00–07; chapters 00–06 promoted to **reviewed**; GitHub Actions example smoke tests.
+**Completed (Pass 9, 2026-07-03):** Editorial review of chapters 07–12; `@sec:` IDs on Ch 08–12; cross-links throughout spectral/filter block; NOTATION ($\tau_g$, CG, $D$) and GLOSSARY (COLA, comb filter, group delay); chapters 07–12 promoted to **reviewed**.
 
-**Next recommended step (Pass 9):** Editorial review of **chapters 07–12** (spectral + filtering block); add `@sec:` IDs; promote to `reviewed` if criteria met; extend cross-links from Ch 08 STFT back to @sec:ch-06-dft-fft and @sec:ch-07-windowing.
+**Next recommended step (Pass 10):** Editorial review of **chapters 13–17** (loudness, resampling, features, pitch, musical reps); add `@sec:` IDs; resolve any remaining plain "Chapter N" references; promote to `reviewed`.
 
 ## Conventions
 

@@ -106,6 +106,18 @@ A representation of a non-periodic continuous-time signal as a weighted integral
 
 The complex gain $H(\Omega)$ of a linear time-invariant system as a function of frequency, describing magnitude and phase of the output sinusoid relative to the input.
 
+## COLA (constant overlap-add)
+
+Condition on analysis/synthesis windows and hop size such that overlapping STFT frames sum to unity— enables perfect or near-perfect reconstruction.
+
+## Comb filter
+
+A filter combining a signal with a delayed copy of itself (feedforward and/or feedback), producing periodic peaks or notches in the magnitude response.
+
+## Group delay
+
+The negative derivative of phase with respect to frequency, $\tau_g(\Omega) = -d\angle H/d\Omega$, describing how long narrowband energy is delayed through a system at each frequency.
+
 ## Harmonic
 
 A frequency component at an integer multiple of the fundamental: $k f_0$ for integer $k$.

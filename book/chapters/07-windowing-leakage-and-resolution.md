@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Chapter 6 showed that a finite DFT segment behaves as if the signal repeats every $N$ samples and that off-bin tones spread energy across bins. **Windowing** tapers the segment edges to reduce the artificial discontinuity at the wrap point and to control **spectral leakage**. This chapter explains window tradeoffs: main-lobe width (frequency resolution) versus sidelobe level (leakage suppression)— the core time–frequency uncertainty behind spectral analysis.
+Chapter 6 (@sec:ch-06-dft-fft) showed that a finite DFT segment behaves as if the signal repeats every $N$ samples and that off-bin tones spread energy across bins. **Windowing** tapers the segment edges to reduce the artificial discontinuity at the wrap point and to control **spectral leakage**. This chapter explains window tradeoffs: main-lobe width (frequency resolution) versus sidelobe level (leakage suppression)— the core time–frequency uncertainty behind spectral analysis.
 
 ## Learning Objectives
 
@@ -24,7 +24,7 @@ $$
 X_w[k] = \sum_{n=0}^{N-1} x[n]\, w[n]\, e^{-j 2\pi k n / N}
 $$
 
-tapers samples toward zero at the edges. This reduces the **spectral smearing** caused by abruptly truncating a signal as if it were periodic. Without tapering, even a pure tone leaks when its frequency falls between DFT bins (Chapter 6).
+tapers samples toward zero at the edges. This reduces the **spectral smearing** caused by abruptly truncating a signal as if it were periodic. Without tapering, even a pure tone leaks when its frequency falls between DFT bins (@sec:ch-06-dft-fft).
 
 The cost: tapering **reduces effective data amplitude** near edges and **broadens** the main lobe of a tonal peak— you trade leakage for resolution.
 
@@ -38,7 +38,7 @@ $$
 w[n] = 0.5\left(1 - \cos\frac{2\pi n}{N-1}\right).
 $$
 
-Sidelobes fall faster (~−32 dB first sidelobe region) at the cost of a **wider main lobe** (~2× rectangular). Very common in audio STFT (Chapter 8).
+Sidelobes fall faster (~−32 dB first sidelobe region) at the cost of a **wider main lobe** (~2× rectangular). Very common in audio STFT (@sec:ch-08-stft).
 
 ### Hamming, Blackman, Kaiser
 
@@ -80,7 +80,7 @@ Parseval with window: energy in time matches scaled energy in frequency only wit
 
 **Piano note analysis:** Hann STFT balances leakage and resolution; rectangular window can create false partials near strong harmonics.
 
-**Snare transient:** long windows blur attack time; short windows widen frequency peaks— motivates STFT (Chapter 8).
+**Snare transient:** long windows blur attack time; short windows widen frequency peaks— motivates @sec:ch-08-stft.
 
 ## Implementation Notes
 
@@ -105,7 +105,7 @@ SciPy: `scipy.signal.get_window('hann', N)`.
 1. **Expecting window to beat $\Delta f$ limit.** Only longer **data** (or lower $f_s$) narrows bin spacing.
 2. **Forgetting amplitude correction** when reporting dBFS spectra.
 3. **Using different windows** without relabeling comparisons.
-4. **Zero-padding mistaken for resolution** (Chapter 6).
+4. **Zero-padding mistaken for resolution** (@sec:ch-06-dft-fft).
 
 ## Exercises
 
@@ -120,4 +120,4 @@ SciPy: `scipy.signal.get_window('hann', N)`.
 - Smith, *Spectral Audio Signal Processing* [@smith2011spectral]
 - Harris, classic window survey [@harris1978windows]
 
-**Next chapter:** Chapter 08 — *STFT, Spectrograms, and Time–Frequency Analysis*.
+**Next chapter:** @sec:ch-08-stft — *STFT, Spectrograms, and Time–Frequency Analysis*.

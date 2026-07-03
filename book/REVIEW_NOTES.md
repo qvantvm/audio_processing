@@ -2,38 +2,43 @@
 
 Open issues, review findings, and planned improvements.
 
-## Pass 8 — Editorial & Bibliography (2026-07-02)
+## Pass 9 — Chapters 07–12 Review (2026-07-03)
 
 ### Completed
 
-- Added bibliography: Harris windows, YIN, SMS, DDSP, WaveNet, ITU BS.1770, EBU R128
-- Resolved TODO citations in chapters 7, 13, 16, 17, 20
-- Pandoc section IDs on chapters 00–07; cross-refs in Ch 01, 06
-- Promoted chapters **00–06** to **reviewed** in `BOOK_PLAN.md`
-- Added `.github/workflows/book-examples.yml` (smoke tests)
+- Pandoc `@sec:` IDs on chapters 08–12
+- Cross-references updated in chapters 07–12 (replaced plain "Chapter N" with `@sec:` links)
+- Ch 08 links back to @sec:ch-06-dft-fft and @sec:ch-07-windowing
+- NOTATION: group delay $\tau_g$, coherent gain CG, delay $D$; restored $w[n]$, $m$, $z^{-1}$
+- GLOSSARY: COLA, comb filter, group delay
+- Promoted chapters **07–12** to **reviewed**
 
 ### Correctness / Clarity
 
-- [ ] Review chapters 07–12 (spectral + filter block) → promote to reviewed
-- [ ] Extend `@sec:` IDs to chapters 08–22
-- [ ] Full notation audit for chapters 10–12 (poles, group delay symbols)
+- [ ] Review chapters 13–17 (production + analysis block)
+- [ ] Extend `@sec:` IDs to chapters 13–22
+- [ ] Add forward refs from Ch 13 to Ch 21 (true-peak) with @sec when IDs exist
 
 ### Examples / CI
 
-- [x] `tests/run_examples.py` smoke harness
-- [x] GitHub Actions workflow for examples
-- [ ] Pandoc `make html` CI (needs pandoc on runner)
+- [x] Example smoke tests pass
+- [x] GitHub Actions workflow
+- [ ] Pandoc `make html` CI
 
-### Bibliography
+### Reviewed chapters (cumulative)
 
-- [x] Harris, YIN, SMS, DDSP, WaveNet, BS.1770, EBU R128 added
-- [ ] Verify all in-text cite keys on second full read
+00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12
 
 ---
 
+## Pass 8 — Editorial & Bibliography (2026-07-02)
+
+- Bibliography entries; TODO citations resolved in Ch 7, 13, 16, 17, 20
+- Chapters 00–06 promoted to reviewed; CI workflow added
+
 ## Pass 7 — Complete Manuscript Draft (2026-07-02)
 
-- Drafted chapters 07–22; nine examples; all chapters initially **draft**
+- Drafted chapters 07–22
 
 ## Status Promotion Criteria
 
@@ -43,8 +48,6 @@ Promote **draft** → **reviewed** when:
 2. All cited keys resolve in `bibliography.bib`
 3. Referenced examples run
 4. Exercises spot-checked
-
-**Reviewed (Pass 8):** 00, 01, 02, 03, 04, 05, 06
 
 ## Future Review Checklist (per section)
 

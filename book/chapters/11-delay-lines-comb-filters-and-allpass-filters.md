@@ -1,4 +1,4 @@
-# Delay Lines, Comb Filters, and All-Pass Filters
+# Delay Lines, Comb Filters, and All-Pass Filters {#ch-11-delay-comb-allpass}
 
 ## Purpose
 
@@ -22,7 +22,7 @@ $$
 y[n] = x[n-D] + \cdots
 $$
 
-Circular buffer of length $L \ge D$ stores $D$ samples of history. **Fractional delay** uses interpolation (Chapter 14).
+Circular buffer of length $L \ge D$ stores $D$ samples of history. **Fractional delay** uses interpolation (@sec:ch-14-resampling).
 
 Delay time $\tau = D/f_s$ seconds.
 
@@ -109,4 +109,4 @@ Modulated delay: interpolate read pointer for chorus/flanger.
 - Puckette [@puckette2007electronic]
 - Smith, *Physical Audio Signal Processing* [@smith2010physical]
 
-**Next chapter:** Chapter 12 — *Phase, Group Delay, and Minimum Phase*.
+**Next chapter:** @sec:ch-12-phase-group-delay — *Phase, Group Delay, and Minimum Phase*.

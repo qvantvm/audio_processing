@@ -79,8 +79,17 @@ This file tracks symbols used across the book. Before introducing new notation i
 |--------|---------|-------|
 | $w[n]$ | Analysis window | Length $M$ |
 | $m$ | Frame index | STFT frame counter |
+| $M$ | Window / STFT length | Samples per frame; $\Delta f \approx f_s/M$ |
 | $R$ | Hop size | Samples between STFT frames |
 | $X_m[k]$ | STFT coefficient | Frequency bin $k$ in frame $m$ |
+| $\text{CG}$ | Coherent gain | Window amplitude correction factor |
+
+## Phase and Frequency Response
+
+| Symbol | Meaning | Notes |
+|--------|---------|-------|
+| $\tau_g(\Omega)$ | Group delay | $-\frac{d}{d\Omega}\angle H(\Omega)$; seconds via $\tau_g/f_s$ |
+| $\angle H(\Omega)$ | Phase response | Argument of $H(e^{j\Omega})$ |
 
 ## Filters and Difference Equations
 
@@ -89,6 +98,7 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $b_k$ | FIR numerator coefficients | |
 | $a_k$ | IIR denominator coefficients | Usually $a_0 = 1$ |
 | $z^{-1}$ | Unit delay operator | |
+| $D$ | Delay in samples | Integer or fractional delay-line length |
 
 ## Complex Numbers and Sinusoids
 
