@@ -2,6 +2,23 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 20 — Solutions ch 16–17, resample Module, Pilot Dry-Run (2026-07-03)
+
+### Completed
+
+- **`audio_toolkit.resample`** — `resample()`, `midi_to_hz()`; ch 14 + ch 22 docs
+- Exercise solutions + verify scripts for **ch 16–17**
+- Teaching pilot **Run 0** internal dry-run logged (`TEACHING_PILOT.md`, `EXTERNAL_REVIEW.md`)
+- Correctness test: `test_resample_preserves_tone`
+
+### Remaining gaps
+
+- [ ] Exercise solutions ch 18+
+- [ ] External teaching cohort (Run 1)
+- [ ] PDF CI (LaTeX)
+
+---
+
 ## Pass 19 — Solutions ch 13–15, Diagrams, Teaching Pilot (2026-07-03)
 
 ### Completed

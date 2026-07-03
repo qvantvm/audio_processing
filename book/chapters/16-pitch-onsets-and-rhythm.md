@@ -115,6 +115,8 @@ Validate on monophonic instruments before polyphonic material.
 3. Why YIN uses cumulative mean normalized difference?
 4. Plot tempogram sketch for 120 BPM quarter-note clicks.
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Müller [@muller2015fundamentals]

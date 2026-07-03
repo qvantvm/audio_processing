@@ -36,15 +36,29 @@ After six sessions, participants should:
 
 ## Pilot log
 
+### Run 0 — Internal dry-run (automated checklist)
+
 | Field | Value |
 |-------|-------|
-| Status | **template** — not yet run with external cohort |
+| Status | **internal dry-run** — not a human cohort |
+| Date | 2026-07-03 |
+| Instructor | agent-pass-20 (automated) |
+| Participants | 0 (CI + solution scripts) |
+| Artifacts verified | All 18 examples; solutions ch 01–06; 12 correctness tests |
+| Issues found | None blocking; external cohort still required for `polished` |
+| Chapters promoted | none |
+
+### Run 1 — External cohort (pending)
+
+| Field | Value |
+|-------|-------|
+| Status | **pending** |
 | Instructor | — |
 | Date | — |
 | Participants | — |
-| Chapters promoted | none (remain pedagogically reviewed) |
+| Chapters promoted | — |
 
-Record results in `EXTERNAL_REVIEW.md` after first real cohort.
+Record external cohort results in `EXTERNAL_REVIEW.md`.
 
 ## Instructor notes
 

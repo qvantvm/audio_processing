@@ -40,7 +40,8 @@ book/audio_toolkit/
   filters.py     # design_fir_lowpass, apply_fir, frequency_response
   effects.py     # DelayLine, karplus_strong
   meter.py       # peak, RMS, dBFS conversions
-  synthesis.py   # wavetable_osc, naive_saw
+  synthesis.py   # wavetable_osc, naive_saw (artifact)
+  resample.py    # resample(), midi_to_hz (pedagogical SRC)
 book/tests/
   test_correctness.py   # FFT, Parseval, STFT, FIR, phase, dBFS, Karplus
 book/solutions/

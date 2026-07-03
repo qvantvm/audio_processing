@@ -12,7 +12,7 @@ import numpy as np
 BOOK = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BOOK))
 
-from audio_toolkit.meter import dbfs_to_linear, linear_to_dbfs, peak_amplitude, rms  # noqa: E402
+from audio_toolkit.meter import peak_amplitude, rms  # noqa: E402
 
 
 def main() -> int:

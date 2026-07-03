@@ -48,7 +48,7 @@ programming experience (Python examples throughout).
 | 20 | `20-neural-audio-representations.md` | Neural Audio Representations | technically reviewed | 08, 15 |
 | 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | technically reviewed | 06, 10 |
 | 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | technically reviewed | 10, 21 |
-| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–15) | technically reviewed | 01–15 |
+| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–17) | technically reviewed | 01–17 |
 
 **Status legend:**
 
@@ -256,20 +256,19 @@ flowchart TD
 ## Missing Sections (Polish Pass)
 
 1. **Polish pass** — no chapter at `polished` yet; foundation 01–06 at `pedagogically reviewed`
-2. **Exercise solutions** — ch 01–15 in appendix + `solutions/` verified scripts; extend to ch 16+
+2. **Exercise solutions** — ch 01–17 in appendix + `solutions/` verified scripts; extend to ch 18+
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
-4. **audio_toolkit** — implemented (Pass 14); expand synthesis examples (ch 18), neural depth (ch
-20)
+4. **audio_toolkit** — `resample.py` (Pass 20); production SRC external
 5. **PDF build** — CI with LaTeX (optional)
 6. **Audio demos** — `audio_demos/` WAV exports via `export_audio_demos.py` (Pass 15)
 
 ## Current Sprint Focus
 
-**Completed (Pass 19, 2026-07-03):** Exercise solutions ch 13–15; modal + neural pipeline diagrams;
-`TEACHING_PILOT.md` for foundation block.
+**Completed (Pass 20, 2026-07-03):** Exercise solutions ch 16–17; `audio_toolkit.resample`; teaching
+pilot internal dry-run logged.
 
-**Next recommended step (Pass 20):** Exercise solutions ch 16–17; resampling module sketch; first
-external teaching pilot log entry.
+**Next recommended step (Pass 21):** Exercise solutions ch 18–21; wavetable diagram; external cohort
+for teaching pilot.
 
 ## Conventions
 

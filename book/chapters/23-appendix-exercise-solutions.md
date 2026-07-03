@@ -1,6 +1,6 @@
 # Appendix: Selected Exercise Solutions {#ch-23-exercise-solutions}
 
-This appendix provides worked solutions for exercises in chapters **01–15**. Try each exercise
+This appendix provides worked solutions for exercises in chapters **01–17**. Try each exercise
 yourself first; use these solutions to check arithmetic, conventions, and reasoning.
 
 ---
@@ -501,5 +501,53 @@ Log compresses dynamic range before DCT so **multiplicative** spectral shapes be
 
 ---
 
-*Numeric answers for ch 01–15 verified by `solutions/ch01_verify.py` … `ch15_verify.py` (`python
+---
+
+## [Chapter 16](#ch-16-pitch-onsets) — Pitch, Onsets, and Rhythm
+
+### Exercise 16.1
+
+220 Hz sine at 48 kHz: autocorrelation peak near lag $48000/220 \approx 218$ samples → $f_0 \approx
+220$ Hz. Parabolic DFT interpolation tightens off-bin error.
+
+### Exercise 16.2
+
+Synthetic clicks at known times; onset detector should peak within ±1 frame of ground truth (tune
+threshold).
+
+### Exercise 16.3
+
+**YIN** normalizes cumulative mean difference to reduce false peaks at sub-harmonics (octave
+errors).
+
+### Exercise 16.4
+
+120 BPM = 2 beats/s → **2 Hz** pulse in tempogram for quarter-note grid.
+
+---
+
+## [Chapter 17](#ch-17-musical-reps) — Musical Signal Representations
+
+### Exercise 17.1
+
+MIDI 69 = A4 = **440 Hz**. MIDI 81 = A5 = $440 \cdot 2^{12/12}$ = **880 Hz** (`midi_to_hz` in
+`audio_toolkit.resample`).
+
+### Exercise 17.2
+
+Major triad: energy at root, major third, fifth chroma classes — three of twelve bins lit.
+
+### Exercise 17.3
+
+STFT fixed $\Delta f = f_s/N$; CQT uses wider bins high, narrower low — better note resolution in
+bass.
+
+### Exercise 17.4
+
+Fails on **transients**, **noise**, **dense polyphony**, and breathiness — needs separate noise/transient
+layer.
+
+---
+
+*Numeric answers for ch 01–17 verified by `solutions/ch01_verify.py` … `ch17_verify.py` (`python
 solutions/run_verifications.py`).*

@@ -112,6 +112,8 @@ Sinusoidal analysis: `sweep`/`tracker` research code; commercial spectral editor
 3. Compare STFT vs CQT bin spacing at 100 Hz and 2000 Hz (same $f_s$).
 4. When does additive sinusoidal resynthesis fail audibly?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Roads [@roads1996computer]

@@ -81,8 +81,18 @@ Governance (from `BOOK_PLAN.md`):
 | Field | Value |
 |-------|-------|
 | Outline | `TEACHING_PILOT.md` |
-| Status | template — cohort not yet run |
-| Sign-off | **pending** |
+| Run 0 (internal) | 2026-07-03 — automated dry-run: examples + ch 01–06 solutions OK |
+| Run 1 (external) | **pending** |
+| Sign-off | **pending** external cohort |
+
+## Chapters 16–17 — Pitch / musical representations
+
+| Field | Value |
+|-------|-------|
+| Reviewer | agent-pass-20 |
+| Date | 2026-07-03 |
+| Notes | Solutions ch 16–17; `audio_toolkit.resample` |
+| Sign-off | **pending** external |
 
 ## Chapters 18–22 — Synthesis / neural / toolkit
 
@@ -99,7 +109,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Reviewer | agent-pass-18 |
 | Date | 2026-07-03 |
-| Notes | Verified scripts ch 01–15 |
+| Notes | Verified scripts ch 01–17 |
 | Sign-off | **pending** external |
 
 ---

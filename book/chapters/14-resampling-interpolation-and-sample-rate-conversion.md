@@ -77,11 +77,13 @@ compensated).
 ## Implementation Notes
 
 ```python
-from scipy.signal import resample_poly
-y = resample_poly(x, up=160, down=147)  # example ratio components
+from audio_toolkit.resample import resample
+
+y, fs_out = resample(x, fs_in=44_100, fs_out=48_000)
 ```
 
-`librosa.resample`, `soxr` preferred for quality. Always document SRC used in datasets.
+Pedagogical wrapper around ``scipy.signal.resample_poly``. For production quality use `librosa.resample`,
+`soxr`, or SoX. Always document SRC used in datasets.
 
 ## Worked Example
 
