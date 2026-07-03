@@ -71,9 +71,9 @@ Governance (from `BOOK_PLAN.md`):
 
 | Field | Value |
 |-------|-------|
-| Reviewer | agent-pass-19 |
+| Reviewer | agent-pass-19–29 |
 | Date | 2026-07-03 |
-| Notes | Solutions ch 13–15 verified |
+| Notes | Solutions ch 13–15; resample quality tiers; **pedagogically reviewed** Pass 29 |
 | Sign-off | **pending** external |
 
 ## Teaching pilot — foundation block (ch 01–06)

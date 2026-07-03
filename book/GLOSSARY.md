@@ -184,6 +184,12 @@ not change over time.
 Integrated loudness measure from ITU-R BS.1770 / EBU R128, using K-weighting and gating; used for
 broadcast and streaming level matching (not identical to RMS or peak dBFS).
 
+## True peak
+
+The maximum absolute value of a signal after **oversampled** reconstruction, capturing intersample
+peaks that can exceed sample peaks and cause DAC clipping. Relevant for mastering and limiter QA
+([Chapter 21](#ch-21-testing-pitfalls)).
+
 ## MFCC (mel-frequency cepstral coefficients)
 
 Features derived by applying a Mel filterbank to a power spectrum, taking the log, and applying a

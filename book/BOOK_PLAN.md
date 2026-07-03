@@ -38,9 +38,9 @@ programming experience (Python examples throughout).
 | 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | pedagogically reviewed | 09 |
 | 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | pedagogically reviewed | 10 |
 | 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | pedagogically reviewed | 06, 10 |
-| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | technically reviewed | 02 |
-| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | technically reviewed | 03, 10 |
-| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | technically reviewed | 08 |
+| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | pedagogically reviewed | 02 |
+| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | pedagogically reviewed | 03, 10 |
+| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | pedagogically reviewed | 08 |
 | 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | technically reviewed | 06, 08 |
 | 17 | `17-musical-signal-representations.md` | Musical Signal Representations | technically reviewed | 04, 08 |
 | 18 | `18-synthesis-representations.md` | Synthesis Representations | technically reviewed | 04, 10 |
@@ -255,7 +255,7 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Polish pass** — no chapter at `polished` yet; **01–12** at `pedagogically reviewed`
+1. **Polish pass** — no chapter at `polished` yet; **01–15** at `pedagogically reviewed`
 2. **Exercise solutions** — ch 01–22 complete (capstone verify + integration test)
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **audio_toolkit** — `resample.py` with `ImplQuality` tiers (Pass 24); broadcast SRC still external
@@ -265,11 +265,14 @@ flowchart TD
 
 ## Current Sprint Focus
 
+**Completed (Pass 29, 2026-07-03):** Pedagogical review ch **13–15** (loudness/SRC/features);
+`check_pedagogy_verify.py` CI gate; glossary **true peak**.
+
+**Next recommended step (Pass 30):** External teaching cohort Run 1; or pedagogy pass ch **16–18**;
+`polished` only after `EXTERNAL_REVIEW.md` approved sign-off.
+
 **Completed (Pass 28, 2026-07-03):** Pedagogical review ch **10–12** (filters/delay/phase block); GitHub
 issue template for teaching pilot reports.
-
-**Next recommended step (Pass 29):** External teaching cohort Run 1 with real participants; log via
-`record_pilot_run.py` or issue template; `polished` only after `EXTERNAL_REVIEW.md` approved sign-off.
 
 **Completed (Pass 27, 2026-07-03):** Pedagogical review ch **07–09** (spectral/convolution block);
 `TEACHING_PILOT_RECRUIT.md` recruitment call; glossary **coherent gain**; optional pilot extension

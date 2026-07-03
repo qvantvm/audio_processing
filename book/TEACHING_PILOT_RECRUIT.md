@@ -57,7 +57,8 @@ extend the pilot for participants who want spectrogram depth. Use `window_leakag
 `stft_spectrogram_demo.py`.
 
 Further optional sessions **9–10** cover ch **10–12** (FIR/IIR, delay lines, group delay) for
-participants continuing past the foundation block.
+participants continuing past the foundation block. Sessions **11–12** may cover ch **13–15**
+(loudness, resampling, features) for MIR-oriented cohorts.
 
 ## Contact / reporting
 

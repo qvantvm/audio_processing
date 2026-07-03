@@ -71,7 +71,7 @@ CI builds all three formats on each push; download artifacts from the Actions ru
 | `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
 | `polished` | Publication-ready (external review + teaching pilot required) |
 
-**No chapter is `polished` yet.** Chapters **01–12** are `pedagogically reviewed`; **00, 13–22**,
+**No chapter is `polished` yet.** Chapters **01–15** are `pedagogically reviewed`; **00, 16–22**,
 and the appendix are `technically reviewed`. External teaching pilot Run 1 is **seeking an
 instructor** (`TEACHING_PILOT_RECRUIT.md`).
 
@@ -88,7 +88,7 @@ On push/PR touching `book/**`:
 
 | Job | Checks |
 |-----|--------|
-| `format` | `black`, `ruff`, `check_formatting.py`, `check_representation_lens.py` |
+| `format` | `black`, `ruff`, `check_formatting.py`, `check_representation_lens.py`, `check_pedagogy_verify.py` |
 | `examples` | example smoke tests, 15 correctness tests, ch 01–22 verifications, pilot pre-flight, governance tests |
 | `html` / `pdf` / `epub` | Pandoc builds + artifact upload |
 

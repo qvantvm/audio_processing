@@ -2,6 +2,22 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 29 — Pedagogy ch 13–15, Verify Coverage Gate (2026-07-03)
+
+### Completed
+
+- **Pedagogical review** — ch **13–15** (loudness, SRC, features/descriptors)
+- **`check_pedagogy_verify.py`** — CI gate: pedagogically reviewed chapters must have verify scripts
+- **Glossary** — true peak entry
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants**
+- [ ] Ch **16–22** still `technically reviewed` (pedagogy passes ongoing)
+- [ ] No chapter `polished` without `EXTERNAL_REVIEW.md` **approved** sign-off
+
+---
+
 ## Pass 28 — Pedagogy ch 10–12, Pilot Issue Template (2026-07-03)
 
 ### Completed

@@ -57,7 +57,17 @@ def test_representation_lens_script() -> None:
     assert r.returncode == 0, r.stderr or r.stdout
 
 
-TESTS = [test_record_pilot_run_updates_temp_copy, test_representation_lens_script]
+def test_pedagogy_verify_script() -> None:
+    r = subprocess.run(
+        [sys.executable, str(BOOK / "scripts" / "check_pedagogy_verify.py")],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert r.returncode == 0, r.stderr or r.stdout
+
+
+TESTS = [test_record_pilot_run_updates_temp_copy, test_representation_lens_script, test_pedagogy_verify_script]
 
 
 def main() -> int:
