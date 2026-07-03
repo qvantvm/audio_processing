@@ -1,6 +1,6 @@
 # Appendix: Selected Exercise Solutions {#ch-23-exercise-solutions}
 
-This appendix provides worked solutions for exercises in chapters **01–17**. Try each exercise
+This appendix provides worked solutions for exercises in chapters **01–22**. Try each exercise
 yourself first; use these solutions to check arithmetic, conventions, and reasoning.
 
 ---
@@ -549,5 +549,122 @@ layer.
 
 ---
 
-*Numeric answers for ch 01–17 verified by `solutions/ch01_verify.py` … `ch17_verify.py` (`python
-solutions/run_verifications.py`).*
+---
+
+## [Chapter 18](#ch-18-synthesis) — Synthesis Representations
+
+### Exercise 18.1
+
+At $f_s=48000$, A440 period $= f_s/f_0 \approx 109$ samples (not 48 — that would be $f_0 \approx
+1000$ Hz at 48 kHz). Wavetable stores one cycle template; pointer rate sets pitch.
+
+### Exercise 18.2
+
+$f_c=440$, $f_m=220$, small $I$: sidebands near $440 \pm 220k$ → **220, 440, 660, 880 Hz**, …
+
+### Exercise 18.3
+
+50 ms grains, 50% overlap → hop 25 ms → **40 grains/s**.
+
+### Exercise 18.4
+
+Naive saw shows strong harmonics folding above Nyquist; polyBLEP/BLEP attenuates discontinuity
+images — compare spectra above 5 kHz.
+
+---
+
+## [Chapter 19](#ch-19-physical-modeling) — Physical-Modeling Representations
+
+### Exercise 19.1
+
+Waveguide loop: delay $D$ + averaging low-pass in feedback path (see Karplus–Strong diagram).
+
+### Exercise 19.2
+
+Three decaying partials → inharmonic/metallic struck timbre with separate ring times.
+
+### Exercise 19.3
+
+String length in samples rarely integer at target pitch — **fractional delay** tunes $f_0$ without
+detuning.
+
+### Exercise 19.4
+
+10 parallel modal resonators vs one waveguide: modal cost scales with partial count; waveguide one
+loop can be cheaper for one string.
+
+### Exercise 19.5
+
+Higher decay gain → longer ring-off (listen in `karplus_strong_demo.py`).
+
+---
+
+## [Chapter 20](#ch-20-neural-audio) — Neural Audio Representations
+
+### Exercise 20.1
+
+Failure modes: phase artifacts (Griffin–Lim), train/serve $f_s$ mismatch, mel band config drift,
+vocoder smear, dataset bias.
+
+### Exercise 20.2
+
+Explicit $f_0$ preserves musical pitch structure; learned latents often smear pitch.
+
+### Exercise 20.3
+
+MFCC+SVM: thousands of params; small CNN: millions — CNN needs more data but learns front-end.
+
+### Exercise 20.4
+
+Classical STFT pipeline preferable with **small labeled data**, need for **interpretability**, or
+strict **reproducibility** constraints.
+
+---
+
+## [Chapter 21](#ch-21-testing-pitfalls) — Testing, Measurement, and Numerical Pitfalls
+
+### Exercise 21.1
+
+Impulse through FIR: output samples equal $h[n]$ — matches `lfilter` / `apply_fir`.
+
+### Exercise 21.2
+
+Compare `scipy.signal.group_delay` on designed FIR to theoretical delay of linear-phase filter.
+
+### Exercise 21.3
+
+Subtract mean or high-pass at 20 Hz removes DC offset before feature extraction.
+
+### Exercise 21.4
+
+Golden test: fixed seed input → STFT shape $(K, M)$ and checksum of $|S|$ stored in CI.
+
+---
+
+## [Chapter 22](#ch-22-dsp-toolkit) — Building a Small Audio DSP Toolkit
+
+### Exercise 22.1
+
+Round-trip `read_wav`/`write_wav` on a 440 Hz sine at 48 kHz; expect **SNR > 40 dB** (16-bit PCM
+quantization). Verified in `ch22_verify.py`.
+
+### Exercise 22.2
+
+Schroeder reverb stacks **parallel comb filters** with incommensurate delay times (e.g. 29, 37, 41,
+43 ms) and feedback $g \approx 0.7$–$0.8$. Tail energy should decay over ~1 s RT60; tune $g$ and
+delay set by listening or measuring RT60 on an impulse.
+
+### Exercise 22.3
+
+`karplus_strong` → `write_wav` → `read_wav` preserves length and peak error < 0.02 after 16-bit
+export (see `examples/karplus_strong_demo.py`).
+
+### Exercise 22.4
+
+Optional: add `python -m audio_toolkit` CLI with `argparse` subcommands for analyze/filter — package
+as `book/audio_toolkit/__main__.py` when ready.
+
+---
+
+*Numeric answers for ch 01–22 verified by `solutions/ch01_verify.py` … `ch22_verify.py` (`python
+solutions/run_verifications.py`). Capstone pipeline covered by `tests/test_correctness.py::test_toolkit_capstone_pipeline`.*

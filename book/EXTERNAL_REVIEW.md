@@ -82,7 +82,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Outline | `TEACHING_PILOT.md` |
 | Run 0 (internal) | 2026-07-03 — automated dry-run: examples + ch 01–06 solutions OK |
-| Run 1 (external) | **pending** |
+| Run 1 (external) | **ready for recruitment** — checklist in `TEACHING_PILOT.md` |
 | Sign-off | **pending** external cohort |
 
 ## Chapters 16–17 — Pitch / musical representations
@@ -92,6 +92,15 @@ Governance (from `BOOK_PLAN.md`):
 | Reviewer | agent-pass-20 |
 | Date | 2026-07-03 |
 | Notes | Solutions ch 16–17; `audio_toolkit.resample` |
+| Sign-off | **pending** external |
+
+## Chapters 18–21 — Synthesis / neural / testing
+
+| Field | Value |
+|-------|-------|
+| Reviewer | agent-pass-21 |
+| Date | 2026-07-03 |
+| Notes | Solutions ch 18–21; wavetable diagram |
 | Sign-off | **pending** external |
 
 ## Chapters 18–22 — Synthesis / neural / toolkit
@@ -109,7 +118,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Reviewer | agent-pass-18 |
 | Date | 2026-07-03 |
-| Notes | Verified scripts ch 01–17 |
+| Notes | Verified scripts ch 01–21 |
 | Sign-off | **pending** external |
 
 ---

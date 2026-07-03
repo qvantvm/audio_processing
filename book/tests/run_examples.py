@@ -30,6 +30,7 @@ EXAMPLES = [
     "phase_group_delay_diagram.py",
     "modal_bank_diagram.py",
     "neural_pipeline_diagram.py",
+    "wavetable_diagram.py",
 ]
 
 failures = []

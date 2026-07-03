@@ -2,6 +2,40 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 22 — Capstone Solutions, Integration Test (2026-07-03)
+
+### Completed
+
+- Exercise solutions appendix for **ch 22** (capstone toolkit)
+- `ch22_verify.py` — WAV SNR, Schroeder comb tail decay, Karplus WAV round-trip
+- **`test_toolkit_capstone_pipeline`** — synthesize → filter → meter → STFT → WAV in correctness suite
+- Appendix + `run_verifications.py` now cover **ch 01–22**
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 execution
+- [ ] PDF CI (LaTeX)
+- [ ] Optional `audio_toolkit.__main__` CLI (ex 22.4)
+
+---
+
+## Pass 21 — Solutions ch 18–21, Wavetable Diagram (2026-07-03)
+
+### Completed
+
+- Exercise solutions + verify scripts for **ch 18–21** (all non-capstone chapters with exercises)
+- `wavetable_structure.png` diagram in ch 18
+- Teaching pilot Run 1 marked **ready for recruitment** with checklist
+- Appendix covers **ch 01–21**
+
+### Remaining gaps
+
+- [ ] ch 22 capstone exercise solutions
+- [ ] External teaching cohort Run 1 execution
+- [ ] PDF CI (LaTeX)
+
+---
+
 ## Pass 20 — Solutions ch 16–17, resample Module, Pilot Dry-Run (2026-07-03)
 
 ### Completed

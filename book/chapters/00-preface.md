@@ -41,7 +41,7 @@ numerical pitfalls and assembling a small DSP toolkit.
 - **Sequential reading** builds concepts in dependency order (see the dependency diagram in `BOOK_PLAN.md`).
 - **Reference reading** is supported by `NOTATION.md` and `GLOSSARY.md`.
 - **Hands-on learning**: run scripts in `examples/` alongside the chapter sections that reference them.
-- **Exercise solutions**: chapters 01–17 in [Appendix: Exercise Solutions](#ch-23-exercise-solutions);
+- **Exercise solutions**: chapters 01–21 in [Appendix: Exercise Solutions](#ch-23-exercise-solutions);
   teaching pilot in `TEACHING_PILOT.md` (internal dry-run logged); external review in
   `EXTERNAL_REVIEW.md`.
 

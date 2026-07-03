@@ -143,6 +143,8 @@ unless constrained. DDSP keeps sinusoidal parameters interpretable and reduces v
 4. When is classical STFT feature pipeline ([Audio Features and Descriptors](#ch-15-features)) still
 preferable?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - van den Oord et al., WaveNet generative raw audio [@oord2016wavenet]

@@ -153,6 +153,8 @@ Conversion](#ch-14-resampling))
 4. Compare CPU: 10-modal vs 1-waveguide string note.
 5. Modify `karplus_strong_demo.py` decay; listen for shorter/longer ring-off.
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Smith, *Physical Audio Signal Processing* [@smith2010physical]

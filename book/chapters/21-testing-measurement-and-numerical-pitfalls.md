@@ -111,6 +111,8 @@ IIR, and the Z-Transform](#ch-10-filters)).
 3. Inject DC; high-pass at 20 Hz; verify removal.
 4. Design CI golden file test for STFT feature shape.
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Steiglitz [@steiglitz1996dsp]

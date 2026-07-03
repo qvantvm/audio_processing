@@ -48,15 +48,15 @@ After six sessions, participants should:
 | Issues found | None blocking; external cohort still required for `polished` |
 | Chapters promoted | none |
 
-### Run 1 — External cohort (pending)
+### Run 1 — External cohort (ready checklist)
 
 | Field | Value |
 |-------|-------|
-| Status | **pending** |
-| Instructor | — |
-| Date | — |
-| Participants | — |
-| Chapters promoted | — |
+| Status | **ready for recruitment** — materials verified Pass 21 |
+| Prerequisites doc | `TEACHING_PILOT.md` + ch 01–06 appendix solutions |
+| Artifacts checklist | examples OK; solutions ch 01–06; `phase_click` WAV demos |
+| Instructor action | Schedule 6 sessions; log participant count + feedback in this file |
+| Sign-off | **pending** until Run 1 completes |
 
 Record external cohort results in `EXTERNAL_REVIEW.md`.
 

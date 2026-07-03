@@ -114,6 +114,8 @@ python examples/wavetable_demo.py          # figure + audio_demos/wavetable_a440
 python examples/export_audio_demos.py      # aliasing, phase clicks, naive saw, comb
 ```
 
+![Wavetable oscillator structure](../figures/wavetable_structure.png)
+
 ![Wavetable A440 at 48 kHz](../figures/wavetable_a440.png)
 
 Listen to `audio_demos/naive_saw_2200hz.wav` for aliasing on a **naive_saw artifact** (intentional
@@ -147,8 +149,7 @@ template**; pointer rate sets pitch.
 3. Granular: 50 ms grains, 50% overlap— grains per second?
 4. Compare naive vs polyBLEP saw spectrum above 5 kHz.
 
-*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions) (extended in future
-passes).*
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
 ## Further Reading
 

@@ -144,6 +144,31 @@ def test_wavetable_pitch() -> None:
     assert abs(est_f0 - f0) < 20, f"wavetable pitch estimate {est_f0} vs {f0}"
 
 
+def test_toolkit_capstone_pipeline() -> None:
+    """Synthesize → filter → meter → STFT → WAV round-trip (Chapter 22)."""
+    import tempfile
+
+    from audio_toolkit.io import read_wav, write_wav
+
+    fs = 48_000.0
+    tone = osc.PhaseOscillator(fs, 440.0, amplitude=0.6).render(int(fs * 0.2))
+    h = filters.design_fir_lowpass(fs, 2000.0, num_taps=31)
+    filtered = filters.apply_fir(tone, h)
+    pk = meter.peak_amplitude(filtered)
+    assert 0.0 < pk <= 0.6
+
+    s, freqs, times = spectral.stft(filtered, fs, n_fft=512, hop=128)
+    assert s.shape[0] == len(freqs) and s.shape[1] == len(times)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "capstone.wav"
+        write_wav(path, filtered, int(fs))
+        y, fs2 = read_wav(path)
+        assert fs2 == int(fs)
+        rmse = float(np.sqrt(np.mean((filtered - y) ** 2)))
+        assert rmse < 0.01, f"capstone WAV RMSE {rmse}"
+
+
 TESTS = [
     test_fft_roundtrip,
     test_parseval,
@@ -157,6 +182,7 @@ TESTS = [
     test_karplus_strong_decay,
     test_resample_preserves_tone,
     test_wavetable_pitch,
+    test_toolkit_capstone_pipeline,
 ]
 
 
