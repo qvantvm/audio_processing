@@ -220,6 +220,8 @@ Numerically $\mathrm{RMS} \approx 0.97$ (peak of sum can exceed any single parti
 4. Run `fourier_series_square_wave.py`. How does RMS error change if you double the number of odd harmonics?
 5. A vowel has fundamental $150\,\mathrm{Hz}$ and strong energy near $700\,\mathrm{Hz}$ and $1200\,\mathrm{Hz}$. In a harmonic series picture, which harmonic indices $k$ are nearest those formant regions?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Oppenheim & Schafer, *Discrete-Time Signal Processing* — DTFT, DFT, convergence [@oppenheim2010discrete]

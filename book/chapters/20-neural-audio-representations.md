@@ -4,6 +4,17 @@
 
 Deep learning adds **learned representations**: encoder networks map waveforms or spectrograms to embeddings; generative models synthesize in latent or spectral domains. This chapter situates neural methods relative to classical DSP— when they replace, complement, or inherit STFT-based pipelines ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft), [Audio Features and Descriptors](#ch-15-features)).
 
+## Representation lens
+
+| Question | Neural audio answer |
+|----------|---------------------|
+| **What is the representation?** | Learned embeddings, mel maps, latent codes, or raw waveform samples |
+| **What does it preserve?** | Training-distribution structure; perceptual similarity (if loss matches) |
+| **What does it discard?** | Interpretability, exact phase, out-of-domain robustness |
+| **Maps in/out via** | Encoder $E_\theta$, decoder $D_\phi$; often STFT/mel as fixed front-end |
+| **Numerical mistakes** | Train/serve sample-rate mismatch; mel config drift; ignoring phase |
+| **Audible artifacts** | Metallic vocoder timbre; smeared transients; codec warble |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
@@ -24,6 +35,24 @@ By the end of this chapter, the reader should be able to:
 | Spectrogram | U-Net vocoders, diffusion on mel | Leverages [STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft) intuition; phase challenge |
 | Latent | VAE, RVQ codecs (EnCodec) | Compact; may lose fine detail |
 | Hybrid | DDSP [@engel2020ddsp], neural + sinusoidal | Interpretable partials + learned residuals |
+
+### Classical front-end (still central)
+
+Most neural pipelines **do not** ingest raw samples alone. A typical path:
+
+```text
+x[n]  →  STFT / mel  →  neural network  →  mel or waveform  →  vocoder / Griffin–Lim
+```
+
+Run the book's classical front-end demo (no PyTorch required):
+
+```bash
+python examples/spectrogram_frontend_demo.py
+```
+
+![Waveform vs STFT magnitude for a two-tone signal](../figures/spectrogram_frontend.png)
+
+This shows what a **spectrogram-domain** model would see before learning.
 
 ### Learned features
 
@@ -61,10 +90,14 @@ Mel loss common: $\|\text{Mel}(x)-\text{Mel}(\hat{x})\|_1$— perceptually weigh
 
 ## Implementation Notes
 
+Optional PyTorch mel layer:
+
 ```python
 import torchaudio
 spec = torchaudio.transforms.MelSpectrogram(sample_rate=fs, n_fft=1024)
 ```
+
+Book-native alternative: `audio_toolkit.spectral.stft` for numpy workflows and tests.
 
 Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, listening tests ([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
 
@@ -73,6 +106,10 @@ Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, list
 **Problem:** Model trains on 16 kHz mono log-mel. Deploy on 48 kHz stereo field recording— what breaks?
 
 **Answer:** Bandwidth/sample rate mismatch, channel layout, noise domain shift; need resample/mono policy and likely fine-tune.
+
+**Problem:** Why keep explicit $f_0$ in DDSP-style hybrids?
+
+**Answer:** Pitch is **structurally important** in music/speech; learned latents often smear $f_0$ unless constrained. DDSP keeps sinusoidal parameters interpretable and reduces vocoder burden.
 
 ## Common Pitfalls
 

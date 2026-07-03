@@ -214,6 +214,8 @@ The tone is **not** exactly on-bin; expect leakage unless $N$ is chosen so $1000
 4. Zero-pad the same buffer to $4N$ before FFT. How does the frequency grid change? Does true resolution improve?
 5. Implement manual DFT for one bin $k$ with a loop; compare to `np.fft.fft` for a short test vector.
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Cooley & Tukey, FFT algorithm [@cooley1965fft]

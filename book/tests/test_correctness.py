@@ -87,6 +87,20 @@ def test_karplus_strong_decay() -> None:
     assert energy_early > energy_late * 2, "Karplus-Strong should decay"
 
 
+def test_wavetable_pitch() -> None:
+    from audio_toolkit.synthesis import wavetable_osc
+
+    fs = 48_000.0
+    f0 = 440.0
+    y = wavetable_osc(fs, f0, int(fs * 0.1))
+    corr = np.correlate(y, y, mode="full")
+    corr = corr[len(y) - 1 :]
+    lag_min, lag_max = int(fs / f0) - 5, int(fs / f0) + 5
+    peak_lag = lag_min + int(np.argmax(corr[lag_min:lag_max]))
+    est_f0 = fs / peak_lag
+    assert abs(est_f0 - f0) < 20, f"wavetable pitch estimate {est_f0} vs {f0}"
+
+
 TESTS = [
     test_fft_roundtrip,
     test_parseval,
@@ -96,6 +110,7 @@ TESTS = [
     test_window_coherent_gain,
     test_dbfs_conversions,
     test_karplus_strong_decay,
+    test_wavetable_pitch,
 ]
 
 

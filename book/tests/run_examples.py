@@ -18,6 +18,9 @@ EXAMPLES = [
     "fir_lowpass_demo.py",
     "representation_domains.py",
     "karplus_strong_demo.py",
+    "wavetable_demo.py",
+    "export_audio_demos.py",
+    "spectrogram_frontend_demo.py",
 ]
 
 failures = []

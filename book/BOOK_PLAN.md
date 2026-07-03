@@ -36,12 +36,12 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | technically reviewed | 08 |
 | 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | technically reviewed | 06, 08 |
 | 17 | `17-musical-signal-representations.md` | Musical Signal Representations | technically reviewed | 04, 08 |
-| 18 | `18-synthesis-representations.md` | Synthesis Representations | draft | 04, 10 |
+| 18 | `18-synthesis-representations.md` | Synthesis Representations | technically reviewed | 04, 10 |
 | 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | technically reviewed | 09, 18 |
-| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | draft | 08, 15 |
+| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | technically reviewed | 08, 15 |
 | 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | technically reviewed | 06, 10 |
 | 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | technically reviewed | 10, 21 |
-| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–03) | draft | 01–03 |
+| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–06) | technically reviewed | 01–06 |
 
 **Status legend:**
 
@@ -245,17 +245,17 @@ flowchart TD
 ## Missing Sections (Polish Pass)
 
 1. **Polish pass** — no chapter at `polished` yet; foundation 01–06 at `pedagogically reviewed`
-2. **Exercise solutions** — pilot ch 01–03 in appendix + `solutions/` verified scripts; extend to ch 04+
+2. **Exercise solutions** — ch 01–06 in appendix + `solutions/` verified scripts; extend to ch 07+
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **audio_toolkit** — implemented (Pass 14); expand synthesis examples (ch 18), neural depth (ch 20)
 5. **PDF build** — CI with LaTeX (optional)
-6. **Audio demos** — WAV exports for aliasing, leakage, comb filtering (future)
+6. **Audio demos** — `audio_demos/` WAV exports via `export_audio_demos.py` (Pass 15)
 
 ## Current Sprint Focus
 
-**Completed (Pass 14, 2026-07-03):** Honest 5-tier status model; demoted overclaimed chapters; implemented `audio_toolkit/` with correctness tests; `solutions/` verified numeric answers; expanded ch 19 (Karplus–Strong) and ch 22 (real package); representation matrix in ch 01; governance in README.
+**Completed (Pass 15, 2026-07-03):** Expanded ch 18/20 (representation lens, runnable demos); `audio_toolkit.synthesis`; WAV audio demos; exercise solutions ch 04–06; promoted ch 18, 20, appendix to `technically reviewed`.
 
-**Next recommended step (Pass 15):** Expand ch 18/20 from `draft`; add WAV audio demos; extend exercise solutions to ch 04–06; representation lens sections in remaining chapters.
+**Next recommended step (Pass 16):** Representation lens in ch 07–17; extend exercise solutions; optional WAV leakage demo; block diagrams.
 
 ## Conventions
 

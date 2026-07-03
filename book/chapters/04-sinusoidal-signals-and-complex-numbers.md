@@ -228,6 +228,8 @@ Verify in Python with `np.cos(5*np.pi/24 + np.pi/4)`.
 4. Run `complex_sinusoid_demo.py`. Change $\phi$ to $\pi/2$ and describe the effect on $x[n]$ at $n=0$.
 5. Two complex tones $e^{j\Omega_1 n} + e^{j\Omega_2 n}$: when $\Omega_1 \approx \Omega_2$, explain beating in the phasor picture.
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Oppenheim & Schafer, *Discrete-Time Signal Processing* — complex exponentials and frequency response [@oppenheim2010discrete]

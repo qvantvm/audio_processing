@@ -5,7 +5,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-SOLUTIONS = ["ch01_verify.py", "ch02_verify.py", "ch03_verify.py"]
+SOLUTIONS = ["ch01_verify.py", "ch02_verify.py", "ch03_verify.py", "ch04_verify.py", "ch05_verify.py", "ch06_verify.py"]
 book = Path(__file__).resolve().parent.parent
 failures = []
 for name in SOLUTIONS:

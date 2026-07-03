@@ -4,6 +4,17 @@
 
 **Synthesis** generates audio from compact representations: oscillators, wavetables, FM operators, granular grains. This chapter maps synthesis paradigms to the signal models from earlier chapters and highlights **band-limited** methods to avoid aliasing ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
 
+## Representation lens
+
+| Question | Synthesis answer |
+|----------|------------------|
+| **What is the representation?** | Parameters driving generators: phase pointers, wavetables, FM indices, grain schedules |
+| **What does it preserve?** | Pitch, chosen timbre template, control envelopes |
+| **What does it discard?** | Full recorded waveform detail unless using large tables or many partials |
+| **Maps in/out via** | Oscillator/update → $x[n]$; analysis → parameter extraction (inverse problem) |
+| **Numerical mistakes** | Phase resets; aliased discontinuities; FM index without bandwidth control |
+| **Audible artifacts** | Clicks at note-on; harsh buzz on high saw/square; granular pulsing |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
@@ -74,10 +85,27 @@ $$
 
 ## Implementation Notes
 
+Use `audio_toolkit.synthesis` and `audio_toolkit.osc`:
+
 ```python
-phase = np.cumsum(2 * np.pi * f0 / fs) % (2 * np.pi)
-x = np.sin(phase)  # mono oscillator
+from audio_toolkit.synthesis import wavetable_osc, naive_saw
+from audio_toolkit.osc import PhaseOscillator
+
+y = wavetable_osc(48_000, 440.0, num_samples=2400)
+osc = PhaseOscillator(48_000, 440.0, amplitude=0.8)
+block = osc.render(512)  # phase continues across blocks
 ```
+
+**Runnable demos:**
+
+```bash
+python examples/wavetable_demo.py          # figure + audio_demos/wavetable_a440.wav
+python examples/export_audio_demos.py      # aliasing, phase clicks, naive saw, comb
+```
+
+![Wavetable A440 at 48 kHz](../figures/wavetable_a440.png)
+
+Listen to `audio_demos/naive_saw_2200hz.wav` for aliasing on a naive saw— compare with band-limited methods.
 
 Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synth frameworks (Dexed, Surge).
 
@@ -86,6 +114,10 @@ Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synt
 **Problem:** $f_s=48000$, $f_0=1000$ Hz. Phase increment per sample?
 
 **Answer:** $2\pi \cdot 1000/48000 \approx 0.1309$ rad.
+
+**Problem:** Wavetable length 512 at A440. Period in samples?
+
+**Answer:** $f_s/f_0 = 48000/440 \approx 109.09$ samples/period — table holds one **cycle template**; pointer rate sets pitch.
 
 ## Common Pitfalls
 
@@ -100,6 +132,8 @@ Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synt
 2. Two-operator FM: predict first few sideband locations for $f_c=440$, $f_m=220$, small $I$.
 3. Granular: 50 ms grains, 50% overlap— grains per second?
 4. Compare naive vs polyBLEP saw spectrum above 5 kHz.
+
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions) (extended in future passes).*
 
 ## Further Reading
 

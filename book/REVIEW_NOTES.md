@@ -2,6 +2,34 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 15 — ch 18/20 Depth, WAV Demos, Solutions 04–06 (2026-07-03)
+
+### Completed
+
+- **`audio_toolkit.synthesis`** — wavetable + naive saw oscillators
+- **WAV audio demos** — `export_audio_demos.py` (aliasing, phase clicks, saw, comb); `audio_demos/README.md`
+- **Ch 18** — representation lens, wavetable demo + figure; promoted to `technically reviewed`
+- **Ch 20** — representation lens, `spectrogram_frontend_demo.py`; promoted to `technically reviewed`
+- **Exercise solutions** — appendix + verify scripts for ch 04–06; appendix promoted to `technically reviewed`
+- **Tests** — wavetable pitch test; new examples in CI smoke suite
+
+### Remaining gaps
+
+- [ ] Representation lens sections in ch 07–17
+- [ ] More block diagrams
+- [ ] Exercise solutions ch 07+
+- [ ] PDF CI (LaTeX)
+- [ ] External / second-model review per chapter
+
+### Chapter status summary
+
+| Status | Chapters |
+|--------|----------|
+| pedagogically reviewed | 01–06 |
+| technically reviewed | 00, 07–22, appendix A |
+
+---
+
 ## Pass 14 — Honest Status, audio_toolkit, Correctness Tests (2026-07-03)
 
 ### Response to external critique

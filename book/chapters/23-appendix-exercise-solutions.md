@@ -1,6 +1,6 @@
 # Appendix: Selected Exercise Solutions {#ch-23-exercise-solutions}
 
-This appendix provides worked solutions for exercises in the foundation chapters (01–03). Try each exercise yourself first; use these solutions to check arithmetic, conventions, and reasoning.
+This appendix provides worked solutions for exercises in chapters **01–06**. Try each exercise yourself first; use these solutions to check arithmetic, conventions, and reasoning.
 
 ---
 
@@ -179,4 +179,76 @@ $$
 
 ---
 
-*Solutions for later chapters will be added in future passes. Numeric answers for ch 01–03 are verified by `solutions/ch01_verify.py` … `ch03_verify.py` (run `python solutions/run_verifications.py`).*
+## [Chapter 4](#ch-04-sinusoids-complex) — Sinusoidal Signals and Complex Numbers
+
+### Exercise 4.1
+
+$x[n] = \sin(\Omega n) = \Im\{e^{j\Omega n}\}$.
+
+### Exercise 4.2
+
+$z[n] = 2 e^{j(\pi/8) n}$. At $n=10$: $|z[10]| = 2$, $\angle z[10] = 10\pi/8 = 5\pi/4$ rad.
+
+### Exercise 4.3
+
+$\Re\{e^{j\Omega n}\} = \cos(\Omega n) = \cos(-\Omega n) = \Re\{e^{-j\Omega n}\}$ because cosine is even.
+
+### Exercise 4.4
+
+$\phi = \pi/2$ shifts cosine to sine: $x[0] = A\sin(0)=0$ instead of peak at $n=0$.
+
+### Exercise 4.5
+
+When $\Omega_1 \approx \Omega_2$, phasors rotate at nearly the same rate and their vector sum **beats**— slow amplitude modulation at $\approx |f_1-f_2|$.
+
+---
+
+## [Chapter 5](#ch-05-fourier) — Fourier Representation
+
+### Exercise 5.1
+
+$T_0=5\,\mathrm{ms}$ → $f_0=200\,\mathrm{Hz}$. Harmonics: $200, 400, 600\,\mathrm{Hz}$.
+
+### Exercise 5.2
+
+Even square wave is symmetric about time origin → only **cosine** (even) Fourier terms; sine (odd) coefficients are zero.
+
+### Exercise 5.3
+
+For $x(t)=\cos(2\pi f_0 t)$ over one period, only $c_{\pm 1}$ are non-zero ($\tfrac{1}{2}$ each in common normalizations).
+
+### Exercise 5.4
+
+Doubling odd harmonics in `fourier_series_square_wave.py` reduces Gibbs ringing— RMS error vs ideal square **decreases**.
+
+### Exercise 5.5
+
+$f_0=150\,\mathrm{Hz}$: $700/150 \approx 4.67$ → $k=5$ ($750\,\mathrm{Hz}$); $1200/150=8$ → $k=8$ ($1200\,\mathrm{Hz}$).
+
+---
+
+## [Chapter 6](#ch-06-dft-fft) — DFT, FFT, and Spectral Analysis
+
+### Exercise 6.1
+
+$\Delta f = 44100/4096 \approx 10.766\,\mathrm{Hz}$. Bin $k=100$: $100 \cdot \Delta f \approx 1076.7\,\mathrm{Hz}$.
+
+### Exercise 6.2
+
+For real $x[n]$, $X[0]=\sum_n x[n]$ is real (sum of reals).
+
+### Exercise 6.3
+
+440 Hz at 48 kHz, $N=1024$: peak at $k=9$, center $9 \cdot 48000/1024 = 421.875\,\mathrm{Hz}$ — **not** exactly 440 Hz.
+
+### Exercise 6.4
+
+Zero-padding to $4N$ **refines the frequency grid** ($\Delta f$ quarters) but does **not** improve true resolution from a fixed time window.
+
+### Exercise 6.5
+
+Manual bin $k$: $X[k]=\sum_n x[n] e^{-j2\pi kn/N}$ should match `np.fft.fft(x)[k]` within floating error.
+
+---
+
+*Numeric answers for ch 01–06 verified by `solutions/ch01_verify.py` … `ch06_verify.py` (`python solutions/run_verifications.py`).*
