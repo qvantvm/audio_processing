@@ -4,6 +4,17 @@
 
 Filtering, reverberation, and equalization are often implemented as **convolution** of an input signal with an **impulse response (IR)**. This chapter defines discrete convolution, connects it to LTI systems, and explains why IRs are a central audio representation— from cabinet modeling to algorithmic reverb.
 
+## Representation lens
+
+| Question | Impulse-response answer |
+|----------|-------------------------|
+| **What is the representation?** | Discrete impulse response $h[n]$ of an LTI system |
+| **What does it preserve?** | Complete LTI behavior: every input mapped by same $h[n]$ |
+| **What does it discard?** | Non-LTI effects (compression, saturation); time-varying systems |
+| **Maps in/out via** | Convolution $y=x*h$; frequency domain $Y=HX$ |
+| **Numerical mistakes** | Circular vs linear convolution; wrong `mode` at edges |
+| **Audible artifacts** | Wraparound echoes; pre-ringing from linear-phase IRs |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
@@ -88,6 +99,8 @@ For long IRs: uniform partitioned convolution (UPC) splits IR into blocks— sta
 2. Show $\delta[n]*h[n]=h[n]$.
 3. Estimate FFT cost for 1 s IR at 48 kHz with 512-sample blocks.
 4. Why does reverb on infinite input use overlap-add?
+
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
 ## Further Reading
 

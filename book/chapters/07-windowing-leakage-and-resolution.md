@@ -4,6 +4,17 @@
 
 Chapter 6 ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)) showed that a finite DFT segment behaves as if the signal repeats every $N$ samples and that off-bin tones spread energy across bins. **Windowing** tapers the segment edges to reduce the artificial discontinuity at the wrap point and to control **spectral leakage**. This chapter explains window tradeoffs: main-lobe width (frequency resolution) versus sidelobe level (leakage suppression)— the core time–frequency uncertainty behind spectral analysis.
 
+## Representation lens
+
+| Question | Windowing answer |
+|----------|------------------|
+| **What is the representation?** | Windowed finite segment $x[n]w[n]$ before spectral analysis |
+| **What does it preserve?** | Local spectral content near the window center; tapered edges |
+| **What does it discard?** | Full energy at abrupt truncation boundaries; wideband leakage energy |
+| **Maps in/out via** | Multiply by $w[n]$ → DFT/STFT; inverse needs synthesis window for resynthesis |
+| **Numerical mistakes** | Zero-padding mistaken for resolution; ignoring coherent gain |
+| **Audible artifacts** | Spectral smear; underestimated peak levels; blurred adjacent bins |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
@@ -113,6 +124,8 @@ SciPy: `scipy.signal.get_window('hann', N)`.
 2. Why does symmetric Hann use $N-1$ in the cosine denominator?
 3. Plot spectra of a 1000 Hz tone with rectangular and Blackman windows; measure main-lobe width at −3 dB.
 4. When analyzing drum transients, argue for shorter $N$ even if $\Delta f$ worsens.
+
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
 ## Further Reading
 

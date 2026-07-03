@@ -27,7 +27,7 @@ Topics include sampling and quantization; Fourier analysis and the DFT/FFT; wind
 - **Sequential reading** builds concepts in dependency order (see the dependency diagram in `BOOK_PLAN.md`).
 - **Reference reading** is supported by `NOTATION.md` and `GLOSSARY.md`.
 - **Hands-on learning**: run scripts in `examples/` alongside the chapter sections that reference them.
-- **Exercise solutions**: selected worked answers for chapters 01–06 in [Appendix: Exercise Solutions](#ch-23-exercise-solutions); hearable demos in `audio_demos/` (generate via `examples/export_audio_demos.py`).
+- **Exercise solutions**: chapters 01–09 in [Appendix: Exercise Solutions](#ch-23-exercise-solutions); hearable demos in `audio_demos/` (generate via `examples/export_audio_demos.py`).
 
 Each chapter follows a common template: purpose, learning objectives, concepts, math, audio interpretation, implementation notes, worked examples, pitfalls, exercises, and further reading.
 

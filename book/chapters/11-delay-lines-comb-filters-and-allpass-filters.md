@@ -4,6 +4,17 @@
 
 **Delay** is elemental in audio: echo, chorus, flanger, reverb, physical modeling. A **delay line** stores past samples; **comb** and **all-pass** filters combine delayed copies to create coloration and diffusion. This chapter builds the delay-based representations used in effects and reverberators.
 
+## Representation lens
+
+| Question | Delay/comb answer |
+|----------|-------------------|
+| **What is the representation?** | Circular buffer state + feedback gains (comb/all-pass) |
+| **What does it preserve?** | Echo timing, resonant peaks, diffusion structure |
+| **What does it discard?** | Frequency-independent gain (unless EQ in loop) |
+| **Maps in/out via** | Read/write delay; feedback $y[n]=x[n]+g\,y[n-D]$ |
+| **Numerical mistakes** | $|g|\ge 1$ instability; non-interpolated fractional delay detuning |
+| **Audible artifacts** | Metallic resonances; runaway feedback; chorus detune |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

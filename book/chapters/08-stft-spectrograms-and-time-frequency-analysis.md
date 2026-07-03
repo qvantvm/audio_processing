@@ -4,6 +4,17 @@
 
 A single DFT ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)) describes **one** time segment. Audio evolves: notes start, formants shift, consonants burst. The **short-time Fourier transform (STFT)** applies windowed DFTs ([Windowing, Leakage, and Resolution](#ch-07-windowing)) to overlapping frames, producing a **time–frequency matrix**— the basis of spectrograms, many audio features, and perceptual front-ends.
 
+## Representation lens
+
+| Question | STFT answer |
+|----------|-------------|
+| **What is the representation?** | Matrix of short-time spectra $X_m[k]$ over frames $m$ |
+| **What does it preserve?** | How frequency content evolves over time (when hop/window chosen well) |
+| **What does it discard?** | Phase (often); detail below window bandwidth; between-frame gaps if hop large |
+| **Maps in/out via** | Windowed DFT per frame; overlap-add for ISTFT reconstruction |
+| **Numerical mistakes** | COLA violation on synthesis; inconsistent padding; wrong hop units |
+| **Audible artifacts** | Phasiness, transient smear, echoey resynthesis |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
@@ -80,6 +91,8 @@ $$
 
 ## Implementation Notes
 
+![STFT analysis framing](../figures/stft_framing.png)
+
 ```python
 import numpy as np
 M, R = 1024, 256
@@ -115,6 +128,8 @@ Run `python examples/stft_spectrogram_demo.py`.
 2. Generate a two-tone signal turning on at different times; sketch expected spectrogram.
 3. Compare same signal with $M=256$ vs $M=4096$; describe tradeoff you hear/see.
 4. Why does vocal formant tracking prefer moderate $M$?
+
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
 ## Further Reading
 

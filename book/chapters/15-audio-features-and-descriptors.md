@@ -4,6 +4,17 @@
 
 Machine listening and music informatics reduce waveforms to **feature vectors**: timbral, temporal, and spectral summaries for classification, search, and MIR. This chapter surveys common descriptors— spectral centroid, rolloff, flux, MFCC preview— and how STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) choices affect them.
 
+## Representation lens
+
+| Question | Features answer |
+|----------|-----------------|
+| **What is the representation?** | Low-dimensional vectors per frame (centroid, MFCC, flux, …) |
+| **What does it preserve?** | Coarse timbre, rhythm, harmony cues chosen by design |
+| **What does it discard?** | Full waveform; fine phase; out-of-band detail |
+| **Maps in/out via** | STFT → nonlinear stats → feature vector |
+| **Numerical mistakes** | Changing STFT without retraining; level sensitivity |
+| **Audible artifacts** | N/A at feature layer— downstream misclassification instead |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

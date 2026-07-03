@@ -1,6 +1,6 @@
 # Appendix: Selected Exercise Solutions {#ch-23-exercise-solutions}
 
-This appendix provides worked solutions for exercises in chapters **01–06**. Try each exercise yourself first; use these solutions to check arithmetic, conventions, and reasoning.
+This appendix provides worked solutions for exercises in chapters **01–09**. Try each exercise yourself first; use these solutions to check arithmetic, conventions, and reasoning.
 
 ---
 
@@ -251,4 +251,66 @@ Manual bin $k$: $X[k]=\sum_n x[n] e^{-j2\pi kn/N}$ should match `np.fft.fft(x)[k
 
 ---
 
-*Numeric answers for ch 01–06 verified by `solutions/ch01_verify.py` … `ch06_verify.py` (`python solutions/run_verifications.py`).*
+---
+
+## [Chapter 7](#ch-07-windowing) — Windowing, Leakage, and Resolution
+
+### Exercise 7.1
+
+Hann coherent gain ≈ mean of window = **0.5** for length 1024 (`np.mean(np.hanning(1024))`).
+
+### Exercise 7.2
+
+Using $N-1$ in the cosine denominator keeps the window **symmetric** about its center for finite $N$.
+
+### Exercise 7.3
+
+Blackman main lobe wider than Hann; rectangular narrowest main lobe but highest sidelobes — measure −3 dB width in your plot.
+
+### Exercise 7.4
+
+Drum transients are **short**; long $N$ smears attack time in time–frequency view even if $\Delta f$ is finer.
+
+---
+
+## [Chapter 8](#ch-08-stft) — STFT, Spectrograms, and Time–Frequency Analysis
+
+### Exercise 8.1
+
+$M=2048$, $R=512$ at 48 kHz: overlap $= (M-R)/M = \mathbf{75\%}$. Frames per second $= f_s/R = 48000/512 = \mathbf{93.75}$.
+
+### Exercise 8.2
+
+Two tones at different onsets appear as **separate ridges** in time on a spectrogram; overlap in frequency if both sound together.
+
+### Exercise 8.3
+
+$M=256$: better time resolution, worse frequency resolution; $M=4096$: opposite — classic time–frequency tradeoff.
+
+### Exercise 8.4
+
+Formants need **moderate** bandwidth — not as wide as a drum window, not as narrow as a multi-second pitch analysis window.
+
+---
+
+## [Chapter 9](#ch-09-convolution) — Convolution and Impulse Responses
+
+### Exercise 9.1
+
+$[1,2,1]*[1,1] = [1, 3, 3, 1]$.
+
+### Exercise 9.2
+
+$\delta[n]*h[n]=h[n]$ because only $n=0$ picks $h[n]$.
+
+### Exercise 9.3
+
+1 s IR at 48 kHz has length 48000; block FFT size 512 ⇒ about $48000/512 \approx 94$ blocks per second of processing in a block scheme — each block needs $O(L\log L)$ FFT work.
+
+### Exercise 9.4
+
+**Overlap-add** lets infinite streams be processed in fixed blocks while matching linear convolution within overlap regions.
+
+---
+
+*Numeric answers for ch 01–09 verified by `solutions/ch01_verify.py` … `ch09_verify.py` (`python solutions/run_verifications.py`).*

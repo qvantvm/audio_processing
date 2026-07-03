@@ -2,6 +2,31 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 16 — Representation Lens ch 07–17, Solutions 07–09 (2026-07-03)
+
+### Completed
+
+- **Representation lens** tables added to chapters **07–17** (11 chapters)
+- **Exercise solutions** — appendix + verify scripts for ch 07–09
+- **WAV demo** — `leakage_two_tone_440_444.wav` in `export_audio_demos.py`
+- **Block diagram** — `stft_framing.png` via `stft_framing_diagram.py`; referenced in ch 08
+
+### Remaining gaps
+
+- [ ] Exercise solutions ch 10+
+- [ ] More block diagrams (ADC/DAC, FIR/IIR)
+- [ ] PDF CI (LaTeX)
+- [ ] External / second-model review per chapter
+
+### Chapter status summary
+
+| Status | Chapters |
+|--------|----------|
+| pedagogically reviewed | 01–06 |
+| technically reviewed | 00, 07–22, appendix A |
+
+---
+
 ## Pass 15 — ch 18/20 Depth, WAV Demos, Solutions 04–06 (2026-07-03)
 
 ### Completed

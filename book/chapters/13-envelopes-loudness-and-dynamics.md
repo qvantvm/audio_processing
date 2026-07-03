@@ -4,6 +4,17 @@
 
 Sample values oscillate quickly; **perception** responds to slower **envelopes**, **level**, and **loudness**. Dynamics processors (compressors, limiters) operate on envelope followers. This chapter defines RMS/peak metering, introduces loudness standards preview, and connects digital dBFS to perceptual level.
 
+## Representation lens
+
+| Question | Dynamics answer |
+|----------|-------------------|
+| **What is the representation?** | Envelope followers, gain reduction curves, LUFS meters |
+| **What does it preserve?** | Slow amplitude contour; perceived loudness trends |
+| **What does it discard?** | Fine waveform phase; micro-transients inside window |
+| **Maps in/out via** | Rectify/smooth → gain computer → multiply waveform |
+| **Numerical mistakes** | Attack/release in wrong units; true-peak ignored before limiter |
+| **Audible artifacts** | Pumping; distortion; inter-sample clipping |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

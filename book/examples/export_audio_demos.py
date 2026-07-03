@@ -57,6 +57,15 @@ def demo_naive_saw_aliasing() -> None:
     print("saw: naive_saw_2200hz.wav — listen for harsh high-frequency buzz")
 
 
+def demo_leakage_beating() -> None:
+    """Two close tones — hear roughness; spectral analysis shows leakage (Ch 07)."""
+    f1, f2 = 440.0, 444.0
+    n = np.arange(int(FS * DUR))
+    x = 0.4 * (np.sin(2 * np.pi * f1 * n / FS) + np.sin(2 * np.pi * f2 * n / FS))
+    write_wav(OUT / "leakage_two_tone_440_444.wav", x.astype(np.float32), int(FS))
+    print("leakage: leakage_two_tone_440_444.wav — 4 Hz beating; analyze with rect vs Hann window")
+
+
 def demo_comb_filter() -> None:
     """Impulse through feedback comb — metallic resonance."""
     delay_samples = 60
@@ -82,6 +91,7 @@ def main() -> None:
     demo_aliasing()
     demo_phase_click()
     demo_naive_saw_aliasing()
+    demo_leakage_beating()
     demo_comb_filter()
     print(f"All demos written to {OUT}/")
 

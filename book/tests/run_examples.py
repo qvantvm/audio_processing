@@ -21,6 +21,7 @@ EXAMPLES = [
     "wavetable_demo.py",
     "export_audio_demos.py",
     "spectrogram_frontend_demo.py",
+    "stft_framing_diagram.py",
 ]
 
 failures = []

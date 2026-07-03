@@ -4,6 +4,17 @@
 
 Magnitude spectra dominate many displays, but **phase** determines waveform shape and timing of components. **Group delay** measures how long frequency bundles are delayed through a system. **Minimum-phase** systems trade pre-ringing for causal, compact envelopes— central to EQ design and loudspeaker processing.
 
+## Representation lens
+
+| Question | Phase answer |
+|----------|--------------|
+| **What is the representation?** | Phase $\angle H(\Omega)$ and group delay $\tau_g(\Omega)$ |
+| **What does it preserve?** | Timing of frequency bundles through a system |
+| **What does it discard?** | Magnitude-only views hide asymmetric timing |
+| **Maps in/out via** | Frequency response $H(\Omega)$; Hilbert relation for minimum-phase |
+| **Numerical mistakes** | Wrapped phase jumps; ignoring pre-ringing of linear-phase EQ |
+| **Audible artifacts** | Pre-ringing; transient smear; phasey stereo image |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

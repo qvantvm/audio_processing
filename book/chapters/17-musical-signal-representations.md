@@ -4,6 +4,17 @@
 
 Music-specific representations exploit **harmonicity**, **pitch classes**, and **log-frequency** hearing. This chapter covers sinusoidal modeling, chroma, Mel and constant-Q transforms, and sparse partial tracking— bridges between spectral analysis and synthesis/analysis of pitched audio.
 
+## Representation lens
+
+| Question | Musical answer |
+|----------|----------------|
+| **What is the representation?** | Partials, chroma, constant-Q, sinusoidal tracks |
+| **What does it preserve?** | Harmonic structure, pitch class, note-level evolution |
+| **What does it discard?** | Noise/transients unless separate model |
+| **Maps in/out via** | Peak tracking, SMS-style analysis, chroma folding |
+| **Numerical mistakes** | Confusing cents with bins; poor partial tracking across frames |
+| **Audible artifacts** | Granular sinusoidal resynthesis; chord confusion |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

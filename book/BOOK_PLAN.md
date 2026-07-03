@@ -41,7 +41,7 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 20 | `20-neural-audio-representations.md` | Neural Audio Representations | technically reviewed | 08, 15 |
 | 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | technically reviewed | 06, 10 |
 | 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | technically reviewed | 10, 21 |
-| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–06) | technically reviewed | 01–06 |
+| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–09) | technically reviewed | 01–09 |
 
 **Status legend:**
 
@@ -245,7 +245,7 @@ flowchart TD
 ## Missing Sections (Polish Pass)
 
 1. **Polish pass** — no chapter at `polished` yet; foundation 01–06 at `pedagogically reviewed`
-2. **Exercise solutions** — ch 01–06 in appendix + `solutions/` verified scripts; extend to ch 07+
+2. **Exercise solutions** — ch 01–09 in appendix + `solutions/` verified scripts; extend to ch 10+
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **audio_toolkit** — implemented (Pass 14); expand synthesis examples (ch 18), neural depth (ch 20)
 5. **PDF build** — CI with LaTeX (optional)
@@ -253,9 +253,9 @@ flowchart TD
 
 ## Current Sprint Focus
 
-**Completed (Pass 15, 2026-07-03):** Expanded ch 18/20 (representation lens, runnable demos); `audio_toolkit.synthesis`; WAV audio demos; exercise solutions ch 04–06; promoted ch 18, 20, appendix to `technically reviewed`.
+**Completed (Pass 16, 2026-07-03):** Representation lens in ch 07–17; exercise solutions ch 07–09; leakage WAV demo; STFT framing diagram.
 
-**Next recommended step (Pass 16):** Representation lens in ch 07–17; extend exercise solutions; optional WAV leakage demo; block diagrams.
+**Next recommended step (Pass 17):** Exercise solutions ch 10–12; more block diagrams (ADC/DAC, FIR/IIR); representation lens review in capstone chapters.
 
 ## Conventions
 

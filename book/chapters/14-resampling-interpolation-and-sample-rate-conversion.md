@@ -4,6 +4,17 @@
 
 Real systems mix sample rates: 44.1 kHz files on 48 kHz hardware, half-speed processing, varispeed. **Resampling** reconstructs (conceptually) and re-samples with a new $f_s$. This chapter covers interpolation, anti-imaging, and practical SRC quality tradeoffs.
 
+## Representation lens
+
+| Question | Resampling answer |
+|----------|---------------------|
+| **What is the representation?** | Band-limited samples at a new rate $f_s'$ |
+| **What does it preserve?** | Content below new Nyquist when anti-alias/interpolation correct |
+| **What does it discard?** | Energy above new band limit (intentionally filtered) |
+| **Maps in/out via** | Upsample → FIR → downsample; or polyphase rational SRC |
+| **Numerical mistakes** | Decimate before low-pass; bad fractional-delay tuning |
+| **Audible artifacts** | Imaging, aliasing, warble on transients |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

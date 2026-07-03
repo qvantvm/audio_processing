@@ -4,6 +4,17 @@
 
 **Pitch** (periodicity), **onsets** (note/event starts), and **tempo** (pulse rate) are fundamental mid-level representations between samples and semantics. This chapter covers autocorrelation/YIN-style pitch, spectral peak picking refinements, onset detection from flux, and beat tracking overview.
 
+## Representation lens
+
+| Question | Pitch/onset answer |
+|----------|----------------------|
+| **What is the representation?** | Curves $\hat{f}_0[n]$, onset times, beat periods |
+| **What does it preserve?** | Periodic pitch contour; event timing |
+| **What does it discard?** | Timbre detail; polyphony without multi-pitch models |
+| **Maps in/out via** | Autocorrelation, YIN, spectral peak picking, onset strength envelopes |
+| **Numerical mistakes** | Bin spacing too coarse; octave/doubling errors |
+| **Audible artifacts** | Robotic pitch correction; missed/flammed onsets |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

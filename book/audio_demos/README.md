@@ -15,7 +15,7 @@ python examples/spectrogram_frontend_demo.py
 | `phase_click_bad.wav` / `phase_click_good.wav` | 02 | Block boundary clicks |
 | `naive_saw_2200hz.wav` | 18 | Aliased sawtooth |
 | `comb_resonator.wav` | 11 | Comb resonance |
-| `wavetable_a440.wav` | 18 | Wavetable tone |
+| `leakage_two_tone_440_444.wav` | 07 | Beating pair for leakage analysis |
 | `two_tone_for_stft.wav` | 20 | Input for STFT front-end |
 
 Use headphones at **low volume**.

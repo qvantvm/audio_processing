@@ -4,6 +4,17 @@
 
 **Filters** shape frequency content: remove rumble, isolate bands, smooth envelopes. This chapter introduces **FIR** and **IIR** structures, the **z-transform** transfer function $H(z)$, and frequency response $H(\Omega)$— the design vocabulary for EQ, crossovers, and analysis filters.
 
+## Representation lens
+
+| Question | Filter answer |
+|----------|---------------|
+| **What is the representation?** | Coefficients $b_k,a_k$ or $H(z)$ describing frequency shaping |
+| **What does it preserve?** | Designed passband/stopband shape (LTI) |
+| **What does it discard?** | Out-of-band energy (when stable/causal design succeeds) |
+| **Maps in/out via** | Difference equation, convolution with $h[n]$, or $z$-domain algebra |
+| **Numerical mistakes** | Unstable poles; coefficient quantization; wrong normalized frequency |
+| **Audible artifacts** | Ringing, instability whistles, zipper noise from bad coefficient updates |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
