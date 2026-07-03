@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Chapter 5 explained why signals decompose into complex sinusoids. The **discrete Fourier transform (DFT)** is the workhorse that computes those weights for a **finite** buffer $x[0],\ldots,x[N-1]$ on a **discrete grid** of $N$ frequency bins. The **FFT** is a fast algorithm for the same result. This chapter defines the DFT precisely, interprets magnitude and phase spectra, and connects bin index $k$ to hertz— resolving the off-by-frequency bugs previewed in Chapters 1 and 2.
+[Chapter 5](#ch-05-fourier) explained why signals decompose into complex sinusoids. The **discrete Fourier transform (DFT)** is the workhorse that computes those weights for a **finite** buffer $x[0],\ldots,x[N-1]$ on a **discrete grid** of $N$ frequency bins. The **FFT** is a fast algorithm for the same result. This chapter defines the DFT precisely, interprets magnitude and phase spectra, and connects bin index $k$ to hertz— resolving the off-by-frequency bugs previewed in [Chapter 1](#ch-01-what-is-asp) and [Chapter 2](#ch-02-signals-time-samples).
 
 ## Learning Objectives
 
@@ -20,7 +20,7 @@ By the end of this chapter, the reader should be able to:
 
 Given $N$ samples of a real or complex sequence, the DFT answers: **how much** of each discrete frequency component $e^{j 2\pi k n / N}$ is present in that segment? The output is $N$ complex coefficients $X[k]$— one per bin.
 
-The DFT assumes an **implicit $N$-sample periodic extension** of the buffer. A finite clip of a piano note is treated as one period of a repeating signal— a modeling choice with consequences (discontinuity at wrap → broadband energy; @sec:ch-07-windowing).
+The DFT assumes an **implicit $N$-sample periodic extension** of the buffer. A finite clip of a piano note is treated as one period of a repeating signal— a modeling choice with consequences (discontinuity at wrap → broadband energy; [Windowing, Leakage, and Resolution](#ch-07-windowing)).
 
 ### Definition
 
@@ -60,7 +60,7 @@ $$
 
 **Example:** $f_s = 48000\,\mathrm{Hz}$, $N = 1024$ → $\Delta f = 46.875\,\mathrm{Hz}$. Bin $k=9$ centers at $421.875\,\mathrm{Hz}$; bin $k=10$ at $468.75\,\mathrm{Hz}$. **A440 is not on the grid** for that $(f_s, N)$ pair.
 
-Picking the peak bin is **not** exact frequency estimation when the tone falls between bins— energy **leaks** into neighbors (rectangular window effect; Chapter 7).
+Picking the peak bin is **not** exact frequency estimation when the tone falls between bins— energy **leaks** into neighbors (rectangular window effect; [Chapter 7](#ch-07-windowing)).
 
 ![Off-bin A440 leaks across DFT bins; on-bin tone concentrates](../figures/dft_bin_spacing.png)
 
@@ -106,7 +106,7 @@ Use `rfft` for real audio to avoid redundant negative-frequency bins.
 A minimal analysis pipeline:
 
 1. Choose segment length $N$ (tradeoff: $\Delta f$ vs. time resolution)
-2. Optionally apply window $w[n]$ (Chapter 7)
+2. Optionally apply window $w[n]$ ([Chapter 7](#ch-07-windowing))
 3. Compute `X = np.fft.rfft(x * w)`
 4. Convert to dB if desired: `20*np.log10(np.abs(X) + eps)`
 5. Map indices to Hz: `freqs = np.fft.rfftfreq(N, d=1/fs)`
@@ -135,7 +135,7 @@ $$
 
 **EQ visualization:** Many plugins show magnitude spectra smoothed across bins; smoothing hides leakage but also blurs narrow peaks.
 
-**Noise floor:** FFT of silence is not zero— quantization noise and window sidelobes appear; use dB scale and know your noise floor (Chapter 21).
+**Noise floor:** FFT of silence is not zero— quantization noise and window sidelobes appear; use dB scale and know your noise floor ([Chapter 21](#ch-21-testing-pitfalls)).
 
 ## Implementation Notes
 
@@ -221,4 +221,4 @@ The tone is **not** exactly on-bin; expect leakage unless $N$ is chosen so $1000
 - Julius O. Smith, *Spectral Audio Signal Processing* [@smith2011spectral]
 - Welch, modified periodograms (power spectrum estimation preview) [@welch1967fft]
 
-**Next chapter:** @sec:ch-07-windowing — *Windowing, Leakage, and Resolution* controls sidelobes and the time–frequency width of spectral estimates.
+**Next chapter:** [Windowing, Leakage, and Resolution](#ch-07-windowing) controls sidelobes and the time–frequency width of spectral estimates.

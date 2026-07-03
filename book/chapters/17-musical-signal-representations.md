@@ -22,7 +22,7 @@ $$
 x[n] \approx \sum_k A_k[n] \cos\bigl(2\pi f_k[n] n / f_s + \phi_k[n]\bigr).
 $$
 
-**Peak tracking** across STFT (@sec:ch-08-stft) frames → partial trajectories [@serra1990sms].
+**Peak tracking** across STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) frames → partial trajectories [@serra1990sms].
 
 ### Harmonic series
 
@@ -30,15 +30,15 @@ For pitch $f_0$, partials at $k f_0$ (approximately for many instruments). **Inh
 
 ### Chroma
 
-Collapse STFT (@sec:ch-08-stft) bins to 12 bins (C, C#, …, B) via mapping $f \mapsto \text{pitch class}$— **chord and key** features, octave-invariant.
+Collapse STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) bins to 12 bins (C, C#, …, B) via mapping $f \mapsto \text{pitch class}$— **chord and key** features, octave-invariant.
 
 ### Mel filterbank
 
-Triangular filters spaced on Mel scale approximate auditory spacing; used in MFCC (@sec:ch-15-features) and some timbre models.
+Triangular filters spaced on Mel scale approximate auditory spacing; used in MFCC ([Audio Features and Descriptors](#ch-15-features)) and some timbre models.
 
 ### Constant-Q transform (CQT)
 
-Center frequencies $f_k = f_{\min} 2^{k/Q}$; bandwidth proportional to center— better note resolution in bass than fixed STFT (@sec:ch-08-stft) [@muller2015fundamentals].
+Center frequencies $f_k = f_{\min} 2^{k/Q}$; bandwidth proportional to center— better note resolution in bass than fixed STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) [@muller2015fundamentals].
 
 ### Spectral modeling synthesis (SMS)
 
@@ -98,4 +98,4 @@ Sinusoidal analysis: `sweep`/`tracker` research code; commercial spectral editor
 - Müller [@muller2015fundamentals]
 - Serra & Smith, spectral modeling synthesis [@serra1990sms]
 
-**Next chapter:** @sec:ch-18-synthesis — *Synthesis Representations*.
+**Next chapter:** [Synthesis Representations](#ch-18-synthesis).

@@ -77,7 +77,7 @@ $$
 
 **Vocal compression:** reduce crest factor, raise average level, control peaks.
 
-**Mastering limiter:** cap true peak (intersample peaks need oversampling check— @sec:ch-21-testing-pitfalls).
+**Mastering limiter:** cap true peak (intersample peaks need oversampling check— [Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
 
 **Podcast:** target −16 LUFS mono / −14 LUFS stereo (platform norms vary).
 
@@ -121,4 +121,4 @@ Libraries: `pyloudnorm`, DAW meters.
 - ITU-R BS.1770 loudness measurement [@itu2015bs1770]
 - EBU R128 loudness normalisation [@ebu2011r128]
 
-**Next chapter:** @sec:ch-14-resampling — *Resampling, Interpolation, and Sample-Rate Conversion*.
+**Next chapter:** [Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling).

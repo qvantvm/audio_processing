@@ -2,6 +2,35 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 12 — Cross-Reference Fix; Foundation Chapter Links (2026-07-03)
+
+### Completed
+
+- Converted **83** `@sec:ch-...` references to Pandoc Markdown links `[title](#ch-id)` across chapters 01–22
+- HTML build: **no citeproc `sec:ch-...` citation warnings**
+- Foundation block (ch 00–06): plain "Chapter N" refs → internal links
+- Preface status line updated (all chapters `reviewed`)
+- Trimmed redundant duplicate titles on "Next chapter" lines
+
+### Correctness / Clarity
+
+- [x] Fix `@sec:` cross-refs (citeproc conflict resolved)
+- [x] Cross-ref sweep in chapters 00–06
+- [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
+- [ ] Optional: expand ch 18–20 with more runnable synthesis examples
+
+### Examples / CI
+
+- [x] Example smoke tests
+- [x] Pandoc HTML build in CI
+- [ ] PDF build (needs LaTeX)
+
+### Reviewed chapters
+
+**All:** 00–22
+
+---
+
 ## Pass 11 — Chapters 18–22 Review; Manuscript Complete (2026-07-03)
 
 ### Completed
@@ -13,7 +42,7 @@ Open issues, review findings, and planned improvements.
 
 ### Correctness / Clarity
 
-- [ ] Fix `@sec:` cross-refs: citeproc treats them as citations— convert to `[text](#ch-id)` links (Pass 12)
+- [x] Fix `@sec:` cross-refs: citeproc treats them as citations— convert to `[text](#ch-id)` links (Pass 12)
 - [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
 - [ ] Optional: expand ch 18–20 with more runnable synthesis examples
 

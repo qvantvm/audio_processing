@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Chapter 2 treated discrete sequences $x[n]$ as given. This chapter explains how they arise from **sampling** a continuous-time signal and how **quantization** maps each sample to a finite-precision code. Together, sampling and quantization define the fidelity limits of digital audio: bandwidth (aliasing) and noise floor (quantization). Every ADC, WAV file, and naive oscillator passes through these mechanisms— explicitly or implicitly.
+[Chapter 2](#ch-02-signals-time-samples) treated discrete sequences $x[n]$ as given. This chapter explains how they arise from **sampling** a continuous-time signal and how **quantization** maps each sample to a finite-precision code. Together, sampling and quantization define the fidelity limits of digital audio: bandwidth (aliasing) and noise floor (quantization). Every ADC, WAV file, and naive oscillator passes through these mechanisms— explicitly or implicitly.
 
 ## Learning Objectives
 
@@ -24,7 +24,7 @@ The idealized chain:
 x(t)  →  [anti-aliasing LPF]  →  sampler  →  x[n]  →  quantizer  →  digital codes
 ```
 
-**Sampling** picks $x[n] = x(nT_s)$ at period $T_s = 1/f_s$. **Quantization** maps each sample to one of a finite set of levels (Chapter 2 introduced PCM as sequences; here we specify the errors).
+**Sampling** picks $x[n] = x(nT_s)$ at period $T_s = 1/f_s$. **Quantization** maps each sample to one of a finite set of levels ([Chapter 2](#ch-02-signals-time-samples) introduced PCM as sequences; here we specify the errors).
 
 Real **ADCs** implement filtering, sampling, and quantization in hardware; floating-point WAV files often store samples that already approximate $x[n]$ as `float32`, but the same aliasing and level-limit concepts apply when those files were created or when algorithms generate new digital content.
 
@@ -62,7 +62,7 @@ Aliasing is not only an ADC problem. **Nonlinear processing** (waveshaping, clip
 
 An **anti-aliasing filter** is a low-pass filter before sampling that attenuates energy above $f_s/2$. Without it, out-of-band content becomes in-band aliases.
 
-**Reconstruction** converts samples back to a continuous waveform— ideally band-limited interpolation (sinc kernel). DACs use hold circuits and analog filtering. **Resampling** (Chapter 14) repeats the band-limit → sample pattern in software.
+**Reconstruction** converts samples back to a continuous waveform— ideally band-limited interpolation (sinc kernel). DACs use hold circuits and analog filtering. **Resampling** ([Chapter 14](#ch-14-resampling)) repeats the band-limit → sample pattern in software.
 
 ### Uniform quantization
 
@@ -146,7 +146,7 @@ $$
 \Delta\phi = 2\pi \frac{f_0}{f_s} \quad \text{must not imply frequencies above Nyquist when waveforms are not pure sinusoids.}
 $$
 
-Saw and square waves contain harmonics; band-limited oscillators (BLEP/BLIT methods) exist precisely to avoid aliasing in synthesis (Chapter 18).
+Saw and square waves contain harmonics; band-limited oscillators (BLEP/BLIT methods) exist precisely to avoid aliasing in synthesis ([Chapter 18](#ch-18-synthesis)).
 
 ### Quantizing in Python
 
@@ -212,7 +212,7 @@ Real converters add analog noise and distortion; the formula is an **ideal unifo
 
 4. **Ignoring dither on re-quantization.** Truncating float to 16-bit without dither can create harmonic distortion on quiet tails.
 
-5. **Treating WAV float as "immune" to quantization.** Float avoids uniform PCM steps but ADC/DAC and fixed-point plugins still quantize; denormals and precision limits matter (Chapter 21).
+5. **Treating WAV float as "immune" to quantization.** Float avoids uniform PCM steps but ADC/DAC and fixed-point plugins still quantize; denormals and precision limits matter ([Chapter 21](#ch-21-testing-pitfalls)).
 
 6. **Wrong alias formula sign.** Always reduce to $[0, f_s/2]$; listen and FFT to verify when in doubt.
 
@@ -231,4 +231,4 @@ Real converters add analog noise and distortion; the formula is an **ideal unifo
 - Julius O. Smith, *Physical Audio Signal Processing* — practical ADC/audio digitization [@smith2010physical]
 - Steiglitz, *A Digital Signal Processing Primer* — accessible sampling and quantization [@steiglitz1996dsp]
 
-**Next chapter:** Chapter 04 — *Sinusoidal Signals and Complex Numbers* develops the complex exponential representation that makes sampling and Fourier analysis algebraically clean.
+**Next chapter:** [Sinusoidal Signals and Complex Numbers](#ch-04-sinusoids-complex) develops the complex exponential representation that makes sampling and Fourier analysis algebraically clean.

@@ -235,15 +235,15 @@ flowchart TD
 
 1. **Polish pass** — promote select chapters from `reviewed` → `polished` after teaching pilot or external review
 2. **Exercise solutions** — appendix (future)
-3. **Cross-ref sweep** — remaining plain "Chapter N" in chapters 00–06 (if any)
+3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **Chapter depth** — optional expansion of synthesis/neural sections with more worked code
 5. **PDF build** — CI with LaTeX (optional; HTML build added Pass 11)
 
 ## Current Sprint Focus
 
-**Completed (Pass 11, 2026-07-03):** Editorial review of chapters 18–22; full cross-ref pass in capstone block; all **23 chapters (00–22) now `reviewed`**; Pandoc HTML build in CI.
+**Completed (Pass 12, 2026-07-03):** Fixed `@sec:` → Markdown link cross-refs (83 refs); foundation chapter plain "Chapter N" links; citeproc clean HTML build; preface status update.
 
-**Next recommended step (Pass 12):** Spot-check cross-refs in chapters 00–06; add exercise solutions for chapters 00–03 as pilot appendix; or begin `polished` promotion on foundation chapters after HTML proofread.
+**Next recommended step (Pass 13):** Exercise solutions appendix pilot (ch 00–03); HTML proofread and `reviewed` → `polished` promotion on foundation chapters; optional synthesis examples (ch 18–20).
 
 ## Conventions
 

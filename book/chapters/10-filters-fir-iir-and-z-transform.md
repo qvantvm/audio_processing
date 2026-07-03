@@ -86,7 +86,7 @@ LTI: $Y(z) = H(z) X(z)$ (ROC caveats for IIR).
 
 **High-pass at 80 Hz:** remove DC and rumble on vocals.
 
-**Low-pass before downsampling:** anti-alias (@sec:ch-03-sampling-quantization, @sec:ch-14-resampling).
+**Low-pass before downsampling:** anti-alias ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization), [Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling)).
 
 **Parametric EQ:** biquad bank adjusting $|H(\Omega)|$.
 
@@ -100,13 +100,13 @@ w, H = freqz(h, worN=4096, fs=fs)
 
 Run `python examples/fir_lowpass_demo.py`.
 
-**Direct Form I/II** difference equations for real-time; watch denormals and coefficient quantization (@sec:ch-21-testing-pitfalls).
+**Direct Form I/II** difference equations for real-time; watch denormals and coefficient quantization ([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
 
 ## Worked Example
 
 **Problem:** FIR length 101, $f_s=48000$, cutoff 2 kHz. Approximate group delay at low frequencies for linear-phase symmetric FIR?
 
-**Answer:** $(M/2)/f_s = 50/48000 \approx 1.04$ ms (@sec:ch-12-phase-group-delay formalizes group delay).
+**Answer:** $(M/2)/f_s = 50/48000 \approx 1.04$ ms ([Phase, Group Delay, and Minimum Phase](#ch-12-phase-group-delay) formalizes group delay).
 
 ## Common Pitfalls
 
@@ -128,4 +128,4 @@ Run `python examples/fir_lowpass_demo.py`.
 - Zölzer, *DAFX* [@zoelzer2011dafx]
 - Lyons [@lyons2011understanding]
 
-**Next chapter:** @sec:ch-11-delay-comb-allpass — *Delay Lines, Comb Filters, and All-Pass Filters*.
+**Next chapter:** [Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass).

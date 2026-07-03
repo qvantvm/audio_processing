@@ -49,7 +49,7 @@ ASP rarely stays in one domain. The main ones:
 3. **Time–frequency domain** — Spectra evolving over time (STFT, constant-Q transform). Natural for speech, music, transients.
 4. **Parametric / model domain** — Small sets of interpretable parameters (sinusoidal partials, FM indices, modal resonances). Natural for synthesis and compact descriptions.
 
-No domain is "the truth." Each is a **view** with resolution tradeoffs. Chapter 8 develops time–frequency tradeoffs explicitly; for now, remember that choosing a view is part of the problem definition.
+No domain is "the truth." Each is a **view** with resolution tradeoffs. [Chapter 8](#ch-08-stft) develops time–frequency tradeoffs explicitly; for now, remember that choosing a view is part of the problem definition.
 
 ![Overview of representation domains](../figures/representation_domains.png)
 
@@ -57,7 +57,7 @@ No domain is "the truth." Each is a **view** with resolution tradeoffs. Chapter 
 
 Much of classical ASP rests on **linear time-invariant (LTI)** systems: the output is the convolution of the input with an **impulse response** $h[n]$, and the same rule applies at every time index. Filters, reverberation models, and equalizers often start here—even when the full system is later made nonlinear.
 
-We defer the mathematics of convolution to Chapter 9, but the architectural picture is useful immediately: **impulse response ↔ frequency response ↔ difference equation** are linked descriptions of the same LTI system [@oppenheim2010discrete].
+We defer the mathematics of convolution to [Chapter 9](#ch-09-convolution), but the architectural picture is useful immediately: **impulse response ↔ frequency response ↔ difference equation** are linked descriptions of the same LTI system [@oppenheim2010discrete].
 
 ### A typical digital pipeline
 
@@ -135,7 +135,7 @@ $$
 
 The bin nearest 440 Hz is $k = \mathrm{round}(440 / \Delta f) \approx 9$, corresponding to center frequency $9 \cdot \Delta f \approx 421.875\,\mathrm{Hz}$—not exactly A440. A naive "pick the peak bin" pitch estimate will be biased unless we interpolate or use a longer transform/window.
 
-This example previews why @sec:ch-06-dft-fft treats bin grids carefully rather than treating FFT output as a continuous spectrum. @sec:ch-02-signals-time-samples defines sample index, duration, and discrete sinusoids in detail.
+This example previews why [DFT, FFT, and Spectral Analysis](#ch-06-dft-fft) treats bin grids carefully rather than treating FFT output as a continuous spectrum. [Signals, Time, and Samples](#ch-02-signals-time-samples) defines sample index, duration, and discrete sinusoids in detail.
 
 ## Common Pitfalls
 
@@ -164,4 +164,4 @@ This example previews why @sec:ch-06-dft-fft treats bin grids carefully rather t
 - Curtis Roads, *The Computer Music Tutorial* — broad perspective on representations in computer music [@roads1996computer]
 - Meinard Müller, *Fundamentals of Music Processing* — analysis representations with audio examples [@muller2015fundamentals]
 
-**Next chapter:** Chapter 02 — *Signals, Time, and Samples* defines discrete-time signals, units, and PCM conventions that underpin everything else.
+**Next chapter:** [Signals, Time, and Samples](#ch-02-signals-time-samples) defines discrete-time signals, units, and PCM conventions that underpin everything else.

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A single DFT (@sec:ch-06-dft-fft) describes **one** time segment. Audio evolves: notes start, formants shift, consonants burst. The **short-time Fourier transform (STFT)** applies windowed DFTs (@sec:ch-07-windowing) to overlapping frames, producing a **time–frequency matrix**— the basis of spectrograms, many audio features, and perceptual front-ends.
+A single DFT ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)) describes **one** time segment. Audio evolves: notes start, formants shift, consonants burst. The **short-time Fourier transform (STFT)** applies windowed DFTs ([Windowing, Leakage, and Resolution](#ch-07-windowing)) to overlapping frames, producing a **time–frequency matrix**— the basis of spectrograms, many audio features, and perceptual front-ends.
 
 ## Learning Objectives
 
@@ -26,7 +26,7 @@ $$
 
 - $M$ — window length (frequency resolution $\approx f_s/M$)
 - $R$ — hop size (time step between frames: $R/f_s$ seconds)
-- $w[n]$ — window (@sec:ch-07-windowing)
+- $w[n]$ — window ([Windowing, Leakage, and Resolution](#ch-07-windowing))
 
 **Spectrogram:** $|X_m[k]|$ or $|X_m[k]|^2$ displayed with time on one axis, frequency on the other [@allen1977unified].
 
@@ -122,4 +122,4 @@ Run `python examples/stft_spectrogram_demo.py`.
 - Müller, *Fundamentals of Music Processing* [@muller2015fundamentals]
 - Smith, *Spectral Audio Signal Processing* [@smith2011spectral]
 
-**Next chapter:** @sec:ch-09-convolution — *Convolution and Impulse Responses*.
+**Next chapter:** [Convolution and Impulse Responses](#ch-09-convolution).

@@ -59,7 +59,7 @@ tau_g = -np.diff(phi, prepend=phi[0])  # discrete approximation
 
 **Crossover networks:** align woofer/tweeter group delay at crossover region.
 
-**Phase vocoder:** STFT (@sec:ch-08-stft) phase propagation critical for quality.
+**Phase vocoder:** STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) phase propagation critical for quality.
 
 **Polarity flip:** $\phi \to \phi+\pi$ — can cancel in multi-mic setups.
 
@@ -92,4 +92,4 @@ Use `scipy.signal.group_delay` for designed filters. Compare linear-phase FIR vs
 - Oppenheim & Schafer [@oppenheim2010discrete]
 - Smith [@smith2010physical]
 
-**Next chapter:** @sec:ch-13-envelopes-loudness — *Envelopes, Loudness, and Dynamics*.
+**Next chapter:** [Envelopes, Loudness, and Dynamics](#ch-13-envelopes-loudness).

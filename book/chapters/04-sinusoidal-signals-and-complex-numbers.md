@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Pure tones and Fourier analysis both revolve around **sinusoids**. Real-valued audio waveforms are usually stored as real sequences $x[n]$, but the algebra of frequency analysis is far cleaner with **complex exponentials**. This chapter introduces the complex sinusoid $Ae^{j(\Omega n + \phi)}$, Euler's formula, and the phasor picture that links amplitude, phase, and rotation in the complex plane. Mastering this layer makes the DFT (Chapter 6) and filter frequency responses (Chapter 10) predictable instead of magical.
+Pure tones and Fourier analysis both revolve around **sinusoids**. Real-valued audio waveforms are usually stored as real sequences $x[n]$, but the algebra of frequency analysis is far cleaner with **complex exponentials**. This chapter introduces the complex sinusoid $Ae^{j(\Omega n + \phi)}$, Euler's formula, and the phasor picture that links amplitude, phase, and rotation in the complex plane. Mastering this layer makes the DFT ([Chapter 6](#ch-06-dft-fft)) and filter frequency responses ([Chapter 10](#ch-10-filters)) predictable instead of magical.
 
 ## Learning Objectives
 
@@ -24,7 +24,7 @@ $$
 x[n] = A\cos(\Omega n + \phi), \qquad \Omega = 2\pi \frac{f_0}{f_s},
 $$
 
-with peak amplitude $A$, initial phase $\phi$ (radians), and normalized angular frequency $\Omega$ in **radians per sample** (Chapter 2).
+with peak amplitude $A$, initial phase $\phi$ (radians), and normalized angular frequency $\Omega$ in **radians per sample** ([Chapter 2](#ch-02-signals-time-samples)).
 
 **Phase** shifts the waveform left or right along the time axis. **Amplitude** scales peak excursion. **Frequency** sets how many radians of phase accumulate per sample.
 
@@ -88,7 +88,7 @@ $$
 
 For $z[n] = A e^{j(\Omega n + \phi)}$, magnitude is constant $|z[n]| = A$ and phase increases linearly: $\angle z[n] = \Omega n + \phi$ (modulo $2\pi$ when reporting principal values).
 
-**Do not confuse** $|x[n]|$ (absolute value of a real sample) with spectral magnitude $|X[k]|$ (Chapter 6)— same notation shape, different objects.
+**Do not confuse** $|x[n]|$ (absolute value of a real sample) with spectral magnitude $|X[k]|$ ([Chapter 6](#ch-06-dft-fft))— same notation shape, different objects.
 
 ### Negative frequency as clockwise rotation
 
@@ -106,8 +106,8 @@ This **conjugate symmetry** ($X[k] = X^*[N-k]$ for real $x[n]$) is foundational 
 
 1. **Fourier analysis** projects signals onto complex exponentials $e^{-j\Omega n}$; magnitude and phase fall out naturally.
 2. **Filters** are often designed in terms of $H(e^{j\Omega})$— complex gain vs. frequency.
-3. **Analytic signals** (Hilbert transform, Chapter 12 preview) use $x_a[n] = x[n] + j\mathcal{H}\{x\}[n]$ to isolate positive frequencies for envelopes and phase vocoders.
-4. **Modulation** (AM, PM, FM) is multiplication and exponentiation of phasors (Chapter 18).
+3. **Analytic signals** (Hilbert transform, [Chapter 12](#ch-12-phase-group-delay) preview) use $x_a[n] = x[n] + j\mathcal{H}\{x\}[n]$ to isolate positive frequencies for envelopes and phase vocoders.
+4. **Modulation** (AM, PM, FM) is multiplication and exponentiation of phasors ([Chapter 18](#ch-18-synthesis)).
 
 Audio remains **real on output**; complex values are an internal coordinate system.
 
@@ -141,7 +141,7 @@ $$
 
 ## Audio Interpretation
 
-**A440** with $A=0.8$, $\phi=0$ is a piano tuning reference— symmetric about zero, repeating every $\approx 109$ samples at $48\,\mathrm{kHz}$ (Chapter 2). Adding $\phi = \pi/2$ turns a cosine into a sine (same timbre, different phase; identical magnitude spectrum).
+**A440** with $A=0.8$, $\phi=0$ is a piano tuning reference— symmetric about zero, repeating every $\approx 109$ samples at $48\,\mathrm{kHz}$ ([Chapter 2](#ch-02-signals-time-samples)). Adding $\phi = \pi/2$ turns a cosine into a sine (same timbre, different phase; identical magnitude spectrum).
 
 **Detuned pairs** at $440\,\mathrm{Hz}$ and $441\,\mathrm{Hz}$ beat because their phasors rotate at nearly equal rates but slip relative phase— perceived as slow amplitude modulation. Phase relationships between partials determine **timbre** in harmonic sounds.
 
@@ -235,4 +235,4 @@ Verify in Python with `np.cos(5*np.pi/24 + np.pi/4)`.
 - Julius O. Smith, *Spectral Audio Signal Processing* — sinusoids as spectral atoms [@smith2011spectral]
 - Puckette, *Theory and Technique of Electronic Music* — phasors in modulation [@puckette2007electronic]
 
-**Next chapter:** Chapter 05 — *Fourier Representation* builds orthogonal decompositions into sums of complex sinusoids.
+**Next chapter:** [Fourier Representation](#ch-05-fourier) builds orthogonal decompositions into sums of complex sinusoids.

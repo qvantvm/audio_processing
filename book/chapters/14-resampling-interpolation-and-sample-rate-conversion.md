@@ -22,7 +22,7 @@ Insert $L-1$ zeros between samples → **images** at multiples of original spect
 
 ### Downsampling by $M$
 
-Low-pass to $< f_s/new/2$ then keep every $M$-th sample— prevents aliasing (@sec:ch-03-sampling-quantization).
+Low-pass to $< f_s/new/2$ then keep every $M$-th sample— prevents aliasing ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
 
 ### Arbitrary ratio $f_{s2}/f_{s1}$
 
@@ -30,11 +30,11 @@ Rational approximation $L/M$ or asynchronous SRC with time-varying fractional de
 
 ### Fractional delay
 
-Output at non-integer $n$ via **Lagrange**, **sinc**, or **all-pass** interpolation— used in pitch shifting and delay modulation (@sec:ch-11-delay-comb-allpass).
+Output at non-integer $n$ via **Lagrange**, **sinc**, or **all-pass** interpolation— used in pitch shifting and delay modulation ([Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)).
 
 ### Quality metrics
 
-Stopband rejection, passband ripple, group delay— audibility on transient-rich material (@sec:ch-12-phase-group-delay). **SoX**, **libsamplerate** are reference implementations.
+Stopband rejection, passband ripple, group delay— audibility on transient-rich material ([Phase, Group Delay, and Minimum Phase](#ch-12-phase-group-delay)). **SoX**, **libsamplerate** are reference implementations.
 
 ## Mathematical Formulation
 
@@ -87,4 +87,4 @@ y = resample_poly(x, up=160, down=147)  # example ratio components
 - Oppenheim & Schafer [@oppenheim2010discrete]
 - Smith, resampling topics [@smith2010physical]
 
-**Next chapter:** @sec:ch-15-features — *Audio Features and Descriptors*.
+**Next chapter:** [Audio Features and Descriptors](#ch-15-features).

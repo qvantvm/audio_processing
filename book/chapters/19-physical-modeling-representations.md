@@ -18,7 +18,7 @@ By the end of this chapter, the reader should be able to:
 
 ### Excitation–resonance–radiation
 
-**Excitation:** bow, pick, breath noise. **Resonator:** string/bore modes. **Radiation:** body filter (often extra delay/FIR) [@smith2010physical]. Builds on delay lines (@sec:ch-11-delay-comb-allpass) and filters (@sec:ch-10-filters).
+**Excitation:** bow, pick, breath noise. **Resonator:** string/bore modes. **Radiation:** body filter (often extra delay/FIR) [@smith2010physical]. Builds on delay lines ([Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)) and filters ([Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)).
 
 ### Digital waveguide string
 
@@ -50,7 +50,7 @@ Discretize wave equation on grid— flexible geometry, higher CPU; stability req
 
 ### Nonlinearities
 
-Bow friction, reed threshold, valve— make model expressive; complicate analysis and aliasing control (@sec:ch-03-sampling-quantization).
+Bow friction, reed threshold, valve— make model expressive; complicate analysis and aliasing control ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
 
 ## Mathematical Formulation
 
@@ -91,7 +91,7 @@ Start with Smith's `stk` or Julius O. Smith tutorials for waveguide primitives. 
 
 1. Draw waveguide string block diagram with loop filter.
 2. Modal: three partials at 400, 1020, 1840 Hz with different decays— describe timbre.
-3. Why fractional delay needed for accurate pitch? (@sec:ch-14-resampling)
+3. Why fractional delay needed for accurate pitch? ([Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling))
 4. Compare CPU: 10-modal vs 1-waveguide string note.
 
 ## Further Reading
@@ -99,4 +99,4 @@ Start with Smith's `stk` or Julius O. Smith tutorials for waveguide primitives. 
 - Smith, *Physical Audio Signal Processing* [@smith2010physical]
 - Roads [@roads1996computer]
 
-**Next chapter:** @sec:ch-20-neural-audio — *Neural Audio Representations*.
+**Next chapter:** [Neural Audio Representations](#ch-20-neural-audio).

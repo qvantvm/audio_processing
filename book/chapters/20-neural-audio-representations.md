@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Deep learning adds **learned representations**: encoder networks map waveforms or spectrograms to embeddings; generative models synthesize in latent or spectral domains. This chapter situates neural methods relative to classical DSP— when they replace, complement, or inherit STFT-based pipelines (@sec:ch-08-stft, @sec:ch-15-features).
+Deep learning adds **learned representations**: encoder networks map waveforms or spectrograms to embeddings; generative models synthesize in latent or spectral domains. This chapter situates neural methods relative to classical DSP— when they replace, complement, or inherit STFT-based pipelines ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft), [Audio Features and Descriptors](#ch-15-features)).
 
 ## Learning Objectives
 
@@ -21,13 +21,13 @@ By the end of this chapter, the reader should be able to:
 | Domain | Examples | Pros / cons |
 |--------|----------|-------------|
 | Waveform | WaveNet, SampleRNN | End-to-end; long receptive field costly |
-| Spectrogram | U-Net vocoders, diffusion on mel | Leverages @sec:ch-08-stft intuition; phase challenge |
+| Spectrogram | U-Net vocoders, diffusion on mel | Leverages [STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft) intuition; phase challenge |
 | Latent | VAE, RVQ codecs (EnCodec) | Compact; may lose fine detail |
 | Hybrid | DDSP [@engel2020ddsp], neural + sinusoidal | Interpretable partials + learned residuals |
 
 ### Learned features
 
-CNN on log-mel → embedding for classification/tagging— replaces hand-crafted MFCCs (@sec:ch-15-features) when data abundant; still needs careful STFT front-end often.
+CNN on log-mel → embedding for classification/tagging— replaces hand-crafted MFCCs ([Audio Features and Descriptors](#ch-15-features)) when data abundant; still needs careful STFT front-end often.
 
 ### Generative audio
 
@@ -35,7 +35,7 @@ CNN on log-mel → embedding for classification/tagging— replaces hand-crafted
 
 ### Differentiable DSP
 
-STFT/ISTFT inside network (torchaudio, nnAudio)— gradients flow to analysis parameters; risk of committing same window/leakage mistakes as classical chain (@sec:ch-07-windowing).
+STFT/ISTFT inside network (torchaudio, nnAudio)— gradients flow to analysis parameters; risk of committing same window/leakage mistakes as classical chain ([Windowing, Leakage, and Resolution](#ch-07-windowing)).
 
 ### Codecs as representations
 
@@ -66,7 +66,7 @@ import torchaudio
 spec = torchaudio.transforms.MelSpectrogram(sample_rate=fs, n_fft=1024)
 ```
 
-Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, listening tests (@sec:ch-21-testing-pitfalls).
+Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, listening tests ([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
 
 ## Worked Example
 
@@ -86,7 +86,7 @@ Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, list
 1. Sketch pipeline: WAV → mel → U-Net → mel → Griffin–Lim → WAV; list failure modes.
 2. Why DDSP keeps explicit $f_0$ control?
 3. Compare param count: MFCC+SVM vs small CNN on same task (conceptual).
-4. When is classical STFT feature pipeline (@sec:ch-15-features) still preferable?
+4. When is classical STFT feature pipeline ([Audio Features and Descriptors](#ch-15-features)) still preferable?
 
 ## Further Reading
 
@@ -94,4 +94,4 @@ Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, list
 - Engel et al., differentiable DSP synthesis [@engel2020ddsp]
 - Smith + STFT differentiable layers cross-ref [@smith2011spectral]
 
-**Next chapter:** @sec:ch-21-testing-pitfalls — *Testing, Measurement, and Numerical Pitfalls*.
+**Next chapter:** [Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls).

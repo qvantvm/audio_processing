@@ -40,7 +40,7 @@ Circular convolution via DFT multiplies $X[k] H[k]$; linear convolution requires
 
 ### FIR vs IIR
 
-**FIR:** $h[n]$ finite length— always stable, linear phase possible. **IIR:** recursive; $h[n]$ infinite but parameterized compactly (@sec:ch-10-filters).
+**FIR:** $h[n]$ finite length— always stable, linear phase possible. **IIR:** recursive; $h[n]$ infinite but parameterized compactly ([Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)).
 
 ## Mathematical Formulation
 
@@ -80,7 +80,7 @@ For long IRs: uniform partitioned convolution (UPC) splits IR into blocks— sta
 1. **Using circular convolution** without padding → wraparound artifacts.
 2. **`mode='full'` vs `'same'`** confusion at buffer edges.
 3. **Convolving mono IR with stereo** without per-channel policy.
-4. **Assuming IR is minimum-phase** (@sec:ch-12-phase-group-delay)— linear-phase IR adds pre-ringing.
+4. **Assuming IR is minimum-phase** ([Phase, Group Delay, and Minimum Phase](#ch-12-phase-group-delay))— linear-phase IR adds pre-ringing.
 
 ## Exercises
 
@@ -95,4 +95,4 @@ For long IRs: uniform partitioned convolution (UPC) splits IR into blocks— sta
 - Smith, *Physical Audio Signal Processing* [@smith2010physical]
 - Zölzer, *DAFX* [@zoelzer2011dafx]
 
-**Next chapter:** @sec:ch-10-filters — *Filters: FIR, IIR, and the Z-Transform*.
+**Next chapter:** [Filters: FIR, IIR, and the Z-Transform](#ch-10-filters).

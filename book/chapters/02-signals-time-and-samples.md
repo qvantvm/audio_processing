@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Chapter 1 mapped the landscape of audio signal processing. This chapter makes the **time-domain representation** precise: what a discrete-time signal is, how sample index relates to seconds, and how PCM buffers encode amplitude. Nearly every algorithm in the book reads or writes sequences $x[n]$; getting this layer right prevents unit errors that propagate silently through filters, FFTs, and feature extractors.
+[Chapter 1](#ch-01-what-is-asp) mapped the landscape of audio signal processing. This chapter makes the **time-domain representation** precise: what a discrete-time signal is, how sample index relates to seconds, and how PCM buffers encode amplitude. Nearly every algorithm in the book reads or writes sequences $x[n]$; getting this layer right prevents unit errors that propagate silently through filters, FFTs, and feature extractors.
 
 ## Learning Objectives
 
@@ -20,9 +20,9 @@ By the end of this chapter, the reader should be able to:
 
 A **continuous-time signal** is a function $x(t)$ where $t$ is real-valued time, usually in seconds. Analog hardware and physical acoustics are modeled this way before digitization.
 
-A **discrete-time signal** is a sequence $x[n]$ where $n$ is an **integer sample index**. We often visualize $x[n]$ as a stem plot or line plot with dots at integer $n$; the value between indices is undefined unless we explicitly reconstruct or interpolate (Chapter 14).
+A **discrete-time signal** is a sequence $x[n]$ where $n$ is an **integer sample index**. We often visualize $x[n]$ as a stem plot or line plot with dots at integer $n$; the value between indices is undefined unless we explicitly reconstruct or interpolate ([Chapter 14](#ch-14-resampling)).
 
-Sampling (Chapter 3) explains how $x[n]$ relates to $x(t)$. For now, treat $x[n]$ as the object your program manipulates.
+Sampling ([Chapter 3](#ch-03-sampling-quantization)) explains how $x[n]$ relates to $x(t)$. For now, treat $x[n]$ as the object your program manipulates.
 
 ### Sample rate, sample period, and duration
 
@@ -71,7 +71,7 @@ $$
 L_{\mathrm{dBFS}} = 20\log_{10}\left(\frac{|x|_{\mathrm{peak}}}{1.0}\right)
 $$
 
-for amplitude ratios against full scale. Thus $0\,\mathrm{dBFS}$ is peak at full scale; $-6\,\mathrm{dBFS}$ is roughly half peak amplitude. dBFS describes the **digital representation**, not loudness in a room (Chapter 13).
+for amplitude ratios against full scale. Thus $0\,\mathrm{dBFS}$ is peak at full scale; $-6\,\mathrm{dBFS}$ is roughly half peak amplitude. dBFS describes the **digital representation**, not loudness in a room ([Chapter 13](#ch-13-envelopes-loudness)).
 
 ### Discrete sinusoids
 
@@ -87,7 +87,7 @@ $$
 P = \frac{f_s}{f_0}.
 $$
 
-Unless $P$ is an integer, the discrete sequence is **not exactly periodic** over any finite block whose length is an integer number of "visual cycles." That matters for spectral analysis (Chapter 6) and for seamless looping.
+Unless $P$ is an integer, the discrete sequence is **not exactly periodic** over any finite block whose length is an integer number of "visual cycles." That matters for spectral analysis ([Chapter 6](#ch-06-dft-fft)) and for seamless looping.
 
 ### Multichannel and block processing
 
@@ -123,9 +123,9 @@ For a full-scale sine, $\mathrm{RMS} = A/\sqrt{2}$; in dBFS, $20\log_{10}(A/\sqr
 
 **A440** at $f_s = 48000\,\mathrm{Hz}$ has period $P = 48000/440 \approx 109.09$ samples. You never get an exact closed cycle in a finite integer-length buffer unless you choose $f_0$, $f_s$, and $N$ jointly.
 
-A **piano note** decaying over seconds is still $x[n]$— amplitude changes slowly compared to $T_s$, but the signal remains a single sequence. Envelope and loudness are layered on top of oscillation (Chapter 13).
+A **piano note** decaying over seconds is still $x[n]$— amplitude changes slowly compared to $T_s$, but the signal remains a single sequence. Envelope and loudness are layered on top of oscillation ([Chapter 13](#ch-13-envelopes-loudness)).
 
-A **room impulse response** is also a sequence: pressure samples after an impulsive excitation. Long IRs (hundreds of milliseconds) require large $N$ at high $f_s$; memory and CPU scale linearly with $N$ for naive convolution (Chapter 9).
+A **room impulse response** is also a sequence: pressure samples after an impulsive excitation. Long IRs (hundreds of milliseconds) require large $N$ at high $f_s$; memory and CPU scale linearly with $N$ for naive convolution ([Chapter 9](#ch-09-convolution)).
 
 ## Implementation Notes
 
@@ -153,7 +153,7 @@ Naive `np.cos(2*np.pi*f0*n/fs)` with a reset `n` each block causes **phase disco
 
 ### Integer PCM
 
-16-bit signed PCM uses codes in $[-32768, 32767]$. Conversion to float $[-1, 1]$ is typically `x_float = x_int / 32768.0` (watch for off-by-one conventions in specific codecs). Quantization error is analyzed in Chapter 3.
+16-bit signed PCM uses codes in $[-32768, 32767]$. Conversion to float $[-1, 1]$ is typically `x_float = x_int / 32768.0` (watch for off-by-one conventions in specific codecs). Quantization error is analyzed in [Chapter 3](#ch-03-sampling-quantization).
 
 ### Executable example
 
@@ -220,4 +220,4 @@ Peak level is $20\log_{10}(0.8) \approx -1.94\,\mathrm{dBFS}$. Peak and RMS leve
 - Julius O. Smith, *Physical Audio Signal Processing* — practical digital audio conventions [@smith2010physical]
 - Lyons, *Understanding Digital Signal Processing* — intuitive discrete-time signals [@lyons2011understanding]
 
-**Next chapter:** Chapter 03 — *Sampling, Quantization, and Digital Audio* connects $x(t)$ to $x[n]$ and explains aliasing and bit depth.
+**Next chapter:** [Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization) connects $x(t)$ to $x[n]$ and explains aliasing and bit depth.

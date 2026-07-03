@@ -36,11 +36,11 @@ $$
 k^\* = k_{\max} + \frac{|X[k_{\max}+1]| - |X[k_{\max}-1]|}{2\bigl(2|X[k_{\max}]| - |X[k_{\max}+1]| - |X[k_{\max}-1]|\bigr)}.
 $$
 
-Then $f_0 \approx k^\* \Delta f$— fixes coarse bin error from @sec:ch-06-dft-fft.
+Then $f_0 \approx k^\* \Delta f$— fixes coarse bin error from [DFT, FFT, and Spectral Analysis](#ch-06-dft-fft).
 
 ### Onset detection
 
-Functions: spectral flux (@sec:ch-15-features), complex domain deviation, HFC. **Peak picking** on onset strength envelope with adaptive threshold.
+Functions: spectral flux ([Audio Features and Descriptors](#ch-15-features)), complex domain deviation, HFC. **Peak picking** on onset strength envelope with adaptive threshold.
 
 **Audio:** pick note starts for transcription, slicing, rhythm analysis.
 
@@ -100,4 +100,4 @@ Validate on monophonic instruments before polyphonic material.
 - Müller [@muller2015fundamentals]
 - de Cheveigné & Kawahara, YIN pitch estimator [@decheveigne2002yin]
 
-**Next chapter:** @sec:ch-17-musical-reps — *Musical Signal Representations*.
+**Next chapter:** [Musical Signal Representations](#ch-17-musical-reps).

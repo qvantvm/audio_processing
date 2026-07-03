@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Audio signals are rarely single sinusoids. They are **sums** of sinusoids at related frequencies— harmonics of a pitch, partials of a vowel, or continuous blends of energy across the spectrum. The **Fourier representation** makes that decomposition explicit: a signal is expressed as weights on complex exponentials $e^{j\Omega n}$ (or $e^{j2\pi ft}$ in continuous time). This chapter develops the intuition and mathematics of that decomposition— Fourier series for periodic signals, Fourier transforms for non-periodic signals, and the bridge to the DFT in Chapter 6.
+Audio signals are rarely single sinusoids. They are **sums** of sinusoids at related frequencies— harmonics of a pitch, partials of a vowel, or continuous blends of energy across the spectrum. The **Fourier representation** makes that decomposition explicit: a signal is expressed as weights on complex exponentials $e^{j\Omega n}$ (or $e^{j2\pi ft}$ in continuous time). This chapter develops the intuition and mathematics of that decomposition— Fourier series for periodic signals, Fourier transforms for non-periodic signals, and the bridge to the DFT in [Chapter 6](#ch-06-dft-fft).
 
 ## Learning Objectives
 
@@ -18,7 +18,7 @@ By the end of this chapter, the reader should be able to:
 
 ### Why decompose into sinusoids?
 
-Linear time-invariant systems (Chapter 9) respond to sinusoids with scaled sinusoids of the same frequency— only magnitude and phase change. Decomposing an input into sinusoids turns convolution into **multiplication** in frequency. Even when systems are nonlinear, analysis often starts by tracking how energy **splits across frequency**.
+Linear time-invariant systems ([Chapter 9](#ch-09-convolution)) respond to sinusoids with scaled sinusoids of the same frequency— only magnitude and phase change. Decomposing an input into sinusoids turns convolution into **multiplication** in frequency. Even when systems are nonlinear, analysis often starts by tracking how energy **splits across frequency**.
 
 Sinusoids are also **orthogonal** on suitable intervals: distinct frequency components do not "leak" into each other's inner product when integration (or summation) spans whole periods. That orthogonality is what makes coefficients unique and recoverable.
 
@@ -36,7 +36,7 @@ $$
 c_k = \frac{1}{T_0} \int_{T_0} x(t)\, e^{-j 2\pi k f_0 t}\, dt.
 $$
 
-For **real** $x(t)$, coefficients satisfy $c_{-k} = c_k^*$ (conjugate symmetry from Chapter 4).
+For **real** $x(t)$, coefficients satisfy $c_{-k} = c_k^*$ (conjugate symmetry from [Chapter 4](#ch-04-sinusoids-complex)).
 
 **Harmonics** are integer multiples $k f_0$. The $k=0$ term is DC; $k=\pm1$ is the fundamental; $|k|\ge2$ are overtones.
 
@@ -78,7 +78,7 @@ X(\Omega) = \sum_{n=-\infty}^{\infty} x[n]\, e^{-j\Omega n},
 x[n] = \frac{1}{2\pi}\int_{-\pi}^{\pi} X(\Omega)\, e^{j\Omega n}\, d\Omega.
 $$
 
-$X(\Omega)$ is **$2\pi$-periodic** in $\Omega$: indistinguishable frequencies alias in the discrete-time domain (Chapter 3), reflected as periodicity in $\Omega$.
+$X(\Omega)$ is **$2\pi$-periodic** in $\Omega$: indistinguishable frequencies alias in the discrete-time domain ([Chapter 3](#ch-03-sampling-quantization)), reflected as periodicity in $\Omega$.
 
 Relationship to cyclic frequency: $\Omega = 2\pi f / f_s$.
 
@@ -86,7 +86,7 @@ The DTFT is ideal for theoretical analysis of filters $H(\Omega)$ on the unit ci
 
 ### From infinite sums to the DFT
 
-Three practical constraints force the **DFT** (Chapter 6):
+Three practical constraints force the **DFT** ([Chapter 6](#ch-06-dft-fft)):
 
 1. We observe **finite** length-$N$ segments.
 2. Computers store **finite** arrays.
@@ -111,7 +111,7 @@ For coefficient or transform value $X$:
 - **Phase** $\angle X$ — shift of that component
 - **Power** $|X|^2$ in Parseval contexts — energy contribution
 
-Do not plot $|X|^2$ and call it "amplitude." Chapter 6 standardizes DFT scaling conventions; until then, track whether your software applies $1/N$ normalization on inverse transforms.
+Do not plot $|X|^2$ and call it "amplitude." [Chapter 6](#ch-06-dft-fft) standardizes DFT scaling conventions; until then, track whether your software applies $1/N$ normalization on inverse transforms.
 
 ### Orthogonality (sketch)
 
@@ -139,11 +139,11 @@ $$
 X(\Omega) = \sum_{n=-\infty}^{\infty} x[n] e^{-j\Omega n}.
 $$
 
-**Frequency response preview:** For LTI $h[n]$ with DTFT $H(\Omega)$, output spectrum is $Y(\Omega) = H(\Omega) X(\Omega)$ when transforms exist— multiplication in frequency, convolution in time (Chapter 9).
+**Frequency response preview:** For LTI $h[n]$ with DTFT $H(\Omega)$, output spectrum is $Y(\Omega) = H(\Omega) X(\Omega)$ when transforms exist— multiplication in frequency, convolution in time ([Chapter 9](#ch-09-convolution)).
 
 ## Audio Interpretation
 
-**Vocal vowel /a/** — energy concentrated at harmonics of fundamental $f_0$ (pitch), with peaks at formant-related groups of harmonics. Fourier series thinking applies locally when pitch is stable; when pitch glides, time–frequency methods (Chapter 8) replace a single global series.
+**Vocal vowel /a/** — energy concentrated at harmonics of fundamental $f_0$ (pitch), with peaks at formant-related groups of harmonics. Fourier series thinking applies locally when pitch is stable; when pitch glides, time–frequency methods ([Chapter 8](#ch-08-stft)) replace a single global series.
 
 **Square-like synthesizer wave** — bright, buzzy timbre because odd harmonics decay slowly ($1/k$). Low-pass filtering removes high harmonics, darkening the tone— a direct manipulation of Fourier coefficients.
 
@@ -170,11 +170,11 @@ python examples/fourier_series_square_wave.py
 
 ### Toward the FFT
 
-NumPy's `np.fft.fft` implements the DFT for finite arrays— not the infinite DTFT. Before calling `fft` in Chapter 6, ask: **What finite segment am I analyzing?** **What implicit periodic extension does that imply?**
+NumPy's `np.fft.fft` implements the DFT for finite arrays— not the infinite DTFT. Before calling `fft` in [Chapter 6](#ch-06-dft-fft), ask: **What finite segment am I analyzing?** **What implicit periodic extension does that imply?**
 
 ### Numerical integration of coefficients
 
-For arbitrary periodic waveforms, estimate $c_k$ by correlating one period with $e^{-j2\pi k f_0 t}$ using dense sampling— useful for custom wavetable analysis (Chapter 18).
+For arbitrary periodic waveforms, estimate $c_k$ by correlating one period with $e^{-j2\pi k f_0 t}$ using dense sampling— useful for custom wavetable analysis ([Chapter 18](#ch-18-synthesis)).
 
 ## Worked Example
 
@@ -202,7 +202,7 @@ Numerically $\mathrm{RMS} \approx 0.97$ (peak of sum can exceed any single parti
 
 1. **Confusing Fourier series with Fourier transform.** Series: discrete harmonics for periodic signals. Transform: continuous spectrum for non-periodic signals.
 
-2. **Ignoring implicit periodicity of the DFT.** A length-$N$ DFT assumes an $N$-sample periodic signal— affects interpretation of finite clips (Chapter 7).
+2. **Ignoring implicit periodicity of the DFT.** A length-$N$ DFT assumes an $N$-sample periodic signal— affects interpretation of finite clips ([Chapter 7](#ch-07-windowing)).
 
 3. **Gibbs overshoot near discontinuities.** Truncating a series does not remove overshoot near jumps; more terms sharpen but do not eliminate the Gibbs phenomenon near ideal discontinuities.
 
@@ -227,4 +227,4 @@ Numerically $\mathrm{RMS} \approx 0.97$ (peak of sum can exceed any single parti
 - Lyons, *Understanding Digital Signal Processing* — intuitive transform definitions [@lyons2011understanding]
 - Roads, *The Computer Music Tutorial* — additive/harmonic thinking in synthesis [@roads1996computer]
 
-**Next chapter:** Chapter 06 — *DFT, FFT, and Spectral Analysis* computes discrete spectra on finite buffers and connects bin index $k$ to hertz.
+**Next chapter:** [DFT, FFT, and Spectral Analysis](#ch-06-dft-fft) computes discrete spectra on finite buffers and connects bin index $k$ to hertz.
