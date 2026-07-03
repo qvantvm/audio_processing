@@ -6,9 +6,11 @@ PANDOC_FLAGS := --from markdown+tex_math_dollars+smart \
                 --metadata-file metadata.yaml \
                 --resource-path=.:chapters:figures
 
-.PHONY: all html pdf epub clean
+.PHONY: all html pdf epub all-formats clean
 
 all: html
+
+all-formats: html pdf epub
 
 html: audio_signal_processing.html
 
@@ -17,7 +19,7 @@ pdf: audio_signal_processing.pdf
 epub: audio_signal_processing.epub
 
 audio_signal_processing.html: $(CHAPTERS) metadata.yaml bibliography.bib
-	$(PANDOC) $(PANDOC_FLAGS) $(CHAPTERS) -o $@
+	$(PANDOC) $(PANDOC_FLAGS) --standalone --self-contained $(CHAPTERS) -o $@
 
 audio_signal_processing.pdf: $(CHAPTERS) metadata.yaml bibliography.bib
 	$(PANDOC) $(PANDOC_FLAGS) $(CHAPTERS) -o $@

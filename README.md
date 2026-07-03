@@ -88,8 +88,8 @@ On push/PR touching `book/**`:
 
 | Job | Checks |
 |-----|--------|
-| `format` | `black`, `ruff`, `check_formatting.py` |
-| `examples` | example smoke tests, 15 correctness tests, ch 01–22 verifications, pilot pre-flight |
+| `format` | `black`, `ruff`, `check_formatting.py`, `check_representation_lens.py` |
+| `examples` | example smoke tests, 15 correctness tests, ch 01–22 verifications, pilot pre-flight, governance tests |
 | `html` / `pdf` / `epub` | Pandoc builds + artifact upload |
 
 ## Formatting (before PR)

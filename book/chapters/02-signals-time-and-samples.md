@@ -21,6 +21,17 @@ $f_s$
 5. Generate a correct discrete sinusoid in code and recognize when phase continuity matters across
 buffers
 
+## Representation lens
+
+| Question | Time-sample answer |
+|----------|-------------------|
+| **What is the representation?** | Discrete sequence $x[n]$ indexed by sample $n$ at rate $f_s$ |
+| **What does it preserve?** | Waveform shape, timing, phase state across blocks when managed |
+| **What does it discard?** | Between-sample values; absolute SPL unless calibrated |
+| **Maps in/out via** | ADC sample, file read, oscillator render → DAC hold ([Chapter 3](#ch-03-sampling-quantization)) |
+| **Numerical mistakes** | Hard-coded $f_s$; phase reset at block boundaries; stereo layout confusion |
+| **Audible artifacts** | Block-boundary clicks; wrong pitch from $f_s$ error |
+
 ## Main Concepts
 
 ### Continuous time vs. discrete time

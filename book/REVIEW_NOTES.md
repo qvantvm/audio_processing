@@ -2,6 +2,22 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 26 — Foundation Representation Lens, Governance CI (2026-07-03)
+
+### Completed
+
+- **Representation lens** tables added to ch **02–06** and **21** (complete ch 02–22 coverage)
+- **`check_representation_lens.py`** — CI gate for lens sections (ch 01 exempt: comparison matrix)
+- **`test_governance.py`** — smoke test for `record_pilot_run.py` on temp copy + lens checker
+- **HTML build** — `--standalone --self-contained` for portable artifact; `make all-formats` target
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants** (cannot be simulated)
+- [ ] Broadcast-grade SRC (libsamplerate/SoX) — out of scope for in-repo toolkit
+
+---
+
 ## Pass 25 — HTML Artifact, Filter CLI, Pilot Log Helper (2026-07-03)
 
 ### Completed

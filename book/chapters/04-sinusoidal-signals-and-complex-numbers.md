@@ -19,6 +19,17 @@ By the end of this chapter, the reader should be able to:
 4. Explain why real audio signals have **conjugate-symmetric** spectra
 5. Implement a complex sinusoid in code and extract its real part correctly
 
+## Representation lens
+
+| Question | Complex-sinusoid answer |
+|----------|------------------------|
+| **What is the representation?** | $Ae^{j(\Omega n + \phi)}$ phasor; real audio is $\Re\{z[n]\}$ |
+| **What does it preserve?** | Amplitude $A$, frequency $\Omega$, phase evolution across $n$ |
+| **What does it discard?** | Nothing in analysis— real signals discard negative-frequency half in storage |
+| **Maps in/out via** | Euler form ↔ cosine; DFT bins ([Chapter 6](#ch-06-dft-fft)); filter $H(e^{j\Omega})$ |
+| **Numerical mistakes** | Principal-value phase wraps; mixing degrees and radians |
+| **Audible artifacts** | Phase discontinuities at block joins; beating from frequency mismatch |
+
 ## Main Concepts
 
 ### Real sinusoids

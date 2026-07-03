@@ -6,6 +6,17 @@ Correct DSP code still fails from **numerical issues**, **wrong assumptions**, a
 cases**. This chapter collects practices for verifying filters, transforms, levels, and
 implementations— essential before shipping audio software or publishing measurements.
 
+## Representation lens
+
+| Question | Testing / measurement answer |
+|----------|------------------------------|
+| **What is the representation?** | Scalar invariants (energy, peak, THD) and round-trip signal checks |
+| **What does it preserve?** | Pass/fail guarantees on transforms, filters, and level semantics |
+| **What does it discard?** | Perceptual quality; musical context; all failure modes not covered by tests |
+| **Maps in/out via** | Impulse/sine probes; golden files; STFT/FFT round-trip tolerances |
+| **Numerical mistakes** | Smoke-only tests; wrong $f_s$ in fixtures; comparing float to int PCM exactly |
+| **Audible artifacts** | Tests pass but clips on playback; intersample peaks; slow denormal CPU stalls |
+
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:

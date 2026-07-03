@@ -20,6 +20,17 @@ By the end of this chapter, the reader should be able to:
 5. Distinguish the **DFT** (definition) from the **FFT** (algorithm) and avoid common scaling
 mistakes
 
+## Representation lens
+
+| Question | DFT / FFT answer |
+|----------|-----------------|
+| **What is the representation?** | Complex bin spectrum $X[k]$ on grid $\Delta f = f_s/N$ |
+| **What does it preserve?** | Sinusoidal content at bin centers; energy (Parseval) when scaled consistently |
+| **What does it discard?** | Off-grid frequencies smear (leakage); between-bin phase without interpolation |
+| **Maps in/out via** | DFT/FFT; inverse DFT; windowed segment ([Chapter 7](#ch-07-windowing)) |
+| **Numerical mistakes** | Bin index vs Hz; missing $1/N$ on inverse; magnitude-only resynthesis |
+| **Audible artifacts** | Wrong pitch read from peak bin; phasey resynthesis; smeared transients |
+
 ## Main Concepts
 
 ### What problem the DFT solves

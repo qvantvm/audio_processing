@@ -19,6 +19,17 @@ By the end of this chapter, the reader should be able to:
 5. Read basic **PCM/WAV** parameters (sample rate, bit depth, channels) and predict storage
 implications
 
+## Representation lens
+
+| Question | Sampling / PCM answer |
+|----------|----------------------|
+| **What is the representation?** | Uniformly sampled, quantized PCM codes $x[n]$ with finite bit depth |
+| **What does it preserve?** | Band-limited content below Nyquist when anti-alias filtering is correct |
+| **What does it discard?** | Above-Nyquist energy (aliases); sub-quantum amplitude detail |
+| **Maps in/out via** | Sample/hold + quantize; dequantize + interpolation/reconstruction |
+| **Numerical mistakes** | Ignoring aliasing; confusing dBFS with SPL; wrong bit-depth scale |
+| **Audible artifacts** | Aliasing fold, quantization hiss, hard clipping |
+
 ## Main Concepts
 
 ### From analog to digital

@@ -64,6 +64,7 @@ Record external cohort results in `EXTERNAL_REVIEW.md`.
 
 ## Instructor notes
 
-- Emphasize the **representation lens** table from ch 01 at the start of each session
+- Emphasize the **representation lens** table from ch 01 at the start of each session; ch 02–06 now
+  include per-chapter lens tables aligned with later chapters
 - Do not skip `$f_s$` on every slide — it is the #1 source of student bugs
 - Use `audio_toolkit` only after session 4; earlier sessions use raw NumPy intentionally

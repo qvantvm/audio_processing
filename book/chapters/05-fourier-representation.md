@@ -19,6 +19,17 @@ By the end of this chapter, the reader should be able to:
 4. Describe the **DTFT** as the frequency representation of an infinite discrete-time sequence
 5. Relate Fourier series, DTFT, and **DFT** as different views on the same underlying idea
 
+## Representation lens
+
+| Question | Fourier answer |
+|----------|----------------|
+| **What is the representation?** | Weights on complex exponentials— series/DTFT/CTFT coefficients |
+| **What does it preserve?** | Sinusoidal content and phase relationships in orthogonal decomposition |
+| **What does it discard?** | Non-sinusoidal transients unless enough partials; infinite-duration tail in finite sums |
+| **Maps in/out via** | Analysis integral/sum; synthesis superposition; DFT samples DTFT ([Chapter 6](#ch-06-dft-fft)) |
+| **Numerical mistakes** | Gibbs ringing from truncating series; confusing frequency units |
+| **Audible artifacts** | Ringing near discontinuities; dull timbre when truncating harmonics |
+
 ## Main Concepts
 
 ### Why decompose into sinusoids?

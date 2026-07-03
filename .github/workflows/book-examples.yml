@@ -30,6 +30,8 @@ jobs:
         run: python -m ruff check book/
       - name: Check file structure (lines, requirements)
         run: python book/scripts/check_formatting.py
+      - name: Check representation lens sections
+        run: python book/scripts/check_representation_lens.py
 
   examples:
     runs-on: ubuntu-latest
@@ -49,6 +51,8 @@ jobs:
         run: python book/solutions/run_verifications.py
       - name: Teaching pilot pre-flight (Run 1 materials)
         run: python book/scripts/run_pilot_preflight.py
+      - name: Governance script tests
+        run: python book/tests/test_governance.py
 
   html:
     runs-on: ubuntu-latest

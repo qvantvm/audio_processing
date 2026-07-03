@@ -265,11 +265,15 @@ flowchart TD
 
 ## Current Sprint Focus
 
+**Completed (Pass 26, 2026-07-03):** Representation lens tables for foundation ch 02–06 and ch 21;
+`check_representation_lens.py` in CI; `test_governance.py`; standalone self-contained HTML; Makefile
+`all-formats` target.
+
+**Next recommended step (Pass 27):** External teaching cohort Run 1 with real participants; log via
+`record_pilot_run.py`; promote chapters only after `EXTERNAL_REVIEW.md` sign-off.
+
 **Completed (Pass 25, 2026-07-03):** HTML CI artifact upload; `audio_toolkit filter` CLI subcommand;
 `record_pilot_run.py` instructor logging helper; README refresh (honest status, CI artifacts).
-
-**Next recommended step (Pass 26):** Execute external teaching cohort Run 1 with real participants;
-log via `record_pilot_run.py`; promote chapters only after `EXTERNAL_REVIEW.md` sign-off.
 
 **Completed (Pass 24, 2026-07-03):** EPUB CI job + artifact; `resample(..., quality=ImplQuality)` tiers;
 `TEACHING_PILOT_RUN1.md` instructor kit (agendas, feedback form, Run 1 log template).
