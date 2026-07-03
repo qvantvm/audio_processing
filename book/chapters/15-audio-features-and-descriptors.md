@@ -1,8 +1,8 @@
-# Audio Features and Descriptors
+# Audio Features and Descriptors {#ch-15-features}
 
 ## Purpose
 
-Machine listening and music informatics reduce waveforms to **feature vectors**: timbral, temporal, and spectral summaries for classification, search, and MIR. This chapter surveys common descriptors— spectral centroid, rolloff, flux, MFCC preview— and how STFT choices affect them.
+Machine listening and music informatics reduce waveforms to **feature vectors**: timbral, temporal, and spectral summaries for classification, search, and MIR. This chapter surveys common descriptors— spectral centroid, rolloff, flux, MFCC preview— and how STFT (@sec:ch-08-stft) choices affect them.
 
 ## Learning Objectives
 
@@ -18,7 +18,7 @@ By the end of this chapter, the reader should be able to:
 
 ### Frame-based pipeline
 
-STFT → $|X_m[k]|$ → per-frame scalar or vector features → time series or aggregated statistics [@muller2015fundamentals].
+STFT (@sec:ch-08-stft) → $|X_m[k]|$ → per-frame scalar or vector features → time series or aggregated statistics [@muller2015fundamentals].
 
 ### Spectral centroid
 
@@ -49,7 +49,7 @@ Count sign changes per frame— noisy/unvoiced speech cue; crude pitch period hi
 ### MFCC (outline)
 
 1. Power spectrum $|X_m[k]|^2$
-2. **Mel filterbank** (Chapter 17 scale)
+2. **Mel filterbank** (@sec:ch-17-musical-reps Mel scale)
 3. Log compress
 4. **DCT** → decorrelated coefficients
 
@@ -57,7 +57,7 @@ Widely used in speech/music ML; not magically perceptual— know limitations.
 
 ### Chroma / constant-Q (preview)
 
-**Chroma:** energy folded onto 12 pitch classes— harmony analysis (Chapter 17).
+**Chroma:** energy folded onto 12 pitch classes— harmony analysis (@sec:ch-17-musical-reps).
 
 **CQT:** log-spaced frequency resolution for music [@muller2015fundamentals].
 
@@ -114,4 +114,4 @@ Document `n_fft`, `hop_length` with published features— reproducibility matter
 - Müller [@muller2015fundamentals]
 - Rabiner & Schafer speech features [@rabiner2010theory]
 
-**Next chapter:** Chapter 16 — *Pitch, Onsets, and Rhythm*.
+**Next chapter:** @sec:ch-16-pitch-onsets — *Pitch, Onsets, and Rhythm*.

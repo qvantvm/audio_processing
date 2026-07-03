@@ -1,4 +1,4 @@
-# Synthesis Representations
+# Synthesis Representations {#ch-18-synthesis}
 
 ## Purpose
 

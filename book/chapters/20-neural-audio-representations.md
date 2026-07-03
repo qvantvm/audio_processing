@@ -1,4 +1,4 @@
-# Neural Audio Representations
+# Neural Audio Representations {#ch-20-neural-audio}
 
 ## Purpose
 

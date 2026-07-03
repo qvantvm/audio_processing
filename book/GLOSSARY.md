@@ -42,6 +42,14 @@ A sequence $z[n] = A e^{j(\Omega n + \phi)}$ whose real part is a cosine wave. R
 
 For a real sequence $x[n]$, DFT coefficients satisfy $X[k] = X^*[N-k]$, reflecting equal contribution from positive and negative frequency phasors.
 
+## Chroma
+
+A 12-dimensional pitch-class representation folding spectral energy onto semitone classes (C through B), invariant to octave shifts within the mapping.
+
+## Crest factor
+
+The ratio of peak amplitude to RMS level in a signal segment; high crest factor indicates sharp transients relative to average energy.
+
 ## Continuous-time signal
 
 A function $x(t)$ defined for real time $t$, used to model analog waveforms before sampling.
@@ -134,6 +142,10 @@ A system whose output is convolution of the input with an impulse response, and 
 
 Integrated loudness measure from ITU-R BS.1770 / EBU R128, using K-weighting and gating; used for broadcast and streaming level matching (not identical to RMS or peak dBFS).
 
+## MFCC (mel-frequency cepstral coefficients)
+
+Features derived by applying a Mel filterbank to a power spectrum, taking the log, and applying a DCT— common in speech and music ML front-ends.
+
 ## Magnitude
 
 The absolute value $|X|$ of a complex spectrum value or transfer function at a given frequency. Magnitude describes how much a sinusoidal component is scaled; phase describes its shift.
@@ -197,6 +209,14 @@ The ratio of signal power to quantization noise power. For a full-scale sinusoid
 ## Spectral leakage
 
 Spreading of energy from a true frequency component into neighboring DFT bins when analyzing a finite segment, especially when the component does not align with a bin center.
+
+## Spectral centroid
+
+The center-of-mass frequency of a magnitude spectrum frame; correlates perceptually with brightness or sharpness of timbre.
+
+## Spectral flux
+
+Frame-to-frame change in magnitude spectrum energy, often summed across bins; used for onset detection and change tracking.
 
 ## Spectrogram
 

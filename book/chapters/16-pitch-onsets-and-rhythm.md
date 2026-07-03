@@ -1,4 +1,4 @@
-# Pitch, Onsets, and Rhythm
+# Pitch, Onsets, and Rhythm {#ch-16-pitch-onsets}
 
 ## Purpose
 
@@ -36,11 +36,11 @@ $$
 k^\* = k_{\max} + \frac{|X[k_{\max}+1]| - |X[k_{\max}-1]|}{2\bigl(2|X[k_{\max}]| - |X[k_{\max}+1]| - |X[k_{\max}-1]|\bigr)}.
 $$
 
-Then $f_0 \approx k^\* \Delta f$— fixes coarse bin error from Chapter 6.
+Then $f_0 \approx k^\* \Delta f$— fixes coarse bin error from @sec:ch-06-dft-fft.
 
 ### Onset detection
 
-Functions: spectral flux, complex domain deviation, HFC. **Peak picking** on onset strength envelope with adaptive threshold.
+Functions: spectral flux (@sec:ch-15-features), complex domain deviation, HFC. **Peak picking** on onset strength envelope with adaptive threshold.
 
 **Audio:** pick note starts for transcription, slicing, rhythm analysis.
 
@@ -100,4 +100,4 @@ Validate on monophonic instruments before polyphonic material.
 - Müller [@muller2015fundamentals]
 - de Cheveigné & Kawahara, YIN pitch estimator [@decheveigne2002yin]
 
-**Next chapter:** Chapter 17 — *Musical Signal Representations*.
+**Next chapter:** @sec:ch-17-musical-reps — *Musical Signal Representations*.

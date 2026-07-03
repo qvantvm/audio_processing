@@ -31,11 +31,11 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | reviewed | 09 |
 | 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | reviewed | 10 |
 | 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | reviewed | 06, 10 |
-| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | draft | 02 |
-| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | draft | 03, 10 |
-| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | draft | 08 |
-| 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | draft | 06, 08 |
-| 17 | `17-musical-signal-representations.md` | Musical Signal Representations | draft | 04, 08 |
+| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | reviewed | 02 |
+| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | reviewed | 03, 10 |
+| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | reviewed | 08 |
+| 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | reviewed | 06, 08 |
+| 17 | `17-musical-signal-representations.md` | Musical Signal Representations | reviewed | 04, 08 |
 | 18 | `18-synthesis-representations.md` | Synthesis Representations | draft | 04, 10 |
 | 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | draft | 09, 18 |
 | 20 | `20-neural-audio-representations.md` | Neural Audio Representations | draft | 08, 15 |
@@ -233,17 +233,17 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Review pass** — promote chapters 13–22 from `draft` → `reviewed` (00–12 done through Pass 9)
-2. **Pandoc cross-refs** — extend `@sec:` labels to chapters 13–22
+1. **Review pass** — promote chapters 18–22 from `draft` → `reviewed` (00–17 done through Pass 10)
+2. **Pandoc cross-refs** — replace remaining plain "Chapter N" in chapters 18–22
 3. **Exercise solutions** — appendix (future)
 4. **Pandoc build CI** — `make html` when Pandoc available on runner
 5. **Chapter depth** — optional expansion of 19–20 in teaching pass
 
 ## Current Sprint Focus
 
-**Completed (Pass 9, 2026-07-03):** Editorial review of chapters 07–12; `@sec:` IDs on Ch 08–12; cross-links throughout spectral/filter block; NOTATION ($\tau_g$, CG, $D$) and GLOSSARY (COLA, comb filter, group delay); chapters 07–12 promoted to **reviewed**.
+**Completed (Pass 10, 2026-07-03):** Editorial review of chapters 13–17; `@sec:` IDs on Ch 13–22 (IDs added for forward refs); cross-links across production/analysis block; GLOSSARY (chroma, crest factor, MFCC, spectral centroid, flux); chapters 13–17 promoted to **reviewed**.
 
-**Next recommended step (Pass 10):** Editorial review of **chapters 13–17** (loudness, resampling, features, pitch, musical reps); add `@sec:` IDs; resolve any remaining plain "Chapter N" references; promote to `reviewed`.
+**Next recommended step (Pass 11):** Editorial review of **chapters 18–22** (synthesis, physical modeling, neural, testing, toolkit); complete cross-ref pass; promote final chapters to `reviewed`; consider Pandoc HTML build in CI.
 
 ## Conventions
 

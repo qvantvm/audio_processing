@@ -82,6 +82,8 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $M$ | Window / STFT length | Samples per frame; $\Delta f \approx f_s/M$ |
 | $R$ | Hop size | Samples between STFT frames |
 | $X_m[k]$ | STFT coefficient | Frequency bin $k$ in frame $m$ |
+| $C_m$ | Spectral centroid | Hz; center of mass of $|X_m[k]|$ |
+| $\mathrm{flux}_m$ | Spectral flux | Frame-to-frame spectral change metric |
 | $\text{CG}$ | Coherent gain | Window amplitude correction factor |
 
 ## Phase and Frequency Response
