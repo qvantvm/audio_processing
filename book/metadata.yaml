@@ -1,0 +1,18 @@
+---
+title: "Audio Signal Representation and Processing"
+subtitle: "From Samples to Spectra, Filters, and Features"
+author:
+  - "Audio DSP Book Project"
+date: "2026"
+lang: en-US
+toc: true
+toc-depth: 3
+number-sections: true
+colorlinks: true
+link-citations: true
+bibliography: bibliography.bib
+documentclass: book
+papersize: letter
+fontsize: 11pt
+geometry: margin=1in
+---
