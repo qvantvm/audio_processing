@@ -5,8 +5,9 @@ Run from book/: python examples/representation_domains.py
 """
 
 from pathlib import Path
-import matplotlib.pyplot as plt
+
 import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 
 FIG = Path(__file__).resolve().parent.parent / "figures"
 FIG.mkdir(parents=True, exist_ok=True)
@@ -23,7 +24,9 @@ boxes = [
     (7.4, 3.5, "Parametric\npartials, MFCC, latent"),
 ]
 for x, y, label in boxes:
-    rect = mpatches.FancyBboxPatch((x, y), 2.0, 1.6, boxstyle="round,pad=0.05", fc="#e8f0fe", ec="#3366cc")
+    rect = mpatches.FancyBboxPatch(
+        (x, y), 2.0, 1.6, boxstyle="round,pad=0.05", fc="#e8f0fe", ec="#3366cc"
+    )
     ax.add_patch(rect)
     ax.text(x + 1.0, y + 0.8, label, ha="center", va="center", fontsize=9)
 
@@ -31,7 +34,13 @@ arrows = [(2.5, 4.3, 2.8, 4.3), (4.8, 4.3, 5.1, 4.3), (7.1, 4.3, 7.4, 4.3)]
 for x1, y1, x2, y2 in arrows:
     ax.annotate("", xy=(x2, y2), xytext=(x1, y1), arrowprops=dict(arrowstyle="->", color="0.4"))
 
-ax.text(5, 2.2, "Transforms & models link representations (DFT, filters, features, ML)", ha="center", fontsize=10)
+ax.text(
+    5,
+    2.2,
+    "Transforms & models link representations (DFT, filters, features, ML)",
+    ha="center",
+    fontsize=10,
+)
 ax.text(5, 5.3, "Audio signal representation domains", ha="center", fontsize=12, fontweight="bold")
 
 out = FIG / "representation_domains.png"

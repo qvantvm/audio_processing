@@ -1,6 +1,7 @@
 # Notation Guide
 
-This file tracks symbols used across the book. Before introducing new notation in a chapter, check here and extend this list if needed.
+This file tracks symbols used across the book. Before introducing new notation in a chapter, check
+here and extend this list if needed.
 
 ## Time and Sampling
 
@@ -42,7 +43,9 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $\mathrm{SQNR}$ | Signal-to-quantization-noise ratio | Often $\approx 6.02B + 1.76$ dB for sine |
 | $\mathrm{RMS}$ | Root mean square level | See Chapter 13 |
 
-**Convention:** We distinguish **amplitude** (instantaneous or peak value), **magnitude** (absolute value of a complex spectrum or transfer function), and **power/energy** (squared magnitude integrated or summed). Do not use these interchangeably.
+**Convention:** We distinguish **amplitude** (instantaneous or peak value), **magnitude** (absolute
+value of a complex spectrum or transfer function), and **power/energy** (squared magnitude
+integrated or summed). Do not use these interchangeably.
 
 ## Frequency
 
@@ -57,7 +60,9 @@ This file tracks symbols used across the book. Before introducing new notation i
 | $\omega_k$ | DFT bin center frequency | Depends on $f_s$ and $N$ |
 | $k$ | Frequency-bin index | $k \in \{0, 1, \ldots, N-1\}$ for length-$N$ DFT |
 
-**Convention:** In discrete-time sections, $\Omega = 2\pi f / f_s$ unless stated otherwise. We avoid using $\omega$ for both continuous rad/s and discrete rad/sample in the same section without explicit clarification.
+**Convention:** In discrete-time sections, $\Omega = 2\pi f / f_s$ unless stated otherwise. We avoid
+using $\omega$ for both continuous rad/s and discrete rad/sample in the same section without
+explicit clarification.
 
 ## Fourier and Z-Transform
 

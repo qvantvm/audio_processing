@@ -7,7 +7,7 @@ Run from book/: python examples/stft_framing_diagram.py
 from pathlib import Path
 
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 FIG = Path(__file__).resolve().parent.parent / "figures"
 FIG.mkdir(parents=True, exist_ok=True)

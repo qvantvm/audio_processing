@@ -5,6 +5,7 @@ Run from book/: python examples/fir_lowpass_demo.py
 """
 
 from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 

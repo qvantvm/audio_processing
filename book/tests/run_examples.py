@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Run all book examples (smoke test)."""
+
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +23,8 @@ EXAMPLES = [
     "export_audio_demos.py",
     "spectrogram_frontend_demo.py",
     "stft_framing_diagram.py",
+    "adc_dac_diagram.py",
+    "fir_iir_diagram.py",
 ]
 
 failures = []

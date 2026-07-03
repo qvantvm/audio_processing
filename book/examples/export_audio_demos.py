@@ -7,8 +7,8 @@ Run from book/:
 Writes short clips to audio_demos/ — use headphones at low volume.
 """
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 import numpy as np
 
@@ -18,7 +18,7 @@ sys.path.insert(0, str(BOOK))
 from audio_toolkit.effects import DelayLine
 from audio_toolkit.io import write_wav
 from audio_toolkit.osc import PhaseOscillator, sine_block
-from audio_toolkit.synthesis import naive_saw
+from audio_toolkit.synthesis import naive_saw_artifact
 
 OUT = BOOK / "audio_demos"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -52,7 +52,7 @@ def demo_phase_click() -> None:
 
 def demo_naive_saw_aliasing() -> None:
     """High saw note — harsh aliasing (Ch 18)."""
-    y = naive_saw(FS, 2200.0, int(FS * DUR), amplitude=0.5)
+    y = naive_saw_artifact(FS, 2200.0, int(FS * DUR), amplitude=0.5)
     write_wav(OUT / "naive_saw_2200hz.wav", y, int(FS))
     print("saw: naive_saw_2200hz.wav — listen for harsh high-frequency buzz")
 

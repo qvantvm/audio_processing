@@ -2,7 +2,11 @@
 
 ## Purpose
 
-Deep learning adds **learned representations**: encoder networks map waveforms or spectrograms to embeddings; generative models synthesize in latent or spectral domains. This chapter situates neural methods relative to classical DSP— when they replace, complement, or inherit STFT-based pipelines ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft), [Audio Features and Descriptors](#ch-15-features)).
+Deep learning adds **learned representations**: encoder networks map waveforms or spectrograms to
+embeddings; generative models synthesize in latent or spectral domains. This chapter situates neural
+methods relative to classical DSP— when they replace, complement, or inherit STFT-based pipelines
+([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft), [Audio Features and
+Descriptors](#ch-15-features)).
 
 ## Representation lens
 
@@ -56,33 +60,40 @@ This shows what a **spectrogram-domain** model would see before learning.
 
 ### Learned features
 
-CNN on log-mel → embedding for classification/tagging— replaces hand-crafted MFCCs ([Audio Features and Descriptors](#ch-15-features)) when data abundant; still needs careful STFT front-end often.
+CNN on log-mel → embedding for classification/tagging— replaces hand-crafted MFCCs ([Audio Features
+and Descriptors](#ch-15-features)) when data abundant; still needs careful STFT front-end often.
 
 ### Generative audio
 
-**GAN vocoders, diffusion, autoregressive** models generate mel or waveform. **Griffin–Lim**-class phase estimation largely superseded but phase remains issue in naive pipelines.
+**GAN vocoders, diffusion, autoregressive** models generate mel or waveform. **Griffin–Lim**-class
+phase estimation largely superseded but phase remains issue in naive pipelines.
 
 ### Differentiable DSP
 
-STFT/ISTFT inside network (torchaudio, nnAudio)— gradients flow to analysis parameters; risk of committing same window/leakage mistakes as classical chain ([Windowing, Leakage, and Resolution](#ch-07-windowing)).
+STFT/ISTFT inside network (torchaudio, nnAudio)— gradients flow to analysis parameters; risk of
+committing same window/leakage mistakes as classical chain ([Windowing, Leakage, and
+Resolution](#ch-07-windowing)).
 
 ### Codecs as representations
 
-Neural codecs (Lyra, EnCodec, DAC) learn discrete codes for low-bitrate speech/music— representation for transmission and ML.
+Neural codecs (Lyra, EnCodec, DAC) learn discrete codes for low-bitrate speech/music— representation
+for transmission and ML.
 
 ## Mathematical Formulation
 
 Autoencoder:
 
 $$
-\mathbf{z} = E_\theta(x), \quad \hat{x} = D_\phi(\mathbf{z}), \quad \mathcal{L} = \|x-\hat{x}\|^2 + \lambda \|\mathbf{z}\|_1 \ldots
+\mathbf{z} = E_\theta(x), \quad \hat{x} = D_\phi(\mathbf{z}), \quad \mathcal{L} = \|x-\hat{x}\|^2 +
+\lambda \|\mathbf{z}\|_1 \ldots
 $$
 
 Mel loss common: $\|\text{Mel}(x)-\text{Mel}(\hat{x})\|_1$— perceptually weighted but incomplete.
 
 ## Audio Interpretation
 
-**Source separation (Demucs):** time-domain U-Net learns masks— classical STFT mask learning related.
+**Source separation (Demucs):** time-domain U-Net learns masks— classical STFT mask learning
+related.
 
 **Voice conversion:** content embedding + pitch + timbre disentanglement (idealized).
 
@@ -99,17 +110,21 @@ spec = torchaudio.transforms.MelSpectrogram(sample_rate=fs, n_fft=1024)
 
 Book-native alternative: `audio_toolkit.spectral.stft` for numpy workflows and tests.
 
-Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, listening tests ([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
+Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, listening tests
+([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
 
 ## Worked Example
 
-**Problem:** Model trains on 16 kHz mono log-mel. Deploy on 48 kHz stereo field recording— what breaks?
+**Problem:** Model trains on 16 kHz mono log-mel. Deploy on 48 kHz stereo field recording— what
+breaks?
 
-**Answer:** Bandwidth/sample rate mismatch, channel layout, noise domain shift; need resample/mono policy and likely fine-tune.
+**Answer:** Bandwidth/sample rate mismatch, channel layout, noise domain shift; need resample/mono
+policy and likely fine-tune.
 
 **Problem:** Why keep explicit $f_0$ in DDSP-style hybrids?
 
-**Answer:** Pitch is **structurally important** in music/speech; learned latents often smear $f_0$ unless constrained. DDSP keeps sinusoidal parameters interpretable and reduces vocoder burden.
+**Answer:** Pitch is **structurally important** in music/speech; learned latents often smear $f_0$
+unless constrained. DDSP keeps sinusoidal parameters interpretable and reduces vocoder burden.
 
 ## Common Pitfalls
 
@@ -123,7 +138,8 @@ Reproducibility: fix weights, sample rate, mel config; report SI-SDR, PESQ, list
 1. Sketch pipeline: WAV → mel → U-Net → mel → Griffin–Lim → WAV; list failure modes.
 2. Why DDSP keeps explicit $f_0$ control?
 3. Compare param count: MFCC+SVM vs small CNN on same task (conceptual).
-4. When is classical STFT feature pipeline ([Audio Features and Descriptors](#ch-15-features)) still preferable?
+4. When is classical STFT feature pipeline ([Audio Features and Descriptors](#ch-15-features)) still
+preferable?
 
 ## Further Reading
 

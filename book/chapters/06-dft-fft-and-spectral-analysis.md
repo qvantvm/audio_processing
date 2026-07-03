@@ -2,7 +2,12 @@
 
 ## Purpose
 
-[Chapter 5](#ch-05-fourier) explained why signals decompose into complex sinusoids. The **discrete Fourier transform (DFT)** is the workhorse that computes those weights for a **finite** buffer $x[0],\ldots,x[N-1]$ on a **discrete grid** of $N$ frequency bins. The **FFT** is a fast algorithm for the same result. This chapter defines the DFT precisely, interprets magnitude and phase spectra, and connects bin index $k$ to hertz— resolving the off-by-frequency bugs previewed in [Chapter 1](#ch-01-what-is-asp) and [Chapter 2](#ch-02-signals-time-samples).
+[Chapter 5](#ch-05-fourier) explained why signals decompose into complex sinusoids. The **discrete
+Fourier transform (DFT)** is the workhorse that computes those weights for a **finite** buffer
+$x[0],\ldots,x[N-1]$ on a **discrete grid** of $N$ frequency bins. The **FFT** is a fast algorithm
+for the same result. This chapter defines the DFT precisely, interprets magnitude and phase spectra,
+and connects bin index $k$ to hertz— resolving the off-by-frequency bugs previewed in [Chapter
+1](#ch-01-what-is-asp) and [Chapter 2](#ch-02-signals-time-samples).
 
 ## Learning Objectives
 
@@ -12,15 +17,20 @@ By the end of this chapter, the reader should be able to:
 2. Compute **bin spacing** $\Delta f = f_s/N$ and map bin center frequencies to Hz
 3. Plot and interpret **magnitude** $|X[k]|$ and **phase** $\angle X[k]$ for real audio
 4. Explain **conjugate symmetry** for real $x[n]$ and why `rfft` returns $N/2+1$ bins
-5. Distinguish the **DFT** (definition) from the **FFT** (algorithm) and avoid common scaling mistakes
+5. Distinguish the **DFT** (definition) from the **FFT** (algorithm) and avoid common scaling
+mistakes
 
 ## Main Concepts
 
 ### What problem the DFT solves
 
-Given $N$ samples of a real or complex sequence, the DFT answers: **how much** of each discrete frequency component $e^{j 2\pi k n / N}$ is present in that segment? The output is $N$ complex coefficients $X[k]$— one per bin.
+Given $N$ samples of a real or complex sequence, the DFT answers: **how much** of each discrete
+frequency component $e^{j 2\pi k n / N}$ is present in that segment? The output is $N$ complex
+coefficients $X[k]$— one per bin.
 
-The DFT assumes an **implicit $N$-sample periodic extension** of the buffer. A finite clip of a piano note is treated as one period of a repeating signal— a modeling choice with consequences (discontinuity at wrap → broadband energy; [Windowing, Leakage, and Resolution](#ch-07-windowing)).
+The DFT assumes an **implicit $N$-sample periodic extension** of the buffer. A finite clip of a
+piano note is treated as one period of a repeating signal— a modeling choice with consequences
+(discontinuity at wrap → broadband energy; [Windowing, Leakage, and Resolution](#ch-07-windowing)).
 
 ### Definition
 
@@ -36,9 +46,11 @@ $$
 x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k]\, e^{j 2\pi k n / N}.
 $$
 
-NumPy's `np.fft.fft` uses this convention; the $1/N$ is on the inverse (`ifft`). Always verify library scaling when comparing to textbook tables or other tools.
+NumPy's `np.fft.fft` uses this convention; the $1/N$ is on the inverse (`ifft`). Always verify
+library scaling when comparing to textbook tables or other tools.
 
-The DFT represents the finite sequence as a weighted sum of complex sinusoids whose normalized frequencies are **exactly** on the grid $\Omega_k = 2\pi k / N$:
+The DFT represents the finite sequence as a weighted sum of complex sinusoids whose normalized
+frequencies are **exactly** on the grid $\Omega_k = 2\pi k / N$:
 
 $$
 x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k]\, e^{j 2\pi k n / N}.
@@ -58,15 +70,19 @@ $$
 f_k = k\,\Delta f = k\,\frac{f_s}{N}.
 $$
 
-**Example:** $f_s = 48000\,\mathrm{Hz}$, $N = 1024$ → $\Delta f = 46.875\,\mathrm{Hz}$. Bin $k=9$ centers at $421.875\,\mathrm{Hz}$; bin $k=10$ at $468.75\,\mathrm{Hz}$. **A440 is not on the grid** for that $(f_s, N)$ pair.
+**Example:** $f_s = 48000\,\mathrm{Hz}$, $N = 1024$ → $\Delta f = 46.875\,\mathrm{Hz}$. Bin $k=9$
+centers at $421.875\,\mathrm{Hz}$; bin $k=10$ at $468.75\,\mathrm{Hz}$. **A440 is not on the grid**
+for that $(f_s, N)$ pair.
 
-Picking the peak bin is **not** exact frequency estimation when the tone falls between bins— energy **leaks** into neighbors (rectangular window effect; [Chapter 7](#ch-07-windowing)).
+Picking the peak bin is **not** exact frequency estimation when the tone falls between bins— energy
+**leaks** into neighbors (rectangular window effect; [Chapter 7](#ch-07-windowing)).
 
 ![Off-bin A440 leaks across DFT bins; on-bin tone concentrates](../figures/dft_bin_spacing.png)
 
 ### Magnitude and phase
 
-Each $X[k] = |X[k]| e^{j \angle X[k]}$ encodes how a complex sinusoid at bin $k$ would need to be scaled and shifted to contribute to $x[n]$.
+Each $X[k] = |X[k]| e^{j \angle X[k]}$ encodes how a complex sinusoid at bin $k$ would need to be
+scaled and shifted to contribute to $x[n]$.
 
 - **Magnitude** $|X[k]|$ — strength of that bin's component (before normalization conventions)
 - **Phase** $\angle X[k]$ — radians; relative timing of the component
@@ -77,7 +93,8 @@ $$
 X[k] = X^*[N-k], \qquad k = 1,\ldots,N-1,
 $$
 
-with $X[0]$ real (DC) and, for even $N$, $X[N/2]$ real (Nyquist bin). Positive-frequency plots use $k = 0,\ldots,N/2$ only— half the redundant data.
+with $X[0]$ real (DC) and, for even $N$, $X[N/2]$ real (Nyquist bin). Positive-frequency plots use
+$k = 0,\ldots,N/2$ only— half the redundant data.
 
 **Do not** confuse $|X[k]|$ with time-domain peak amplitude $|x[n]|$. Parseval relates total energy:
 
@@ -89,7 +106,9 @@ $$
 
 ### The FFT
 
-The **fast Fourier transform (FFT)** computes the DFT in $O(N \log N)$ instead of $O(N^2)$ [@cooley1965fft]. **Mathematically identical** to the DFT up to floating-point rounding— not a different transform.
+The **fast Fourier transform (FFT)** computes the DFT in $O(N \log N)$ instead of $O(N^2)$
+[@cooley1965fft]. **Mathematically identical** to the DFT up to floating-point rounding— not a
+different transform.
 
 In Python:
 
@@ -115,7 +134,9 @@ Report **which window**, **which $N$**, and **which $f_s$** whenever you show a 
 
 ### Zero padding
 
-Appending zeros before the DFT **interpolates** a finer frequency grid; it does **not** add true resolution. True resolution comes from longer **non-zero** observation (larger $N$ of actual data) or appropriate windowing— not from zero padding alone.
+Appending zeros before the DFT **interpolates** a finer frequency grid; it does **not** add true
+resolution. True resolution comes from longer **non-zero** observation (larger $N$ of actual data)
+or appropriate windowing— not from zero padding alone.
 
 ## Mathematical Formulation
 
@@ -125,17 +146,23 @@ $$
 X[k] = \langle x[n], e^{j 2\pi k n / N}\rangle = \sum_{n=0}^{N-1} x[n]\, e^{-j 2\pi k n / N}.
 $$
 
-**Periodicity in $k$:** $X[k+N] = X[k]$ when defined for all integers $k$— the DTFT sampled at $N$ points.
+**Periodicity in $k$:** $X[k+N] = X[k]$ when defined for all integers $k$— the DTFT sampled at $N$
+points.
 
-**Real sinusoid at bin $k_0$:** If $x[n] = A\cos(2\pi k_0 n/N + \phi)$ with integer $k_0$, energy concentrates at bins $k_0$ and $N-k_0$ (and symmetric partners)— not a single bin unless phasor form is used.
+**Real sinusoid at bin $k_0$:** If $x[n] = A\cos(2\pi k_0 n/N + \phi)$ with integer $k_0$, energy
+concentrates at bins $k_0$ and $N-k_0$ (and symmetric partners)— not a single bin unless phasor form
+is used.
 
 ## Audio Interpretation
 
-**Tuning meter fantasy:** Peak-picking one FFT bin without interpolation mis-estimates pitch when $f_0$ is not a multiple of $\Delta f$— common for A440 at short $N$.
+**Tuning meter fantasy:** Peak-picking one FFT bin without interpolation mis-estimates pitch when
+$f_0$ is not a multiple of $\Delta f$— common for A440 at short $N$.
 
-**EQ visualization:** Many plugins show magnitude spectra smoothed across bins; smoothing hides leakage but also blurs narrow peaks.
+**EQ visualization:** Many plugins show magnitude spectra smoothed across bins; smoothing hides
+leakage but also blurs narrow peaks.
 
-**Noise floor:** FFT of silence is not zero— quantization noise and window sidelobes appear; use dB scale and know your noise floor ([Chapter 21](#ch-21-testing-pitfalls)).
+**Noise floor:** FFT of silence is not zero— quantization noise and window sidelobes appear; use dB
+scale and know your noise floor ([Chapter 21](#ch-21-testing-pitfalls)).
 
 ## Implementation Notes
 
@@ -171,7 +198,8 @@ mag_db = 20 * np.log10(np.abs(X) + 1e-12)
 
 ## Worked Example
 
-**Problem:** $f_s = 48000\,\mathrm{Hz}$, $N = 2048$, real buffer $x[n] = \cos(2\pi \cdot 1000 \cdot n / f_s)$.
+**Problem:** $f_s = 48000\,\mathrm{Hz}$, $N = 2048$, real buffer $x[n] = \cos(2\pi \cdot 1000 \cdot
+n / f_s)$.
 
 **(a) Bin spacing:**
 
@@ -186,33 +214,44 @@ k = \mathrm{round}\left(\frac{1000}{\Delta f}\right) = \mathrm{round}(42.67) = 4
 \quad f_{43} = 43 \cdot \Delta f = 1007.8125\,\mathrm{Hz}.
 $$
 
-The tone is **not** exactly on-bin; expect leakage unless $N$ is chosen so $1000/\Delta f$ is integer.
+The tone is **not** exactly on-bin; expect leakage unless $N$ is chosen so $1000/\Delta f$ is
+integer.
 
-**(c) On-bin choice:** Pick $k_0 = 42$ → $f = 984.375\,\mathrm{Hz}$ or adjust $N$ so $f_s/N$ divides 1000. For exact 1000 Hz on grid, need $1000 = k f_s/N$ → $k/N = 1/48$. Example: $k=1$, $N=48$ ( impractically short segment ) or $k=25$, $N=1200$ at same $f_s$.
+**(c) On-bin choice:** Pick $k_0 = 42$ → $f = 984.375\,\mathrm{Hz}$ or adjust $N$ so $f_s/N$ divides
+1000. For exact 1000 Hz on grid, need $1000 = k f_s/N$ → $k/N = 1/48$. Example: $k=1$, $N=48$ (
+impractically short segment ) or $k=25$, $N=1200$ at same $f_s$.
 
 ## Common Pitfalls
 
 1. **Confusing bin index with Hz.** Always multiply $k$ by $\Delta f$.
 
-2. **Forgetting $1/N$ on inverse.** Composing `fft`/`ifft` in NumPy recovers $x$; manual synthesis without $1/N$ scales wrong.
+2. **Forgetting $1/N$ on inverse.** Composing `fft`/`ifft` in NumPy recovers $x$; manual synthesis
+without $1/N$ scales wrong.
 
-3. **Treating FFT as continuous spectrum.** Bins are samples; peaks between bins are ambiguous without interpolation.
+3. **Treating FFT as continuous spectrum.** Bins are samples; peaks between bins are ambiguous
+without interpolation.
 
-4. **Using magnitude-only and expecting perfect resynthesis.** Need $X[k]$ including phase (up to conjugate symmetry for real signals).
+4. **Using magnitude-only and expecting perfect resynthesis.** Need $X[k]$ including phase (up to
+conjugate symmetry for real signals).
 
 5. **Wrong segment length.** `fft` on length $\ne N$ pads or truncates— know your effective $N$.
 
-6. **Comparing dB spectra across different windows/scales.** State normalization (0 dB = full scale? peak bin?).
+6. **Comparing dB spectra across different windows/scales.** State normalization (0 dB = full scale?
+peak bin?).
 
-7. **Ignoring implicit periodicity.** End sample $\ne$ start sample → wide spectral skirt even for pure tones.
+7. **Ignoring implicit periodicity.** End sample $\ne$ start sample → wide spectral skirt even for
+pure tones.
 
 ## Exercises
 
 1. $f_s=44100\,\mathrm{Hz}$, $N=4096$. Compute $\Delta f$ and the Hz of bin $k=100$.
 2. Show that for real $x[n]$, $X[0]$ is real and equals the sum $\sum_n x[n]$.
-3. Generate a 440 Hz sine at 48 kHz for $N=1024$. Which bin has maximum $|X[k]|$? Is it exactly 440 Hz?
-4. Zero-pad the same buffer to $4N$ before FFT. How does the frequency grid change? Does true resolution improve?
-5. Implement manual DFT for one bin $k$ with a loop; compare to `np.fft.fft` for a short test vector.
+3. Generate a 440 Hz sine at 48 kHz for $N=1024$. Which bin has maximum $|X[k]|$? Is it exactly 440
+Hz?
+4. Zero-pad the same buffer to $4N$ before FFT. How does the frequency grid change? Does true
+resolution improve?
+5. Implement manual DFT for one bin $k$ with a loop; compare to `np.fft.fft` for a short test
+vector.
 
 *Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
@@ -223,4 +262,5 @@ The tone is **not** exactly on-bin; expect leakage unless $N$ is chosen so $1000
 - Julius O. Smith, *Spectral Audio Signal Processing* [@smith2011spectral]
 - Welch, modified periodograms (power spectrum estimation preview) [@welch1967fft]
 
-**Next chapter:** [Windowing, Leakage, and Resolution](#ch-07-windowing) controls sidelobes and the time–frequency width of spectral estimates.
+**Next chapter:** [Windowing, Leakage, and Resolution](#ch-07-windowing) controls sidelobes and the
+time–frequency width of spectral estimates.

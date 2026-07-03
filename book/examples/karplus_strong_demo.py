@@ -7,11 +7,11 @@ Run from book/:
 Uses audio_toolkit.effects.karplus_strong and writes figures/karplus_strong.png.
 """
 
+import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
 
 BOOK = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BOOK))

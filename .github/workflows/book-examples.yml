@@ -4,13 +4,36 @@ on:
   push:
     paths:
       - 'book/**'
+      - 'README.md'
+      - 'pyproject.toml'
+      - '.github/workflows/book-examples.yml'
   pull_request:
     paths:
       - 'book/**'
+      - 'README.md'
+      - 'pyproject.toml'
+      - '.github/workflows/book-examples.yml'
 
 jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dev dependencies
+        run: pip install -r book/requirements-dev.txt
+      - name: Check Python formatting (black)
+        run: python -m black --check book/
+      - name: Lint Python (ruff)
+        run: python -m ruff check book/
+      - name: Check file structure (lines, requirements)
+        run: python book/scripts/check_formatting.py
+
   examples:
     runs-on: ubuntu-latest
+    needs: format
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,6 +50,7 @@ jobs:
 
   html:
     runs-on: ubuntu-latest
+    needs: format
     steps:
       - uses: actions/checkout@v4
       - name: Install Pandoc

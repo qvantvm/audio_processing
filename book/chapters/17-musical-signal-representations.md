@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Music-specific representations exploit **harmonicity**, **pitch classes**, and **log-frequency** hearing. This chapter covers sinusoidal modeling, chroma, Mel and constant-Q transforms, and sparse partial tracking— bridges between spectral analysis and synthesis/analysis of pitched audio.
+Music-specific representations exploit **harmonicity**, **pitch classes**, and **log-frequency**
+hearing. This chapter covers sinusoidal modeling, chroma, Mel and constant-Q transforms, and sparse
+partial tracking— bridges between spectral analysis and synthesis/analysis of pitched audio.
 
 ## Representation lens
 
@@ -33,23 +35,29 @@ $$
 x[n] \approx \sum_k A_k[n] \cos\bigl(2\pi f_k[n] n / f_s + \phi_k[n]\bigr).
 $$
 
-**Peak tracking** across STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) frames → partial trajectories [@serra1990sms].
+**Peak tracking** across STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft))
+frames → partial trajectories [@serra1990sms].
 
 ### Harmonic series
 
-For pitch $f_0$, partials at $k f_0$ (approximately for many instruments). **Inharmonicity** (piano strings) stretches partial spacing.
+For pitch $f_0$, partials at $k f_0$ (approximately for many instruments). **Inharmonicity** (piano
+strings) stretches partial spacing.
 
 ### Chroma
 
-Collapse STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) bins to 12 bins (C, C#, …, B) via mapping $f \mapsto \text{pitch class}$— **chord and key** features, octave-invariant.
+Collapse STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) bins to 12 bins (C,
+C#, …, B) via mapping $f \mapsto \text{pitch class}$— **chord and key** features, octave-invariant.
 
 ### Mel filterbank
 
-Triangular filters spaced on Mel scale approximate auditory spacing; used in MFCC ([Audio Features and Descriptors](#ch-15-features)) and some timbre models.
+Triangular filters spaced on Mel scale approximate auditory spacing; used in MFCC ([Audio Features
+and Descriptors](#ch-15-features)) and some timbre models.
 
 ### Constant-Q transform (CQT)
 
-Center frequencies $f_k = f_{\min} 2^{k/Q}$; bandwidth proportional to center— better note resolution in bass than fixed STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) [@muller2015fundamentals].
+Center frequencies $f_k = f_{\min} 2^{k/Q}$; bandwidth proportional to center— better note
+resolution in bass than fixed STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft))
+[@muller2015fundamentals].
 
 ### Spectral modeling synthesis (SMS)
 
@@ -63,7 +71,8 @@ $$
 m = 2595 \log_{10}(1 + f/700).
 $$
 
-Chroma vector $\mathbf{c} \in \mathbb{R}^{12}$ from weighted sum of $|X_m[k]|$ by pitch class mapping.
+Chroma vector $\mathbf{c} \in \mathbb{R}^{12}$ from weighted sum of $|X_m[k]|$ by pitch class
+mapping.
 
 ## Audio Interpretation
 

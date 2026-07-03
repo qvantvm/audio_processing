@@ -2,7 +2,10 @@
 
 ## Purpose
 
-**Physical modeling** simulates vibrating structures and acoustic coupling: strings, tubes, membranes, excitations. Representations are often **partial differential equations** discretized (FDTD, waveguides) or **compact resonator banks** (modal). This chapter orients readers to delay-line/waveguide models and excitation–resonance–radiation framing.
+**Physical modeling** simulates vibrating structures and acoustic coupling: strings, tubes,
+membranes, excitations. Representations are often **partial differential equations** discretized
+(FDTD, waveguides) or **compact resonator banks** (modal). This chapter orients readers to delay-
+line/waveguide models and excitation–resonance–radiation framing.
 
 ## Representation lens
 
@@ -29,21 +32,27 @@ By the end of this chapter, the reader should be able to:
 
 ### Excitation–resonance–radiation
 
-**Excitation:** bow, pick, breath noise. **Resonator:** string/bore modes. **Radiation:** body filter (often extra delay/FIR) [@smith2010physical]. Builds on delay lines ([Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)) and filters ([Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)).
+**Excitation:** bow, pick, breath noise. **Resonator:** string/bore modes. **Radiation:** body
+filter (often extra delay/FIR) [@smith2010physical]. Builds on delay lines ([Delay Lines, Comb
+Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)) and filters ([Filters: FIR, IIR, and the
+Z-Transform](#ch-10-filters)).
 
 ### Digital waveguide string
 
-Two delay lines (forward/backward traveling waves), loop filters for loss/dispersion, fractional delay tuning:
+Two delay lines (forward/backward traveling waves), loop filters for loss/dispersion, fractional
+delay tuning:
 
 $$
 y^+[n] = \text{filter}\bigl(y^+[n-1], y^-\bigr), \quad \text{similar for } y^-.
 $$
 
-Output sum at bridge/end point. **Karplus–Strong** is the minimal closed-loop waveguide: one delay of length $N \approx f_s/f_0$ with a low-pass in the feedback path.
+Output sum at bridge/end point. **Karplus–Strong** is the minimal closed-loop waveguide: one delay
+of length $N \approx f_s/f_0$ with a low-pass in the feedback path.
 
 ### Waveguide acoustic tube (wind)
 
-Cylindrical bore sections as delays; junctions as scattering matrices (Kelly–Lochbaum); reed/lip excitation nonlinear.
+Cylindrical bore sections as delays; junctions as scattering matrices (Kelly–Lochbaum); reed/lip
+excitation nonlinear.
 
 ### Modal synthesis
 
@@ -53,15 +62,18 @@ $$
 y[n] = \sum_k r_k^n \sin(\Omega_k n + \phi_k)
 $$
 
-or parallel second-order resonators— efficient for struck objects (bars, bowls). **Preserves** mode frequencies and decays; **discards** spatial geometry unless modes are measured per instrument.
+or parallel second-order resonators— efficient for struck objects (bars, bowls). **Preserves** mode
+frequencies and decays; **discards** spatial geometry unless modes are measured per instrument.
 
 ### Finite difference (FDTD)
 
-Discretize wave equation on grid— flexible geometry, higher CPU; stability requires Courant condition $\Delta t \le \Delta x / c$.
+Discretize wave equation on grid— flexible geometry, higher CPU; stability requires Courant
+condition $\Delta t \le \Delta x / c$.
 
 ### Nonlinearities
 
-Bow friction, reed threshold, valve— make model expressive; complicate analysis and aliasing control ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
+Bow friction, reed threshold, valve— make model expressive; complicate analysis and aliasing control
+([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
 
 ## Mathematical Formulation
 
@@ -91,13 +103,15 @@ with gain $g \in (0,1)$ controlling decay.
 
 ## Implementation Notes
 
-The book ships `audio_toolkit.effects.karplus_strong`— a minimal plucked-string loop you can hear and plot:
+The book ships `audio_toolkit.effects.karplus_strong`— a minimal plucked-string loop you can hear
+and plot:
 
 ```bash
 python examples/karplus_strong_demo.py
 ```
 
-Start with Smith's `stk` or Julius O. Smith tutorials for full waveguide primitives. Modal: design bank of biquads from measured partial frequencies/decays.
+Start with Smith's `stk` or Julius O. Smith tutorials for full waveguide primitives. Modal: design
+bank of biquads from measured partial frequencies/decays.
 
 ```python
 from audio_toolkit.effects import karplus_strong
@@ -112,11 +126,14 @@ y = karplus_strong(fs, f0=220.0, duration_s=0.8, decay=0.995)
 
 **Problem:** String delay line round-trip $N=200$ samples at $f_s=48000$. Fundamental approximately?
 
-**Answer:** Period in samples $\approx N$ gives $f_0 \approx f_s/N = 240$ Hz. Exact tuning uses dispersion filters and fractional delay ([Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling)).
+**Answer:** Period in samples $\approx N$ gives $f_0 \approx f_s/N = 240$ Hz. Exact tuning uses
+dispersion filters and fractional delay ([Resampling, Interpolation, and Sample-Rate
+Conversion](#ch-14-resampling)).
 
 **Problem:** Run Karplus–Strong at $f_0=220$ Hz. Does energy decay?
 
-**Answer:** Yes— loop gain $g<1$ dissipates energy each trip; envelope falls (see demo plot). Wrong $g\ge 1$ blows up or sustains forever (unphysical).
+**Answer:** Yes— loop gain $g<1$ dissipates energy each trip; envelope falls (see demo plot). Wrong
+$g\ge 1$ blows up or sustains forever (unphysical).
 
 ## Common Pitfalls
 
@@ -129,7 +146,8 @@ y = karplus_strong(fs, f0=220.0, duration_s=0.8, decay=0.995)
 
 1. Draw waveguide string block diagram with loop filter.
 2. Modal: three partials at 400, 1020, 1840 Hz with different decays— describe timbre.
-3. Why fractional delay needed for accurate pitch? ([Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling))
+3. Why fractional delay needed for accurate pitch? ([Resampling, Interpolation, and Sample-Rate
+Conversion](#ch-14-resampling))
 4. Compare CPU: 10-modal vs 1-waveguide string note.
 5. Modify `karplus_strong_demo.py` decay; listen for shorter/longer ring-off.
 

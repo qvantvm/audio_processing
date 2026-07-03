@@ -6,8 +6,15 @@ import sys
 from pathlib import Path
 
 SOLUTIONS = [
-    "ch01_verify.py", "ch02_verify.py", "ch03_verify.py", "ch04_verify.py",
-    "ch05_verify.py", "ch06_verify.py", "ch07_verify.py", "ch08_verify.py", "ch09_verify.py",
+    "ch01_verify.py",
+    "ch02_verify.py",
+    "ch03_verify.py",
+    "ch04_verify.py",
+    "ch05_verify.py",
+    "ch06_verify.py",
+    "ch07_verify.py",
+    "ch08_verify.py",
+    "ch09_verify.py",
 ]
 book = Path(__file__).resolve().parent.parent
 failures = []

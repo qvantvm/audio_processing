@@ -2,7 +2,10 @@
 
 ## Purpose
 
-**Delay** is elemental in audio: echo, chorus, flanger, reverb, physical modeling. A **delay line** stores past samples; **comb** and **all-pass** filters combine delayed copies to create coloration and diffusion. This chapter builds the delay-based representations used in effects and reverberators.
+**Delay** is elemental in audio: echo, chorus, flanger, reverb, physical modeling. A **delay line**
+stores past samples; **comb** and **all-pass** filters combine delayed copies to create coloration
+and diffusion. This chapter builds the delay-based representations used in effects and
+reverberators.
 
 ## Representation lens
 
@@ -33,7 +36,8 @@ $$
 y[n] = x[n-D] + \cdots
 $$
 
-Circular buffer of length $L \ge D$ stores $D$ samples of history. **Fractional delay** uses interpolation ([Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling)).
+Circular buffer of length $L \ge D$ stores $D$ samples of history. **Fractional delay** uses
+interpolation ([Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling)).
 
 Delay time $\tau = D/f_s$ seconds.
 
@@ -59,11 +63,13 @@ $$
 H(z) = \frac{z^{-D} + g}{1 + g z^{-D}} \quad \text{or related forms}.
 $$
 
-$|H(\Omega)| \approx 1$ (unity magnitude), **nonlinear phase**— spreads energy in time without changing magnitude spectrum of steady signals; used in diffusion networks.
+$|H(\Omega)| \approx 1$ (unity magnitude), **nonlinear phase**— spreads energy in time without
+changing magnitude spectrum of steady signals; used in diffusion networks.
 
 ### Schroeder reverberator (classic)
 
-Parallel **feedback comb filters** + series **all-pass sections** [@zoelzer2011dafx]— crude but historically foundational.
+Parallel **feedback comb filters** + series **all-pass sections** [@zoelzer2011dafx]— crude but
+historically foundational.
 
 ## Mathematical Formulation
 

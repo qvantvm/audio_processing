@@ -60,7 +60,12 @@ for k in range(K_NEAREST - 2, K_NEAREST + 4):
         axes[0].axvline(f_k, color="0.85", linewidth=0.8, zorder=0)
 
 axes[1].plot(freqs_on, mag_on, color="C1")
-axes[1].axvline(F_BIN_NEAREST, color="C3", linestyle="--", label=f"On-bin f = {F_BIN_NEAREST:.3f} Hz (k={K_NEAREST})")
+axes[1].axvline(
+    F_BIN_NEAREST,
+    color="C3",
+    linestyle="--",
+    label=f"On-bin f = {F_BIN_NEAREST:.3f} Hz (k={K_NEAREST})",
+)
 axes[1].set_xlim(300, 600)
 axes[1].set_xlabel("Frequency (Hz)")
 axes[1].set_ylabel("Magnitude (dB)")

@@ -1,0 +1,30 @@
+[project]
+name = "audio-processing-book"
+version = "0.1.0"
+description = "Audio Signal Representation and Processing — book tooling"
+requires-python = ">=3.11"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.git
+  | audio_signal_processing\.html
+)/
+'''
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["book"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"book/examples/*" = ["E402"]
+"book/solutions/*" = ["E402"]
+"book/tests/*" = ["E402"]

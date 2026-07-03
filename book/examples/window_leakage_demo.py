@@ -5,6 +5,7 @@ Run from book/: python examples/window_leakage_demo.py
 """
 
 from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -15,10 +16,12 @@ FS, N, F0 = 48_000, 4096, 440.0
 n = np.arange(N)
 x = 0.8 * np.cos(2 * np.pi * F0 * n / FS)
 
+
 def spectrum(w):
     X = np.fft.rfft(x * w, n=N)
     f = np.fft.rfftfreq(N, d=1 / FS)
     return f, 20 * np.log10(np.maximum(np.abs(X), 1e-12))
+
 
 rect = np.ones(N)
 hann = np.hanning(N)

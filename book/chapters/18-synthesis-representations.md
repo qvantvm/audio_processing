@@ -2,7 +2,10 @@
 
 ## Purpose
 
-**Synthesis** generates audio from compact representations: oscillators, wavetables, FM operators, granular grains. This chapter maps synthesis paradigms to the signal models from earlier chapters and highlights **band-limited** methods to avoid aliasing ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
+**Synthesis** generates audio from compact representations: oscillators, wavetables, FM operators,
+granular grains. This chapter maps synthesis paradigms to the signal models from earlier chapters
+and highlights **band-limited** methods to avoid aliasing ([Sampling, Quantization, and Digital
+Audio](#ch-03-sampling-quantization)).
 
 ## Representation lens
 
@@ -29,15 +32,18 @@ By the end of this chapter, the reader should be able to:
 
 ### Additive synthesis
 
-Sum of sinusoids ([Musical Signal Representations](#ch-17-musical-reps))— powerful, expensive; control partial amplitudes for timbre morphing [@roads1996computer].
+Sum of sinusoids ([Musical Signal Representations](#ch-17-musical-reps))— powerful, expensive;
+control partial amplitudes for timbre morphing [@roads1996computer].
 
 ### Subtractive synthesis
 
-Rich source (saw/square/noise) + **filter** ([Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)) sculpting— classic analog model.
+Rich source (saw/square/noise) + **filter** ([Filters: FIR, IIR, and the
+Z-Transform](#ch-10-filters)) sculpting— classic analog model.
 
 ### Wavetable
 
-One period stored; read with interpolating pointer at $f_0$— efficient single-tone; crossfade tables for morphing.
+One period stored; read with interpolating pointer at $f_0$— efficient single-tone; crossfade tables
+for morphing.
 
 Phase accumulator:
 
@@ -51,19 +57,23 @@ $$
 x[n] = \sin(\Omega_c n + I \sin(\Omega_m n)).
 $$
 
-Sidebands at $f_c \pm k f_m$— compact bright timbres; Bessel theory for indices [@puckette2007electronic].
+Sidebands at $f_c \pm k f_m$— compact bright timbres; Bessel theory for indices
+[@puckette2007electronic].
 
 ### Granular synthesis
 
-Short windowed grains from buffer; parameters: duration, overlap, pitch shift via read rate, scatter in time— texture and time-stretch.
+Short windowed grains from buffer; parameters: duration, overlap, pitch shift via read rate, scatter
+in time— texture and time-stretch.
 
 ### Modal / vector synthesis (preview)
 
-Bank of resonators (decaying sinusoids)— relates to physical modeling ([Physical-Modeling Representations](#ch-19-physical-modeling)).
+Bank of resonators (decaying sinusoids)— relates to physical modeling ([Physical-Modeling
+Representations](#ch-19-physical-modeling)).
 
 ### Anti-aliased discontinuities
 
-Naive sawtooth aliases ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)). **BLEP** (band-limited step) cancels steps; **polyBLEP** common in software synths.
+Naive sawtooth aliases ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
+**BLEP** (band-limited step) cancels steps; **polyBLEP** common in software synths.
 
 ## Mathematical Formulation
 
@@ -81,7 +91,8 @@ $$
 
 **Bell:** inharmonic FM or modal partials.
 
-**Pad:** detuned oscillators + filter + chorus (delay modulation, [Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)).
+**Pad:** detuned oscillators + filter + chorus (delay modulation, [Delay Lines, Comb Filters, and
+All-Pass Filters](#ch-11-delay-comb-allpass)).
 
 ## Implementation Notes
 
@@ -105,9 +116,11 @@ python examples/export_audio_demos.py      # aliasing, phase clicks, naive saw, 
 
 ![Wavetable A440 at 48 kHz](../figures/wavetable_a440.png)
 
-Listen to `audio_demos/naive_saw_2200hz.wav` for aliasing on a naive saw— compare with band-limited methods.
+Listen to `audio_demos/naive_saw_2200hz.wav` for aliasing on a **naive_saw artifact** (intentional
+anti-example)— compare with band-limited methods.
 
-Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synth frameworks (Dexed, Surge).
+Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synth frameworks (Dexed,
+Surge).
 
 ## Worked Example
 
@@ -117,7 +130,8 @@ Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synt
 
 **Problem:** Wavetable length 512 at A440. Period in samples?
 
-**Answer:** $f_s/f_0 = 48000/440 \approx 109.09$ samples/period — table holds one **cycle template**; pointer rate sets pitch.
+**Answer:** $f_s/f_0 = 48000/440 \approx 109.09$ samples/period — table holds one **cycle
+template**; pointer rate sets pitch.
 
 ## Common Pitfalls
 
@@ -133,7 +147,8 @@ Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synt
 3. Granular: 50 ms grains, 50% overlap— grains per second?
 4. Compare naive vs polyBLEP saw spectrum above 5 kHz.
 
-*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions) (extended in future passes).*
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions) (extended in future
+passes).*
 
 ## Further Reading
 

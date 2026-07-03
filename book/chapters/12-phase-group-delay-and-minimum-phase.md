@@ -2,7 +2,10 @@
 
 ## Purpose
 
-Magnitude spectra dominate many displays, but **phase** determines waveform shape and timing of components. **Group delay** measures how long frequency bundles are delayed through a system. **Minimum-phase** systems trade pre-ringing for causal, compact envelopes— central to EQ design and loudspeaker processing.
+Magnitude spectra dominate many displays, but **phase** determines waveform shape and timing of
+components. **Group delay** measures how long frequency bundles are delayed through a system.
+**Minimum-phase** systems trade pre-ringing for causal, compact envelopes— central to EQ design and
+loudspeaker processing.
 
 ## Representation lens
 
@@ -31,7 +34,8 @@ By the end of this chapter, the reader should be able to:
 
 For $H(\Omega)=|H(\Omega)|e^{j\phi(\Omega)}$, phase $\phi(\Omega)$ shifts each sinusoidal component.
 
-**Linear phase:** $\phi(\Omega) = -\alpha \Omega + \beta$ → constant group delay $\alpha$ samples (symmetric FIR).
+**Linear phase:** $\phi(\Omega) = -\alpha \Omega + \beta$ → constant group delay $\alpha$ samples
+(symmetric FIR).
 
 ### Group delay
 
@@ -39,19 +43,25 @@ $$
 \tau_g(\Omega) = -\frac{d\phi(\Omega)}{d\Omega}.
 $$
 
-Approximate time (seconds) a narrowband component is delayed: $\tau_g/f_s$ samples interpretation varies with definition— use consistent units.
+Approximate time (seconds) a narrowband component is delayed: $\tau_g/f_s$ samples interpretation
+varies with definition— use consistent units.
 
-Large $\tau_g$ variation → **dispersion** (different frequencies arrive at different times)— smears transients.
+Large $\tau_g$ variation → **dispersion** (different frequencies arrive at different times)— smears
+transients.
 
 ### Minimum-phase systems
 
-All poles and zeros **inside unit circle**. For a given magnitude $|H(\Omega)|$, minimum-phase has **minimum energy delay** (energy concentrated early) [@oppenheim2010discrete].
+All poles and zeros **inside unit circle**. For a given magnitude $|H(\Omega)|$, minimum-phase has
+**minimum energy delay** (energy concentrated early) [@oppenheim2010discrete].
 
-Magnitude and minimum-phase are related via **Hilbert transform** of log-magnitude (cepstral domain)— advanced design topic.
+Magnitude and minimum-phase are related via **Hilbert transform** of log-magnitude (cepstral
+domain)— advanced design topic.
 
 ### Linear-phase EQ tradeoff
 
-Steep linear-phase lowpass shows **pre-ringing** (Gibbs-like) before sharp cutoff— audible on percussive material. Minimum-phase IIR often preferred for mastering EQ at cost of phase nonlinearity.
+Steep linear-phase lowpass shows **pre-ringing** (Gibbs-like) before sharp cutoff— audible on
+percussive material. Minimum-phase IIR often preferred for mastering EQ at cost of phase
+nonlinearity.
 
 ### All-pass phase
 
@@ -70,13 +80,15 @@ tau_g = -np.diff(phi, prepend=phi[0])  # discrete approximation
 
 **Crossover networks:** align woofer/tweeter group delay at crossover region.
 
-**Phase vocoder:** STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) phase propagation critical for quality.
+**Phase vocoder:** STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) phase
+propagation critical for quality.
 
 **Polarity flip:** $\phi \to \phi+\pi$ — can cancel in multi-mic setups.
 
 ## Implementation Notes
 
-Use `scipy.signal.group_delay` for designed filters. Compare linear-phase FIR vs minimum-phase IIR on drum loop— listen for pre-ringing vs phase smear.
+Use `scipy.signal.group_delay` for designed filters. Compare linear-phase FIR vs minimum-phase IIR
+on drum loop— listen for pre-ringing vs phase smear.
 
 ## Worked Example
 

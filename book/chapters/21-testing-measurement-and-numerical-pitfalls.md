@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Correct DSP code still fails from **numerical issues**, **wrong assumptions**, and **untested edge cases**. This chapter collects practices for verifying filters, transforms, levels, and implementations— essential before shipping audio software or publishing measurements.
+Correct DSP code still fails from **numerical issues**, **wrong assumptions**, and **untested edge
+cases**. This chapter collects practices for verifying filters, transforms, levels, and
+implementations— essential before shipping audio software or publishing measurements.
 
 ## Learning Objectives
 
@@ -18,15 +20,20 @@ By the end of this chapter, the reader should be able to:
 
 ### Impulse and sine tests
 
-Feed $\delta[n]$ → capture $h[n]$ ([Convolution and Impulse Responses](#ch-09-convolution)). Feed sine at bin center → measure gain/phase vs $H(\Omega)$ prediction ([Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)).
+Feed $\delta[n]$ → capture $h[n]$ ([Convolution and Impulse Responses](#ch-09-convolution)). Feed
+sine at bin center → measure gain/phase vs $H(\Omega)$ prediction ([Filters: FIR, IIR, and the
+Z-Transform](#ch-10-filters)).
 
 ### Round-trip tests
 
-`ifft(fft(x)) ≈ x` ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)). STFT with COLA synthesis window → reconstruct within tolerance ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)).
+`ifft(fft(x)) ≈ x` ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)). STFT with COLA synthesis
+window → reconstruct within tolerance ([STFT, Spectrograms, and Time–Frequency
+Analysis](#ch-08-stft)).
 
 ### Level safety
 
-Peak, RMS, true-peak (oversampled) meters; headroom before integer export ([Envelopes, Loudness, and Dynamics](#ch-13-envelopes-loudness)).
+Peak, RMS, true-peak (oversampled) meters; headroom before integer export ([Envelopes, Loudness, and
+Dynamics](#ch-13-envelopes-loudness)).
 
 ### THD+N (concept)
 
@@ -45,7 +52,8 @@ Sine through system; notch fundamental; measure remaining power— harmonic dist
 
 ### Regression testing audio
 
-Store small golden WAV + expected spectra/features; CI compares SNR/ max diff thresholds (not bitwise float equality).
+Store small golden WAV + expected spectra/features; CI compares SNR/ max diff thresholds (not
+bitwise float equality).
 
 ### Listening tests
 
@@ -85,7 +93,8 @@ Use `pytest`, property-based tests (`hypothesis`) for random small vectors.
 
 **Problem:** `ifft(fft(x))` max error $10^{-3}$ on float32 length 8192. Acceptable?
 
-**Answer:** Often no for production DSP— investigate scaling convention or promote to float64 for critical paths; error may grow with $N$.
+**Answer:** Often no for production DSP— investigate scaling convention or promote to float64 for
+critical paths; error may grow with $N$.
 
 ## Common Pitfalls
 
@@ -97,7 +106,8 @@ Use `pytest`, property-based tests (`hypothesis`) for random small vectors.
 ## Exercises
 
 1. Write impulse test verifying `convolve(x,h)` vs `firwin` design.
-2. Measure group delay of your FIR lowpass vs theory (`examples/fir_lowpass_demo.py`, [Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)).
+2. Measure group delay of your FIR lowpass vs theory (`examples/fir_lowpass_demo.py`, [Filters: FIR,
+IIR, and the Z-Transform](#ch-10-filters)).
 3. Inject DC; high-pass at 20 Hz; verify removal.
 4. Design CI golden file test for STFT feature shape.
 

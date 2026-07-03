@@ -42,14 +42,44 @@ def test_stft_istft_reconstruction() -> None:
     s, _, _ = spectral.stft(x, fs, n_fft=n_fft, hop=hop)
     y = spectral.istft(s, fs, n_fft=n_fft, hop=hop, length=len(x))
     err = np.sqrt(np.mean((x - y) ** 2))
-    assert err < 0.05, f"STFT/ISTFT RMSE {err}"
+    assert err < 0.04, f"STFT/ISTFT RMSE {err} (tightened from smoke 0.05)"
+
+
+def test_stft_istft_cola_energy() -> None:
+    """Hann with 75% overlap should preserve energy within tight tolerance."""
+    fs = 48000.0
+    rng = np.random.default_rng(2)
+    x = rng.standard_normal(4096).astype(np.float32)
+    n_fft, hop = 512, 128
+    s, _, _ = spectral.stft(x, fs, n_fft=n_fft, hop=hop)
+    y = spectral.istft(s, fs, n_fft=n_fft, hop=hop, length=len(x))
+    rel = np.linalg.norm(x - y) / np.linalg.norm(x)
+    assert rel < 0.02, f"COLA relative L2 error {rel}"
+
+
+def test_wav_io_roundtrip() -> None:
+    import tempfile
+
+    from audio_toolkit.io import read_wav, write_wav
+
+    fs = 48_000
+    x = np.sin(2 * np.pi * 440 * np.arange(fs // 10) / fs).astype(np.float32) * 0.5
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "roundtrip.wav"
+        write_wav(path, x, fs)
+        y, fs2 = read_wav(path)
+        assert fs2 == fs
+        snr = 20 * np.log10(np.linalg.norm(x) / (np.linalg.norm(x - y) + 1e-12))
+        assert snr > 40, f"WAV round-trip SNR {snr} dB"
 
 
 def test_fir_lowpass_attenuates_high() -> None:
     fs = 48000.0
     h = filters.design_fir_lowpass(fs, 1000.0, num_taps=127)
     freqs, mag = filters.frequency_response(h, fs)
-    pass_gain = mag[freqs == 500.0][0] if np.any(freqs == 500.0) else mag[np.argmin(np.abs(freqs - 500))]
+    pass_gain = (
+        mag[freqs == 500.0][0] if np.any(freqs == 500.0) else mag[np.argmin(np.abs(freqs - 500))]
+    )
     stop_gain = mag[np.argmin(np.abs(freqs - 10000.0))]
     assert pass_gain > 0.8 and stop_gain < 0.2, f"FIR response pass={pass_gain}, stop={stop_gain}"
 
@@ -105,6 +135,8 @@ TESTS = [
     test_fft_roundtrip,
     test_parseval,
     test_stft_istft_reconstruction,
+    test_stft_istft_cola_energy,
+    test_wav_io_roundtrip,
     test_fir_lowpass_attenuates_high,
     test_oscillator_phase_continuity,
     test_window_coherent_gain,

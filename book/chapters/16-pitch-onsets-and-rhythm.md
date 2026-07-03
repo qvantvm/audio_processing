@@ -2,7 +2,10 @@
 
 ## Purpose
 
-**Pitch** (periodicity), **onsets** (note/event starts), and **tempo** (pulse rate) are fundamental mid-level representations between samples and semantics. This chapter covers autocorrelation/YIN-style pitch, spectral peak picking refinements, onset detection from flux, and beat tracking overview.
+**Pitch** (periodicity), **onsets** (note/event starts), and **tempo** (pulse rate) are fundamental
+mid-level representations between samples and semantics. This chapter covers autocorrelation/YIN-
+style pitch, spectral peak picking refinements, onset detection from flux, and beat tracking
+overview.
 
 ## Representation lens
 
@@ -29,7 +32,8 @@ By the end of this chapter, the reader should be able to:
 
 ### Pitch as fundamental frequency
 
-Monophonic periodic signal: $f_0$ in Hz; harmonics at $k f_0$. **Polyphonic** pitch estimation is harder (multiple $f_0$).
+Monophonic periodic signal: $f_0$ in Hz; harmonics at $k f_0$. **Polyphonic** pitch estimation is
+harder (multiple $f_0$).
 
 ### Time-domain: autocorrelation
 
@@ -37,27 +41,32 @@ $$
 R[\tau] = \sum_n x[n] x[n+\tau].
 $$
 
-Peak at $\tau \approx P$ indicates period. Normalization (AMDF, YIN) reduces octave errors [@muller2015fundamentals].
+Peak at $\tau \approx P$ indicates period. Normalization (AMDF, YIN) reduces octave errors
+[@muller2015fundamentals].
 
 ### Frequency-domain peak picking
 
 From $|X[k]|$, find peak bin $k_{\max}$, interpolate:
 
 $$
-k^\* = k_{\max} + \frac{|X[k_{\max}+1]| - |X[k_{\max}-1]|}{2\bigl(2|X[k_{\max}]| - |X[k_{\max}+1]| - |X[k_{\max}-1]|\bigr)}.
+k^\* = k_{\max} + \frac{|X[k_{\max}+1]| - |X[k_{\max}-1]|}{2\bigl(2|X[k_{\max}]| - |X[k_{\max}+1]| -
+|X[k_{\max}-1]|\bigr)}.
 $$
 
-Then $f_0 \approx k^\* \Delta f$— fixes coarse bin error from [DFT, FFT, and Spectral Analysis](#ch-06-dft-fft).
+Then $f_0 \approx k^\* \Delta f$— fixes coarse bin error from [DFT, FFT, and Spectral
+Analysis](#ch-06-dft-fft).
 
 ### Onset detection
 
-Functions: spectral flux ([Audio Features and Descriptors](#ch-15-features)), complex domain deviation, HFC. **Peak picking** on onset strength envelope with adaptive threshold.
+Functions: spectral flux ([Audio Features and Descriptors](#ch-15-features)), complex domain
+deviation, HFC. **Peak picking** on onset strength envelope with adaptive threshold.
 
 **Audio:** pick note starts for transcription, slicing, rhythm analysis.
 
 ### Beat and tempo
 
-Periodic structure in onset envelope or tempogram; autocorrelation at lag corresponding to 60–180 BPM common range.
+Periodic structure in onset envelope or tempogram; autocorrelation at lag corresponding to 60–180
+BPM common range.
 
 ## Mathematical Formulation
 

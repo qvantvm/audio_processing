@@ -1,6 +1,7 @@
 # Audio Signal Representation and Processing
 
-Technical book manuscript with **tested code**, not just prose. The repo is a living scaffold: chapter status reflects *actual* editorial maturity.
+Technical book manuscript with **tested code**, not just prose. The repo is a living scaffold:
+chapter status reflects *actual* editorial maturity.
 
 ## Book contents
 
@@ -62,7 +63,8 @@ Statuses (see `BOOK_PLAN.md` for per-chapter table):
 | `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
 | `polished` | Publication-ready (requires external review or teaching pilot) |
 
-**No chapter is `polished` yet.** Foundation chapters (01–06) are `pedagogically reviewed`; several later survey chapters (18, 20) remain `draft`.
+**No chapter is `polished` yet.** Foundation chapters (01–06) are `pedagogically reviewed`; several
+later survey chapters (18, 20) remain `draft`.
 
 ### Governance rule
 
@@ -73,13 +75,28 @@ A chapter may advance to `technically reviewed` only when:
 3. Citations resolve in Pandoc build
 4. A second review pass (human or independent agent) is recorded in `REVIEW_NOTES.md`
 
-Promotion to `pedagogically reviewed` or `polished` additionally requires exercise review and teaching clarity checks.
+Promotion to `pedagogically reviewed` or `polished` additionally requires exercise review and
+teaching clarity checks.
 
 ## CI
 
 On push/PR touching `book/**`:
 
+- **Format gate:** `black --check`, `ruff`, `scripts/check_formatting.py` (line structure)
 - Example smoke tests
 - `audio_toolkit` correctness tests
 - Exercise solution verifications
 - Pandoc HTML build
+
+## Formatting (required before PR)
+
+```bash
+pip install -r book/requirements-dev.txt
+python -m black book/
+python -m ruff check book/ --fix
+python book/scripts/check_formatting.py
+python book/scripts/wrap_markdown.py   # wrap long prose lines if check fails
+```
+
+Files use **LF** line endings (see `.gitattributes`). `requirements.txt` is **one package per line**.
+Python modules are multi-line (not single-line blobs); CI fails if structure regresses.

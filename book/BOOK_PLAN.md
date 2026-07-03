@@ -2,7 +2,13 @@
 
 ## Book Thesis
 
-This book teaches audio signal representation and processing from first principles to practical implementation. The central claim is that **audio is not a single representation**—it is a family of related mathematical objects (samples, spectra, impulse responses, features, synthesis parameters) linked by well-defined transforms and approximations. A practitioner who understands those links can implement algorithms correctly, interpret measurements, read the research literature, and debug real systems.
+This book teaches audio signal representation and processing from first principles
+to practical implementation. The central claim is that **audio is not a single
+representation**—it is a family of related mathematical objects (samples, spectra,
+impulse responses, features, synthesis parameters) linked by well-defined transforms
+and approximations. A practitioner who understands those links can implement
+algorithms correctly, interpret measurements, read the research literature, and debug
+real systems.
 
 ## Target Audience
 
@@ -12,7 +18,8 @@ Technically strong programmers, researchers, and engineers who:
 - Want depth beyond tutorial-level explanations
 - Need to implement, measure, or integrate audio DSP in production or research settings
 
-Prerequisites assumed: basic calculus, complex numbers, linear algebra at an introductory level, and programming experience (Python examples throughout).
+Prerequisites assumed: basic calculus, complex numbers, linear algebra at an introductory level, and
+programming experience (Python examples throughout).
 
 ## Chapter List and Status
 
@@ -53,7 +60,9 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
 | `polished` | Publication-ready (external review or teaching pilot required) |
 
-**Governance:** No chapter advances to `technically reviewed` unless examples run, notation is consistent, citations resolve, and a second review pass is logged in `REVIEW_NOTES.md`. None are `polished` yet.
+**Governance:** No chapter advances to `technically reviewed` unless examples run, notation is
+consistent, citations resolve, and a second review pass is logged in `REVIEW_NOTES.md`. None are
+`polished` yet.
 
 ## Learning Objectives by Chapter
 
@@ -67,9 +76,11 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 By the end of this chapter, the reader should be able to:
 
 1. Distinguish **physical sound**, **analog signals**, and **digital representations**
-2. Name the main representation domains used in audio DSP (time, frequency, time–frequency, parametric)
+2. Name the main representation domains used in audio DSP (time, frequency, time–frequency,
+parametric)
 3. Explain why multiple representations exist and when each is appropriate
-4. Identify common confusions (amplitude vs. magnitude, Hz vs. bin index, continuous vs. discrete time)
+4. Identify common confusions (amplitude vs. magnitude, Hz vs. bin index, continuous vs. discrete
+time)
 5. Outline the pipeline from acoustic event to processed output in a typical system
 
 ### Chapter 02 — Signals, Time, and Samples
@@ -247,15 +258,18 @@ flowchart TD
 1. **Polish pass** — no chapter at `polished` yet; foundation 01–06 at `pedagogically reviewed`
 2. **Exercise solutions** — ch 01–09 in appendix + `solutions/` verified scripts; extend to ch 10+
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
-4. **audio_toolkit** — implemented (Pass 14); expand synthesis examples (ch 18), neural depth (ch 20)
+4. **audio_toolkit** — implemented (Pass 14); expand synthesis examples (ch 18), neural depth (ch
+20)
 5. **PDF build** — CI with LaTeX (optional)
 6. **Audio demos** — `audio_demos/` WAV exports via `export_audio_demos.py` (Pass 15)
 
 ## Current Sprint Focus
 
-**Completed (Pass 16, 2026-07-03):** Representation lens in ch 07–17; exercise solutions ch 07–09; leakage WAV demo; STFT framing diagram.
+**Completed (Pass 17, 2026-07-03):** Formatting CI (black, ruff, structure check); markdown prose
+wrap; artifact labeling; tighter tests; ADC/DAC + FIR/IIR diagrams.
 
-**Next recommended step (Pass 17):** Exercise solutions ch 10–12; more block diagrams (ADC/DAC, FIR/IIR); representation lens review in capstone chapters.
+**Next recommended step (Pass 18):** Exercise solutions ch 10–12; external review log; remaining
+block diagrams.
 
 ## Conventions
 

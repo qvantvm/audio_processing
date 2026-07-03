@@ -2,7 +2,10 @@
 
 ## Purpose
 
-Machine listening and music informatics reduce waveforms to **feature vectors**: timbral, temporal, and spectral summaries for classification, search, and MIR. This chapter surveys common descriptors— spectral centroid, rolloff, flux, MFCC preview— and how STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) choices affect them.
+Machine listening and music informatics reduce waveforms to **feature vectors**: timbral, temporal,
+and spectral summaries for classification, search, and MIR. This chapter surveys common descriptors—
+spectral centroid, rolloff, flux, MFCC preview— and how STFT ([STFT, Spectrograms, and
+Time–Frequency Analysis](#ch-08-stft)) choices affect them.
 
 ## Representation lens
 
@@ -29,7 +32,8 @@ By the end of this chapter, the reader should be able to:
 
 ### Frame-based pipeline
 
-STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) → $|X_m[k]|$ → per-frame scalar or vector features → time series or aggregated statistics [@muller2015fundamentals].
+STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) → $|X_m[k]|$ → per-frame
+scalar or vector features → time series or aggregated statistics [@muller2015fundamentals].
 
 ### Spectral centroid
 
@@ -68,7 +72,8 @@ Widely used in speech/music ML; not magically perceptual— know limitations.
 
 ### Chroma / constant-Q (preview)
 
-**Chroma:** energy folded onto 12 pitch classes— harmony analysis ([Musical Signal Representations](#ch-17-musical-reps)).
+**Chroma:** energy folded onto 12 pitch classes— harmony analysis ([Musical Signal
+Representations](#ch-17-musical-reps)).
 
 **CQT:** log-spaced frequency resolution for music [@muller2015fundamentals].
 
@@ -80,7 +85,8 @@ $$
 \mathrm{mel} = 2595 \log_{10}\left(1 + \frac{f}{700}\right).
 $$
 
-Feature vector $\mathbf{f}_m \in \mathbb{R}^d$ per frame; temporal delta $\Delta \mathbf{f}_m$ often appended for ASR.
+Feature vector $\mathbf{f}_m \in \mathbb{R}^d$ per frame; temporal delta $\Delta \mathbf{f}_m$ often
+appended for ASR.
 
 ## Audio Interpretation
 
@@ -102,7 +108,8 @@ Document `n_fft`, `hop_length` with published features— reproducibility matter
 
 ## Worked Example
 
-**Problem:** Two frames same level; frame A energy concentrated at 4 kHz, frame B at 500 Hz. Which has higher centroid?
+**Problem:** Two frames same level; frame A energy concentrated at 4 kHz, frame B at 500 Hz. Which
+has higher centroid?
 
 **Answer:** Frame A.
 

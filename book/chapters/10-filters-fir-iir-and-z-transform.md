@@ -2,7 +2,9 @@
 
 ## Purpose
 
-**Filters** shape frequency content: remove rumble, isolate bands, smooth envelopes. This chapter introduces **FIR** and **IIR** structures, the **z-transform** transfer function $H(z)$, and frequency response $H(\Omega)$— the design vocabulary for EQ, crossovers, and analysis filters.
+**Filters** shape frequency content: remove rumble, isolate bands, smooth envelopes. This chapter
+introduces **FIR** and **IIR** structures, the **z-transform** transfer function $H(z)$, and
+frequency response $H(\Omega)$— the design vocabulary for EQ, crossovers, and analysis filters.
 
 ## Representation lens
 
@@ -33,7 +35,8 @@ $$
 y[n] = \sum_{k=0}^{M} b_k\, x[n-k].
 $$
 
-Impulse response $h[n]=b_n$ for $0\le n\le M$. **Always BIBO stable.** Can achieve **exact linear phase** (symmetric $b_k$).
+Impulse response $h[n]=b_n$ for $0\le n\le M$. **Always BIBO stable.** Can achieve **exact linear
+phase** (symmetric $b_k$).
 
 Transfer function:
 
@@ -53,7 +56,8 @@ $$
 H(z) = \frac{\sum_{k=0}^{M} b_k z^{-k}}{1 + \sum_{k=1}^{P} a_k z^{-k}}.
 $$
 
-**Poles** (roots of denominator) must lie **inside unit circle** for stability [@oppenheim2010discrete].
+**Poles** (roots of denominator) must lie **inside unit circle** for stability
+[@oppenheim2010discrete].
 
 Efficient for steep slopes (fewer coefficients than FIR) but nonlinear phase unless specialized.
 
@@ -74,14 +78,16 @@ $|H(\Omega)|$ — gain vs frequency; $\angle H(\Omega)$ — phase shift.
 Ideal lowpass impulse response:
 
 $$
-h_{\text{ideal}}[n] = \frac{2f_c}{f_s}\,\mathrm{sinc}\!\left(\frac{2f_c}{f_s}\left(n - \frac{M}{2}\right)\right).
+h_{\text{ideal}}[n] = \frac{2f_c}{f_s}\,\mathrm{sinc}\!\left(\frac{2f_c}{f_s}\left(n -
+\frac{M}{2}\right)\right).
 $$
 
 Truncate and multiply by window (Hann)— `fir_lowpass_demo.py`.
 
 ### Biquads
 
-Second-order sections (biquads) cascade for EQ shelves/peaks— standard in audio engines; each section is order-2 IIR.
+Second-order sections (biquads) cascade for EQ shelves/peaks— standard in audio engines; each
+section is order-2 IIR.
 
 ## Mathematical Formulation
 
@@ -97,11 +103,15 @@ LTI: $Y(z) = H(z) X(z)$ (ROC caveats for IIR).
 
 **High-pass at 80 Hz:** remove DC and rumble on vocals.
 
-**Low-pass before downsampling:** anti-alias ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization), [Resampling, Interpolation, and Sample-Rate Conversion](#ch-14-resampling)).
+**Low-pass before downsampling:** anti-alias ([Sampling, Quantization, and Digital
+Audio](#ch-03-sampling-quantization), [Resampling, Interpolation, and Sample-Rate
+Conversion](#ch-14-resampling)).
 
 **Parametric EQ:** biquad bank adjusting $|H(\Omega)|$.
 
 ## Implementation Notes
+
+![FIR direct form and IIR biquad structures](../figures/fir_iir_structures.png)
 
 ```python
 from scipy.signal import firwin, freqz
@@ -111,13 +121,16 @@ w, H = freqz(h, worN=4096, fs=fs)
 
 Run `python examples/fir_lowpass_demo.py`.
 
-**Direct Form I/II** difference equations for real-time; watch denormals and coefficient quantization ([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
+**Direct Form I/II** difference equations for real-time; watch denormals and coefficient
+quantization ([Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)).
 
 ## Worked Example
 
-**Problem:** FIR length 101, $f_s=48000$, cutoff 2 kHz. Approximate group delay at low frequencies for linear-phase symmetric FIR?
+**Problem:** FIR length 101, $f_s=48000$, cutoff 2 kHz. Approximate group delay at low frequencies
+for linear-phase symmetric FIR?
 
-**Answer:** $(M/2)/f_s = 50/48000 \approx 1.04$ ms ([Phase, Group Delay, and Minimum Phase](#ch-12-phase-group-delay) formalizes group delay).
+**Answer:** $(M/2)/f_s = 50/48000 \approx 1.04$ ms ([Phase, Group Delay, and Minimum
+Phase](#ch-12-phase-group-delay) formalizes group delay).
 
 ## Common Pitfalls
 

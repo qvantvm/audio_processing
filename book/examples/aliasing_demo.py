@@ -42,7 +42,9 @@ def plot_aliasing() -> None:
     fig, axes = plt.subplots(2, 1, figsize=(8, 5), sharex=False)
 
     axes[0].plot(t_ref * 1000, x_ref, color="0.7", label="3.5 kHz tone (reference)")
-    axes[0].stem(n / fs * 1000, x, linefmt="C0-", markerfmt="C0o", basefmt=" ", label="Sampled at 4 kHz")
+    axes[0].stem(
+        n / fs * 1000, x, linefmt="C0-", markerfmt="C0o", basefmt=" ", label="Sampled at 4 kHz"
+    )
     axes[0].set_xlim(0, 5)
     axes[0].set_xlabel("Time (ms)")
     axes[0].set_ylabel("Amplitude")

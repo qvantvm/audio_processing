@@ -2,7 +2,11 @@
 
 ## Purpose
 
-A single DFT ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)) describes **one** time segment. Audio evolves: notes start, formants shift, consonants burst. The **short-time Fourier transform (STFT)** applies windowed DFTs ([Windowing, Leakage, and Resolution](#ch-07-windowing)) to overlapping frames, producing a **time–frequency matrix**— the basis of spectrograms, many audio features, and perceptual front-ends.
+A single DFT ([DFT, FFT, and Spectral Analysis](#ch-06-dft-fft)) describes **one** time segment.
+Audio evolves: notes start, formants shift, consonants burst. The **short-time Fourier transform
+(STFT)** applies windowed DFTs ([Windowing, Leakage, and Resolution](#ch-07-windowing)) to
+overlapping frames, producing a **time–frequency matrix**— the basis of spectrograms, many audio
+features, and perceptual front-ends.
 
 ## Representation lens
 
@@ -39,13 +43,15 @@ $$
 - $R$ — hop size (time step between frames: $R/f_s$ seconds)
 - $w[n]$ — window ([Windowing, Leakage, and Resolution](#ch-07-windowing))
 
-**Spectrogram:** $|X_m[k]|$ or $|X_m[k]|^2$ displayed with time on one axis, frequency on the other [@allen1977unified].
+**Spectrogram:** $|X_m[k]|$ or $|X_m[k]|^2$ displayed with time on one axis, frequency on the other
+[@allen1977unified].
 
 ![STFT spectrogram of a linear chirp](../figures/stft_chirp_spectrogram.png)
 
 ### Time–frequency tiling
 
-Long $M$ → narrow frequency bins, **blurred** temporal events. Short $M$ → good time localization, **wide** frequency bands. Uncertainty is structural, not an implementation bug.
+Long $M$ → narrow frequency bins, **blurred** temporal events. Short $M$ → good time localization,
+**wide** frequency bands. Uncertainty is structural, not an implementation bug.
 
 Rule of thumb:
 
@@ -57,15 +63,20 @@ Rule of thumb:
 
 ### Overlap
 
-Overlap fraction: $(M-R)/M$. 50–75% overlap (Hann) reduces scalloping between frames in reconstruction-oriented STFT. Analysis-only spectrograms often use $R = M/4$ or $M/2$.
+Overlap fraction: $(M-R)/M$. 50–75% overlap (Hann) reduces scalloping between frames in
+reconstruction-oriented STFT. Analysis-only spectrograms often use $R = M/4$ or $M/2$.
 
 ### COLA and invertibility
 
-**Constant overlap-add (COLA)** conditions allow perfect STFT inversion with synthesis window [@allen1977unified]. Phase vocoders and some effects require careful STFT pair design— magnitude-only inversion fails (Griffin–Lim).
+**Constant overlap-add (COLA)** conditions allow perfect STFT inversion with synthesis window
+[@allen1977unified]. Phase vocoders and some effects require careful STFT pair design— magnitude-
+only inversion fails (Griffin–Lim).
 
 ### Reassignment and alternatives (preview)
 
-**Reassigned spectrograms** sharpen ridges; **constant-Q transform** (Chapter 15/17) uses log-frequency spacing for music. **Wavelets** offer another tiling— outside core path but same tradeoff theme.
+**Reassigned spectrograms** sharpen ridges; **constant-Q transform** (Chapter 15/17) uses log-
+frequency spacing for music. **Wavelets** offer another tiling— outside core path but same tradeoff
+theme.
 
 ## Mathematical Formulation
 
@@ -103,7 +114,8 @@ S = np.abs(frames).T
 
 Run `python examples/stft_spectrogram_demo.py`.
 
-`librosa.stft` / `scipy.signal.stft` handle padding and frequency grids— read docs for `center`, `n_fft`, `hop_length`.
+`librosa.stft` / `scipy.signal.stft` handle padding and frequency grids— read docs for `center`,
+`n_fft`, `hop_length`.
 
 ## Worked Example
 

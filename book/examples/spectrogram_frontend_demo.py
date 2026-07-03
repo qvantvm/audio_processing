@@ -8,8 +8,8 @@ Run from book/:
     python examples/spectrogram_frontend_demo.py
 """
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np

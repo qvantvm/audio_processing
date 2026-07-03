@@ -19,7 +19,9 @@ def apply_fir(x: np.ndarray, h: np.ndarray) -> np.ndarray:
     return signal.lfilter(h, [1.0], x).astype(np.float32)
 
 
-def frequency_response(h: np.ndarray, fs: float, n_fft: int = 4096) -> tuple[np.ndarray, np.ndarray]:
+def frequency_response(
+    h: np.ndarray, fs: float, n_fft: int = 4096
+) -> tuple[np.ndarray, np.ndarray]:
     """Return (freqs_hz, |H|) for FIR coefficients h."""
     w, h_resp = signal.freqz(h, worN=n_fft, fs=fs)
     return w, np.abs(h_resp)

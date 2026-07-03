@@ -2,7 +2,9 @@
 
 ## Purpose
 
-This capstone chapter documents the **`audio_toolkit/`** package shipped with the book— importable modules for I/O, oscillators, spectra, filters, effects, and metering, with correctness tests in `tests/test_correctness.py`. It is the executable backbone tying prior chapters to tested code.
+This capstone chapter documents the **`audio_toolkit/`** package shipped with the book— importable
+modules for I/O, oscillators, spectra, filters, effects, and metering, with correctness tests in
+`tests/test_correctness.py`. It is the executable backbone tying prior chapters to tested code.
 
 ## Representation lens
 
@@ -66,7 +68,8 @@ Never assume hard-coded rate downstream— pass `fs` to every time-based functio
 
 ## Oscillators (`audio_toolkit.osc`)
 
-`PhaseOscillator` carries phase across blocks to avoid seam clicks ([Chapter 2](#ch-02-signals-time-samples)):
+`PhaseOscillator` carries phase across blocks to avoid seam clicks ([Chapter 2](#ch-02-signals-time-
+samples)):
 
 ```python
 from audio_toolkit.osc import PhaseOscillator
@@ -98,7 +101,8 @@ y = apply_fir(x, h)
 
 ## Effects (`audio_toolkit.effects`)
 
-`DelayLine` supports comb/all-pass chains; `karplus_strong` implements the [Chapter 19](#ch-19-physical-modeling) waveguide loop.
+`DelayLine` supports comb/all-pass chains; `karplus_strong` implements the [Chapter
+19](#ch-19-physical-modeling) waveguide loop.
 
 ## Metering (`audio_toolkit.meter`)
 
@@ -128,7 +132,9 @@ print("peak dBFS:", linear_to_dbfs(peak_amplitude(y)))
 
 ## Worked Example
 
-**Project:** `analyze_note.py` using toolkit modules— report $f_0$ (autocorrelation), spectral centroid, crest factor on a monophonic WAV; ground-truth test on synthetic 440 Hz sine from `PhaseOscillator`.
+**Project:** `analyze_note.py` using toolkit modules— report $f_0$ (autocorrelation), spectral
+centroid, crest factor on a monophonic WAV; ground-truth test on synthetic 440 Hz sine from
+`PhaseOscillator`.
 
 **Verification:** `tests/test_correctness.py` must pass before adding chain complexity.
 
@@ -152,4 +158,5 @@ print("peak dBFS:", linear_to_dbfs(peak_amplitude(y)))
 - SciPy signal tutorial
 - Smith online books [@smith2010physical; @smith2011spectral]
 
-**Epilogue:** Extend the toolkit along your application axis— MIR features, live DSP, or neural front-ends— while keeping representations and units explicit.
+**Epilogue:** Extend the toolkit along your application axis— MIR features, live DSP, or neural
+front-ends— while keeping representations and units explicit.

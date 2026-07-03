@@ -2,6 +2,37 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 17 — Formatting Discipline & Engineering Hygiene (2026-07-03)
+
+### Response to formatting critique
+
+Git objects already stored multi-line files with LF newlines; `requirements.txt` has one
+package per line. The **raw-view “single line” problem** was partly long unwrapped prose
+paragraphs (500+ chars). This pass adds enforcement:
+
+1. **`pyproject.toml`** — black (100 cols) + ruff
+2. **`book/scripts/check_formatting.py`** — fails on single-line corruption, bad requirements, missing final newlines, extreme prose lines
+3. **`book/scripts/wrap_markdown.py`** — wraps prose to 100 columns
+4. **`.gitattributes`** — `text=auto eol=lf`
+5. **CI `format` job** — `black --check`, `ruff`, structure check (gates examples/html)
+6. **Artifact labeling** — `naive_saw` / `naive_saw_artifact` marked `ImplQuality.ARTIFACT`
+7. **Tighter tests** — STFT RMSE 0.04, COLA L2 test, WAV round-trip SNR
+8. **Diagrams** — `adc_dac_chain.png`, `fir_iir_structures.png`
+
+### Completed earlier (Pass 16)
+
+- Representation lens in ch **07–17**
+- Exercise solutions ch **01–09**
+
+### Remaining gaps
+
+- [ ] Exercise solutions ch 10+
+- [ ] External / second-model review log per chapter
+- [ ] PDF CI (LaTeX)
+- [ ] Production-quality resampling module (vs pedagogical)
+
+---
+
 ## Pass 16 — Representation Lens ch 07–17, Solutions 07–09 (2026-07-03)
 
 ### Completed
@@ -61,18 +92,24 @@ Open issues, review findings, and planned improvements.
 
 The manuscript previously overclaimed `reviewed` / `polished` status. This pass:
 
-1. **Status model** — `stub` → `draft` → `technically reviewed` → `pedagogically reviewed` → `polished`
-2. **Demotions** — ch 18, 20 → `draft`; removed false `polished` from 00–03; no chapter is `polished`
-3. **`audio_toolkit/`** — importable package (`io`, `osc`, `spectral`, `filters`, `effects`, `meter`)
-4. **Correctness tests** — `tests/test_correctness.py` (FFT, Parseval, STFT, FIR, phase, dBFS, Karplus)
+1. **Status model** — `stub` → `draft` → `technically reviewed` → `pedagogically reviewed` →
+`polished`
+2. **Demotions** — ch 18, 20 → `draft`; removed false `polished` from 00–03; no chapter is
+`polished`
+3. **`audio_toolkit/`** — importable package (`io`, `osc`, `spectral`, `filters`, `effects`,
+`meter`)
+4. **Correctness tests** — `tests/test_correctness.py` (FFT, Parseval, STFT, FIR, phase, dBFS,
+Karplus)
 5. **`solutions/`** — `ch01_verify.py` … `ch03_verify.py` with tested numeric answers
-6. **Chapter depth** — ch 01 representation matrix; ch 02 code completeness; ch 19 Karplus–Strong demo; ch 22 documents real package
+6. **Chapter depth** — ch 01 representation matrix; ch 02 code completeness; ch 19 Karplus–Strong
+demo; ch 22 documents real package
 7. **Governance** — README + BOOK_PLAN rules for status promotion
 8. **CI** — correctness tests + solution verifications added
 
 ### Markdown formatting
 
-Raw files in this repo use normal newlines (verified locally). `.editorconfig` added for consistent editing. If a viewer shows single-line files, re-normalize with a line-based editor before editing.
+Raw files in this repo use normal newlines (verified locally). `.editorconfig` added for consistent
+editing. If a viewer shows single-line files, re-normalize with a line-based editor before editing.
 
 ### Remaining gaps
 
@@ -111,7 +148,8 @@ Raw files in this repo use normal newlines (verified locally). `.editorconfig` a
 
 ## Status Promotion Criteria
 
-**technically reviewed** requires: examples run, notation consistent, citations resolve, second review logged.
+**technically reviewed** requires: examples run, notation consistent, citations resolve, second
+review logged.
 
 **pedagogically reviewed** requires: exercises checked, pitfalls grounded, teaching clarity pass.
 

@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Real systems mix sample rates: 44.1 kHz files on 48 kHz hardware, half-speed processing, varispeed. **Resampling** reconstructs (conceptually) and re-samples with a new $f_s$. This chapter covers interpolation, anti-imaging, and practical SRC quality tradeoffs.
+Real systems mix sample rates: 44.1 kHz files on 48 kHz hardware, half-speed processing, varispeed.
+**Resampling** reconstructs (conceptually) and re-samples with a new $f_s$. This chapter covers
+interpolation, anti-imaging, and practical SRC quality tradeoffs.
 
 ## Representation lens
 
@@ -29,23 +31,30 @@ By the end of this chapter, the reader should be able to:
 
 ### Upsampling by $L$
 
-Insert $L-1$ zeros between samples → **images** at multiples of original spectrum. Low-pass **interpolation filter** removes images, fills smooth values.
+Insert $L-1$ zeros between samples → **images** at multiples of original spectrum. Low-pass
+**interpolation filter** removes images, fills smooth values.
 
 ### Downsampling by $M$
 
-Low-pass to $< f_s/new/2$ then keep every $M$-th sample— prevents aliasing ([Sampling, Quantization, and Digital Audio](#ch-03-sampling-quantization)).
+Low-pass to $< f_s/new/2$ then keep every $M$-th sample— prevents aliasing ([Sampling, Quantization,
+and Digital Audio](#ch-03-sampling-quantization)).
 
 ### Arbitrary ratio $f_{s2}/f_{s1}$
 
-Rational approximation $L/M$ or asynchronous SRC with time-varying fractional delay (Farrow structure).
+Rational approximation $L/M$ or asynchronous SRC with time-varying fractional delay (Farrow
+structure).
 
 ### Fractional delay
 
-Output at non-integer $n$ via **Lagrange**, **sinc**, or **all-pass** interpolation— used in pitch shifting and delay modulation ([Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)).
+Output at non-integer $n$ via **Lagrange**, **sinc**, or **all-pass** interpolation— used in pitch
+shifting and delay modulation ([Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-
+allpass)).
 
 ### Quality metrics
 
-Stopband rejection, passband ripple, group delay— audibility on transient-rich material ([Phase, Group Delay, and Minimum Phase](#ch-12-phase-group-delay)). **SoX**, **libsamplerate** are reference implementations.
+Stopband rejection, passband ripple, group delay— audibility on transient-rich material ([Phase,
+Group Delay, and Minimum Phase](#ch-12-phase-group-delay)). **SoX**, **libsamplerate** are reference
+implementations.
 
 ## Mathematical Formulation
 
@@ -62,7 +71,8 @@ Practical filters approximate sinc with finite length.
 
 **44.1 → 48 kHz:** common in video workflows; poor SRC causes dullness or aliasing shimmer.
 
-**Half-speed playback:** resample or read buffer slower— different semantics (pitch drops unless compensated).
+**Half-speed playback:** resample or read buffer slower— different semantics (pitch drops unless
+compensated).
 
 ## Implementation Notes
 
@@ -77,7 +87,8 @@ y = resample_poly(x, up=160, down=147)  # example ratio components
 
 **Problem:** Downsample 48 kHz → 16 kHz by $M=3$. Cutoff frequency before decimation?
 
-**Answer:** Nyquist of output 8 kHz; low-pass below ~7.2 kHz (guard band) before keeping every 3rd sample.
+**Answer:** Nyquist of output 8 kHz; low-pass below ~7.2 kHz (guard band) before keeping every 3rd
+sample.
 
 ## Common Pitfalls
 

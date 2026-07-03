@@ -6,8 +6,6 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import numpy as np
-
 BOOK = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BOOK))
 

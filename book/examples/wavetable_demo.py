@@ -7,8 +7,8 @@ Run from book/:
 Writes figures/wavetable_a440.png and audio_demos/wavetable_a440.wav.
 """
 
-from pathlib import Path
 import sys
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np

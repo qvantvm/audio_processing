@@ -5,6 +5,7 @@ Run from book/: python examples/stft_spectrogram_demo.py
 """
 
 from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -24,7 +25,7 @@ hop = 256
 window = np.hanning(win)
 frames = []
 for start in range(0, len(x) - win, hop):
-    frames.append(np.fft.rfft(x[start:start + win] * window))
+    frames.append(np.fft.rfft(x[start : start + win] * window))
 S = np.array(frames).T
 S_db = 20 * np.log10(np.maximum(np.abs(S), 1e-10))
 
