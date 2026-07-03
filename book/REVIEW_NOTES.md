@@ -2,6 +2,24 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 18 — Solutions ch 10–12, External Review Log, Diagrams (2026-07-03)
+
+### Completed
+
+- Exercise solutions appendix + verify scripts for **ch 10–12**
+- **`EXTERNAL_REVIEW.md`** — per-chapter review log (all sign-offs pending external)
+- Block diagrams: `dft_grid.png`, `comb_allpass_structures.png`, `phase_group_delay.png`
+- Cross-links from ch 10–12 exercises to appendix
+
+### Remaining gaps
+
+- [ ] Exercise solutions ch 13+
+- [ ] External reviewer sign-off in `EXTERNAL_REVIEW.md`
+- [ ] PDF CI (LaTeX)
+- [ ] Modal bank / neural pipeline diagrams
+
+---
+
 ## Pass 17 — Formatting Discipline & Engineering Hygiene (2026-07-03)
 
 ### Response to formatting critique

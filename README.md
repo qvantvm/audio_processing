@@ -20,7 +20,8 @@ Manuscript: [`book/`](book/)
 | 21–22 | Testing, toolkit capstone |
 | App. | Exercise solutions (pilot: ch 01–03) |
 
-Planning: `book/BOOK_PLAN.md`, `book/NOTATION.md`, `book/GLOSSARY.md`, `book/REVIEW_NOTES.md`.
+Planning: `book/BOOK_PLAN.md`, `book/NOTATION.md`, `book/GLOSSARY.md`, `book/REVIEW_NOTES.md`,
+`book/EXTERNAL_REVIEW.md`.
 
 ## Code
 

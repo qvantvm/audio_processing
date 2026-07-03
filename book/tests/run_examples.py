@@ -25,6 +25,9 @@ EXAMPLES = [
     "stft_framing_diagram.py",
     "adc_dac_diagram.py",
     "fir_iir_diagram.py",
+    "dft_grid_diagram.py",
+    "comb_allpass_diagram.py",
+    "phase_group_delay_diagram.py",
 ]
 
 failures = []

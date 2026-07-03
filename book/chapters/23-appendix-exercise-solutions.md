@@ -1,6 +1,6 @@
 # Appendix: Selected Exercise Solutions {#ch-23-exercise-solutions}
 
-This appendix provides worked solutions for exercises in chapters **01–09**. Try each exercise
+This appendix provides worked solutions for exercises in chapters **01–12**. Try each exercise
 yourself first; use these solutions to check arithmetic, conventions, and reasoning.
 
 ---
@@ -365,5 +365,74 @@ within overlap regions.
 
 ---
 
-*Numeric answers for ch 01–09 verified by `solutions/ch01_verify.py` … `ch09_verify.py` (`python
+## [Chapter 10](#ch-10-filters) — Filters: FIR, IIR, and the Z-Transform
+
+### Exercise 10.1
+
+$y[n]=0.5x[n]+0.5x[n-1]$ ⇒ $H(z)=0.5+0.5z^{-1}$. At $\Omega=0$: $|H|=1$. At $\Omega=\pi$: $|H|=0$.
+**Yes — a simple two-point averager is a lowpass.**
+
+### Exercise 10.2
+
+Pole at $z=0.9$: **stable** ($|z|<1$). Pole at $z=1.05$: **unstable** for causal IIR.
+
+### Exercise 10.3
+
+Use `design_fir_lowpass(44100, 1000, num_taps=101)`; passband near 500 Hz should be near unity;
+stopband near 10 kHz should be strongly attenuated.
+
+### Exercise 10.4
+
+Minimum-phase IIR achieves a magnitude target with **less total delay / less pre-ringing** than
+linear-phase FIR of similar order — important for mastering where latency and transient smear matter.
+
+---
+
+## [Chapter 11](#ch-11-delay-comb-allpass) — Delay Lines, Comb Filters, and All-Pass Filters
+
+### Exercise 11.1
+
+Feedforward comb $H(z)=1+g z^{-D}$ with $g=0.7$, $D=100$ has peaks at $\Omega_k = 2\pi k/D$ —
+periodic resonances in frequency.
+
+### Exercise 11.2
+
+All-pass has $|H(\Omega)|\approx 1$ but **frequency-dependent phase** → different partials delayed
+differently → transient smear.
+
+### Exercise 11.3
+
+Incommensurate delays (e.g. 97, 113, 137 samples) avoid a single shared repetition rate in the
+combined response — smoother reverb tail.
+
+### Exercise 11.4
+
+Faster LFO on delay time → faster notches/peaks sweep → **faster flanger motion**.
+
+---
+
+## [Chapter 12](#ch-12-phase-group-delay) — Phase, Group Delay, and Minimum Phase
+
+### Exercise 12.1
+
+Peaking biquad at high $Q$ shows **bump in group delay** near the center frequency — energy at that
+band is delayed more.
+
+### Exercise 12.2
+
+Linear-phase FIR satisfies $h[n]=h[N-1-n]$ (symmetry) ⇒ phase linear in $\Omega$.
+
+### Exercise 12.3
+
+Same magnitude, linear-phase vs minimum-phase: linear-phase adds **symmetric pre/post ringing**;
+minimum-phase concentrates energy causally (listening exercise).
+
+### Exercise 12.4
+
+Top/bottom snare mics see opposite polarity on some modes → **cancellation** when summed without
+polarity correction.
+
+---
+
+*Numeric answers for ch 01–12 verified by `solutions/ch01_verify.py` … `ch12_verify.py` (`python
 solutions/run_verifications.py`).*

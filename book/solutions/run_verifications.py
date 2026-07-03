@@ -15,6 +15,9 @@ SOLUTIONS = [
     "ch07_verify.py",
     "ch08_verify.py",
     "ch09_verify.py",
+    "ch10_verify.py",
+    "ch11_verify.py",
+    "ch12_verify.py",
 ]
 book = Path(__file__).resolve().parent.parent
 failures = []

@@ -146,6 +146,8 @@ Phase](#ch-12-phase-group-delay) formalizes group delay).
 3. Design FIR cutoff 1 kHz at 44.1 kHz with `firwin`; plot $|H(\Omega)|$.
 4. Why do mastering EQs often use minimum-phase IIR?
 
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
+
 ## Further Reading
 
 - Oppenheim & Schafer [@oppenheim2010discrete]

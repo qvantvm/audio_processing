@@ -91,6 +91,8 @@ Notches when $\cos(\Omega D)=-1$ → $\Omega D = \pi(2k+1)$.
 
 ## Implementation Notes
 
+![Comb and all-pass structures](../figures/comb_allpass_structures.png)
+
 ```python
 # Circular buffer delay
 buf = np.zeros(L)
@@ -119,6 +121,8 @@ Modulated delay: interpolate read pointer for chorus/flanger.
 2. Why does all-pass preserve magnitude but smear transients?
 3. Design 3 parallel combs with incommensurate delays to avoid periodic metallic ringing.
 4. Relate flanger LFO rate to perceived sweep speed.
+
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
 ## Further Reading
 

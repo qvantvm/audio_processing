@@ -166,6 +166,8 @@ scale and know your noise floor ([Chapter 21](#ch-21-testing-pitfalls)).
 
 ## Implementation Notes
 
+![DFT frequency bin grid](../figures/dft_grid.png)
+
 ### Executable example
 
 `examples/dft_bin_spacing.py` compares A440 (off-bin) vs. a sinusoid at the nearest bin center:

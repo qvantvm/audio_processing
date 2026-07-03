@@ -87,6 +87,8 @@ propagation critical for quality.
 
 ## Implementation Notes
 
+![Phase and group delay of a linear-phase FIR](../figures/phase_group_delay.png)
+
 Use `scipy.signal.group_delay` for designed filters. Compare linear-phase FIR vs minimum-phase IIR
 on drum loop— listen for pre-ringing vs phase smear.
 
@@ -109,6 +111,8 @@ on drum loop— listen for pre-ringing vs phase smear.
 2. Why does linear-phase FIR have symmetric impulse response?
 3. Listen: compare 500 Hz lowpass, linear vs minimum phase (same magnitude target sketch).
 4. Explain polarity inversion on snare top/bottom mics.
+
+*Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 
 ## Further Reading
 
