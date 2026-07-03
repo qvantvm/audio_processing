@@ -169,6 +169,41 @@ def test_toolkit_capstone_pipeline() -> None:
         assert rmse < 0.01, f"capstone WAV RMSE {rmse}"
 
 
+def test_audio_toolkit_cli() -> None:
+    import subprocess
+    import tempfile
+
+    book = Path(__file__).resolve().parent.parent
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / "cli_tone.wav"
+        r = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "audio_toolkit",
+                "tone",
+                str(out),
+                "--f0",
+                "440",
+                "--duration",
+                "0.05",
+            ],
+            cwd=book,
+            capture_output=True,
+            text=True,
+        )
+        assert r.returncode == 0, r.stderr or r.stdout
+        assert out.is_file()
+        analyze = subprocess.run(
+            [sys.executable, "-m", "audio_toolkit", "analyze", str(out)],
+            cwd=book,
+            capture_output=True,
+            text=True,
+        )
+        assert analyze.returncode == 0, analyze.stderr or analyze.stdout
+        assert "440" in analyze.stdout or "peak:" in analyze.stdout
+
+
 TESTS = [
     test_fft_roundtrip,
     test_parseval,
@@ -183,6 +218,7 @@ TESTS = [
     test_resample_preserves_tone,
     test_wavetable_pitch,
     test_toolkit_capstone_pipeline,
+    test_audio_toolkit_cli,
 ]
 
 

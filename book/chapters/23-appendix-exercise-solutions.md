@@ -661,8 +661,14 @@ export (see `examples/karplus_strong_demo.py`).
 
 ### Exercise 22.4
 
-Optional: add `python -m audio_toolkit` CLI with `argparse` subcommands for analyze/filter — package
-as `book/audio_toolkit/__main__.py` when ready.
+`python -m audio_toolkit` from `book/`:
+
+```bash
+python -m audio_toolkit tone out.wav --f0 440 --duration 1
+python -m audio_toolkit analyze out.wav
+```
+
+Verified by `test_audio_toolkit_cli` in `tests/test_correctness.py`.
 
 ---
 

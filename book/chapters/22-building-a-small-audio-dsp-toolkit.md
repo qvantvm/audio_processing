@@ -42,6 +42,7 @@ book/audio_toolkit/
   meter.py       # peak, RMS, dBFS conversions
   synthesis.py   # wavetable_osc, naive_saw (artifact)
   resample.py    # resample(), midi_to_hz (pedagogical SRC)
+  __main__.py    # CLI: analyze, tone
 book/tests/
   test_correctness.py   # FFT, Parseval, STFT, FIR, phase, dBFS, Karplus, capstone pipeline
 book/solutions/
@@ -151,7 +152,7 @@ centroid, crest factor on a monophonic WAV; ground-truth test on synthetic 440 H
 1. Round-trip a WAV through `read_wav`/`write_wav`; estimate SNR.
 2. Add Schroeder reverb using `DelayLine`; tune comb delays for ~1 s RT60.
 3. Wire `karplus_strong_demo.py` output through `write_wav` and listen.
-4. Add a CLI entry point: `python -m audio_toolkit` (optional packaging exercise).
+4. Add a CLI entry point: `python -m audio_toolkit` — see `audio_toolkit/__main__.py` (`analyze`, `tone`).
 
 *Selected solutions: [Appendix — Exercise Solutions](#ch-23-exercise-solutions).*
 

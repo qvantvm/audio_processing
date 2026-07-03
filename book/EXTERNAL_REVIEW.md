@@ -82,7 +82,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Outline | `TEACHING_PILOT.md` |
 | Run 0 (internal) | 2026-07-03 — automated dry-run: examples + ch 01–06 solutions OK |
-| Run 1 (external) | **ready for recruitment** — checklist in `TEACHING_PILOT.md` |
+| Run 1 (external) | **ready for recruitment** — automated pre-flight Pass 23 in CI |
 | Sign-off | **pending** external cohort |
 
 ## Chapters 16–17 — Pitch / musical representations
@@ -103,22 +103,22 @@ Governance (from `BOOK_PLAN.md`):
 | Notes | Solutions ch 18–21; wavetable diagram |
 | Sign-off | **pending** external |
 
-## Chapters 18–22 — Synthesis / neural / toolkit
+## Chapter 22 — DSP Toolkit Capstone
 
 | Field | Value |
 |-------|-------|
-| Reviewer | agent-pass-14–17 |
+| Reviewer | agent-pass-22–23 |
 | Date | 2026-07-03 |
-| Notes | ch 18/20 expanded; audio_toolkit capstone |
+| Notes | Capstone solutions; integration test; CLI |
 | Sign-off | **pending** external |
 
 ## Appendix A — Exercise Solutions
 
 | Field | Value |
 |-------|-------|
-| Reviewer | agent-pass-18 |
+| Reviewer | agent-pass-18–22 |
 | Date | 2026-07-03 |
-| Notes | Verified scripts ch 01–21 |
+| Notes | Verified scripts ch 01–22 |
 | Sign-off | **pending** external |
 
 ---

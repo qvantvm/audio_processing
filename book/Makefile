@@ -3,7 +3,8 @@ PANDOC := pandoc
 PANDOC_FLAGS := --from markdown+tex_math_dollars+smart \
                 --bibliography bibliography.bib \
                 --citeproc \
-                --metadata-file metadata.yaml
+                --metadata-file metadata.yaml \
+                --resource-path=.:chapters:figures
 
 .PHONY: all html pdf epub clean
 

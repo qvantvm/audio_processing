@@ -53,10 +53,11 @@ After six sessions, participants should:
 | Field | Value |
 |-------|-------|
 | Status | **ready for recruitment** — materials verified Pass 21 |
+| Pre-flight (automated) | Pass 23 — `scripts/run_pilot_preflight.py` OK in CI (not a human cohort) |
 | Prerequisites doc | `TEACHING_PILOT.md` + ch 01–06 appendix solutions |
 | Artifacts checklist | examples OK; solutions ch 01–06; `phase_click` WAV demos |
 | Instructor action | Schedule 6 sessions; log participant count + feedback in this file |
-| Sign-off | **pending** until Run 1 completes |
+| Sign-off | **pending** until Run 1 completes with real participants |
 
 Record external cohort results in `EXTERNAL_REVIEW.md`.
 

@@ -259,19 +259,20 @@ flowchart TD
 2. **Exercise solutions** — ch 01–22 complete (capstone verify + integration test)
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **audio_toolkit** — `resample.py` (Pass 20); production SRC external
-5. **PDF build** — CI with LaTeX (optional)
+5. **PDF build** — CI with LaTeX (`make pdf` job; artifact upload)
 6. **Audio demos** — `audio_demos/` WAV exports via `export_audio_demos.py` (Pass 15)
 
 ## Current Sprint Focus
 
+**Completed (Pass 23, 2026-07-03):** PDF CI job (LaTeX + figure generation + artifact); `audio_toolkit`
+CLI (`__main__.py`); teaching pilot Run 1 automated pre-flight script in CI; Makefile `--resource-path`
+for Pandoc figures.
+
+**Next recommended step (Pass 24):** External teaching cohort Run 1 with real participants; EPUB CI;
+production resampling module (optional).
+
 **Completed (Pass 22, 2026-07-03):** Exercise solutions ch 22; `ch22_verify.py`; capstone integration
 test `test_toolkit_capstone_pipeline`; appendix covers ch 01–22.
-
-**Next recommended step (Pass 23):** External teaching cohort Run 1 execution; PDF CI (LaTeX); optional
-`audio_toolkit` CLI (`__main__.py`).
-
-**Completed (Pass 21, 2026-07-03):** Exercise solutions ch 18–21; wavetable structure diagram;
-teaching pilot Run 1 recruitment checklist.
 
 ## Conventions
 

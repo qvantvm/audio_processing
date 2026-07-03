@@ -2,6 +2,24 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 23 — PDF CI, Toolkit CLI, Pilot Pre-flight (2026-07-03)
+
+### Completed
+
+- **PDF CI** — GitHub Actions `pdf` job: TeX Live + figure generation + `make pdf` + artifact upload
+- **`audio_toolkit.__main__`** — `analyze` and `tone` subcommands; tested in `test_audio_toolkit_cli`
+- **`run_pilot_preflight.py`** — automated Run 1 materials check (ch 01–06); runs in CI
+- Makefile `--resource-path=.:chapters:figures` for Pandoc image resolution
+- HTML CI now generates figures before build (fixes missing images)
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants** (pre-flight ≠ cohort)
+- [ ] EPUB CI (optional)
+- [ ] Production resampling in `audio_toolkit`
+
+---
+
 ## Pass 22 — Capstone Solutions, Integration Test (2026-07-03)
 
 ### Completed
