@@ -11,7 +11,7 @@ By the end of this chapter, the reader should be able to:
 1. Organize modules: `io`, `osc`, `spectral`, `filters`, `effects`, `meter`
 2. Implement end-to-end: load WAV → STFT plot → EQ → write WAV
 3. Apply consistent **$f_s$** and **normalization** conventions across functions
-4. Add smoke tests from Chapter 21
+4. Add smoke tests from @sec:ch-21-testing-pitfalls
 5. Extend one component (e.g., reverb or pitch tracker) deliberately
 
 ## Main Concepts
@@ -39,15 +39,15 @@ Phase accumulator + wavetable; export mono block with phase state for streaming 
 
 ### Spectral layer
 
-Wrap STFT with documented `n_fft`, `hop`, window; return `(S, freqs, times)` for plotting and features.
+Wrap STFT (@sec:ch-08-stft) with documented `n_fft`, `hop`, window; return `(S, freqs, times)` for plotting and features.
 
 ### Filters
 
-Design low/high pass via `scipy.signal.firwin`; apply `lfilter` or FFT overlap-add for long signals.
+Design low/high pass via `scipy.signal.firwin` (@sec:ch-10-filters); apply `lfilter` or FFT overlap-add for long signals.
 
 ### Effects sketch
 
-**Delay:** circular buffer class. **Compressor:** envelope follower from Chapter 13. **Reverb:** 3–4 feedback combs + 2 all-pass (Schroeder starter).
+**Delay:** circular buffer class (@sec:ch-11-delay-comb-allpass). **Compressor:** envelope follower from @sec:ch-13-envelopes-loudness. **Reverb:** 3–4 feedback combs + 2 all-pass (Schroeder starter).
 
 ### Integration example pipeline
 
@@ -99,7 +99,7 @@ Expand with inverse STFT when implementing effects requiring resynthesis.
 
 ## Worked Example
 
-**Project brief:** Build `analyze_note.py` that reports $f_0$ (autocorrelation), spectral centroid, and crest factor for a monophonic WAV— uses toolkit modules + tests on synthetic 440 Hz sine ground truth.
+**Project brief:** Build `analyze_note.py` that reports $f_0$ (autocorrelation, @sec:ch-16-pitch-onsets), spectral centroid (@sec:ch-15-features), and crest factor for a monophonic WAV— uses toolkit modules + tests on synthetic 440 Hz sine ground truth.
 
 ## Common Pitfalls
 
@@ -117,7 +117,7 @@ Expand with inverse STFT when implementing effects requiring resynthesis.
 
 ## Further Reading
 
-- Prior chapters 02–21
+- @sec:ch-02-signals-time-samples through @sec:ch-21-testing-pitfalls
 - SciPy signal tutorial
 - Smith online books for reference implementations [@smith2010physical; @smith2011spectral]
 

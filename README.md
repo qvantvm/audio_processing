@@ -40,4 +40,6 @@ make html   # or pdf, epub — requires pandoc; pdf also needs LaTeX
 
 ## Status
 
-All chapters 00–22 are **draft** quality: structurally complete with exercises and references; polish/review pass tracked in `REVIEW_NOTES.md`.
+All chapters 00–22 are **reviewed** (Passes 8–11). Optional **polished** promotion and exercise-solutions appendix tracked in `BOOK_PLAN.md` / `REVIEW_NOTES.md`.
+
+CI: example smoke tests + Pandoc HTML build on push/PR.

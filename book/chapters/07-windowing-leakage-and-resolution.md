@@ -44,7 +44,7 @@ Sidelobes fall faster (~−32 dB first sidelobe region) at the cost of a **wider
 
 - **Hamming:** slightly lower first sidelobe than Hann, non-zero edge samples
 - **Blackman:** very low sidelobes, wide main lobe— good for detecting weak tones near strong ones
-- **Kaiser:** parametric tradeoff via $\beta$ [@oppeneim2010discrete]
+- **Kaiser:** parametric tradeoff via $\beta$ [@oppenheim2010discrete]
 
 ![Rectangular vs Hann leakage for off-bin A440](../figures/window_leakage.png)
 

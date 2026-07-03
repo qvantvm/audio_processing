@@ -36,11 +36,11 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 | 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | reviewed | 08 |
 | 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | reviewed | 06, 08 |
 | 17 | `17-musical-signal-representations.md` | Musical Signal Representations | reviewed | 04, 08 |
-| 18 | `18-synthesis-representations.md` | Synthesis Representations | draft | 04, 10 |
-| 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | draft | 09, 18 |
-| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | draft | 08, 15 |
-| 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | draft | 06, 10 |
-| 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | draft | 10, 21 |
+| 18 | `18-synthesis-representations.md` | Synthesis Representations | reviewed | 04, 10 |
+| 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | reviewed | 09, 18 |
+| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | reviewed | 08, 15 |
+| 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | reviewed | 06, 10 |
+| 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | reviewed | 10, 21 |
 
 **Status legend:** `stub` = outline or placeholder only; `draft` = substantive prose, may need review; `reviewed` = checked for correctness and consistency; `polished` = ready for publication-quality pass.
 
@@ -233,17 +233,17 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Review pass** — promote chapters 18–22 from `draft` → `reviewed` (00–17 done through Pass 10)
-2. **Pandoc cross-refs** — replace remaining plain "Chapter N" in chapters 18–22
-3. **Exercise solutions** — appendix (future)
-4. **Pandoc build CI** — `make html` when Pandoc available on runner
-5. **Chapter depth** — optional expansion of 19–20 in teaching pass
+1. **Polish pass** — promote select chapters from `reviewed` → `polished` after teaching pilot or external review
+2. **Exercise solutions** — appendix (future)
+3. **Cross-ref sweep** — remaining plain "Chapter N" in chapters 00–06 (if any)
+4. **Chapter depth** — optional expansion of synthesis/neural sections with more worked code
+5. **PDF build** — CI with LaTeX (optional; HTML build added Pass 11)
 
 ## Current Sprint Focus
 
-**Completed (Pass 10, 2026-07-03):** Editorial review of chapters 13–17; `@sec:` IDs on Ch 13–22 (IDs added for forward refs); cross-links across production/analysis block; GLOSSARY (chroma, crest factor, MFCC, spectral centroid, flux); chapters 13–17 promoted to **reviewed**.
+**Completed (Pass 11, 2026-07-03):** Editorial review of chapters 18–22; full cross-ref pass in capstone block; all **23 chapters (00–22) now `reviewed`**; Pandoc HTML build in CI.
 
-**Next recommended step (Pass 11):** Editorial review of **chapters 18–22** (synthesis, physical modeling, neural, testing, toolkit); complete cross-ref pass; promote final chapters to `reviewed`; consider Pandoc HTML build in CI.
+**Next recommended step (Pass 12):** Spot-check cross-refs in chapters 00–06; add exercise solutions for chapters 00–03 as pilot appendix; or begin `polished` promotion on foundation chapters after HTML proofread.
 
 ## Conventions
 

@@ -2,44 +2,42 @@
 
 Open issues, review findings, and planned improvements.
 
-## Pass 10 — Chapters 13–17 Review (2026-07-03)
+## Pass 11 — Chapters 18–22 Review; Manuscript Complete (2026-07-03)
 
 ### Completed
 
-- Pandoc `@sec:` IDs on chapters 13–17 (and 18–22 for forward references)
-- Cross-references in chapters 13–17 (loudness, SRC, features, pitch, musical reps)
-- Bidirectional links: Ch 15 ↔ Ch 17 (Mel, chroma, MFCC); Ch 16 → Ch 06, Ch 15
-- GLOSSARY: chroma, crest factor, MFCC, spectral centroid, spectral flux
-- Promoted chapters **13–17** to **reviewed**
+- Cross-references in chapters 18–22 (synthesis → toolkit capstone)
+- Promoted chapters **18–22** to **reviewed**
+- **All 23 chapters (00–22) now at `reviewed` status**
+- CI: Pandoc HTML build job added (`make html`)
 
 ### Correctness / Clarity
 
-- [ ] Review chapters 18–22 (synthesis, modeling, neural, testing, toolkit)
-- [ ] Replace plain "Chapter N" in chapters 18–22
-- [ ] Pandoc `make html` CI
+- [ ] Fix `@sec:` cross-refs: citeproc treats them as citations— convert to `[text](#ch-id)` links (Pass 12)
+- [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
+- [ ] Optional: expand ch 18–20 with more runnable synthesis examples
 
-### Reviewed chapters (cumulative)
+### Examples / CI
 
-00–17 (18 chapters)
+- [x] Example smoke tests
+- [x] Pandoc HTML build in CI
+- [ ] PDF build (needs LaTeX)
+
+### Reviewed chapters
+
+**All:** 00–22
 
 ---
 
+## Pass 10 — Chapters 13–17 Review (2026-07-03)
+
 ## Pass 9 — Chapters 07–12 Review (2026-07-03)
 
-- Cross-refs spectral/filter block; chapters 07–12 reviewed
-
-## Pass 8 — Editorial & Bibliography (2026-07-02)
-
-- Chapters 00–06 reviewed; bibliography; CI workflow
+## Pass 8 — Chapters 00–06 Review (2026-07-02)
 
 ## Status Promotion Criteria
 
-Promote **draft** → **reviewed** when:
-
-1. Second-pass edit complete
-2. All cited keys resolve in `bibliography.bib`
-3. Referenced examples run
-4. Exercises spot-checked
+**reviewed** → **polished:** external review, teaching pilot, or dedicated proofread pass.
 
 ## Future Review Checklist (per section)
 

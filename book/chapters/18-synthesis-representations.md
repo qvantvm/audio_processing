@@ -2,7 +2,7 @@
 
 ## Purpose
 
-**Synthesis** generates audio from compact representations: oscillators, wavetables, FM operators, granular grains. This chapter maps synthesis paradigms to the signal models from earlier chapters and highlights **band-limited** methods to avoid aliasing (Chapter 3).
+**Synthesis** generates audio from compact representations: oscillators, wavetables, FM operators, granular grains. This chapter maps synthesis paradigms to the signal models from earlier chapters and highlights **band-limited** methods to avoid aliasing (@sec:ch-03-sampling-quantization).
 
 ## Learning Objectives
 
@@ -18,11 +18,11 @@ By the end of this chapter, the reader should be able to:
 
 ### Additive synthesis
 
-Sum of sinusoids (Chapter 17)— powerful, expensive; control partial amplitudes for timbre morphing [@roads1996computer].
+Sum of sinusoids (@sec:ch-17-musical-reps)— powerful, expensive; control partial amplitudes for timbre morphing [@roads1996computer].
 
 ### Subtractive synthesis
 
-Rich source (saw/square/noise) + **filter** sculpting— classic analog model.
+Rich source (saw/square/noise) + **filter** (@sec:ch-10-filters) sculpting— classic analog model.
 
 ### Wavetable
 
@@ -48,11 +48,11 @@ Short windowed grains from buffer; parameters: duration, overlap, pitch shift vi
 
 ### Modal / vector synthesis (preview)
 
-Bank of resonators (decaying sinusoids)— relates to physical modeling (Chapter 19).
+Bank of resonators (decaying sinusoids)— relates to physical modeling (@sec:ch-19-physical-modeling).
 
 ### Anti-aliased discontinuities
 
-Naive sawtooth aliases (Chapter 3). **BLEP** (band-limited step) cancels steps; **polyBLEP** common in software synths.
+Naive sawtooth aliases (@sec:ch-03-sampling-quantization). **BLEP** (band-limited step) cancels steps; **polyBLEP** common in software synths.
 
 ## Mathematical Formulation
 
@@ -70,7 +70,7 @@ $$
 
 **Bell:** inharmonic FM or modal partials.
 
-**Pad:** detuned oscillators + filter + chorus (delay modulation, Chapter 11).
+**Pad:** detuned oscillators + filter + chorus (delay modulation, @sec:ch-11-delay-comb-allpass).
 
 ## Implementation Notes
 
@@ -107,4 +107,4 @@ Use oversampling ×2–×8 for nonlinear waveshaping. See `scipy.signal` or synt
 - Puckette [@puckette2007electronic]
 - Smith, oscillator topics [@smith2010physical]
 
-**Next chapter:** Chapter 19 — *Physical-Modeling Representations*.
+**Next chapter:** @sec:ch-19-physical-modeling — *Physical-Modeling Representations*.

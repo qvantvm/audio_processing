@@ -18,15 +18,15 @@ By the end of this chapter, the reader should be able to:
 
 ### Impulse and sine tests
 
-Feed $\delta[n]$ → capture $h[n]$. Feed sine at bin center → measure gain/phase vs $H(\Omega)$ prediction.
+Feed $\delta[n]$ → capture $h[n]$ (@sec:ch-09-convolution). Feed sine at bin center → measure gain/phase vs $H(\Omega)$ prediction (@sec:ch-10-filters).
 
 ### Round-trip tests
 
-`ifft(fft(x)) ≈ x`. STFT with COLA synthesis window → reconstruct within tolerance.
+`ifft(fft(x)) ≈ x` (@sec:ch-06-dft-fft). STFT with COLA synthesis window → reconstruct within tolerance (@sec:ch-08-stft).
 
 ### Level safety
 
-Peak, RMS, true-peak (oversampled) meters; headroom before integer export.
+Peak, RMS, true-peak (oversampled) meters; headroom before integer export (@sec:ch-13-envelopes-loudness).
 
 ### THD+N (concept)
 
@@ -38,8 +38,9 @@ Sine through system; notch fundamental; measure remaining power— harmonic dist
 |-------|---------|------------|
 | Denormals | CPU spikes on silence | flush-to-zero, DC offset |
 | IIR limit cycles | idle tone | dither states, higher precision |
-| Circular convolution | echo wrap | pad FFT convolution |
+| Circular convolution | echo wrap | pad FFT convolution (@sec:ch-09-convolution) |
 | Intersample peaks | clip after "safe" peak meter | true-peak oversampling |
+| Aliasing | wrong spectra / timbre | band-limit; verify $f_s$ (@sec:ch-03-sampling-quantization) |
 | Wrong $f_s$ | pitch/filter wrong | assert metadata |
 
 ### Regression testing audio
@@ -96,7 +97,7 @@ Use `pytest`, property-based tests (`hypothesis`) for random small vectors.
 ## Exercises
 
 1. Write impulse test verifying `convolve(x,h)` vs `firwin` design.
-2. Measure group delay of your FIR lowpass vs theory (Chapter 10 demo).
+2. Measure group delay of your FIR lowpass vs theory (`examples/fir_lowpass_demo.py`, @sec:ch-10-filters).
 3. Inject DC; high-pass at 20 Hz; verify removal.
 4. Design CI golden file test for STFT feature shape.
 
@@ -105,4 +106,4 @@ Use `pytest`, property-based tests (`hypothesis`) for random small vectors.
 - Steiglitz [@steiglitz1996dsp]
 - Oppenheim & Schafer numerical topics [@oppenheim2010discrete]
 
-**Next chapter:** Chapter 22 — *Building a Small Audio DSP Toolkit*.
+**Next chapter:** @sec:ch-22-dsp-toolkit — *Building a Small Audio DSP Toolkit*.

@@ -34,7 +34,7 @@ Large $\tau_g$ variation → **dispersion** (different frequencies arrive at dif
 
 ### Minimum-phase systems
 
-All poles and zeros **inside unit circle**. For a given magnitude $|H(\Omega)|$, minimum-phase has **minimum energy delay** (energy concentrated early) [@oppeneim2010discrete].
+All poles and zeros **inside unit circle**. For a given magnitude $|H(\Omega)|$, minimum-phase has **minimum energy delay** (energy concentrated early) [@oppenheim2010discrete].
 
 Magnitude and minimum-phase are related via **Hilbert transform** of log-magnitude (cepstral domain)— advanced design topic.
 

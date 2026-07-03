@@ -42,7 +42,7 @@ $$
 H(z) = \frac{\sum_{k=0}^{M} b_k z^{-k}}{1 + \sum_{k=1}^{P} a_k z^{-k}}.
 $$
 
-**Poles** (roots of denominator) must lie **inside unit circle** for stability [@oppeneim2010discrete].
+**Poles** (roots of denominator) must lie **inside unit circle** for stability [@oppenheim2010discrete].
 
 Efficient for steep slopes (fewer coefficients than FIR) but nonlinear phase unless specialized.
 
