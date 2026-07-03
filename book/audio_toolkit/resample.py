@@ -1,7 +1,9 @@
-"""Sample-rate conversion (pedagogical minimal implementation).
+"""Sample-rate conversion with explicit quality tiers.
 
-Uses ``scipy.signal.resample_poly`` for rational ratios. For production SRC use
-libsamplerate/SoX; this module is for teaching and tests.
+- ``ImplQuality.PEDAGOGICAL``: fast rational-ratio wrapper (default, teaching)
+- ``ImplQuality.RECOMMENDED``: higher-ratio approximation + stronger Kaiser window
+
+For broadcast-grade SRC use libsamplerate/SoX; these tiers are in-repo teaching tools.
 """
 
 from __future__ import annotations
@@ -11,12 +13,15 @@ from fractions import Fraction
 import numpy as np
 from scipy.signal import resample_poly
 
+from audio_toolkit._quality import ImplQuality
+
 
 def resample(
     x: np.ndarray,
     fs_in: float,
     fs_out: float,
     max_denominator: int = 1000,
+    quality: ImplQuality = ImplQuality.PEDAGOGICAL,
 ) -> tuple[np.ndarray, float]:
     """Resample ``x`` from ``fs_in`` to ``fs_out`` Hz.
 
@@ -26,8 +31,23 @@ def resample(
         raise ValueError("sample rates must be positive")
     if fs_in == fs_out:
         return x.astype(np.float32), float(fs_out)
-    frac = Fraction(fs_out / fs_in).limit_denominator(max_denominator)
-    y = resample_poly(x.astype(np.float64), frac.numerator, frac.denominator)
+
+    denom_limit = max_denominator
+    window: str | tuple[str, float] = ("kaiser", 5.0)
+    padtype = "constant"
+    if quality == ImplQuality.RECOMMENDED:
+        denom_limit = max(max_denominator, 10_000)
+        window = ("kaiser", 8.0)
+        padtype = "line"
+
+    frac = Fraction(fs_out / fs_in).limit_denominator(denom_limit)
+    y = resample_poly(
+        x.astype(np.float64),
+        frac.numerator,
+        frac.denominator,
+        window=window,
+        padtype=padtype,
+    )
     return y.astype(np.float32), float(fs_out)
 
 

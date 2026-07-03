@@ -2,6 +2,24 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 24 — EPUB CI, Resample Quality Tiers, Run 1 Kit (2026-07-03)
+
+### Completed
+
+- **EPUB CI** — `epub` job with figure generation, `make epub`, artifact upload
+- **`resample(..., quality=ImplQuality)`** — `PEDAGOGICAL` (default) vs `RECOMMENDED` (stronger Kaiser)
+- **`TEACHING_PILOT_RUN1.md`** — session agendas, feedback questionnaire, Run 1 log template
+- `run_pilot_preflight.py` checks instructor kit exists
+- `test_resample_recommended_quality` in correctness suite (15 tests)
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants** (kit ready; cohort not executed)
+- [ ] HTML artifact upload in CI (optional)
+- [ ] Broadcast-grade SRC (libsamplerate/SoX) — out of scope for in-repo toolkit
+
+---
+
 ## Pass 23 — PDF CI, Toolkit CLI, Pilot Pre-flight (2026-07-03)
 
 ### Completed

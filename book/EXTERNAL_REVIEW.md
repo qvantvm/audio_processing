@@ -82,7 +82,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Outline | `TEACHING_PILOT.md` |
 | Run 0 (internal) | 2026-07-03 — automated dry-run: examples + ch 01–06 solutions OK |
-| Run 1 (external) | **ready for recruitment** — automated pre-flight Pass 23 in CI |
+| Run 1 (external) | **ready for recruitment** — `TEACHING_PILOT_RUN1.md` instructor kit (Pass 24) |
 | Sign-off | **pending** external cohort |
 
 ## Chapters 16–17 — Pitch / musical representations

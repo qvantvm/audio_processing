@@ -57,6 +57,7 @@ After six sessions, participants should:
 | Prerequisites doc | `TEACHING_PILOT.md` + ch 01–06 appendix solutions |
 | Artifacts checklist | examples OK; solutions ch 01–06; `phase_click` WAV demos |
 | Instructor action | Schedule 6 sessions; log participant count + feedback in this file |
+| Instructor kit | `TEACHING_PILOT_RUN1.md` — session agendas, feedback form, Run 1 log template |
 | Sign-off | **pending** until Run 1 completes with real participants |
 
 Record external cohort results in `EXTERNAL_REVIEW.md`.

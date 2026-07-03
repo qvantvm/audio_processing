@@ -130,6 +130,20 @@ def test_resample_preserves_tone() -> None:
     assert abs(peak_f - f0) < 1.0
 
 
+def test_resample_recommended_quality() -> None:
+    from audio_toolkit._quality import ImplQuality
+    from audio_toolkit.resample import resample
+
+    fs_in, f0 = 44_100.0, 1000.0
+    n = np.arange(int(fs_in * 2))
+    x = np.sin(2 * np.pi * f0 * n / fs_in).astype(np.float32)
+    y, fs_out = resample(x, fs_in, 48_000.0, quality=ImplQuality.RECOMMENDED)
+    spec = np.abs(np.fft.rfft(y))
+    freqs = np.fft.rfftfreq(len(y), d=1.0 / fs_out)
+    peak_f = freqs[int(np.argmax(spec[1:])) + 1]
+    assert abs(peak_f - f0) < 0.25, f"recommended SRC peak {peak_f} Hz vs {f0}"
+
+
 def test_wavetable_pitch() -> None:
     from audio_toolkit.synthesis import wavetable_osc
 
@@ -216,6 +230,7 @@ TESTS = [
     test_dbfs_conversions,
     test_karplus_strong_decay,
     test_resample_preserves_tone,
+    test_resample_recommended_quality,
     test_wavetable_pitch,
     test_toolkit_capstone_pipeline,
     test_audio_toolkit_cli,

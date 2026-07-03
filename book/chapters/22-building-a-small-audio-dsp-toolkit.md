@@ -41,7 +41,7 @@ book/audio_toolkit/
   effects.py     # DelayLine, karplus_strong
   meter.py       # peak, RMS, dBFS conversions
   synthesis.py   # wavetable_osc, naive_saw (artifact)
-  resample.py    # resample(), midi_to_hz (pedagogical SRC)
+  resample.py    # resample(), midi_to_hz; quality=ImplQuality tiers
   __main__.py    # CLI: analyze, tone
 book/tests/
   test_correctness.py   # FFT, Parseval, STFT, FIR, phase, dBFS, Karplus, capstone pipeline

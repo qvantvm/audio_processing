@@ -82,7 +82,15 @@ from audio_toolkit.resample import resample
 y, fs_out = resample(x, fs_in=44_100, fs_out=48_000)
 ```
 
-Pedagogical wrapper around ``scipy.signal.resample_poly``. For production quality use `librosa.resample`,
+Default ``quality=ImplQuality.PEDAGOGICAL``. For tighter rational-ratio SRC in tests and demos:
+
+```python
+from audio_toolkit._quality import ImplQuality
+
+y, fs_out = resample(x, 44_100, 48_000, quality=ImplQuality.RECOMMENDED)
+```
+
+Pedagogical wrapper around ``scipy.signal.resample_poly``. For broadcast-grade SRC use `librosa.resample`,
 `soxr`, or SoX. Always document SRC used in datasets.
 
 ## Worked Example
