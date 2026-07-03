@@ -35,9 +35,9 @@ programming experience (Python examples throughout).
 | 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | pedagogically reviewed | 06 |
 | 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | pedagogically reviewed | 07 |
 | 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | pedagogically reviewed | 02, 05 |
-| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | technically reviewed | 09 |
-| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | technically reviewed | 10 |
-| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | technically reviewed | 06, 10 |
+| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | pedagogically reviewed | 09 |
+| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | pedagogically reviewed | 10 |
+| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | pedagogically reviewed | 06, 10 |
 | 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | technically reviewed | 02 |
 | 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | technically reviewed | 03, 10 |
 | 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | technically reviewed | 08 |
@@ -255,7 +255,7 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Polish pass** — no chapter at `polished` yet; foundation **01–09** at `pedagogically reviewed`
+1. **Polish pass** — no chapter at `polished` yet; **01–12** at `pedagogically reviewed`
 2. **Exercise solutions** — ch 01–22 complete (capstone verify + integration test)
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **audio_toolkit** — `resample.py` with `ImplQuality` tiers (Pass 24); broadcast SRC still external
@@ -265,12 +265,15 @@ flowchart TD
 
 ## Current Sprint Focus
 
+**Completed (Pass 28, 2026-07-03):** Pedagogical review ch **10–12** (filters/delay/phase block); GitHub
+issue template for teaching pilot reports.
+
+**Next recommended step (Pass 29):** External teaching cohort Run 1 with real participants; log via
+`record_pilot_run.py` or issue template; `polished` only after `EXTERNAL_REVIEW.md` approved sign-off.
+
 **Completed (Pass 27, 2026-07-03):** Pedagogical review ch **07–09** (spectral/convolution block);
 `TEACHING_PILOT_RECRUIT.md` recruitment call; glossary **coherent gain**; optional pilot extension
 sessions 7–8 documented.
-
-**Next recommended step (Pass 28):** External teaching cohort Run 1 with real participants; log via
-`record_pilot_run.py`; promote to `polished` only after `EXTERNAL_REVIEW.md` approved sign-off.
 
 **Completed (Pass 26, 2026-07-03):** Representation lens tables for foundation ch 02–06 and ch 21;
 `check_representation_lens.py` in CI; `test_governance.py`; standalone self-contained HTML; Makefile

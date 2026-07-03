@@ -48,16 +48,22 @@ python book/scripts/record_pilot_run.py \
 3. Open a PR or issue with the updated log files for maintainer review
 4. **Do not** mark chapters `polished` until `EXTERNAL_REVIEW.md` has **approved** sign-off
 
+Use the GitHub issue template **Teaching pilot report** (label `teaching-pilot`) when filing results.
+
 ## Optional extension (sessions 7–8)
 
 After the foundation block, ch **07–08** (windowing, STFT) are `pedagogically reviewed` and can
 extend the pilot for participants who want spectrogram depth. Use `window_leakage_demo.py` and
 `stft_spectrogram_demo.py`.
 
+Further optional sessions **9–10** cover ch **10–12** (FIR/IIR, delay lines, group delay) for
+participants continuing past the foundation block.
+
 ## Contact / reporting
 
-Report interest or completed runs via GitHub issue on the repository with label `teaching-pilot`.
-Include participant count (not names), mean ratings, and blocking issues only.
+Report interest or completed runs via GitHub issue on the repository with label `teaching-pilot`
+(template: **Teaching pilot report**). Include participant count (not names), mean ratings, and
+blocking issues only.
 
 ## Current status
 

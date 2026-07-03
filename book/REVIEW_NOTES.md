@@ -2,6 +2,21 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 28 — Pedagogy ch 10–12, Pilot Issue Template (2026-07-03)
+
+### Completed
+
+- **Pedagogical review** — ch **10–12** promoted (FIR/IIR, delay/comb, phase/group delay)
+- **GitHub issue template** — `.github/ISSUE_TEMPLATE/teaching_pilot_report.yml` for cohort reporting
+- Optional pilot extension sessions 9–10 (ch 10–12) in `TEACHING_PILOT_RECRUIT.md`
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants**
+- [ ] No chapter `polished` without `EXTERNAL_REVIEW.md` **approved** sign-off
+
+---
+
 ## Pass 27 — Pedagogy ch 07–09, Recruitment Call (2026-07-03)
 
 ### Completed

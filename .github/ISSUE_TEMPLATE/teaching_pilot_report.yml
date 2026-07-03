@@ -1,0 +1,90 @@
+---
+name: Teaching pilot report
+description: Report results from an external foundation-block cohort (ch 01–06)
+title: "[Teaching Pilot] Run 1 report — "
+labels:
+  - teaching-pilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template after completing a **real** cohort. Do not submit synthetic data.
+        Maintainer will review before any chapter promotion to `polished`.
+
+  - type: input
+    id: date
+    attributes:
+      label: Cohort date(s)
+      placeholder: "2026-09-15 or 2026-09-01 – 2026-09-22"
+    validations:
+      required: true
+
+  - type: input
+    id: instructor
+    attributes:
+      label: Instructor name
+    validations:
+      required: true
+
+  - type: input
+    id: institution
+    attributes:
+      label: Institution (optional)
+      placeholder: University / company / meetup
+
+  - type: input
+    id: participants
+    attributes:
+      label: Participant count (number only)
+      placeholder: "8"
+    validations:
+      required: true
+
+  - type: input
+    id: completion
+    attributes:
+      label: Completion rate
+      placeholder: "7/8"
+    validations:
+      required: true
+
+  - type: input
+    id: mean_rating
+    attributes:
+      label: Mean feedback rating (1–5, Q1–Q6)
+      placeholder: "4.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: issues
+    attributes:
+      label: Blocking pedagogical issues
+      description: Concepts that failed, broken exercises, missing prerequisites
+      placeholder: "Session 4 bin spacing confused most participants; ch 06 ex 3 wording unclear"
+    validations:
+      required: true
+
+  - type: textarea
+    id: positives
+    attributes:
+      label: What worked well
+      placeholder: "phase_click WAV demos; a440_sine_wave.py live coding"
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-submission checklist
+      options:
+        - label: I ran `python book/scripts/run_pilot_preflight.py` successfully before session 1
+          required: true
+        - label: I ran `python book/scripts/record_pilot_run.py` locally and will attach a PR or paste log output
+          required: true
+        - label: I understand no chapter becomes `polished` without EXTERNAL_REVIEW.md approved sign-off
+          required: true
+
+  - type: textarea
+    id: record_output
+    attributes:
+      label: Paste `record_pilot_run.py` stdout or PR link (optional)
+      placeholder: "Recorded Run 1 cohort results. Review TEACHING_PILOT.md..."

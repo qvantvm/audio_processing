@@ -62,9 +62,9 @@ Governance (from `BOOK_PLAN.md`):
 
 | Field | Value |
 |-------|-------|
-| Reviewer | agent-pass-18 |
+| Reviewer | agent-pass-18–28 |
 | Date | 2026-07-03 |
-| Notes | Solutions ch 10–12; block diagrams added |
+| Notes | Solutions ch 10–12; block diagrams; **pedagogically reviewed** Pass 28 |
 | Sign-off | **pending** external |
 
 ## Chapters 13–15 — Loudness / SRC / features
@@ -82,7 +82,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Outline | `TEACHING_PILOT.md` |
 | Run 0 (internal) | 2026-07-03 — automated dry-run: examples + ch 01–06 solutions OK |
-| Run 1 (external) | **seeking instructor** — `TEACHING_PILOT_RECRUIT.md` (Pass 27) |
+| Run 1 (external) | **seeking instructor** — `TEACHING_PILOT_RECRUIT.md`; issue template `teaching_pilot_report.yml` |
 | Sign-off | **pending** external cohort |
 
 ## Chapters 16–17 — Pitch / musical representations

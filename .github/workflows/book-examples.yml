@@ -7,12 +7,14 @@ on:
       - 'README.md'
       - 'pyproject.toml'
       - '.github/workflows/book-examples.yml'
+      - '.github/ISSUE_TEMPLATE/**'
   pull_request:
     paths:
       - 'book/**'
       - 'README.md'
       - 'pyproject.toml'
       - '.github/workflows/book-examples.yml'
+      - '.github/ISSUE_TEMPLATE/**'
 
 jobs:
   format:

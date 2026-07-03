@@ -71,8 +71,8 @@ CI builds all three formats on each push; download artifacts from the Actions ru
 | `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
 | `polished` | Publication-ready (external review + teaching pilot required) |
 
-**No chapter is `polished` yet.** Foundation chapters **01–09** are `pedagogically reviewed`; **00,
-10–22**, and the appendix are `technically reviewed`. External teaching pilot Run 1 is **seeking an
+**No chapter is `polished` yet.** Chapters **01–12** are `pedagogically reviewed`; **00, 13–22**,
+and the appendix are `technically reviewed`. External teaching pilot Run 1 is **seeking an
 instructor** (`TEACHING_PILOT_RECRUIT.md`).
 
 ## Teaching pilot
