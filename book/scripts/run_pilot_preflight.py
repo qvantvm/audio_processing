@@ -78,6 +78,9 @@ def main() -> int:
     if not (BOOK / "TEACHING_PILOT_RUN1.md").is_file():
         failures.append("missing TEACHING_PILOT_RUN1.md instructor kit")
 
+    if not (BOOK / "TEACHING_PILOT_RECRUIT.md").is_file():
+        failures.append("missing TEACHING_PILOT_RECRUIT.md recruitment call")
+
     if failures:
         print("Pilot pre-flight FAILED:")
         for msg in failures:

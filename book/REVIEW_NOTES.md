@@ -2,6 +2,23 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 27 — Pedagogy ch 07–09, Recruitment Call (2026-07-03)
+
+### Completed
+
+- **Pedagogical review** — ch **07–09** promoted (representation lens, exercises, solutions, examples,
+  pitfalls verified)
+- **`TEACHING_PILOT_RECRUIT.md`** — external instructor recruitment one-pager
+- **Glossary** — coherent gain entry
+- Optional pilot extension sessions 7–8 (ch 07–08) documented
+
+### Remaining gaps
+
+- [ ] External teaching cohort Run 1 with **real participants** (recruitment doc published; not run)
+- [ ] No chapter `polished` without `EXTERNAL_REVIEW.md` **approved** sign-off
+
+---
+
 ## Pass 26 — Foundation Representation Lens, Governance CI (2026-07-03)
 
 ### Completed

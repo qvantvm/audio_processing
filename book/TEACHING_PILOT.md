@@ -58,6 +58,7 @@ After six sessions, participants should:
 | Artifacts checklist | examples OK; solutions ch 01–06; `phase_click` WAV demos |
 | Instructor action | Schedule 6 sessions; log participant count + feedback in this file |
 | Instructor kit | `TEACHING_PILOT_RUN1.md` — session agendas, feedback form, Run 1 log template |
+| Recruitment call | `TEACHING_PILOT_RECRUIT.md` — seeking external instructor + cohort |
 | Sign-off | **pending** until Run 1 completes with real participants |
 
 Record external cohort results in `EXTERNAL_REVIEW.md`.
@@ -68,3 +69,4 @@ Record external cohort results in `EXTERNAL_REVIEW.md`.
   include per-chapter lens tables aligned with later chapters
 - Do not skip `$f_s$` on every slide — it is the #1 source of student bugs
 - Use `audio_toolkit` only after session 4; earlier sessions use raw NumPy intentionally
+- Optional **sessions 7–8** (ch 07–08 STFT depth): see `TEACHING_PILOT_RECRUIT.md`

@@ -15,7 +15,6 @@ ROOT = BOOK.parent
 def test_record_pilot_run_updates_temp_copy() -> None:
     import tempfile
 
-    script = BOOK / "scripts" / "record_pilot_run.py"
     with tempfile.TemporaryDirectory() as tmp:
         tbook = Path(tmp) / "book"
         shutil.copytree(

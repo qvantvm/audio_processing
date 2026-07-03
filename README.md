@@ -22,7 +22,7 @@ Manuscript: [`book/`](book/)
 
 Planning and governance: `book/BOOK_PLAN.md`, `book/NOTATION.md`, `book/GLOSSARY.md`,
 `book/REVIEW_NOTES.md`, `book/EXTERNAL_REVIEW.md`, `book/TEACHING_PILOT.md`,
-`book/TEACHING_PILOT_RUN1.md`.
+`book/TEACHING_PILOT_RUN1.md`, `book/TEACHING_PILOT_RECRUIT.md`.
 
 ## Code
 
@@ -71,15 +71,15 @@ CI builds all three formats on each push; download artifacts from the Actions ru
 | `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
 | `polished` | Publication-ready (external review + teaching pilot required) |
 
-**No chapter is `polished` yet.** Foundation chapters **01–06** are `pedagogically reviewed`; **00,
-07–22**, and the appendix are `technically reviewed`. External teaching pilot Run 1 is **ready for
-recruitment** (`TEACHING_PILOT_RUN1.md`); cohort not yet executed.
+**No chapter is `polished` yet.** Foundation chapters **01–09** are `pedagogically reviewed`; **00,
+10–22**, and the appendix are `technically reviewed`. External teaching pilot Run 1 is **seeking an
+instructor** (`TEACHING_PILOT_RECRUIT.md`).
 
 ## Teaching pilot
 
 - **Run 0:** internal automated dry-run (CI + solution scripts)
-- **Run 1:** external cohort — pre-flight in CI (`scripts/run_pilot_preflight.py`); instructor kit in
-  `TEACHING_PILOT_RUN1.md`
+- **Run 1:** external cohort — pre-flight in CI; instructor kit in `TEACHING_PILOT_RUN1.md`;
+  **recruitment call** in `TEACHING_PILOT_RECRUIT.md` (cohort not yet run)
 - After a real cohort: `python book/scripts/record_pilot_run.py --help`
 
 ## CI

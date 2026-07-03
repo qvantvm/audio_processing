@@ -32,9 +32,9 @@ programming experience (Python examples throughout).
 | 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | pedagogically reviewed | 02 |
 | 05 | `05-fourier-representation.md` | Fourier Representation | pedagogically reviewed | 04 |
 | 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | pedagogically reviewed | 05 |
-| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | technically reviewed | 06 |
-| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | technically reviewed | 07 |
-| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | technically reviewed | 02, 05 |
+| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | pedagogically reviewed | 06 |
+| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | pedagogically reviewed | 07 |
+| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | pedagogically reviewed | 02, 05 |
 | 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | technically reviewed | 09 |
 | 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | technically reviewed | 10 |
 | 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | technically reviewed | 06, 10 |
@@ -255,7 +255,7 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Polish pass** — no chapter at `polished` yet; foundation 01–06 at `pedagogically reviewed`
+1. **Polish pass** — no chapter at `polished` yet; foundation **01–09** at `pedagogically reviewed`
 2. **Exercise solutions** — ch 01–22 complete (capstone verify + integration test)
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
 4. **audio_toolkit** — `resample.py` with `ImplQuality` tiers (Pass 24); broadcast SRC still external
@@ -265,12 +265,16 @@ flowchart TD
 
 ## Current Sprint Focus
 
+**Completed (Pass 27, 2026-07-03):** Pedagogical review ch **07–09** (spectral/convolution block);
+`TEACHING_PILOT_RECRUIT.md` recruitment call; glossary **coherent gain**; optional pilot extension
+sessions 7–8 documented.
+
+**Next recommended step (Pass 28):** External teaching cohort Run 1 with real participants; log via
+`record_pilot_run.py`; promote to `polished` only after `EXTERNAL_REVIEW.md` approved sign-off.
+
 **Completed (Pass 26, 2026-07-03):** Representation lens tables for foundation ch 02–06 and ch 21;
 `check_representation_lens.py` in CI; `test_governance.py`; standalone self-contained HTML; Makefile
 `all-formats` target.
-
-**Next recommended step (Pass 27):** External teaching cohort Run 1 with real participants; log via
-`record_pilot_run.py`; promote chapters only after `EXTERNAL_REVIEW.md` sign-off.
 
 **Completed (Pass 25, 2026-07-03):** HTML CI artifact upload; `audio_toolkit filter` CLI subcommand;
 `record_pilot_run.py` instructor logging helper; README refresh (honest status, CI artifacts).

@@ -150,6 +150,12 @@ describing magnitude and phase of the output sinusoid relative to the input.
 Condition on analysis/synthesis windows and hop size such that overlapping STFT frames sum to unity—
 enables perfect or near-perfect reconstruction.
 
+## Coherent gain
+
+The amplitude scaling factor applied to a windowed sinusoid by a spectral analysis window— the ratio
+of the measured peak to the true peak when the tone is centered in the window. Hann windows have
+coherent gain near $0.5$; spectra must be corrected before comparing to dBFS levels.
+
 ## Comb filter
 
 A filter combining a signal with a delayed copy of itself (feedforward and/or feedback), producing

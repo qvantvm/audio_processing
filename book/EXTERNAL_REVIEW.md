@@ -53,9 +53,9 @@ Governance (from `BOOK_PLAN.md`):
 
 | Field | Value |
 |-------|-------|
-| Reviewer | agent-pass-16–18 |
+| Reviewer | agent-pass-16–27 |
 | Date | 2026-07-03 |
-| Notes | Representation lens added Pass 16; solutions 07–09 Pass 16/18 |
+| Notes | Representation lens; solutions 07–09; **pedagogically reviewed** Pass 27 |
 | Sign-off | **pending** external |
 
 ## Chapters 10–12 — Filters / delay / phase
@@ -82,7 +82,7 @@ Governance (from `BOOK_PLAN.md`):
 |-------|-------|
 | Outline | `TEACHING_PILOT.md` |
 | Run 0 (internal) | 2026-07-03 — automated dry-run: examples + ch 01–06 solutions OK |
-| Run 1 (external) | **ready for recruitment** — `TEACHING_PILOT_RUN1.md` instructor kit (Pass 24) |
+| Run 1 (external) | **seeking instructor** — `TEACHING_PILOT_RECRUIT.md` (Pass 27) |
 | Sign-off | **pending** external cohort |
 
 ## Chapters 16–17 — Pitch / musical representations
