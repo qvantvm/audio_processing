@@ -18,32 +18,42 @@ Prerequisites assumed: basic calculus, complex numbers, linear algebra at an int
 
 | # | File | Title | Status | Depends On |
 |---|------|-------|--------|------------|
-| 00 | `00-preface.md` | Preface | polished | — |
-| 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | polished | 00 |
-| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | polished | 01 |
-| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | polished | 02 |
-| 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | reviewed | 02 |
-| 05 | `05-fourier-representation.md` | Fourier Representation | reviewed | 04 |
-| 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | reviewed | 05 |
-| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | reviewed | 06 |
-| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | reviewed | 07 |
-| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | reviewed | 02, 05 |
-| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | reviewed | 09 |
-| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | reviewed | 10 |
-| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | reviewed | 06, 10 |
-| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | reviewed | 02 |
-| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | reviewed | 03, 10 |
-| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | reviewed | 08 |
-| 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | reviewed | 06, 08 |
-| 17 | `17-musical-signal-representations.md` | Musical Signal Representations | reviewed | 04, 08 |
-| 18 | `18-synthesis-representations.md` | Synthesis Representations | reviewed | 04, 10 |
-| 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | reviewed | 09, 18 |
-| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | reviewed | 08, 15 |
-| 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | reviewed | 06, 10 |
-| 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | reviewed | 10, 21 |
-| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–03) | reviewed | 01–03 |
+| 00 | `00-preface.md` | Preface | technically reviewed | — |
+| 01 | `01-what-is-audio-signal-processing.md` | What Is Audio Signal Processing? | pedagogically reviewed | 00 |
+| 02 | `02-signals-time-and-samples.md` | Signals, Time, and Samples | pedagogically reviewed | 01 |
+| 03 | `03-sampling-quantization-and-digital-audio.md` | Sampling, Quantization, and Digital Audio | pedagogically reviewed | 02 |
+| 04 | `04-sinusoidal-signals-and-complex-numbers.md` | Sinusoidal Signals and Complex Numbers | pedagogically reviewed | 02 |
+| 05 | `05-fourier-representation.md` | Fourier Representation | pedagogically reviewed | 04 |
+| 06 | `06-dft-fft-and-spectral-analysis.md` | DFT, FFT, and Spectral Analysis | pedagogically reviewed | 05 |
+| 07 | `07-windowing-leakage-and-resolution.md` | Windowing, Leakage, and Resolution | technically reviewed | 06 |
+| 08 | `08-stft-spectrograms-and-time-frequency-analysis.md` | STFT, Spectrograms, and Time–Frequency Analysis | technically reviewed | 07 |
+| 09 | `09-convolution-and-impulse-responses.md` | Convolution and Impulse Responses | technically reviewed | 02, 05 |
+| 10 | `10-filters-fir-iir-and-z-transform.md` | Filters: FIR, IIR, and the Z-Transform | technically reviewed | 09 |
+| 11 | `11-delay-lines-comb-filters-and-allpass-filters.md` | Delay Lines, Comb Filters, and All-Pass Filters | technically reviewed | 10 |
+| 12 | `12-phase-group-delay-and-minimum-phase.md` | Phase, Group Delay, and Minimum Phase | technically reviewed | 06, 10 |
+| 13 | `13-envelopes-loudness-and-dynamics.md` | Envelopes, Loudness, and Dynamics | technically reviewed | 02 |
+| 14 | `14-resampling-interpolation-and-sample-rate-conversion.md` | Resampling, Interpolation, and Sample-Rate Conversion | technically reviewed | 03, 10 |
+| 15 | `15-audio-features-and-descriptors.md` | Audio Features and Descriptors | technically reviewed | 08 |
+| 16 | `16-pitch-onsets-and-rhythm.md` | Pitch, Onsets, and Rhythm | technically reviewed | 06, 08 |
+| 17 | `17-musical-signal-representations.md` | Musical Signal Representations | technically reviewed | 04, 08 |
+| 18 | `18-synthesis-representations.md` | Synthesis Representations | draft | 04, 10 |
+| 19 | `19-physical-modeling-representations.md` | Physical-Modeling Representations | technically reviewed | 09, 18 |
+| 20 | `20-neural-audio-representations.md` | Neural Audio Representations | draft | 08, 15 |
+| 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | technically reviewed | 06, 10 |
+| 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | technically reviewed | 10, 21 |
+| A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–03) | draft | 01–03 |
 
-**Status legend:** `stub` = outline or placeholder only; `draft` = substantive prose, may need review; `reviewed` = checked for correctness and consistency; `polished` = ready for publication-quality pass.
+**Status legend:**
+
+| Status | Meaning |
+|--------|---------|
+| `stub` | Outline or placeholder only |
+| `draft` | Substantive prose; not fully vetted |
+| `technically reviewed` | Equations, examples, citations checked; may need pedagogy pass |
+| `pedagogically reviewed` | Teaching clarity, exercises, pitfalls reviewed |
+| `polished` | Publication-ready (external review or teaching pilot required) |
+
+**Governance:** No chapter advances to `technically reviewed` unless examples run, notation is consistent, citations resolve, and a second review pass is logged in `REVIEW_NOTES.md`. None are `polished` yet.
 
 ## Learning Objectives by Chapter
 
@@ -234,17 +244,18 @@ flowchart TD
 
 ## Missing Sections (Polish Pass)
 
-1. **Polish pass** — chapters **00–03** promoted to `polished` (Pass 13); continue with 04–06
-2. **Exercise solutions** — pilot complete for ch 01–03 (`23-appendix-exercise-solutions.md`); extend to ch 04+ in future passes
+1. **Polish pass** — no chapter at `polished` yet; foundation 01–06 at `pedagogically reviewed`
+2. **Exercise solutions** — pilot ch 01–03 in appendix + `solutions/` verified scripts; extend to ch 04+
 3. **Cross-ref sweep** — complete for chapters 00–22 (Pass 12)
-4. **Chapter depth** — optional expansion of synthesis/neural sections with more worked code
-5. **PDF build** — CI with LaTeX (optional; HTML build added Pass 11)
+4. **audio_toolkit** — implemented (Pass 14); expand synthesis examples (ch 18), neural depth (ch 20)
+5. **PDF build** — CI with LaTeX (optional)
+6. **Audio demos** — WAV exports for aliasing, leakage, comb filtering (future)
 
 ## Current Sprint Focus
 
-**Completed (Pass 13, 2026-07-03):** Exercise solutions appendix pilot (ch 01–03); foundation chapters 00–03 promoted to `polished`; appendix links from exercise sections and preface.
+**Completed (Pass 14, 2026-07-03):** Honest 5-tier status model; demoted overclaimed chapters; implemented `audio_toolkit/` with correctness tests; `solutions/` verified numeric answers; expanded ch 19 (Karplus–Strong) and ch 22 (real package); representation matrix in ch 01; governance in README.
 
-**Next recommended step (Pass 14):** Extend exercise solutions to ch 04–06; polish pass on spectral block (04–06); optional synthesis examples (ch 18–20).
+**Next recommended step (Pass 15):** Expand ch 18/20 from `draft`; add WAV audio demos; extend exercise solutions to ch 04–06; representation lens sections in remaining chapters.
 
 ## Conventions
 

@@ -2,123 +2,153 @@
 
 ## Purpose
 
-This capstone chapter assembles a **minimal but coherent** Python toolkit tying together samples, spectra, filters, effects, and tests from prior chapters— a starting point for experiments, plugins prototypes, and coursework projects.
+This capstone chapter documents the **`audio_toolkit/`** package shipped with the book— importable modules for I/O, oscillators, spectra, filters, effects, and metering, with correctness tests in `tests/test_correctness.py`. It is the executable backbone tying prior chapters to tested code.
+
+## Representation lens
+
+| Module | Representation | Preserves / discards |
+|--------|----------------|----------------------|
+| `io` | PCM samples + $f_s$ metadata | Waveform; file header semantics |
+| `osc` | Phase state + sinusoid params | Phase continuity across blocks |
+| `spectral` | STFT complex matrix | Time–frequency energy; phase optional |
+| `filters` | FIR $h[n]$ | LTI frequency shaping |
+| `effects` | Delay-line / waveguide state | Resonance, echo, pluck decay |
+| `meter` | Scalar levels (peak, RMS, dBFS) | Loudness proxies; not SPL |
 
 ## Learning Objectives
 
 By the end of this chapter, the reader should be able to:
 
-1. Organize modules: `io`, `osc`, `spectral`, `filters`, `effects`, `meter`
-2. Implement end-to-end: load WAV → STFT plot → EQ → write WAV
-3. Apply consistent **$f_s$** and **normalization** conventions across functions
-4. Add smoke tests from [Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)
-5. Extend one component (e.g., reverb or pitch tracker) deliberately
+1. Import and use `audio_toolkit` modules with explicit `fs`
+2. Run correctness tests (FFT round-trip, Parseval, STFT reconstruction, FIR response)
+3. Build a pipeline: synthesize or load → filter → meter → write WAV
+4. Extend one component (reverb, pitch tracker) with tests first
+5. Relate each module to the representation comparison matrix ([Chapter 1](#ch-01-what-is-asp))
 
-## Main Concepts
+## Package layout
 
-### Suggested module layout
+The following modules exist in the repository (not a sketch):
 
 ```text
-audio_toolkit/
-  io.py          # read/write WAV, float normalization
-  osc.py         # phase-continuous oscillators, BLEP stub
-  spectral.py    # stft, istft wrapper, spectrogram
-  filters.py     # firwin wrappers, biquad placeholders
-  effects.py     # delay, comb, simple compressor
-  meter.py       # peak, rms, true-peak sketch
-  tests/         # pytest impulse, parseval, roundtrip
+book/audio_toolkit/
+  __init__.py
+  io.py          # read_wav / write_wav (scipy.io.wavfile)
+  osc.py         # PhaseOscillator, sine_block
+  spectral.py    # stft, istft, coherent_gain
+  filters.py     # design_fir_lowpass, apply_fir, frequency_response
+  effects.py     # DelayLine, karplus_strong
+  meter.py       # peak, RMS, dBFS conversions
+book/tests/
+  test_correctness.py   # FFT, Parseval, STFT, FIR, phase, dBFS, Karplus
+book/solutions/
+  ch01_verify.py …      # tested numeric exercise answers
 ```
 
-### IO layer
+Run tests from `book/`:
 
-Read PCM to float32 $[-1,1]$; store $f_s$, channels, peak metadata. Never assume hard-coded rate downstream.
+```bash
+python tests/test_correctness.py
+python solutions/run_verifications.py
+python tests/run_examples.py
+```
 
-### Oscillators
-
-Phase accumulator + wavetable; export mono block with phase state for streaming synth notes.
-
-### Spectral layer
-
-Wrap STFT ([STFT, Spectrograms, and Time–Frequency Analysis](#ch-08-stft)) with documented `n_fft`, `hop`, window; return `(S, freqs, times)` for plotting and features.
-
-### Filters
-
-Design low/high pass via `scipy.signal.firwin` ([Filters: FIR, IIR, and the Z-Transform](#ch-10-filters)); apply `lfilter` or FFT overlap-add for long signals.
-
-### Effects sketch
-
-**Delay:** circular buffer class ([Delay Lines, Comb Filters, and All-Pass Filters](#ch-11-delay-comb-allpass)). **Compressor:** envelope follower from [Envelopes, Loudness, and Dynamics](#ch-13-envelopes-loudness). **Reverb:** 3–4 feedback combs + 2 all-pass (Schroeder starter).
-
-### Integration example pipeline
-
-1. Load `input.wav` at $f_s$
-2. High-pass 80 Hz (rumble remove)
-3. Peak-normalize to −1 dBFS headroom
-4. Optional: STFT spectrogram PNG for QC
-5. Write `output.wav`
-
-### Documentation and reproducibility
-
-`requirements.txt`: numpy, scipy, matplotlib; optional librosa, soundfile.
-
-Each function docstring states units, $f_s$ dependency, and expected array shape.
-
-## Mathematical Formulation
-
-Toolkit invariants:
-
-- All time-based APIs take `fs: float` explicitly
-- Filters designed with normalized cutoff $f_c/fs \in (0, 0.5)$
-- STFT hop $R$ and window $M$ satisfy documented overlap
-
-## Audio Interpretation
-
-Toolkit targets **research prototyping**, not low-latency plugin certification— but same math applies in JUCE/Rust after porting.
-
-## Implementation Notes
-
-Starter sketch:
+## IO layer (`audio_toolkit.io`)
 
 ```python
-# spectral.py
-import numpy as np
+from audio_toolkit.io import read_wav, write_wav
 
-def stft(x, fs, n_fft=1024, hop=None, window='hann'):
-    hop = hop or n_fft // 4
-    w = np.hanning(n_fft) if window == 'hann' else np.ones(n_fft)
-    frames = []
-    for i in range(0, len(x)-n_fft, hop):
-        frames.append(np.fft.rfft(x[i:i+n_fft] * w))
-    S = np.array(frames).T
-    times = np.arange(len(frames)) * hop / fs
-    freqs = np.fft.rfftfreq(n_fft, d=1/fs)
-    return S, freqs, times
+x, fs = read_wav("input.wav")   # float32 in [-1, 1]
+write_wav("output.wav", x, fs)
 ```
 
-Expand with inverse STFT when implementing effects requiring resynthesis.
+Never assume hard-coded rate downstream— pass `fs` to every time-based function.
+
+## Oscillators (`audio_toolkit.osc`)
+
+`PhaseOscillator` carries phase across blocks to avoid seam clicks ([Chapter 2](#ch-02-signals-time-samples)):
+
+```python
+from audio_toolkit.osc import PhaseOscillator
+
+osc = PhaseOscillator(fs=48_000, f0=440.0, amplitude=0.8)
+block_a = osc.render(512)
+block_b = osc.render(512)  # phase continues
+```
+
+## Spectral layer (`audio_toolkit.spectral`)
+
+```python
+from audio_toolkit.spectral import stft, istft
+
+s, freqs, times = stft(x, fs, n_fft=1024, hop=256)
+y = istft(s, fs, n_fft=1024, hop=256, length=len(x))
+```
+
+Document `n_fft`, `hop`, and window; verify reconstruction with `test_correctness.py`.
+
+## Filters (`audio_toolkit.filters`)
+
+```python
+from audio_toolkit.filters import design_fir_lowpass, apply_fir
+
+h = design_fir_lowpass(fs, cutoff_hz=1000.0, num_taps=101)
+y = apply_fir(x, h)
+```
+
+## Effects (`audio_toolkit.effects`)
+
+`DelayLine` supports comb/all-pass chains; `karplus_strong` implements the [Chapter 19](#ch-19-physical-modeling) waveguide loop.
+
+## Metering (`audio_toolkit.meter`)
+
+```python
+from audio_toolkit.meter import peak_amplitude, rms, linear_to_dbfs
+
+pk = peak_amplitude(x)
+level_dbfs = linear_to_dbfs(pk)
+```
+
+## Integration example pipeline
+
+```python
+from audio_toolkit.filters import apply_fir, design_fir_lowpass
+from audio_toolkit.io import read_wav, write_wav
+from audio_toolkit.meter import linear_to_dbfs, peak_amplitude
+
+x, fs = read_wav("input.wav")
+h = design_fir_lowpass(fs, 80.0)
+y = apply_fir(x, h)
+peak = peak_amplitude(y)
+if peak > 0:
+    y = 0.89 * y / peak  # ~−1 dBFS headroom
+write_wav("output.wav", y, fs)
+print("peak dBFS:", linear_to_dbfs(peak_amplitude(y)))
+```
 
 ## Worked Example
 
-**Project brief:** Build `analyze_note.py` that reports $f_0$ (autocorrelation, [Pitch, Onsets, and Rhythm](#ch-16-pitch-onsets)), spectral centroid ([Audio Features and Descriptors](#ch-15-features)), and crest factor for a monophonic WAV— uses toolkit modules + tests on synthetic 440 Hz sine ground truth.
+**Project:** `analyze_note.py` using toolkit modules— report $f_0$ (autocorrelation), spectral centroid, crest factor on a monophonic WAV; ground-truth test on synthetic 440 Hz sine from `PhaseOscillator`.
+
+**Verification:** `tests/test_correctness.py` must pass before adding chain complexity.
 
 ## Common Pitfalls
 
-1. **Monolithic script** without reusable modules— hard to test.
+1. **Monolithic scripts** without importable modules— hard to test.
 2. **Implicit globals** for $f_s$.
-3. **No tests** before adding effects chain complexity.
-4. **Copy-paste FFT** with inconsistent window energy normalization.
+3. **Smoke tests only**— add invariants (Parseval, round-trip STFT).
+4. **Copy-paste FFT** with inconsistent window normalization.
 
 ## Exercises
 
-1. Implement `read_wav`/`write_wav` with soundfile; verify round-trip SNR.
-2. Add Schroeder reverb; tune comb delays for 1 s RT60 sketch.
-3. Port one function to C or Rust— compare impulse response match.
-4. Package toolkit with CLI: `audio_toolkit analyze file.wav`.
+1. Round-trip a WAV through `read_wav`/`write_wav`; estimate SNR.
+2. Add Schroeder reverb using `DelayLine`; tune comb delays for ~1 s RT60.
+3. Wire `karplus_strong_demo.py` output through `write_wav` and listen.
+4. Add a CLI entry point: `python -m audio_toolkit` (optional packaging exercise).
 
 ## Further Reading
 
 - [Signals, Time, and Samples](#ch-02-signals-time-samples) through [Testing, Measurement, and Numerical Pitfalls](#ch-21-testing-pitfalls)
 - SciPy signal tutorial
-- Smith online books for reference implementations [@smith2010physical; @smith2011spectral]
+- Smith online books [@smith2010physical; @smith2011spectral]
 
 **Epilogue:** Extend the toolkit along your application axis— MIR features, live DSP, or neural front-ends— while keeping representations and units explicit.

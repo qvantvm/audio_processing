@@ -179,4 +179,4 @@ $$
 
 ---
 
-*Solutions for later chapters will be added in future passes. See `BOOK_PLAN.md` for appendix status.*
+*Solutions for later chapters will be added in future passes. Numeric answers for ch 01–03 are verified by `solutions/ch01_verify.py` … `ch03_verify.py` (run `python solutions/run_verifications.py`).*

@@ -20,6 +20,10 @@ jobs:
         run: pip install -r book/requirements.txt
       - name: Run example smoke tests
         run: python book/tests/run_examples.py
+      - name: Run correctness tests
+        run: python book/tests/test_correctness.py
+      - name: Verify exercise solutions
+        run: python book/solutions/run_verifications.py
 
   html:
     runs-on: ubuntu-latest

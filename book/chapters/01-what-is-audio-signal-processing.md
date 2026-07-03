@@ -51,6 +51,20 @@ ASP rarely stays in one domain. The main ones:
 
 No domain is "the truth." Each is a **view** with resolution tradeoffs. [Chapter 8](#ch-08-stft) develops time–frequency tradeoffs explicitly; for now, remember that choosing a view is part of the problem definition.
 
+### Representation comparison matrix
+
+Revisit this table as you read; each later chapter should map cleanly onto one or more rows.
+
+| Representation | Preserves | Discards | Maps in/out via | Typical numerical mistake | Audible artifact |
+|----------------|-----------|----------|-----------------|---------------------------|------------------|
+| Time samples $x[n]$ | Waveform, phase, transients | Continuous-time between samples | ADC / DAC / resampling | Wrong $f_s$ in $\Omega$ or $f$ | Pitch/timing wrong; aliasing |
+| Spectrum $X[k]$ (DFT) | Periodic frequency content of finite segment | Time order; phase often ignored | DFT / FFT / inverse | Bin index treated as Hz | Off-bin pitch; leakage smear |
+| STFT $|S_m[k]|$ | Local frequency vs time | Phase (if dropped); fine structure | Windowed DFT + overlap | Confusing zero-padding with resolution | Blurred transients; ghost echoes |
+| Impulse response $h[n]$ | LTI system behavior | Non-LTI effects | Convolution / deconvolution | Circular vs linear convolution | Pre/post-ringing; wrap echoes |
+| Modal params $(f_k, \tau_k, a_k)$ | Resonances of object | Non-mode transients | Synthesis bank / identification | Unstable pole placement | Metallic ringing; blow-ups |
+| Features (MFCC, chroma) | Coarse timbre/harmony | Fine waveform | Hand-crafted or learned encoder | STFT settings drift | Classifier brittle across datasets |
+| Latent codes (neural) | Data-dependent compression | Interpretability, exact phase | Encoder / decoder | Train/serve sample-rate mismatch | Timbre drift; codec warble |
+
 ![Overview of representation domains](../figures/representation_domains.png)
 
 ### Linear time-invariant systems as a backbone

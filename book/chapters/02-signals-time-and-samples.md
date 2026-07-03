@@ -138,6 +138,9 @@ import numpy as np
 
 fs = 48_000
 f0 = 440.0
+A = 0.8
+phi = 0.0
+N = 240
 n = np.arange(N)
 x = A * np.cos(2 * np.pi * f0 * n / fs + phi)
 ```

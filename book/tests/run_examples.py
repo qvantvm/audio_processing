@@ -4,6 +4,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+BOOK = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(BOOK))
+
 EXAMPLES = [
     "a440_sine_wave.py",
     "aliasing_demo.py",
@@ -14,16 +17,16 @@ EXAMPLES = [
     "stft_spectrogram_demo.py",
     "fir_lowpass_demo.py",
     "representation_domains.py",
+    "karplus_strong_demo.py",
 ]
 
-book = Path(__file__).resolve().parent.parent
 failures = []
 for name in EXAMPLES:
-    path = book / "examples" / name
+    path = BOOK / "examples" / name
     if not path.exists():
         failures.append(f"missing {name}")
         continue
-    r = subprocess.run([sys.executable, str(path)], cwd=book, capture_output=True, text=True)
+    r = subprocess.run([sys.executable, str(path)], cwd=BOOK, capture_output=True, text=True)
     if r.returncode != 0:
         failures.append(f"{name}: {r.stderr or r.stdout}")
     else:

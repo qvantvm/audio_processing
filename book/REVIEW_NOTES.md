@@ -2,29 +2,47 @@
 
 Open issues, review findings, and planned improvements.
 
+## Pass 14 — Honest Status, audio_toolkit, Correctness Tests (2026-07-03)
+
+### Response to external critique
+
+The manuscript previously overclaimed `reviewed` / `polished` status. This pass:
+
+1. **Status model** — `stub` → `draft` → `technically reviewed` → `pedagogically reviewed` → `polished`
+2. **Demotions** — ch 18, 20 → `draft`; removed false `polished` from 00–03; no chapter is `polished`
+3. **`audio_toolkit/`** — importable package (`io`, `osc`, `spectral`, `filters`, `effects`, `meter`)
+4. **Correctness tests** — `tests/test_correctness.py` (FFT, Parseval, STFT, FIR, phase, dBFS, Karplus)
+5. **`solutions/`** — `ch01_verify.py` … `ch03_verify.py` with tested numeric answers
+6. **Chapter depth** — ch 01 representation matrix; ch 02 code completeness; ch 19 Karplus–Strong demo; ch 22 documents real package
+7. **Governance** — README + BOOK_PLAN rules for status promotion
+8. **CI** — correctness tests + solution verifications added
+
+### Markdown formatting
+
+Raw files in this repo use normal newlines (verified locally). `.editorconfig` added for consistent editing. If a viewer shows single-line files, re-normalize with a line-based editor before editing.
+
+### Remaining gaps
+
+- [ ] ch 18, 20 still `draft` — need runnable examples and representation lens
+- [ ] Audio WAV demos (not only PNG plots)
+- [ ] More block diagrams in `figures/`
+- [ ] Exercise solutions for ch 04+
+- [ ] PDF CI (LaTeX)
+- [ ] External / second-model review pass per chapter
+
+### Chapter status summary
+
+| Status | Chapters |
+|--------|----------|
+| pedagogically reviewed | 01–06 |
+| technically reviewed | 00, 07–17, 19, 21–22 |
+| draft | 18, 20, appendix A |
+
+---
+
 ## Pass 13 — Exercise Solutions Appendix; Foundation Polish (2026-07-03)
 
-### Completed
-
-- New appendix: `23-appendix-exercise-solutions.md` with worked solutions for **ch 01–03** (15 exercises)
-- Cross-links from exercise sections and preface to appendix
-- Promoted chapters **00–03** to **`polished`**
-- HTML build verified with appendix included
-
-### Correctness / Clarity
-
-- [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
-- [ ] Optional: expand ch 18–20 with more runnable synthesis examples
-
-### Examples / CI
-
-- [x] Example smoke tests
-- [x] Pandoc HTML build in CI
-- [ ] PDF build (needs LaTeX)
-
-### Reviewed chapters
-
-**Polished:** 00–03 | **Reviewed:** 04–22, appendix A
+(Superseded status claims — see Pass 14 demotions.)
 
 ---
 
@@ -32,73 +50,25 @@ Open issues, review findings, and planned improvements.
 
 ### Completed
 
-- Converted **83** `@sec:ch-...` references to Pandoc Markdown links `[title](#ch-id)` across chapters 01–22
-- HTML build: **no citeproc `sec:ch-...` citation warnings**
+- Converted **83** `@sec:ch-...` references to Pandoc Markdown links
+- HTML build: no citeproc `sec:ch-...` citation warnings
 - Foundation block (ch 00–06): plain "Chapter N" refs → internal links
-- Preface status line updated (all chapters `reviewed`)
-- Trimmed redundant duplicate titles on "Next chapter" lines
-
-### Correctness / Clarity
-
-- [x] Fix `@sec:` cross-refs (citeproc conflict resolved)
-- [x] Cross-ref sweep in chapters 00–06
-- [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
-- [ ] Optional: expand ch 18–20 with more runnable synthesis examples
-
-### Examples / CI
-
-- [x] Example smoke tests
-- [x] Pandoc HTML build in CI
-- [ ] PDF build (needs LaTeX)
-
-### Reviewed chapters
-
-**All:** 00–22
 
 ---
-
-## Pass 11 — Chapters 18–22 Review; Manuscript Complete (2026-07-03)
-
-### Completed
-
-- Cross-references in chapters 18–22 (synthesis → toolkit capstone)
-- Promoted chapters **18–22** to **reviewed**
-- **All 23 chapters (00–22) now at `reviewed` status**
-- CI: Pandoc HTML build job added (`make html`)
-
-### Correctness / Clarity
-
-- [x] Fix `@sec:` cross-refs: citeproc treats them as citations— convert to `[text](#ch-id)` links (Pass 12)
-- [ ] Proofread HTML output; math warnings mostly cosmetic without LaTeX engine
-- [ ] Optional: expand ch 18–20 with more runnable synthesis examples
-
-### Examples / CI
-
-- [x] Example smoke tests
-- [x] Pandoc HTML build in CI
-- [ ] PDF build (needs LaTeX)
-
-### Reviewed chapters
-
-**All:** 00–22
-
----
-
-## Pass 10 — Chapters 13–17 Review (2026-07-03)
-
-## Pass 9 — Chapters 07–12 Review (2026-07-03)
-
-## Pass 8 — Chapters 00–06 Review (2026-07-02)
 
 ## Status Promotion Criteria
 
-**reviewed** → **polished:** external review, teaching pilot, or dedicated proofread pass.
+**technically reviewed** requires: examples run, notation consistent, citations resolve, second review logged.
+
+**pedagogically reviewed** requires: exercises checked, pitfalls grounded, teaching clarity pass.
+
+**polished** requires: external review, teaching pilot, or dedicated publication proofread.
 
 ## Future Review Checklist (per section)
 
 1. Definitions precede use
 2. Math symbols in `NOTATION.md`
 3. New terms in `GLOSSARY.md`
-4. Audio intuition + math balanced
+4. Representation lens: what / preserves / discards / maps / mistakes / artifacts
 5. Pitfalls name real mistakes
-6. Code runs (NumPy/SciPy/Matplotlib)
+6. Code runs and correctness tests cover claims

@@ -36,7 +36,7 @@ Each chapter follows a common template: purpose, learning objectives, concepts, 
 - **Math:** LaTeX inline $x[n]$ and display equations; symbols defined in `NOTATION.md`.
 - **Code:** Python with NumPy/SciPy/Matplotlib unless noted; snippets should be readable and runnable.
 - **Citations:** Pandoc form `[@key]`; bibliography in `bibliography.bib`. We prefer canonical texts such as [@smith2010physical; @oppenheim2010discrete; @roads1996computer].
-- **Status:** All chapters are at `reviewed` level; see `BOOK_PLAN.md` for polish and appendix work.
+- **Status:** See `BOOK_PLAN.md` for per-chapter maturity (`stub` → `draft` → `technically reviewed` → `pedagogically reviewed` → `polished`). **No chapter is polished yet.**
 
 ## Acknowledgments
 
