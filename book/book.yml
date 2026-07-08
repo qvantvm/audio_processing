@@ -3,6 +3,7 @@ site_description: >-
   From samples to spectra, filters, and features — a rigorous, code-backed treatment of
   digital audio DSP for implementers and researchers.
 site_author: Audio DSP Book Project
+front_matter_image: figures/frontmatter.png
 docs_dir: .
 
 theme:
