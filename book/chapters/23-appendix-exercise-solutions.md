@@ -673,5 +673,74 @@ Verified by `test_audio_toolkit_cli` in `tests/test_correctness.py`.
 
 ---
 
-*Numeric answers for ch 01–22 verified by `solutions/ch01_verify.py` … `ch22_verify.py` (`python
+## [Chapter 24](#ch-24-quantization-dither) — Quantization, Dither, and Noise Shaping
+
+### Exercise 24.1
+
+Using $\mathrm{SQNR} \approx 6.02\,B + 1.76\ \mathrm{dB}$:
+
+| Bits $B$ | SQNR |
+|----------|------|
+| 8 | $6.02 \times 8 + 1.76 = 49.9\ \mathrm{dB}$ |
+| 16 | $6.02 \times 16 + 1.76 = 98.1\ \mathrm{dB}$ |
+| 24 | $6.02 \times 24 + 1.76 = 146.2\ \mathrm{dB}$ |
+
+These are ideal uniform-quantizer bounds for a full-scale sinusoid; real converters add analog
+noise and distortion.
+
+### Exercise 24.2
+
+**TPDF** (triangular) dither decorrelates the **second moment** of quantization error from the
+input, not just the first. **RPDF** (rectangular) only guarantees first-moment decorrelation, so
+signal-dependent **modulation** of the noise floor and residual distortion can remain on low-level
+material. For critical 16-bit mastering, TPDF is the safer default because it more robustly
+eliminates correlated harmonic artifacts on quiet tails at the cost of a slightly higher noise floor.
+
+### Exercise 24.3
+
+For $H(z) = 1 - z^{-1}$:
+
+$$
+|H(e^{j\Omega})| = |1 - e^{-j\Omega}| = 2\left|\sin\frac{\Omega}{2}\right|.
+$$
+
+At $\Omega = 0$: $|H| = 0$ — no shaped noise in DC. At $\Omega = \pi$: $|H| = 2$ — maximum
+shaping at Nyquist. A first-order shaper **attenuates** quantization noise at low (audio)
+frequencies and **amplifies** it near Nyquist. When combined with oversampling, the amplified noise
+lands in a band that can be filtered out or is less audible— improving perceived in-band SNR.
+
+### Exercise 24.4
+
+**float32** has ~24 bits of significand. Accumulating a long FIR ($N \gtrsim 10^4$ taps) or summing
+many large and small terms in one pass can lose low bits through **catastrophic cancellation** or
+order-dependent rounding. Mitigations: use **float64** for the accumulator, **Kahan compensated
+summation**, block the convolution, or use **block floating point** in fixed-point.
+
+### Exercise 24.5
+
+Correct export sequence:
+
+1. Process entire mix in float32/float64 (no intermediate int conversion).
+2. Apply final **limiter** or clip to just below full scale (e.g., peak $\le -0.3\ \mathrm{dBFS}$
+   or target loudness spec).
+3. Generate **TPDF dither** with peak-to-peak amplitude $1\ \mathrm{LSB}$ of int16
+   ($1/32768$ in normalized float).
+4. Add dither to the float signal.
+5. **Clip** to $[-1,\,1 - 1/32768]$ before scaling.
+6. **Round** $y = \mathrm{round}(x \cdot 32768)$ and cast to `int16`.
+
+Dither comes **after** limiting and **before** rounding— never after integer conversion.
+
+### Exercise 24.6
+
+In a fixed-point **IIR** filter, **quantized coefficients** shift pole locations and **rounded
+internal state** variables introduce a nonlinear feedback loop. If the quantized feedback gain has
+magnitude $\ge 1$ at a frequency where quantization sustains energy, the filter can enter a
+**limit cycle**— a small periodic oscillation audible as an idle tone even with zero input.
+Mitigations: higher-precision accumulators, coefficient scaling, state dithering, or saturation
+arithmetic to break the cycle ([Chapter 21](#ch-21-testing-pitfalls)).
+
+---
+
+*Numeric answers for ch 01–24 verified by `solutions/ch01_verify.py` … `ch22_verify.py` (`python
 solutions/run_verifications.py`). Capstone pipeline covered by `tests/test_correctness.py::test_toolkit_capstone_pipeline`.*
