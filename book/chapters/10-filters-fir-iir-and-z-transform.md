@@ -89,6 +89,45 @@ Truncate and multiply by window (Hann)— `fir_lowpass_demo.py`.
 Second-order sections (biquads) cascade for EQ shelves/peaks— standard in audio engines; each
 section is order-2 IIR.
 
+### Adaptive filters
+
+**Adaptive filters** update coefficients online to minimize an error signal— essential for echo
+cancellation, noise suppression, and system identification. The **LMS (least mean squares)**
+algorithm is the workhorse:
+
+$$
+w_{k}[n+1] = w_k[n] + \mu\, e[n]\, x[n-k],
+$$
+
+where $w_k$ are FIR taps, $\mu$ is step size, and $e[n] = d[n] - \hat{y}[n]$ is the error between
+desired $d[n]$ and filter output $\hat{y}[n]$.
+
+| Algorithm | Idea | Audio use |
+|-----------|------|-----------|
+| LMS | Stochastic gradient on MSE | Headphone ANC, line echo |
+| NLMS | Normalize by input power | Stable with varying level |
+| RLS | Recursive least squares | Fast convergence, higher cost |
+
+Adaptive IIR is rare in production audio (stability risk); **FIR LMS** dominates. Step size $\mu$
+trades convergence speed vs. misadjustment noise— audible as residual hiss or pumping if too large.
+
+```python
+import numpy as np
+
+def lms(x, d, num_taps=32, mu=0.01):
+    w = np.zeros(num_taps)
+    y = np.zeros_like(x, dtype=float)
+    e = np.zeros_like(x, dtype=float)
+    for n in range(num_taps, len(x)):
+        xvec = x[n - num_taps : n][::-1]
+        y[n] = w @ xvec
+        e[n] = d[n] - y[n]
+        w += mu * e[n] * xvec
+    return y, e, w
+```
+
+See `python examples/adaptive_filter_demo.py` for system identification of a short FIR channel.
+
 ## Mathematical Formulation
 
 Z-transform of $x[n]$:

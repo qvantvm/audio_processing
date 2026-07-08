@@ -56,6 +56,40 @@ Stopband rejection, passband ripple, group delay— audibility on transient-rich
 Group Delay, and Minimum Phase](#ch-12-phase-group-delay)). **SoX**, **libsamplerate** are reference
 implementations.
 
+### Synchronous vs asynchronous conversion
+
+**Synchronous SRC** changes rate by a fixed rational ratio $L/M$ (e.g. 44.1 kHz ↔ 48 kHz via
+polyphase filters). **Asynchronous SRC** tracks a slowly drifting ratio— DAW clock mismatch, vinyl
+digitization with wow/flutter— using a **time-varying fractional delay** (Farrow structure).
+
+**Multistage** designs cascade integer upsamplers/downsamplers with short filters at each stage,
+reducing total cost for large ratios (e.g. 8 kHz → 48 kHz).
+
+### Interpolation methods
+
+Beyond sinc truncation, practical interpolators include:
+
+| Method | Order | Notes |
+|--------|-------|-------|
+| Linear | 1 | Cheap; strong imaging |
+| Polynomial / Lagrange | $N$ | Farrow coefficients for variable delay |
+| Cubic spline | 3 | Smooth; used in some editors |
+| Windowed sinc | high | High quality, higher latency |
+
+**Lagrange** interpolation fits a polynomial through $N+1$ neighboring samples; **spline**
+interpolation enforces continuity of derivatives— useful for offline warp markers. For audio SRC,
+windowed sinc or polyphase FIR remains the quality reference; Lagrange/Farrow wins on **variable
+fractional delay** in real time.
+
+```python
+from scipy.interpolate import CubicSpline
+import numpy as np
+
+# Offline: resample non-uniform knot times to uniform grid
+cs = CubicSpline(t_knots, x_knots)
+x_uniform = cs(np.arange(0, t_knots[-1], 1 / fs))
+```
+
 ## Mathematical Formulation
 
 Ideal band-limited interpolation:

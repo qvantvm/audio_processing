@@ -117,6 +117,29 @@ Relationship to cyclic frequency: $\Omega = 2\pi f / f_s$.
 The DTFT is ideal for theoretical analysis of filters $H(\Omega)$ on the unit circle $z =
 e^{j\Omega}$.
 
+### Laplace transform (continuous-time systems)
+
+The **Laplace transform** generalizes the Fourier transform to complex frequency $s = \sigma + j\omega$:
+
+$$
+X(s) = \int_{0}^{\infty} x(t)\, e^{-st}\, dt.
+$$
+
+Poles and zeros of $X(s)$ describe **transient decay** ($\sigma$) and **oscillation** ($\omega$)—
+useful for analyzing analog filters, loudspeaker–amplifier loops, and stability before
+discretization. For audio DSP the **$j\omega$ axis** (Fourier transform) is most common, but
+Laplace notation connects hardware datasheets to discrete models.
+
+The **bilinear transform** maps $s$-plane designs to $z$-plane IIR filters ([Chapter
+10](#ch-10-filters)). Understanding $H(s)$ first often clarifies why a biquad shelf behaves as it
+does in the analog prototype.
+
+| Domain | Variable | Typical use |
+|--------|----------|-------------|
+| Continuous Fourier | $f$ or $\omega$ | Spectra, analog EQ |
+| Laplace | $s=\sigma+j\omega$ | Stability, analog prototypes |
+| DTFT / $z$ | $\Omega$, $z=e^{j\Omega}$ | Discrete filter design |
+
 ### From infinite sums to the DFT
 
 Three practical constraints force the **DFT** ([Chapter 6](#ch-06-dft-fft)):

@@ -68,6 +68,8 @@ nav:
       What Is Audio Signal Processing?: chapters/01-what-is-audio-signal-processing.md
       Signals, Time, and Samples: chapters/02-signals-time-and-samples.md
       Sampling, Quantization, and Digital Audio: chapters/03-sampling-quantization-and-digital-audio.md
+      Quantization, Dither, and Noise Shaping: chapters/24-quantization-dither-and-noise-shaping.md
+      AD/DA Conversion and Delta-Sigma: chapters/25-ad-da-conversion-and-oversampling.md
   - Part II — Sinusoids & Fourier Analysis:
       Sinusoidal Signals and Complex Numbers: chapters/04-sinusoidal-signals-and-complex-numbers.md
       Fourier Representation: chapters/05-fourier-representation.md
@@ -78,19 +80,25 @@ nav:
   - Part IV — Systems, Filters & Delay Structures:
       Convolution and Impulse Responses: chapters/09-convolution-and-impulse-responses.md
       "Filters: FIR, IIR, and the Z-Transform": chapters/10-filters-fir-iir-and-z-transform.md
+      Equalizers, Fast Convolution, and Filter Banks: chapters/27-equalizers-and-filter-banks.md
       Delay Lines, Comb Filters, and All-Pass Filters: chapters/11-delay-lines-comb-filters-and-allpass-filters.md
+      Room Simulation and Reverberation: chapters/28-room-simulation-and-reverberation.md
       Phase, Group Delay, and Minimum Phase: chapters/12-phase-group-delay-and-minimum-phase.md
   - Part V — Level, Resampling & Features:
       Envelopes, Loudness, and Dynamics: chapters/13-envelopes-loudness-and-dynamics.md
+      Dynamic Range Control: chapters/29-dynamic-range-control.md
       Resampling, Interpolation, and Sample-Rate Conversion: chapters/14-resampling-interpolation-and-sample-rate-conversion.md
       Audio Features and Descriptors: chapters/15-audio-features-and-descriptors.md
   - Part VI — Musical & Event Analysis:
       Pitch, Onsets, and Rhythm: chapters/16-pitch-onsets-and-rhythm.md
       Musical Signal Representations: chapters/17-musical-signal-representations.md
-  - Part VII — Synthesis & Physical Models:
+  - Part VII — Synthesis, Nonlinear & Physical Models:
       Synthesis Representations: chapters/18-synthesis-representations.md
+      Nonlinear Processing and Virtual Analog: chapters/31-nonlinear-processing-and-virtual-analog.md
       Physical-Modeling Representations: chapters/19-physical-modeling-representations.md
-  - Part VIII — Neural Audio Representations:
+  - Part VIII — Systems, Coding & Neural Audio:
+      Audio Interfaces and Processing Systems: chapters/26-audio-interfaces-and-processing-systems.md
+      Audio Coding and Psychoacoustics: chapters/30-audio-coding-and-psychoacoustics.md
       Neural Audio Representations: chapters/20-neural-audio-representations.md
   - Part IX — Implementation & Practice:
       Testing, Measurement, and Numerical Pitfalls: chapters/21-testing-measurement-and-numerical-pitfalls.md

@@ -46,6 +46,39 @@ undefined unless we explicitly reconstruct or interpolate ([Chapter 14](#ch-14-r
 Sampling ([Chapter 3](#ch-03-sampling-quantization)) explains how $x[n]$ relates to $x(t)$. For now,
 treat $x[n]$ as the object your program manipulates.
 
+### Continuous-time convolution
+
+Before digitization, **linear time-invariant (LTI)** analog systems combine signals by
+**convolution** in continuous time. For signals $x(t)$ and $h(t)$,
+
+$$
+y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau)\, h(t - \tau)\, d\tau.
+$$
+
+The kernel $h(t)$ is the **impulse response**; it fully characterizes an LTI system. Audio examples
+include microphone–room coupling, analog EQ, and tape echo— all modeled as $x(t)$ driving a filter
+with response $h(t)$.
+
+**Interpretation:** at time $t$, the output sums delayed, scaled copies of the input weighted by
+$h(\tau)$. For causal systems, $h(t)=0$ for $t<0$.
+
+Discrete-time convolution ([Chapter 9](#ch-09-convolution)) is the direct sample-index analogue
+after sampling. The continuous form explains **why** impulse responses and transfer functions
+appear in audio engineering before any code runs.
+
+```python
+import numpy as np
+
+t = np.linspace(0, 1, 2000, endpoint=False)
+x = np.sin(2 * np.pi * 5 * t) * np.exp(-3 * t)  # decaying tone burst
+h = np.exp(-20 * np.abs(t - 0.05))            # short exponential impulse
+h /= np.trapz(h, t)
+y = np.convolve(x, h, mode="same") * (t[1] - t[0])  # Riemann-sum style scaling
+```
+
+Run `python examples/continuous_convolution_demo.py` for a plotted comparison of $x(t)$, $h(t)$,
+and $y(t)$.
+
 ### Sample rate, sample period, and duration
 
 The **sample rate** $f_s$ is the number of samples per second (hertz). The **sample period** is

@@ -21,6 +21,36 @@ Technically strong programmers, researchers, and engineers who:
 Prerequisites assumed: basic calculus, complex numbers, linear algebra at an introductory level, and
 programming experience (Python examples throughout).
 
+## Reference Syllabus Coverage
+
+Crosswalk against a classical audio-DSP syllabus (continuous/ discrete transforms, quantization,
+SRC, converters, systems, EQ, room simulation, DRC, coding, nonlinear, ML). **JS Applet** topics
+are implemented as **Python demos** under `examples/`.
+
+| Reference topic | Book location | Notes |
+|-----------------|---------------|-------|
+| 1.1 Continuous-time convolution | [Ch 02](#ch-02-signals-time-samples) §, [Ch 09](#ch-09-convolution) | CT integral + DT analogue |
+| 1.2 CTFT, Laplace | [Ch 05](#ch-05-fourier) | Laplace §; z-transform in [Ch 10](#ch-10-filters) |
+| 1.3 Sampling & reconstruction | [Ch 03](#ch-03-sampling-quantization) | Nyquist, anti-alias |
+| 1.4–1.5 DT signals, DTFT, z | [Ch 02](#ch-02-signals-time-samples), [Ch 05](#ch-05-fourier), [Ch 10](#ch-10-filters) | |
+| 1.6 DFT | [Ch 06](#ch-06-dft-fft) | |
+| 1.7 FIR / IIR | [Ch 10](#ch-10-filters) | |
+| 1.8 Adaptive filters | [Ch 10](#ch-10-filters) § LMS | `adaptive_filter_demo.py` |
+| 2 Quantization depth | [Ch 24](#ch-24-quantization-dither) | Dither, noise shaping, number formats |
+| 2.5 Quantization demo | `examples/quantization_dither_demo.py` | Replaces JS applet |
+| 3 Sampling-rate conversion | [Ch 14](#ch-14-resampling) | + Lagrange/spline/async § |
+| 4 AD/DA, ΔΣ | [Ch 25](#ch-25-ad-da-conversion) | `oversampling_quantization_demo.py` |
+| 5 Audio processing systems | [Ch 26](#ch-26-audio-interfaces) | DSPs, AES/MADI/USB/network |
+| 6 Equalizers | [Ch 27](#ch-27-equalizers) | Fast convolution, filter banks |
+| 6.6 Filter demo | `equalizer_filters_demo.py`, `fast_convolution_demo.py` | |
+| 7 Room simulation | [Ch 28](#ch-28-room-simulation) | Ando, Gerzon, Schroeder, FDN |
+| 8 Dynamic range control | [Ch 13](#ch-13-envelopes-loudness), [Ch 29](#ch-29-dynamic-range) | Multiband, dynamic EQ |
+| 8.9 DRC demo | `dynamic_range_control_demo.py` | |
+| 9 Audio coding | [Ch 30](#ch-30-audio-coding) | MPEG/AAC/SBR/CELT overview |
+| 9.10 Psychoacoustics demo | `psychoacoustics_demo.py` | |
+| 10 Nonlinear / VA | [Ch 31](#ch-31-nonlinear-processing) | WDF, state-space preview |
+| 11 Machine learning | [Ch 20](#ch-20-neural-audio) | + denoising demo |
+
 ## Chapter List and Status
 
 | # | File | Title | Status | Depends On |
@@ -48,6 +78,14 @@ programming experience (Python examples throughout).
 | 20 | `20-neural-audio-representations.md` | Neural Audio Representations | technically reviewed | 08, 15 |
 | 21 | `21-testing-measurement-and-numerical-pitfalls.md` | Testing, Measurement, and Numerical Pitfalls | technically reviewed | 06, 10 |
 | 22 | `22-building-a-small-audio-dsp-toolkit.md` | Building a Small Audio DSP Toolkit | technically reviewed | 10, 21 |
+| 24 | `24-quantization-dither-and-noise-shaping.md` | Quantization, Dither, and Noise Shaping | draft | 03 |
+| 25 | `25-ad-da-conversion-and-oversampling.md` | AD/DA Conversion and Delta-Sigma | draft | 03, 24 |
+| 26 | `26-audio-interfaces-and-processing-systems.md` | Audio Interfaces and Processing Systems | draft | 03 |
+| 27 | `27-equalizers-and-filter-banks.md` | Equalizers, Fast Convolution, and Filter Banks | draft | 09, 10 |
+| 28 | `28-room-simulation-and-reverberation.md` | Room Simulation and Reverberation | draft | 09, 11 |
+| 29 | `29-dynamic-range-control.md` | Dynamic Range Control | draft | 13, 27 |
+| 30 | `30-audio-coding-and-psychoacoustics.md` | Audio Coding and Psychoacoustics | draft | 06, 08 |
+| 31 | `31-nonlinear-processing-and-virtual-analog.md` | Nonlinear Processing and Virtual Analog | draft | 10, 18 |
 | A | `23-appendix-exercise-solutions.md` | Appendix: Exercise Solutions (ch 01–22) | technically reviewed | 01–22 |
 
 **Status legend:**
@@ -228,6 +266,19 @@ By the end of this chapter, the reader should be able to:
 1. Modular toolkit layout (io, osc, spectral, filters, effects, meter)
 2. End-to-end WAV pipeline with tests
 3. Extend one component with documented $f_s$ conventions
+
+### Chapters 24–31 — Extended syllabus topics (draft)
+
+| Ch | Focus |
+|----|-------|
+| 24 | Dither, noise shaping, fixed/float formats |
+| 25 | ADC/DAC architectures, $\Delta\Sigma$, oversampling |
+| 26 | DSP hardware, digital audio interfaces, multichannel |
+| 27 | Parametric EQ, fast convolution, filter banks |
+| 28 | RIR measurement/simulation, early/late reverb |
+| 29 | Full DRC: multiband, dynamic EQ, source-filter |
+| 30 | Lossless/lossy coding, psychoacoustics, MPEG/AAC |
+| 31 | Nonlinear saturation, aliasing control, virtual analog |
 
 ## Dependencies Between Chapters
 

@@ -81,6 +81,29 @@ Resolution](#ch-07-windowing)).
 Neural codecs (Lyra, EnCodec, DAC) learn discrete codes for low-bitrate speech/music— representation
 for transmission and ML.
 
+### Machine learning applications in audio DSP
+
+The syllabus topics map to hybrid pipelines:
+
+| Application | Classical core | Learned component |
+|-------------|----------------|-------------------|
+| Parametric filter adaptation | Biquad / FIR structure | CNN or MLP predicts EQ gains |
+| Room simulation | FDN / convolution reverb | Neural IR estimator or late-field model |
+| Audio denoising | STFT magnitude, Wiener | U-Net mask or diffusion denoiser |
+
+**Supervised learning** fits $f_\theta(x)\approx y$ from paired data (noisy→clean, dry→wet).
+**Unsupervised** objectives (reconstruction, contrastive) learn embeddings without explicit targets
+([Audio Features and Descriptors](#ch-15-features)).
+
+**Gradient descent / backpropagation** train **feedforward** and **convolutional** networks; for
+audio, 1-D convolutions over waveforms or 2-D over log-mel maps are standard. Training still
+depends on correct $f_s$, windowing, and level normalization— classical DSP mistakes propagate
+into learned models.
+
+```bash
+python examples/neural_denoising_demo.py   # STFT-mask Wiener vs learned magnitude gate (numpy)
+```
+
 ## Mathematical Formulation
 
 Autoencoder:

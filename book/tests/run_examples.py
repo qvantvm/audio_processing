@@ -31,6 +31,15 @@ EXAMPLES = [
     "modal_bank_diagram.py",
     "neural_pipeline_diagram.py",
     "wavetable_diagram.py",
+    "continuous_convolution_demo.py",
+    "quantization_dither_demo.py",
+    "oversampling_quantization_demo.py",
+    "adaptive_filter_demo.py",
+    "equalizer_filters_demo.py",
+    "fast_convolution_demo.py",
+    "dynamic_range_control_demo.py",
+    "psychoacoustics_demo.py",
+    "neural_denoising_demo.py",
 ]
 
 failures = []
