@@ -1,0 +1,72 @@
+# Teaching Pilot — Foundation Block (Chapters 01–06)
+
+Pilot outline for a **6-session** short course using this manuscript. Goal: validate
+pedagogy before any chapter is promoted to `polished`.
+
+## Prerequisites
+
+- Python 3.11+, `pip install -r book/requirements.txt`
+- Comfort with basic calculus and complex numbers
+
+## Session map
+
+| Session | Chapters | Core representation | Runnable artifacts |
+|---------|----------|---------------------|-------------------|
+| 1 | 01–02 | Time samples $x[n]$, $f_s$ | `a440_sine_wave.py`, `phase_click` WAV demos |
+| 2 | 03 | Sampling / quantization | `aliasing_demo.py`, `aliasing_*.wav` |
+| 3 | 04–05 | Complex sinusoids, Fourier series | `complex_sinusoid_demo.py`, `fourier_series_square_wave.py` |
+| 4 | 06 | DFT grid, bins vs Hz | `dft_bin_spacing.py`, `dft_grid.png` |
+| 5 | 07–08 | Windowing, STFT | `window_leakage_demo.py`, `stft_spectrogram_demo.py` |
+| 6 | Review | Representation comparison matrix | `tests/test_correctness.py`, `solutions/run_verifications.py` |
+
+## Learning outcomes (pilot)
+
+After six sessions, participants should:
+
+1. Convert between sample index, seconds, and Hz without off-by-$f_s$ errors
+2. Explain aliasing and bin spacing in their own words
+3. Run and interpret at least **three** book examples
+4. Pass `solutions/ch01_verify.py` through `ch06_verify.py` (self-check)
+
+## Assessment
+
+- **In-session:** exercises from ch 01–06 (solutions in appendix)
+- **Take-home:** modify `a440_sine_wave.py` to plot two cycles (ex 2.4)
+- **Optional listening:** compare `phase_click_bad.wav` vs `phase_click_good.wav`
+
+## Pilot log
+
+### Run 0 — Internal dry-run (automated checklist)
+
+| Field | Value |
+|-------|-------|
+| Status | **internal dry-run** — not a human cohort |
+| Date | 2026-07-03 |
+| Instructor | agent-pass-20 (automated) |
+| Participants | 0 (CI + solution scripts) |
+| Artifacts verified | All 18 examples; solutions ch 01–06; 12 correctness tests |
+| Issues found | None blocking; external cohort still required for `polished` |
+| Chapters promoted | none |
+
+### Run 1 — External cohort (ready checklist)
+
+| Field | Value |
+|-------|-------|
+| Status | **ready for recruitment** — materials verified Pass 21 |
+| Pre-flight (automated) | Pass 23 — `scripts/run_pilot_preflight.py` OK in CI (not a human cohort) |
+| Prerequisites doc | `TEACHING_PILOT.md` + ch 01–06 appendix solutions |
+| Artifacts checklist | examples OK; solutions ch 01–06; `phase_click` WAV demos |
+| Instructor action | Schedule 6 sessions; log participant count + feedback in this file |
+| Instructor kit | `TEACHING_PILOT_RUN1.md` — session agendas, feedback form, Run 1 log template |
+| Recruitment call | `TEACHING_PILOT_RECRUIT.md` — seeking external instructor + cohort |
+| Sign-off | **pending** until Run 1 completes with real participants |
+
+Record external cohort results in `EXTERNAL_REVIEW.md`.
+
+## Instructor notes
+
+- Emphasize the **representation lens** table from ch 01 at the start of each session; ch 02–06 now
+  include per-chapter lens tables aligned with later chapters
+- Do not skip `$f_s$` on every slide — it is the #1 source of student bugs
+- Use `audio_toolkit` only after session 4; earlier sessions use raw NumPy intentionally
+- Optional **sessions 7–8** (ch 07–08 STFT depth): see `TEACHING_PILOT_RECRUIT.md`
