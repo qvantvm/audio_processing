@@ -301,3 +301,4 @@ test `test_toolkit_capstone_pipeline`; appendix covers ch 01–22.
 - Terms: see `GLOSSARY.md`
 - Open issues: see `REVIEW_NOTES.md`
 - Build: `make html` / `make pdf` / `make epub` from `book/`
+- Site structure (MkDocs Material): `book/book.yml`

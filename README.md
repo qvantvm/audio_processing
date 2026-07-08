@@ -56,7 +56,10 @@ cd book
 make html    # single-file HTML
 make pdf     # requires LaTeX (see CI artifacts)
 make epub
+mkdocs build -f book.yml   # MkDocs Material site (requires mkdocs-material)
 ```
+
+`book/book.yml` defines the chapter navigation (parts, reference, appendices) for MkDocs Material.
 
 CI builds all three formats on each push; download artifacts from the Actions run (`book-html`,
 `book-pdf`, `book-epub`).

@@ -1,0 +1,101 @@
+site_name: Audio Signal Representation and Processing
+site_description: >-
+  From samples to spectra, filters, and features — a rigorous, code-backed treatment of
+  digital audio DSP for implementers and researchers.
+site_author: Audio DSP Book Project
+docs_dir: .
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+nav:
+  - Home: chapters/01-what-is-audio-signal-processing.md
+  - Front Matter:
+      Preface: chapters/00-preface.md
+  - Part I — Foundations & Time Domain:
+      What Is Audio Signal Processing?: chapters/01-what-is-audio-signal-processing.md
+      Signals, Time, and Samples: chapters/02-signals-time-and-samples.md
+      Sampling, Quantization, and Digital Audio: chapters/03-sampling-quantization-and-digital-audio.md
+  - Part II — Sinusoids & Fourier Analysis:
+      Sinusoidal Signals and Complex Numbers: chapters/04-sinusoidal-signals-and-complex-numbers.md
+      Fourier Representation: chapters/05-fourier-representation.md
+      DFT, FFT, and Spectral Analysis: chapters/06-dft-fft-and-spectral-analysis.md
+  - Part III — Spectral Analysis & Time–Frequency:
+      Windowing, Leakage, and Resolution: chapters/07-windowing-leakage-and-resolution.md
+      STFT, Spectrograms, and Time–Frequency Analysis: chapters/08-stft-spectrograms-and-time-frequency-analysis.md
+  - Part IV — Systems, Filters & Delay Structures:
+      Convolution and Impulse Responses: chapters/09-convolution-and-impulse-responses.md
+      "Filters: FIR, IIR, and the Z-Transform": chapters/10-filters-fir-iir-and-z-transform.md
+      Delay Lines, Comb Filters, and All-Pass Filters: chapters/11-delay-lines-comb-filters-and-allpass-filters.md
+      Phase, Group Delay, and Minimum Phase: chapters/12-phase-group-delay-and-minimum-phase.md
+  - Part V — Level, Resampling & Features:
+      Envelopes, Loudness, and Dynamics: chapters/13-envelopes-loudness-and-dynamics.md
+      Resampling, Interpolation, and Sample-Rate Conversion: chapters/14-resampling-interpolation-and-sample-rate-conversion.md
+      Audio Features and Descriptors: chapters/15-audio-features-and-descriptors.md
+  - Part VI — Musical & Event Analysis:
+      Pitch, Onsets, and Rhythm: chapters/16-pitch-onsets-and-rhythm.md
+      Musical Signal Representations: chapters/17-musical-signal-representations.md
+  - Part VII — Synthesis & Physical Models:
+      Synthesis Representations: chapters/18-synthesis-representations.md
+      Physical-Modeling Representations: chapters/19-physical-modeling-representations.md
+  - Part VIII — Neural Audio Representations:
+      Neural Audio Representations: chapters/20-neural-audio-representations.md
+  - Part IX — Implementation & Practice:
+      Testing, Measurement, and Numerical Pitfalls: chapters/21-testing-measurement-and-numerical-pitfalls.md
+      Building a Small Audio DSP Toolkit: chapters/22-building-a-small-audio-dsp-toolkit.md
+  - Reference:
+      Notation Guide: NOTATION.md
+      Glossary: GLOSSARY.md
+  - Appendices:
+      Appendix A — Exercise Solutions (ch 01–22): chapters/23-appendix-exercise-solutions.md
